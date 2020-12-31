@@ -41,7 +41,7 @@ export const AboutContent = styled.div`
     justify-content: flex-end;
     padding-right: 2rem;
     padding-top: 6.5rem;
-    @media(max-width: 1000px){
+    @media(max-width: 1200px){
         height: auto;
         width: auto;
         font-size: 1.3rem;
