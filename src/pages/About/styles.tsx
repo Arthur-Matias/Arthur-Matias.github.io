@@ -11,28 +11,29 @@ export const AboutContainer = styled.div`
     justify-content: center;
     @media(max-width: 1200px){
         flex-direction: column;
+        position: static;
     }
 `;
 
 export const ImageContainer = styled.div`
     position: absolute;
-    width: 50vw;
-    margin-right: 25rem;
+    width: 60%;
+    margin-right: 20rem;
     margin-bottom: 8rem;
 
     @media(max-width: 1600px){
         width: 50vw;
     }
-    @media(max-width: 1000px){
+    @media(max-width: 1200px){
         width: 60vw;
-        position: relative;
+        position: static;
         margin: 0;
     }
 `;
 
 export const AboutContent = styled.div`
-    height: 30vh;
-    width: 40vw;
+    width: 50vw;
+    height: 60vh;
     background-color: var(--dark-gray);
     margin-left: 17rem;
     display: flex;
@@ -41,15 +42,15 @@ export const AboutContent = styled.div`
     justify-content: flex-end;
     padding-right: 2rem;
     padding-top: 6.5rem;
+
     @media(max-width: 1200px){
-        height: auto;
+        width: 100%;
+        margin: 0;
+        padding 2rem 6rem;
         width: auto;
-        font-size: 1.3rem;
-        margin:0;
-        padding: 1rem 2rem;
-        flex-direction: column;
-        justify-content: center;
+        height: auto;
     }
+    
 `;
 
 export const AboutText = styled.p`
@@ -58,10 +59,5 @@ export const AboutText = styled.p`
     font-size: 1.7rem;
     @media(max-width: 1600px){
         max-width: 25vw;
-    }
-
-    @media(max-width: 1000px){
-        font-size: 1.5rem;
-        max-width: 30vw;
     }
 `;

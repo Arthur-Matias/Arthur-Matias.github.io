@@ -9,6 +9,10 @@ export const PortfolioContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: auto;
+    @media(max-width: 1200px) {
+      flex-direction: column;
+    }
 `;
 
 export const PortfolioSection = styled.div`
@@ -19,6 +23,17 @@ export const PortfolioSection = styled.div`
     padding: 5rem;
     cursor: pointer;
     border-radius: 12px;
+    @media(max-width: 1200px) {
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: column;
+      max-width: auto;
+      max-height: 45rem;
+      margin: 0;
+      margin-bottom: 2rem;
+      align-items: center;
+      justify-content: center;
+    }
     
 `;
 
@@ -51,5 +66,9 @@ export const PortfolioText = styled.p<PortfolioInterface>`
     ::-webkit-scrollbar-track {
         background-color: var(--gray);
         border-radius: .5rem;
+      }
+      @media(max-width: 1200px) {
+        margin: 0;
+        padding: 0;
       }
 `;

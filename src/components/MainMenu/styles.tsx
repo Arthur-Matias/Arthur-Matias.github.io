@@ -12,21 +12,39 @@ export const MenuContainer = styled.div`
     display: flex;
     justify-content: space-around;
     font-family: var(--code-font);
+    @media(max-width: 1200px) {
+        justify-content: center;
+        
+      }
 `;
 
 export const MenuSection = styled.div<MainMenuInterface>`
     display: flex;
     flex-direction: column;
-    min-width: 7rem;
+    
 
     >svg{
         margin-right: 18rem;
         height: 8rem;
         fill: var(--main-${(props => props.color)});
         cursor: pointer;
+        @media(max-width: 1200px) {
+            margin-right: 10rem;
+            height: 4rem;            
+          }
     }
     >a{
         text-decoration: none;
+    }
+
+    @media(max-width: 1200px) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+    @media(min-width: 1200px) {
+        min-width: 7rem;      
     }
 `;
 
@@ -53,15 +71,22 @@ export const MenuItem = styled.div<MainMenuInterface>`
         }
         &:after{
             content: '>';
+            @media(max-width: 1200px) {
+                margin-right: 1rem;
+            } 
         }
-        
-        &:hover, .active{
+        &:hover{
+            color: var(--main-${(props => props.color)});
+        }
+        &.active{
             color: var(--main-${(props => props.color)});
         }
     }
     >div p{
         letter-spacing: .15em;
         font-size: .8rem;
-      }
-    
+        @media(max-width: 1200px) {
+            font-size: 1.3rem;
+        } 
+    }
       `;

@@ -9,6 +9,10 @@ export const ButtonContainer = styled.div`
     width: 1.5rem;
     cursor: pointer;
     margin: 0 .5rem;
+    @media(max-width: 1200px) {
+        height: 3.5rem;
+        width: 3.5rem;
+      }
 `;
 
 export const ButtonColor = styled.div<ButtonInterface>`

@@ -36,7 +36,7 @@ const MainMenu: React.FC<MenuInterface> = ({
                         return (
                             <Link key={i} to={`/${e}`}>
                                 <MenuItem color={currentColor}>
-                                    <div onMouseOver={()=>setActivePage(e)} className={path === pathname?'active' : ''}> <p>{`  ${e}  `}</p> </div>
+                                    <div onClick={()=>setActivePage(e)} className={pathname.indexOf(e) !== -1 || ((pathname.length === 1) && (e==='home')) ?'active' : ''}> <p>{`  ${e}  `}</p> </div>
                                 </MenuItem>
                             </Link>
                         )

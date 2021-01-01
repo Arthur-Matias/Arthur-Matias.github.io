@@ -4,6 +4,8 @@ import GlobalStyles from './globalStyles';
 
 import ColorSwitcher from './components/ColorSwitcher';
 
+import 'normalize.css';
+
 interface AppInterface{
   menuItems: string[];
 }

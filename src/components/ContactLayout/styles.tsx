@@ -26,6 +26,7 @@ export const ContactContent = styled.div`
     @media(max-width: 1200px){
       padding: 0;
       margin: 0;
+      padding-bottom: 2rem;
     }
 `;
 
