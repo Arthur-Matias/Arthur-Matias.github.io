@@ -1,4 +1,4 @@
-##Webportfolio designed and developed by me with a special thanks to Eliza Wollinger who provided me the cartoon and helped with the design on Figma
+## Webportfolio designed and developed by me with a special thanks to Eliza Wollinger who provided me the cartoon and helped with the design on Figma
 
 ![alt text](https://media-exp1.licdn.com/dms/image/C4D22AQFPyIpE_t5dZg/feedshare-shrink_1280-alternative/0/1609512712219?e=1612396800&v=beta&t=Aqww1cHERDuPBWJ58iBVW2aN7tHPA-N-QqEgkYjde7o)
 
