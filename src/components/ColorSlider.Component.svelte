@@ -1,5 +1,4 @@
 <script lang='ts'>
-    
     export let color:string = `hsl(0,100%,41%)`;
     export let secondaryColor:string = `hsl(0,100%,28%)`;
     let colorValue:string = '0';
@@ -8,9 +7,10 @@
         color = `hsl(${value},100%,41%)`;
         secondaryColor = `hsl(${value},100%,28%)`;
     };
-    function handleChange(e: any) {
-        let value = e.target.value;
-        console.log(e.target.value)
+    function handleChange(e: Event ) {
+        let target = e.target as HTMLInputElement
+        let value = target.value;
+        console.log(target.value)
         console.log(color)
         setColor(value);
     };
@@ -27,11 +27,12 @@
     sheet.innerHTML = `
     input[type=range]{
         -webkit-appearance: none;
-        width: 100%;
+        width: 18.75rem;
         background-color: none;
         border: none;
         padding: 0;
         outline: none;
+        transform: translateX(-50%);
     }
 
     input[type=range]::-webkit-slider-runnable-track {
@@ -70,13 +71,12 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     min='0' max='360' 
     id="colorSlider" 
     on:change={(e)=>handleChange(e)}
-    value={colorValue}/>
+    value={colorValue}
+    />
 </div>
 
 <style>
     .slider-container{
-        height: 100%;
-        width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;

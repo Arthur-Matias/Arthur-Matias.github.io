@@ -27,7 +27,7 @@ export let pageNum = '01';
 			<SideBar bind:pageNum={pageNum} bind:color={color} bind:isOpen={isOpen} />
 		</div>
 		<div class="content" on:mouseover="{()=>console.log(url)}">
-			<!-- <Route path="contact"><Contact bind:pageNum bind:color={color} /></Route> -->
+			<Route path="contact"><Contact bind:pageNum bind:color={color} /></Route>
 			<Route path="portfolio"><Portfolio bind:pageNum bind:color={color} /></Route>
 			<!-- <Route path="portfolio/design" component="{PortfolioItem}" /> -->
 			<!-- <Route path="portfolio/Proggramming" component="{PortfolioItem}" /> -->
@@ -63,6 +63,7 @@ export let pageNum = '01';
 	}
 
 	.content{
+		overflow: hidden;
 		grid-column-start: 2;
 		grid-column-end: 13;
 		grid-row-start: 2;

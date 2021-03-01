@@ -45,8 +45,8 @@ export const pageNum:string='02';
     .about-card{
         background-color: var(--bg-color);
         padding: 1rem;
-        max-width: 40vw;
-        min-width: 300px;
+        max-width: 70vw;
+        min-width: 18rem;
         
     }
 
@@ -54,8 +54,12 @@ export const pageNum:string='02';
         font-size: 1.5rem;
     }
 
-    @media screen and (max-width: 1200px){
+    .about-card.animate__animated.animate__bounceIn{
+        animation-delay: .5s;
+    }
 
+    @media screen and (max-width: 1200px){
+        
     }
     @media screen and (min-width: 1600px){
         

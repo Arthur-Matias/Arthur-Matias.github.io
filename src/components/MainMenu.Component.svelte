@@ -80,10 +80,9 @@ function getProps({ location, href, isPartiallyCurrent, isCurrent }) {
   align-items: center;
   justify-content: start;
   background-color: var(--dark-bg-color);
-  grid-row-start: 1;
-  grid-row-end: 4;
-  grid-column-start: 3;
-  grid-column-end: 8;
+  margin-left: 50%;
+  margin-top: 2.8rem;
+  position: absolute;
 }
 
 .menu-option-container{
@@ -121,6 +120,16 @@ function getProps({ location, href, isPartiallyCurrent, isCurrent }) {
 .animate__animated.animate__fadeInLeft{
   animation-delay: .5s;
   animation-duration: 1s;
+}
+
+@media screen and (max-width: 600px){
+  .menu-item{
+  font-size: 3rem;
+  font-weight: 900;
+  position: relative;
+  color: var(--white);
+  line-height: 2rem;
+}
 }
 
 </style>

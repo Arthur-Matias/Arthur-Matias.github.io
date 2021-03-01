@@ -18,6 +18,7 @@
         align-items: center;
         justify-content: center;
         padding: 0;
+        width: 3rem;
 
     }
 </style>

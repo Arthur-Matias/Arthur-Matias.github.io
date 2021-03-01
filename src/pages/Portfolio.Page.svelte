@@ -7,6 +7,7 @@ import ProgIcon from "../components/ProgIcon.Component.svelte";
     export let color: string;
     export const pageNum:string = '03';
     import { navigate } from "svelte-routing";
+import Container from "../components/Container.Component.svelte";
 
 function handleMouseWheel(e: WheelEvent){
         console.log(e.deltaY)
@@ -27,9 +28,12 @@ function handleMouseWheel(e: WheelEvent){
     }
 </script>
 
-<div class="portfolio" on:wheel={e=>handleMouseWheel(e)}>
+
+<Container>
+
+<div class="portfolio" style={`--main-color: ${color}`} on:wheel={e=>handleMouseWheel(e)}>
     <a href="https://github.com/Arthur-Matias">
-        <div class="portfolio-card" 
+        <div class="portfolio-card animate__animated animate__fadeIn" 
              on:mouseover="{toggleProgSelect}" 
              on:mouseout="{toggleProgSelect}"
         >
@@ -37,33 +41,37 @@ function handleMouseWheel(e: WheelEvent){
                 <ProgIcon bind:isSelected={isProgSelected} bind:color={color} />
             </div>
                 <div class={`${isProgSelected?'show card-content':'card-content'}`}>
+                    <h2>Programming</h2>
                     <p>
-                        In early 2019 I started searching the web for information about programming logic and its
-                        languages, where I discovered that this was my dream field, in 2020 with the COVID-19 
-                        pandemic, I locked up the college, and I took the opportunity to learn everything that I
-                        could about this area, each time identifying myself more. Currently my focus is web development
-                        with TypeScript, HTML5, CSS3, and their frameworks. But I also know C #, Java and Python.
+                        Click here to take a look at my GitHub profile, i work with 
+                        web development, focusing on the front-end, but I also have
+                        knowledge on back-end and other languages, such as C #, Java
+                        and Python.
                     </p>
                 </div>
         </div>
     </a>
     <a href="https://github.com/Arthur-Matias">
-        <div class="portfolio-card" on:mouseover="{toggleDesignSelect}" on:mouseout="{toggleDesignSelect}">
+        <div class="portfolio-card animate__animated animate__fadeIn" on:mouseover="{toggleDesignSelect}" on:mouseout="{toggleDesignSelect}">
             <div class="card-header">
                 <DesignIcon bind:isSelected={isDesignSelected} bind:color={color} />
             </div>
             <div class={`${isDesignSelected?'show card-content':'card-content'}`}>
+                <h2>Design</h2>
                 <p>
-                    In 2017, i had the opportunity to join the Federal University of Paraná, where 
-                    i learned about design concepts and softwares like Adobe Photoshop and illustrator,
-                    industrial drawing, 3D modelling, calculus 1 2 & 3, analytical and descriptive 
-                    geometry and also where i first knew JavaScript.
+                    Click here to take alook at my Behance profile. i work with Graphic Design since 2017.
+                    and currently i'm learning more about the UI/UX areas also. I have knowledge on the 
+                    whole Adobe suite as i do also know some other softwares like Corel Draw, Gimp, Inkscape,
+                    Da'Vinci Resolve, Sony Vegas, Figma, Framer and more...
                 </p>
                 
             </div>
         </div>
     </a>
 </div>
+
+</Container>
+
 
 <style>
     .portfolio{
@@ -72,51 +80,71 @@ function handleMouseWheel(e: WheelEvent){
 
         display: flex;
 
+        
+
         align-items: center;
         justify-content: center;
-
-        background-image: url('./logo.svg');
-		background-repeat: no-repeat;
-		background-size: contain;
-    }
-
-    @keyframes slideIn{
-        0%{
-            transform: translateX(-10000px);
-        }
-        100%{
-            transform: translateX(0);
-
-        }
+        overflow: auto;
     }
 
     .portfolio-card{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 50%;
+        position: relative;
+        height: 20rem;
+        width: 20rem;
+        margin: 2rem;
+        background-color: var(--bg-color);
 
+        overflow: hidden;
+        -webkit-box-shadow: 0px 0px 60px 5px rgba(0, 0, 0, 0.44);
+        -moz-box-shadow:    0px 0px 60px 5px rgba(0, 0, 0, 0.44);
+        box-shadow:         0px 0px 60px 5px rgba(0, 0, 0, 0.44);
+        /* -webkit-box-shadow: inset 0px 0px 30px -5px rgba(0, 0, 0, 0.44);
+        -moz-box-shadow:    inset 0px 0px 30px -5px rgba(0, 0, 0, 0.44);
+        box-shadow:         inset 0px 0px 30px -5px rgba(0, 0, 0, 0.44); */
     }
     .card-content{
-
+        overflow-y: auto;
+        display: none;
+        position: absolute;
+        top: 0;
+        text-align: justify;
+        padding: 1rem;
+        height: 100%;
+        background: var(--main-color);
+    }
+    .card-content h2{
+        color: var(--white);
+        margin-bottom: 1rem;
+        position: sticky;
+        font-weight: 900;
     }
 
     .card-content p{
         color: var(--white);
+        font-weight: 500;
+        font-size: 1.2rem;
     }
 
     .show{
         display: block;
     }
 
-    @media screen and (max-width: 1200px){
+    @media screen and (max-width: 600px){
         .portfolio{
             flex-direction: column;
-            background-size: contain;
         }
         .portfolio-card{
-            width: 233px;
-            height: 233px;
-            margin: .5rem;
+            width: 15rem;
+            height: 15rem;
+            top: 20%;
+            margin: 1rem;
         }
-        .portfolio-card:first-child{
-            margin-top: 2rem;
+        .card-content{
+            display: block;
         }
     }
 </style>

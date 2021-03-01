@@ -58,10 +58,13 @@
         justify-content: center;
     }
     .logo-wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: center;
         grid-row-start:1 ;
         grid-row-end:2;
         z-index: 300;
-        padding: 1.5rem;
+       
     }
     .social-media{
         grid-row-start: 2;

@@ -102,25 +102,25 @@
         box-sizing: border-box;
         margin:0;
         padding: 0;
+        margin-left: 2rem;
     }
     #me.animate__animated.animate__fadeInUp{
         animation-duration: 1s;
     }
     #me > svg{
-        height: 30rem;
+        height: 28rem;
         margin-bottom: -2rem;
-        margin-right: -2.5rem;
+
     }
     @media screen and (max-width: 1200px){
         #me > svg{
-            height: 10rem;
             margin: 0;
             margin-bottom: -1rem;
         }
     }
     @media screen and (min-width: 1200px) and (max-width: 1600px){
         #me > svg{
-            height: 25rem;
+           
         }
     }
 </style>
