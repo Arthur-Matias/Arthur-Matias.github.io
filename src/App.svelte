@@ -10,7 +10,7 @@ import Portfolio from './pages/Portfolio.Page.svelte';
 import Contact from './pages/Contact.Page.svelte';
 
 export let url = "";
-export let color:string;
+export let color:string = `hsl(0,100%,41%)`;
 export let secondaryColor:string;
 export let isOpen = false;
 export let pageNum = '01';
@@ -18,16 +18,16 @@ export let pageNum = '01';
 </script>
 
 <Router url="{url}">
+	<MainMenu bind:pageNum bind:color bind:secondaryColor bind:isOpen/>
 	<main class='App'>
 		<div class="menu-icon">
 			<MenuButton bind:color  bind:isOpen={isOpen}/>
 		</div>
-		<MainMenu bind:pageNum bind:color bind:secondaryColor bind:isOpen/>
-		<div class="side-bar-container">
+		<div class="side-bar-wrapper">
 			<SideBar bind:pageNum={pageNum} bind:color={color} bind:isOpen={isOpen} />
 		</div>
 		<div class="content" on:mouseover="{()=>console.log(url)}">
-			<Route path="contact"><Contact bind:pageNum bind:color={color} /></Route>
+			<!-- <Route path="contact"><Contact bind:pageNum bind:color={color} /></Route> -->
 			<Route path="portfolio"><Portfolio bind:pageNum bind:color={color} /></Route>
 			<!-- <Route path="portfolio/design" component="{PortfolioItem}" /> -->
 			<!-- <Route path="portfolio/Proggramming" component="{PortfolioItem}" /> -->
@@ -41,8 +41,7 @@ export let pageNum = '01';
 
 <style>
 	.App {
-		overflow-x: hidden;
-		overflow-y: auto;
+		overflow: hidden;
 
 		height: 100vh;
 		width: 100vw;
@@ -51,66 +50,49 @@ export let pageNum = '01';
 		font-family: var(--regular-font);
 		color: var(--white);
 		
-		background-color: var(--dark-bg-color);
-		
-		
 		position: relative;
-		display: grid;
-		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-		grid-template-rows: 15% 1fr;
-		grid-column-gap: 2rem;
-
-		padding: 1rem;
-	}
-
-    
-	.menu-icon{
-		position: absolute;
-		right: 2rem;
 		top: 0;
+		left: 0;
+
+		display: grid;
+
+		grid-template-columns: repeat(12, 1fr);
+		grid-template-rows: repeat(8, 1fr);
+
+		background: var(--dark-bg-color);
 	}
 
-	.side-bar-container{
-		display: flex;
-		text-align: center;
-		grid-column-start: 1;
-		grid-column-end: 2;
-		grid-row-start:	1;
-		grid-row-end: 3;
-		align-items: center;
-		flex-direction: column;
-	}
 	.content{
 		grid-column-start: 2;
 		grid-column-end: 13;
-		grid-row-start:	2;
-		grid-row-end: 3;
+		grid-row-start: 2;
+		grid-row-end: 9;
+	}
+    
+	.menu-icon{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		right: 2rem;
+		top: 2rem;
+		padding-top: 1rem;
+		grid-column-start: 12;
+		grid-column-end: 13;
+		grid-row-start: 1;
+		grid-row-end: 2;
+	}
+
+	.side-bar-wrapper{
+		grid-column-start: 1;
+		grid-column-end: 2;
+		grid-row-start: 1;
+		grid-row-end: 9;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+		width: 100%;
 	}
 	
-	@media screen and (max-width: 1200px){
-        .App{
-			display: flex;
-			position: relative;
-			padding: 0;
-		}
-		.menu-icon{
-			margin-top: -1rem;
-		}
-		.side-bar-container{
-			position: fixed;
-			left: 2rem;
-			top: 0;
-			width: 3rem;
-			z-index: 500;
-		}
-		.content{
-			width: 100vw;
-			height: 100vh;
-			
-		}
 
-    }
-    @media screen and (min-width: 1600px){
-        
-    }
 </style>

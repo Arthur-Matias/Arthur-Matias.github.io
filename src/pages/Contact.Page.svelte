@@ -13,7 +13,7 @@
     
 </script>
 
-<div class="Contact" on:mousewheel={e=>handleScroll(e)} >
+<div class="Contact" on:wheel={e=>handleScroll(e)} >
     <h5 class="contact-title" style={`color: ${color}`}>Get in Touch</h5>
     <h1 class="call-to-action">Let's make something amazing together</h1>
     <ul class="contact-ways-list">

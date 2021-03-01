@@ -4,7 +4,7 @@
     export let secondaryColor: string;
 </script>
 
-<div id="me">
+<div class="animate__animated animate__fadeInUp" id="me">
     <svg  viewBox="0 0 431 418" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M264.874 199.913L264.044 196.735L264.731 199.868L264.874 199.913Z" fill="#0C8FE7"/>
         <path d="M267.38 142.519C267.151 142.885 266.944 143.242 266.662 143.622C267.002 143.313 267.31 142.967 267.586 142.57C267.516 142.546 267.442 142.559 267.38 142.519Z" fill="#0C8FE7"/>
@@ -102,6 +102,9 @@
         box-sizing: border-box;
         margin:0;
         padding: 0;
+    }
+    #me.animate__animated.animate__fadeInUp{
+        animation-duration: 1s;
     }
     #me > svg{
         height: 30rem;

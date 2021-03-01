@@ -27,24 +27,28 @@
     sheet.innerHTML = `
     input[type=range]{
         -webkit-appearance: none;
+        width: 100%;
+        background-color: none;
+        border: none;
+        padding: 0;
+        outline: none;
     }
 
     input[type=range]::-webkit-slider-runnable-track {
-        width: 300px;
         height: 5px;
         background: ${gradient};
         border: none;
-        border-radius: 3px;
     }
 
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     border: none;
-    height: 16px;
-    width: 16px;
+    height: 2rem;
+    width: 2rem;
     border-radius: 50%;
-    background: var(--white);
-    margin-top: -4px;
+    background: var(--current-color);
+    
+    margin-top: -.7rem;
 }
 
 input[type=range]:focus {
@@ -58,21 +62,23 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     document.body.appendChild(sheet);
 </script>
 
-<div class="colored-slider-container">
-    <input type="range" name="colorSlider" start='0' min='0' max='360' id="colorSlider" on:change={(e)=>handleChange(e)} value={colorValue}/>
+<div class="slider-container" style={`--current-color: ${color};`}>
+    <input 
+    type="range" 
+    name="colorSlider" 
+    start='0' 
+    min='0' max='360' 
+    id="colorSlider" 
+    on:change={(e)=>handleChange(e)}
+    value={colorValue}/>
 </div>
 
 <style>
-    .colored-slider-container{
+    .slider-container{
+        height: 100%;
+        width: 100%;
         display: flex;
         align-items: center;
-        height: 20px;
-        margin-top: 4rem;
-        margin-left: -1rem;
-        grid-column-start: 2;
-        grid-column-end: 8;
-        grid-row-start: 1;
-        padding-top: 2rem;
-        margin-left: 2rem;
+        justify-content: center;
     }
 </style>

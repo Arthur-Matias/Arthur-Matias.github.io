@@ -1,5 +1,4 @@
 <script lang="ts">
-import { bind } from "svelte/internal";
 import DesignIcon from "../components/DesignIcon.Component.svelte";
 import ProgIcon from "../components/ProgIcon.Component.svelte";
 
@@ -8,25 +7,32 @@ import ProgIcon from "../components/ProgIcon.Component.svelte";
     export let color: string;
     export const pageNum:string = '03';
     import { navigate } from "svelte-routing";
-function handleScroll(e){
+
+function handleMouseWheel(e: WheelEvent){
         console.log(e.deltaY)
-        if(e.deltaY > 0){
-            navigate("/contact", { replace: true })
-        }else{
-            navigate("/about", { replace: true })
-        }
+        isDesignSelected || isProgSelected ? ''
+        :
+            (()=>{if(e.deltaY > 0){
+                navigate("/contact", { replace: true })
+            }else{
+                navigate("/about", { replace: true })
+            }})
+        
     }
-    function toggleDesignSelect() {
+    function toggleDesignSelect(): void {
         isDesignSelected = !isDesignSelected;
     }
-    function toggleProgSelect() {
+    function toggleProgSelect(): void  {
         isProgSelected = !isProgSelected;
     }
 </script>
 
-<div class="portfolio" on:mousewheel={e=>handleScroll(e)}>
+<div class="portfolio" on:wheel={e=>handleMouseWheel(e)}>
     <a href="https://github.com/Arthur-Matias">
-        <div class="portfolio-card" on:mouseover="{toggleProgSelect}" on:mouseout="{toggleProgSelect}">
+        <div class="portfolio-card" 
+             on:mouseover="{toggleProgSelect}" 
+             on:mouseout="{toggleProgSelect}"
+        >
             <div class="card-header">
                 <ProgIcon bind:isSelected={isProgSelected} bind:color={color} />
             </div>
@@ -71,9 +77,7 @@ function handleScroll(e){
 
         background-image: url('./logo.svg');
 		background-repeat: no-repeat;
-		background-size: 80vh;
-		background-position: 152%;
-        animation: slideIn .2s;
+		background-size: contain;
     }
 
     @keyframes slideIn{
@@ -87,37 +91,10 @@ function handleScroll(e){
     }
 
     .portfolio-card{
-        width: 466px;
-        height: 466px;
 
-        border-radius: 3px;
-
-        cursor: pointer;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        padding: 1rem;
-        margin: 2rem;
-        background-color: var(--bg-color);
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.25);
-
-        transition: ease-in-out .2ms;
     }
     .card-content{
-        background-color: var(--dark-bg-color);
-        height: 234px;
-        width: 400px;
-        display: none;
-        margin: 1rem;
-        box-shadow: inset 0px 4px 15px rgba(0, 0, 0, 0.25);
-        border-radius: 3px;
-        text-align: left;
-        padding: 1rem;
-        transition: ease-in-out .2ms;
-        overflow: auto;
+
     }
 
     .card-content p{
@@ -131,8 +108,7 @@ function handleScroll(e){
     @media screen and (max-width: 1200px){
         .portfolio{
             flex-direction: column;
-            background-size: 50vh;
-            background-position: 150%;
+            background-size: contain;
         }
         .portfolio-card{
             width: 233px;
