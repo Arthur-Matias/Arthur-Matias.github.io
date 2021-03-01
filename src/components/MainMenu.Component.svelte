@@ -114,14 +114,20 @@ function getProps({ location, href, isPartiallyCurrent, isCurrent }) {
   color: var(--custom-color);
 }
 .menu-option .active .menu-item,.menu-option:hover .menu-item span {
-
+  
 }
 
 .animate__animated.animate__fadeInLeft{
   animation-delay: .5s;
   animation-duration: 1s;
 }
-
+@media screen and (max-height: 768px){
+  .menu-item{
+    font-size: 5rem;
+    line-height: 3rem;
+  }
+        
+}
 @media screen and (max-width: 600px){
   .menu-item{
   font-size: 3rem;

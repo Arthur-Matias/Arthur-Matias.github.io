@@ -42,7 +42,7 @@
     <div class="trace-container">
         <Trace />
     </div>
-    <div class="page" style={isOpen?'display: none':''}>
+    <div class="page" >
         <p style={`color: ${color}`}>{pageNum}<b style={`color: var(--white)`}>/04</b></p>
     </div>
 </div>
@@ -82,7 +82,6 @@
         grid-row-start: 3;
         grid-row-end: 8;
         height: 100%;
-        padding: 1rem 0;
     }
     .page{
         transform: rotate(-90deg);
@@ -92,6 +91,15 @@
         align-items: center;
         justify-content: center;
         font-size: 1.5rem;
+    }
+
+    @media screen and (max-height: 768px){
+        .social-icon{
+            font-size: 2rem;
+        }
+        .page{
+            font-size: 1rem;
+        }
     }
 
 </style>

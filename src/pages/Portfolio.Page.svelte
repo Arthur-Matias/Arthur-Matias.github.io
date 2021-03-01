@@ -7,24 +7,23 @@ import ProgIcon from "../components/ProgIcon.Component.svelte";
     export let color: string;
     export const pageNum:string = '03';
     import { navigate } from "svelte-routing";
-import Container from "../components/Container.Component.svelte";
+    import Container from "../components/Container.Component.svelte";
 
 function handleMouseWheel(e: WheelEvent){
-        console.log(e.deltaY)
-        isDesignSelected || isProgSelected ? ''
-        :
-            (()=>{if(e.deltaY > 0){
-                navigate("/contact", { replace: true })
-            }else{
-                navigate("/about", { replace: true })
-            }})
-        
+    console.log(e.deltaY)
+    if (!isDesignSelected || !isProgSelected) {
+        if(e.deltaY > 0){
+            navigate("/contact", { replace: true })
+        }else{
+            navigate("/about", { replace: true })
+        }
     }
-    function toggleDesignSelect(): void {
-        isDesignSelected = !isDesignSelected;
+}
+    function setDesignSelect(value: boolean){
+        isDesignSelected = value;
     }
-    function toggleProgSelect(): void  {
-        isProgSelected = !isProgSelected;
+    function setProgSelect(value: boolean){
+        isProgSelected = value;
     }
 </script>
 
@@ -32,10 +31,11 @@ function handleMouseWheel(e: WheelEvent){
 <Container>
 
 <div class="portfolio" style={`--main-color: ${color}`} on:wheel={e=>handleMouseWheel(e)}>
-    <a href="https://github.com/Arthur-Matias">
+    <a href="https://github.com/Arthur-Matias" 
+        on:mouseover="{()=>setProgSelect(true)}" 
+             on:mouseout="{()=>setProgSelect(false)}">
         <div class="portfolio-card animate__animated animate__fadeIn" 
-             on:mouseover="{toggleProgSelect}" 
-             on:mouseout="{toggleProgSelect}"
+             
         >
             <div class="card-header">
                 <ProgIcon bind:isSelected={isProgSelected} bind:color={color} />
@@ -52,17 +52,21 @@ function handleMouseWheel(e: WheelEvent){
         </div>
     </a>
     <a href="https://github.com/Arthur-Matias">
-        <div class="portfolio-card animate__animated animate__fadeIn" on:mouseover="{toggleDesignSelect}" on:mouseout="{toggleDesignSelect}">
+        <div 
+            class="portfolio-card animate__animated animate__fadeIn" 
+            on:mouseover="{()=>setDesignSelect(true)}" 
+            on:mouseout="{()=>setDesignSelect(false)}"
+        >
             <div class="card-header">
                 <DesignIcon bind:isSelected={isDesignSelected} bind:color={color} />
             </div>
             <div class={`${isDesignSelected?'show card-content':'card-content'}`}>
                 <h2>Design</h2>
                 <p>
-                    Click here to take alook at my Behance profile. i work with Graphic Design since 2017.
-                    and currently i'm learning more about the UI/UX areas also. I have knowledge on the 
-                    whole Adobe suite as i do also know some other softwares like Corel Draw, Gimp, Inkscape,
-                    Da'Vinci Resolve, Sony Vegas, Figma, Framer and more...
+                    Click here to take a look at my Behance profile. i work with Graphic Design since 2017.
+                    Currently learning more about the UI/UX. I have knowledge on the whole Adobe suite as
+                    i do also know some other softwares like Corel Draw, Gimp, Inkscape, Da'Vinci Resolve,
+                    Sony Vegas, Figma, Framer and more...
                 </p>
                 
             </div>
@@ -125,8 +129,8 @@ function handleMouseWheel(e: WheelEvent){
 
     .card-content p{
         color: var(--white);
-        font-weight: 500;
-        font-size: 1.2rem;
+        font-weight: 300;
+        font-size: 1rem;
     }
 
     .show{

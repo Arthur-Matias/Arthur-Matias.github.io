@@ -16,7 +16,8 @@ import Container from "../components/Container.Component.svelte";
 
 <Container>
     <div class="Contact" on:wheel={e=>handleScroll(e)} >
-        <h4 class="contact-title" style={`color: ${color}`}>Get in Touch</h4>
+        <div class="content-wrapper">
+            <h4 class="contact-title" style={`color: ${color}`}>Get in Touch</h4>
         <h1 class="call-to-action">Let's make something amazing together</h1>
         <ul class="contact-ways-list">
             <li class='list-item'>
@@ -44,6 +45,7 @@ import Container from "../components/Container.Component.svelte";
                 </a>
             </li>
         </ul>
+        </div>
     </div>
 </Container>
 
@@ -56,11 +58,15 @@ import Container from "../components/Container.Component.svelte";
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        text-align: center;
+        position: relative;
+    }
+    .content-wrapper{
+        text-align: center
     }
     .contact-title{
         text-decoration: underline;
         font-weight: 300;
+        left: 0;
     }
     .call-to-action{
         max-width: 40rem;

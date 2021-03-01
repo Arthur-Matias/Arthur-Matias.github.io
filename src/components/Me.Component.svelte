@@ -118,9 +118,14 @@
             margin-bottom: -1rem;
         }
     }
-    @media screen and (min-width: 1200px) and (max-width: 1600px){
+    @media screen and (max-width: 600px){
         #me > svg{
-           
+            height: 8rem;
+        }
+    }
+    @media screen and (max-height: 768px){
+        #me > svg{
+            height: 16rem;
         }
     }
 </style>

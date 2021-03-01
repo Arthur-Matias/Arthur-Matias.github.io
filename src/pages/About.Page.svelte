@@ -4,14 +4,14 @@ import { navigate } from "svelte-routing";
 import Container from '../components/Container.Component.svelte';
 export const pageNum:string='02';
 
-// function handleMouseWheel(e: WheelEvent): void {
-//         console.log(e.deltaY)
-//         if(e.deltaY > 0){
-//             navigate("/portfolio", { replace: true })
-//         }else{
-//             navigate("/", { replace: true })
-//         }
-//     }
+function handleMouseWheel(e: WheelEvent): void {
+        console.log(e.deltaY)
+        if(e.deltaY > 0){
+            navigate("/portfolio", { replace: true })
+        }else{
+            navigate("/", { replace: true })
+        }
+    }
 
     export let color: string;
     export let secondaryColor: string;
@@ -23,7 +23,7 @@ export const pageNum:string='02';
 </script>
 
 <Container>
-    <div class="about">
+    <div class="about" on:wheel={handleMouseWheel}>
         <Me bind:color={color} bind:secondaryColor={secondaryColor} />
         <div class="about-card animate__animated animate__bounceIn">
             <p>I'm a <b>Designer</b> & <b>Front-end Developer</b> from Brazil, feel free to contact if you want to know more about me, my past projects or even to discuss a future one.</p>
@@ -40,6 +40,7 @@ export const pageNum:string='02';
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        overflow: hidden;
     }
 
     .about-card{
@@ -58,8 +59,15 @@ export const pageNum:string='02';
         animation-delay: .5s;
     }
 
-    @media screen and (max-width: 1200px){
-        
+    @media screen and (max-width: 600px){
+        .about-card{
+            padding: 2rem;
+            max-height: 15rem;
+        }
+        .about-card > p{
+            font-size: .8rem;
+        }
+
     }
     @media screen and (min-width: 1600px){
         

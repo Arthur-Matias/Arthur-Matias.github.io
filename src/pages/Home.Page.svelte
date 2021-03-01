@@ -7,9 +7,9 @@
     export let color: string;
     function handleMouseWheel(e: WheelEvent): void {
         console.log(e.deltaY)
-        // if(e.deltaY > 0){
-        //     navigate("/about", { replace: true })
-        // }
+        if(e.deltaY > 0){
+            navigate("/about", { replace: true })
+        }
     }
 </script>
 
