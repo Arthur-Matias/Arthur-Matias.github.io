@@ -46,8 +46,13 @@
         animation-duration: 1s;
     }
 
-    @media screen and (max-width: 1200px){
-
+    @media screen and (max-width: 600px){
+        .home h1{
+            font-size: 2rem;
+        }
+        .home h5{
+            font-size: 1rem;
+        }
     }
 
 

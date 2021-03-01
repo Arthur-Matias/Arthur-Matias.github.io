@@ -34,6 +34,15 @@
         outline: none;
         transform: translateX(-50%);
     }
+    @media screen and (max-height: 600px){
+        input[type=range]{
+        width: 10rem;
+    }
+    input[type=range]::-webkit-slider-thumb {
+        height: 1rem;
+        width: 1rem;
+    }
+    }
 
     input[type=range]::-webkit-slider-runnable-track {
         height: 5px;

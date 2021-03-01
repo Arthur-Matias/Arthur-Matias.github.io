@@ -5,7 +5,6 @@ import Container from '../components/Container.Component.svelte';
 export const pageNum:string='02';
 
 function handleMouseWheel(e: WheelEvent): void {
-        console.log(e.deltaY)
         if(e.deltaY > 0){
             navigate("/portfolio", { replace: true })
         }else{

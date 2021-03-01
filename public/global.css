@@ -4,6 +4,9 @@
 	--white: #F6F6FB;
 	--bg-color: #212436;
 	--dark-bg-color: #181725;
+	--animate-duration: 800ms;
+  	--animate-delay: 0.9s;
+
   }
   
   *, input, button, a {

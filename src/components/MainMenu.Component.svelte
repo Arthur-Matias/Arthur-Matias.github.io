@@ -104,17 +104,19 @@ function getProps({ location, href, isPartiallyCurrent, isCurrent }) {
   position: relative;
   color: var(--white);
   line-height: 6rem;
+  transition: color 0.2s ease;
 }
 .menu-item span{
   font-size: 1rem;
   position: absolute;
   top: -2rem;
+  transition: color 0.2s ease;
 }
 .menu-option .active .menu-item,.menu-option:hover .menu-item {
   color: var(--custom-color);
 }
 .menu-option .active .menu-item,.menu-option:hover .menu-item span {
-  
+
 }
 
 .animate__animated.animate__fadeInLeft{

@@ -3,7 +3,6 @@
     import Trace from "./Trace.Component.svelte";
     import {Link} from 'svelte-routing'
     export let color: string;
-    export let isOpen: boolean;
     export let pageNum: string = '01';
 
     function handleMouseOver(e){
@@ -14,7 +13,7 @@
     }
 </script>
 
-<div class="side-bar-container">
+<div class="side-bar-container" style="--main-color: {color}">
     
         <div class="logo-wrapper">
             <Link to="/">
@@ -23,17 +22,17 @@
         </div>
     
     <div class='social-media'>
-        <a target="_blank" href="https://www.linkedin.com/in/arthur-matias/" on:mouseout={handleMouseOut} on:mouseover={handleMouseOver}>
+        <a target="_blank" href="https://www.linkedin.com/in/arthur-matias/">
             <div class="social-icon">
                 <i class="fa fa-linkedin-square" aria-hidden="true"></i>
             </div>
         </a>
-        <a target="_blank" href="https://www.behance.net/arthurmm18" on:mouseout={handleMouseOut} on:mouseover={handleMouseOver}>
+        <a target="_blank" href="https://www.behance.net/arthurmm18">
             <div class="social-icon">
                 <i class="fa fa-behance-square" aria-hidden="true"></i>
             </div>
         </a>
-        <a target="_blank" href="https://github.com/Arthur-Matias" on:mouseout={handleMouseOut} on:mouseover={handleMouseOver}>
+        <a target="_blank" href="https://github.com/Arthur-Matias">
             <div class="social-icon">
                 <i class="fa fa-github-square" aria-hidden="true"></i>
             </div>
@@ -77,6 +76,10 @@
 
     .social-icon{
         font-size: 2.5rem;
+        transition: color 0.2s ease;
+    }
+    .social-icon:hover{
+        color: var(--main-color);
     }
     .trace-container{
         grid-row-start: 3;

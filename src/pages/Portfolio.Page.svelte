@@ -10,7 +10,6 @@ import ProgIcon from "../components/ProgIcon.Component.svelte";
     import Container from "../components/Container.Component.svelte";
 
 function handleMouseWheel(e: WheelEvent){
-    console.log(e.deltaY)
     if (!isDesignSelected || !isProgSelected) {
         if(e.deltaY > 0){
             navigate("/contact", { replace: true })
@@ -38,11 +37,11 @@ function handleMouseWheel(e: WheelEvent){
              
         >
             <div class="card-header">
-                <ProgIcon bind:isSelected={isProgSelected} bind:color={color} />
+                <ProgIcon bind:color={color} />
             </div>
-                <div class={`${isProgSelected?'show card-content':'card-content'}`}>
+                <div class={`${isProgSelected?'show animate__animated animate__bounceInDown card-content':'card-content'}`}>
                     <h2>Programming</h2>
-                    <p>
+                    <p class=" animate__animated animate__fadeIn animate__delay-1s">
                         Click here to take a look at my GitHub profile, i work with 
                         web development, focusing on the front-end, but I also have
                         knowledge on back-end and other languages, such as C #, Java
@@ -58,11 +57,11 @@ function handleMouseWheel(e: WheelEvent){
             on:mouseout="{()=>setDesignSelect(false)}"
         >
             <div class="card-header">
-                <DesignIcon bind:isSelected={isDesignSelected} bind:color={color} />
+                <DesignIcon bind:color={color} />
             </div>
-            <div class={`${isDesignSelected?'show card-content':'card-content'}`}>
+            <div class={`${isDesignSelected?'show animate__animated animate__bounceInDown  card-content':'card-content'}`}>
                 <h2>Design</h2>
-                <p>
+                <p class="animate__animated animate__fadeIn animate__delay-1s">
                     Click here to take a look at my Behance profile. i work with Graphic Design since 2017.
                     Currently learning more about the UI/UX. I have knowledge on the whole Adobe suite as
                     i do also know some other softwares like Corel Draw, Gimp, Inkscape, Da'Vinci Resolve,
@@ -78,6 +77,10 @@ function handleMouseWheel(e: WheelEvent){
 
 
 <style>
+    :root {
+        --animate-duration: 500ms;
+        --animate-delay: 0.4s;
+    }
     .portfolio{
         width: 100%;
         height: 100%;
@@ -115,7 +118,7 @@ function handleMouseWheel(e: WheelEvent){
         display: none;
         position: absolute;
         top: 0;
-        text-align: justify;
+        text-align: left;
         padding: 1rem;
         height: 100%;
         background: var(--main-color);
@@ -142,9 +145,9 @@ function handleMouseWheel(e: WheelEvent){
             flex-direction: column;
         }
         .portfolio-card{
-            width: 15rem;
-            height: 15rem;
-            top: 20%;
+            width: 12.5rem;
+            height: 12.5rem;
+            top: 0%;
             margin: 1rem;
         }
         .card-content{

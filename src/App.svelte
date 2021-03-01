@@ -18,7 +18,7 @@ export let pageNum = '01';
 </script>
 
 <Router url="{url}">
-	<MainMenu bind:pageNum bind:color bind:secondaryColor bind:isOpen/>
+	<MainMenu  bind:color bind:secondaryColor bind:isOpen/>
 	<main class='App'>
 		<div class="menu-icon">
 			<MenuButton bind:color  bind:isOpen={isOpen}/>

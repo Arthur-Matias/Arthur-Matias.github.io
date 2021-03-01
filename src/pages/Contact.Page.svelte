@@ -17,34 +17,34 @@ import Container from "../components/Container.Component.svelte";
 <Container>
     <div class="Contact" on:wheel={e=>handleScroll(e)} >
         <div class="content-wrapper">
-            <h4 class="contact-title" style={`color: ${color}`}>Get in Touch</h4>
-        <h1 class="call-to-action">Let's make something amazing together</h1>
-        <ul class="contact-ways-list">
-            <li class='list-item'>
-                <a target="_blank" href="mailto:ahmmfdc@gmail.com">
-                    <h5 class="list-item-title">Mail me</h5>
-                    <h3 class="list-item-text">ahmmfdc@gmail.com</h3>
-                </a>
-            </li>
-            <li class='list-item'>
-                <a target="_blank" href="https://behance.net/arthurmm18">
-                    <h5 class="list-item-title">Find me on Behance</h5>
-                    <h3 class="list-item-text">behance.net/arthurmm18</h3>
-                </a>
+            <h4 class="contact-title animate__animated animate__bounceIn" style={`color: ${color}`}>Get in Touch</h4>
+            <h1 class="call-to-action animate__animated animate__lightSpeedInLeft">Let's make something amazing together</h1>
+            <ul class="contact-ways-list">
+                <li class='list-item animate__animated animate__flipInX'>
+                    <a target="_blank" href="mailto:ahmmfdc@gmail.com">
+                        <h5 class="list-item-title">Mail me</h5>
+                        <h3 class="list-item-text">ahmmfdc@gmail.com</h3>
+                    </a>
                 </li>
-                <li class='list-item'>
-                    <a target="_blank" href="https://linkedin.com/in/arthur-matias">
-                    <h5 class="list-item-title">Find me on LinkedIn</h5>
-                    <h3 class="list-item-text">linkedin.com/in/arthur-matias</h3>
-                </a>
-            </li>
-            <li class='list-item'>
-                <a target="_blank" href="https://github.com/Arthur-Matias">
-                    <h5 class="list-item-title">Find me on GitHub</h5>
-                    <h3 class="list-item-text">github.com/Arthur-Matias</h3>
-                </a>
-            </li>
-        </ul>
+                <li class='list-item animate__animated animate__flipInX'>
+                    <a target="_blank" href="https://behance.net/arthurmm18">
+                        <h5 class="list-item-title">Find me on Behance</h5>
+                        <h3 class="list-item-text">behance.net/arthurmm18</h3>
+                    </a>
+                    </li>
+                    <li class='list-item animate__animated animate__flipInX'>
+                        <a target="_blank" href="https://linkedin.com/in/arthur-matias">
+                        <h5 class="list-item-title">Find me on LinkedIn</h5>
+                        <h3 class="list-item-text">linkedin.com/in/arthur-matias</h3>
+                    </a>
+                </li>
+                <li class='list-item animate__animated animate__flipInX'>
+                    <a target="_blank" href="https://github.com/Arthur-Matias">
+                        <h5 class="list-item-title">Find me on GitHub</h5>
+                        <h3 class="list-item-text">github.com/Arthur-Matias</h3>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 </Container>
@@ -93,7 +93,13 @@ import Container from "../components/Container.Component.svelte";
     @media screen and (min-width: 1200px) and (max-width: 1600px){
         
     }
-    @media screen and (max-width: 1200px){
-
+    @media screen and (max-width: 600px){
+        .content-wrapper h1{
+            font-size: 1.5rem;
+        }
+        .list-item-text{
+            margin-top: .2rem;
+            font-size: 1rem;
+        }
     }
 </style>
