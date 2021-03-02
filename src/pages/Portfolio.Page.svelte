@@ -101,11 +101,10 @@ function handleMouseWheel(e: WheelEvent){
                 <h2>Design</h2>
                 <p bind:this={paragraphDesign} class="animate__animated animate__fadeIn animate__delay-1s">
                     Click here to take a look at my Behance profile. i work with Graphic Design since 2017.
-                    Currently learning more about the UI/UX. I have knowledge on the whole Adobe suite as
+                    Currently learning more about UI/UX. I have knowledge on the whole Adobe suite as
                     i do also know some other softwares like Corel Draw, Gimp, Inkscape, Da'Vinci Resolve,
                     Sony Vegas, Figma, Framer and more...
                 </p>
-                
             </div>
         </div>
     </a>

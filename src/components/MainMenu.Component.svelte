@@ -107,10 +107,14 @@ function getProps({ location, href, isPartiallyCurrent, isCurrent }) {
   transition: color 0.2s ease;
 }
 .menu-item span{
+  visibility: hidden;
   font-size: 1rem;
   position: absolute;
   top: -2rem;
   transition: color 0.2s ease;
+}
+.menu-item:hover > span, .menu-option .active .menu-item > span{
+  visibility: visible;
 }
 .menu-option .active .menu-item,.menu-option:hover .menu-item {
   color: var(--custom-color);

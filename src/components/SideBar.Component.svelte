@@ -39,7 +39,7 @@
         </a>
     </div>
     <div class="trace-container">
-        <Trace />
+        <Trace bind:currPage={pageNum} />
     </div>
     <div class="page" >
         <p style={`color: ${color}`}>{pageNum}<b style={`color: var(--white)`}>/04</b></p>

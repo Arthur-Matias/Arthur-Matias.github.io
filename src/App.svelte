@@ -15,8 +15,12 @@ export let secondaryColor:string;
 export let isOpen = false;
 export let pageNum = '01';
 
+function beforeunload(event: BeforeUnloadEvent) {
+        event.preventDefault();
+        return event.returnValue = '';
+    }
 </script>
-
+<svelte:window on:beforeunload={beforeunload}/>
 <Router url="{url}">
 	<MainMenu  bind:color bind:secondaryColor bind:isOpen/>
 	<main class='App'>
@@ -24,7 +28,7 @@ export let pageNum = '01';
 			<MenuButton bind:color  bind:isOpen={isOpen}/>
 		</div>
 		<div class="side-bar-wrapper">
-			<SideBar bind:pageNum={pageNum} bind:color={color} bind:isOpen={isOpen} />
+			<SideBar bind:pageNum={pageNum} bind:color={color} />
 		</div>
 		<div class="content" on:mouseover="{()=>console.log(url)}">
 			<Route path="contact"><Contact bind:pageNum bind:color={color} /></Route>
