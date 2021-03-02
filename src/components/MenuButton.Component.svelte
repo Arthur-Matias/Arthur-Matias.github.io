@@ -88,6 +88,6 @@
         left: .5rem;
     }
     #nav-icon:hover span{
-        background-color: gray;
+        filter: brightness(.8);
     }
 </style>

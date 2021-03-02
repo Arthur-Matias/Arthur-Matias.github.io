@@ -19,6 +19,10 @@
         justify-content: center;
         padding: 0;
         width: 3rem;
+        transition: filter .2s ease;
 
+    }
+    .logo svg:hover{
+        filter: brightness(.8);
     }
 </style>

@@ -94,6 +94,9 @@
         align-items: center;
         justify-content: center;
         font-size: 1.5rem;
+        user-select: none;
+        -ms-user-select: none;
+        -moz-user-select: none;
     }
 
     @media screen and (max-height: 768px){

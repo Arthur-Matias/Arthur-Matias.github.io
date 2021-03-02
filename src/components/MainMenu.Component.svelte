@@ -31,25 +31,25 @@ function getProps({ location, href, isPartiallyCurrent, isCurrent }) {
   <nav style={`--custom-color:${color}`} class="menu-option-container">
     <div class='menu-option animate__animated animate__bounce' on:click="{()=>hanldeClick('01')}" >
       <Link to="" getProps={getProps} >
-        <div class="menu-item" >Home <span>01</span></div>
+        <div class="menu-item" >Home <span style="color: {color}">01</span></div>
       </Link>
     </div>
 
     <div class='menu-option animate__animated animate__bounce' on:click="{()=>hanldeClick('02')}" >
       <Link to="about" getProps={getProps}>
-        <div class="menu-item" >About <span>02</span></div>
+        <div class="menu-item" >About <span style="color: {color}">02</span></div>
       </Link>
     </div>
 
     <div class='menu-option animate__animated animate__bounce' on:click="{()=>hanldeClick('03')}" >
       <Link to="portfolio" getProps={getProps}>
-        <div class="menu-item"  >Portfolio <span>03</span></div>
+        <div class="menu-item"  >Portfolio <span style="color: {color}">03</span></div>
       </Link>
     </div>
 
     <div class='menu-option animate__animated animate__bounce' on:click="{()=>hanldeClick('04')}" >
       <Link to="contact" getProps={getProps}>
-        <div class="menu-item" >Contact <span>04</span></div>
+        <div class="menu-item" >Contact <span style="color: {color}">04</span></div>
       </Link>
     </div>
   </nav>
@@ -111,7 +111,6 @@ function getProps({ location, href, isPartiallyCurrent, isCurrent }) {
   font-size: 1rem;
   position: absolute;
   top: -2rem;
-  transition: color 0.2s ease;
 }
 .menu-item:hover > span, .menu-option .active .menu-item > span{
   visibility: visible;

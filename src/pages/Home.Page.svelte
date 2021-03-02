@@ -43,6 +43,10 @@
         
         align-items: center;
         justify-content: center;
+
+        user-select: none;
+        -ms-user-select: none;
+        -moz-user-select: none;
     }
     .home h5{
         font-size: 1.5rem;
