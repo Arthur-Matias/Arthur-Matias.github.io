@@ -9,6 +9,12 @@ import ProgIcon from "../components/ProgIcon.Component.svelte";
     import { navigate } from "svelte-routing";
     import Container from "../components/Container.Component.svelte";
 
+    let paragraphDesign:HTMLParagraphElement;
+    let paragraphProg:HTMLParagraphElement;
+
+    let pDesignStr = String(paragraphDesign)
+    let pProgStr = String(paragraphProg)
+
 function handleMouseWheel(e: WheelEvent){
     if (!isDesignSelected || !isProgSelected) {
         if(e.deltaY > 0){
@@ -16,8 +22,39 @@ function handleMouseWheel(e: WheelEvent){
         }else{
             navigate("/about", { replace: true })
         }
+    } else {
+        return
     }
 }
+
+    let lastTouch: Touch;
+    function handleTouchMove(e: TouchEvent){
+        let element = e.changedTouches[0];
+        let targetEl = element
+        console.log(typeof targetEl)
+        if (
+            (element.clientX > 80 && element.clientX < 260) ||
+            (element.clientY > 140 && element.clientY < 280) ||
+            (element.clientY > 360 && element.clientY < 550)
+            ){
+                return
+            } else {
+                {
+            if (lastTouch === undefined) {
+                lastTouch = e.changedTouches[0]
+            }else if(lastTouch.screenY > element.screenY){
+                navigate("/contact", { replace: true })
+            }else if(lastTouch.screenY < element.screenY){
+                navigate("/about", { replace: true })
+        
+            }
+            }
+        return
+    }
+        console.log(e.changedTouches[0])
+        
+    }
+
     function setDesignSelect(value: boolean){
         isDesignSelected = value;
     }
@@ -29,10 +66,11 @@ function handleMouseWheel(e: WheelEvent){
 
 <Container>
 
-<div class="portfolio" style={`--main-color: ${color}`} on:wheel={e=>handleMouseWheel(e)}>
+<div class="portfolio" style={`--main-color: ${color}`} on:touchmove={e=>{handleTouchMove(e)}} on:wheel={e=>handleMouseWheel(e)}>
     <a href="https://github.com/Arthur-Matias" 
         on:mouseover="{()=>setProgSelect(true)}" 
-             on:mouseout="{()=>setProgSelect(false)}">
+        on:mouseout="{()=>setProgSelect(false)}"
+    >
         <div class="portfolio-card animate__animated animate__fadeIn" 
              
         >
@@ -41,7 +79,7 @@ function handleMouseWheel(e: WheelEvent){
             </div>
                 <div class={`${isProgSelected?'show animate__animated animate__bounceInDown card-content':'card-content'}`}>
                     <h2>Programming</h2>
-                    <p class=" animate__animated animate__fadeIn animate__delay-1s">
+                    <p bind:this={paragraphProg} class=" animate__animated animate__fadeIn animate__delay-1s">
                         Click here to take a look at my GitHub profile, i work with 
                         web development, focusing on the front-end, but I also have
                         knowledge on back-end and other languages, such as C #, Java
@@ -61,7 +99,7 @@ function handleMouseWheel(e: WheelEvent){
             </div>
             <div class={`${isDesignSelected?'show animate__animated animate__bounceInDown  card-content':'card-content'}`}>
                 <h2>Design</h2>
-                <p class="animate__animated animate__fadeIn animate__delay-1s">
+                <p bind:this={paragraphDesign} class="animate__animated animate__fadeIn animate__delay-1s">
                     Click here to take a look at my Behance profile. i work with Graphic Design since 2017.
                     Currently learning more about the UI/UX. I have knowledge on the whole Adobe suite as
                     i do also know some other softwares like Corel Draw, Gimp, Inkscape, Da'Vinci Resolve,
@@ -104,6 +142,7 @@ function handleMouseWheel(e: WheelEvent){
         width: 20rem;
         margin: 2rem;
         background-color: var(--bg-color);
+        border-radius: .5rem;
 
         overflow: hidden;
         -webkit-box-shadow: 0px 0px 60px 5px rgba(0, 0, 0, 0.44);

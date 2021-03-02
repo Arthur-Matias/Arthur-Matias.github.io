@@ -4,18 +4,28 @@
 import Container from "../components/Container.Component.svelte";
     export const pageNum:string = '04';
     function handleScroll(e: WheelEvent){
-        console.log(e.deltaY)
         if(e.deltaY > 0){
             
         }else{
             navigate("/portfolio", { replace: true })
         }
     }
+    let lastTouch: Touch;
+    function handleTouchMove(e: TouchEvent){
+        let element = e.changedTouches[0];
+        if (lastTouch === undefined) {
+            lastTouch = e.changedTouches[0]
+        }else if(lastTouch.screenY > element.screenY){
+        }else if(lastTouch.screenY < element.screenY){
+            navigate("/portfolio", { replace: true })
+
+        }
+    }
     
 </script>
 
 <Container>
-    <div class="Contact" on:wheel={e=>handleScroll(e)} >
+    <div class="Contact" on:touchmove={handleTouchMove} on:wheel={e=>handleScroll(e)} >
         <div class="content-wrapper">
             <h4 class="contact-title animate__animated animate__bounceIn" style={`color: ${color}`}>Get in Touch</h4>
             <h1 class="call-to-action animate__animated animate__lightSpeedInLeft">Let's make something amazing together</h1>

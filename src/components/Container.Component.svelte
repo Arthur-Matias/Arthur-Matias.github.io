@@ -20,4 +20,9 @@
             background-size: 30rem;
         }
     }
+    @media screen and (max-width: 600px){
+        .container{
+            background-size: 20rem;
+        }
+    }
 </style>

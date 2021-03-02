@@ -12,6 +12,19 @@ function handleMouseWheel(e: WheelEvent): void {
         }
     }
 
+    let lastTouch: Touch;
+    function handleTouchMove(e: TouchEvent){
+        let element = e.changedTouches[0];
+        console.log(e.changedTouches[0])
+        if (lastTouch === undefined) {
+            lastTouch = e.changedTouches[0]
+        }else if(lastTouch.screenY > element.screenY){
+            navigate("/portfolio", { replace: true })
+        }else if(lastTouch.screenY < element.screenY){
+            navigate("/", { replace: true })
+        }
+    }
+
     export let color: string;
     export let secondaryColor: string;
 
@@ -22,7 +35,7 @@ function handleMouseWheel(e: WheelEvent): void {
 </script>
 
 <Container>
-    <div class="about" on:wheel={handleMouseWheel}>
+    <div class="about" on:touchmove={e=>{handleTouchMove(e)}} on:wheel={handleMouseWheel}>
         <Me bind:color={color} bind:secondaryColor={secondaryColor} />
         <div class="about-card animate__animated animate__bounceIn">
             <p>I'm a <b>Designer</b> & <b>Front-end Developer</b> from Brazil, feel free to contact if you want to know more about me, my past projects or even to discuss a future one.</p>
@@ -47,6 +60,7 @@ function handleMouseWheel(e: WheelEvent): void {
         padding: 1rem;
         max-width: 70vw;
         min-width: 18rem;
+        border-radius: .5rem;
         
     }
 

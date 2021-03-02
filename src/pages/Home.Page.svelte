@@ -3,6 +3,7 @@
     import Container from "../components/Container.Component.svelte";
     import SideBar from "../components/SideBar.Component.svelte";
     
+    
     export const pageNum: string = '01'
     export let color: string;
     function handleMouseWheel(e: WheelEvent): void {
@@ -11,10 +12,22 @@
             navigate("/about", { replace: true })
         }
     }
+    let lastTouch: Touch;
+    function handleTouchMove(e: TouchEvent){
+        let element = e.changedTouches[0];
+        console.log(e.changedTouches[0])
+        if (lastTouch === undefined) {
+            lastTouch = e.changedTouches[0]
+        }else if(lastTouch.screenY > element.screenY){
+            navigate("/about", { replace: true })
+        }else if(lastTouch.screenY < element.screenY){
+
+        }
+    }
 </script>
 
 <Container>
-    <div class="home" on:wheel="{e=>handleMouseWheel(e)}">
+    <div class="home" on:touchmove={e=>{handleTouchMove(e)}} on:wheel="{e=>handleMouseWheel(e)}">
         <h5 class="animate__animated animate__fadeInLeft" style={`color: ${color}`} >Hi, my name is</h5>
         <h1 class="animate__animated animate__fadeInRight">Arthur Matias</h1>
     </div>
