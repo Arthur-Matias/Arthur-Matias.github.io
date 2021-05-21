@@ -1,0 +1,91 @@
+:root{
+    --white: #F6F6FB;
+    --beige: #E5E5E5;
+    --dark-bg-color: #181725;
+    --bg-color: #212436;
+    --main-color: hsl(354,100%,41%);
+    --secondary-color: hsl(354,100%,28%);
+    --black: #000;
+}
+
+p, h1, h2, h3, h4, h5, h6, code, i, label, a, button, input, textarea, img{
+    user-select: none;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+html{
+    width: 100vw;
+    height: 100vh;
+}
+
+body{
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    color: var(--white);
+    background-color: var(--dark-bg-color);
+    height: 100vh;
+    width: 100vw;
+}
+a{
+    color: inherit;
+    text-decoration: none;
+    text-transform: none;
+}
+
+code{
+    font-family: 'Coda', cursive;
+}
+
+main{
+    width: 100%;
+    height: 90vh;
+    margin-top: 10vh;
+}
+
+@media screen and (min-width: 600px) {
+    .title{
+        font-size: 3rem;
+    }
+    .content-container{
+        margin-bottom: 2rem;
+    }
+}
+
+/*Only using for fontawesome icons*/
+i{
+    transition: ease .5s;
+}
+i:hover{
+    filter: opacity(.7);
+    cursor: pointer;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: .5rem;
+}
+  
+  /* Track */
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}

@@ -1,0 +1,12 @@
+{
+  "name": "frontend-port",
+  "version": "1.0.0",
+  "description": "Arthur Matias personal website",
+  "main": "index.html",
+  "author": "Arthur Matias",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@types/jquery": "^3.5.5"
+  }
+}

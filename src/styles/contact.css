@@ -1,0 +1,186 @@
+.contact-container{
+    display: flex;
+    flex-direction: column;
+
+    width: 100vw;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 10vh;
+}
+
+.mail-form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.mail-form-container label{
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: left;
+    text-align: left;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact-title{
+    margin-bottom: 2rem;
+}
+
+.contact-title code{
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 40%;
+}
+
+#mail-form{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    width: 80vw;
+    margin-bottom: 2rem;
+}
+
+#message{
+    width: 80vw;
+    padding: 1rem;
+    background-color: var(--bg-color);
+    border-radius: 6px;
+    margin-bottom: 2rem;
+}
+
+.form-input{
+    width: 100%;
+    height: 2.3rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: var(--bg-color);
+    border-radius: 6px;
+    color: var(--white);
+}
+
+#mail-form > button{
+    width: fit-content;
+    align-self: flex-end;
+    padding: 1rem 2rem;
+    border: 3px solid var(--main-color);
+    cursor: pointer;
+    color: var(--main-color);
+    background-color: transparent;
+    font-weight: 900;
+
+    font-size: 1.2rem;
+
+    transition: ease .2s;
+}
+
+#mail-form > button:hover{
+    background-color: var(--main-color);
+    color: var(--dark-bg-color);
+}
+
+.contact-alt-ways{
+    width: 100vw;
+}
+
+.alt-ways-title{
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.alt-ways-link-group{
+    display: flex;
+    flex-direction: column;
+}
+
+.alt-ways-link-group ul{
+    list-style-type: none;
+}
+
+.alt-ways-link-group ul li{
+    margin: 1.2rem 0;
+}
+
+.alt-ways-link-group ul li p{
+    font-size: 0.8rem;
+}
+
+.alt-ways-link-group ul li h2{
+    font-size: 1.2rem;
+}
+
+.contact-container footer img{
+    margin-top: 2rem;
+    height: 3rem;
+}
+
+#message{
+    color: var(--white);
+}
+
+@media screen and (min-width: 600px) {
+    #mail-form{
+        margin: 0;
+        width: 40vw;
+        height: auto;
+    }
+    #message{
+        width: 50vw;
+        height: 20vh;
+        margin-bottom: 0.5rem;
+    }
+    .alt-ways-title{
+        margin-top: 6rem;
+        max-width: auto;
+        text-align: center;
+        margin-bottom: 5rem;
+    }
+    .alt-ways-link-group ul li{
+        margin: 2rem 0;
+    }
+    
+    .alt-ways-link-group ul li p{
+        font-size: 1.2rem;
+    }
+    
+    .alt-ways-link-group ul li h2{
+        font-size: 1.8rem;
+    }
+    .contact-container{
+        padding-top: 2rem;
+    }
+    .contact-container footer img{
+        margin-top: 4rem;
+        height: 5rem;
+    }
+    .contact-title{
+        margin-bottom: 5rem;
+    }
+    .contact-title h2{
+        margin-bottom: -1rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #mail-form{
+        width: 100vw;
+    }
+    .mail-form-container label{
+        width:90%;
+    }
+    #message{
+        width:90%;
+    }
+    #mail-form > button{
+        align-self: flex-start;
+        width: 90%;
+        margin: 0;
+    }
+}
