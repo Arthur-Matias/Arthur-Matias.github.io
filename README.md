@@ -1,6 +1,6 @@
 # Arthur Matias WebPortfolio
 
-![Banner](https://raw.githubusercontent.com/Arthur-Matias/Arthur-Matias.github.io/master/banner-port.png)
+![Banner](https://raw.githubusercontent.com/Arthur-Matias/Arthur-Matias.github.io/master/banner.png)
 
 ## About the Stack
 
