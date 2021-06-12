@@ -1,12 +1,19 @@
 {
-  "name": "frontend-port",
+  "name": "parcel-template",
   "version": "1.0.0",
-  "description": "Arthur Matias personal website",
+  "description": "This project is a template for frontend development",
   "main": "index.html",
   "author": "Arthur Matias",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build dist"
+  },
   "devDependencies": {
-    "@types/jquery": "^3.5.5"
+    "@types/jquery": "^3.5.5",
+    "parcel": "^2.0.0-beta.2",
+    "parcel-bundler": "^1.12.5",
+    "typescript": "^4.3.2"
   }
 }

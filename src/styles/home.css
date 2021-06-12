@@ -1,37 +1,36 @@
-.welcome-message-container{
+#home{
     display: flex;
-    height: 90vh;
-    width: 100%;
+
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
     background-image: url(../assets/logo.svg);
     background-repeat: no-repeat;
-    background-size: 40%;
+    background-size: 50%;
     background-position: center;
 }
 
-.welcome-message-container code{
+#home code{
     text-decoration: underline;
     color: var(--main-color);
 }
 
-.welcome-message-container h1{
+#home h1{
     font-weight: 900;
 }
 
 @media screen and (min-width: 600px) {
-    .welcome-message-container{
-        background-size: 30%;
+    #home{
         padding-top: 10vh;
+        background-size: 40%;
     }
-    .welcome-message-container code{
+    #home code{
         transform: scale(2) !important;
         margin-bottom: 2rem;
     }
     
-    .welcome-message-container h1{
+    #home h1{
         transform: scale(2) !important;
     }
 }
