@@ -1,43 +1,23 @@
-# TS frontend development workspace
+# Arthur Matias WebPortfolio
 
-This repo can be used as a template for any TypeScript frontend project.
+<img src="https://raw.githubusercontent.com/Arthur-Matias/Arthur-Matias.github.io/master/banner.png" height="400" />
 
-To use this you will need to have NodeJs + Yarn (or npm). You can find the links to their website here:
+## About the Stack
 
- - [NodeJs](https://nodejs.org/en/)
- - [Yarn](https://yarnpkg.com/)
- - [npm](https://www.npmjs.com/)
+Made entirely in HTML, CSS & TypeScript.
 
-OR
+### Getting started
 
-Use the integrated [Docker](https://docs.docker.com/get-docker/) container with VSCode
-
-
-## How to:
-
-Clone the project
+Clone the repo
 
 ```bash
-    git clone https://github.com/Arthur-Matias/node-typescript-workspace-template.git
-    cd node-typescript-workspace-template
+git clone https://github.com/Arthur-Matias/Arthur-Matias.github.io.git
 ```
 
-then
+then just open the index.html on your browser
 
-```bash
-    yarn install # works with npm too
-    yarn start
-```
+for development i reccomend the yarn / npm install command for the @types
 
-This will start the development server on [localhost:3333](http://localhost:3333)
+## See this project in Action
 
-
-## Includes:
-
- - Webpack
- - TypeScript
- - TS-Node
- - Nodemon
- - Express
-
- and all the needed @types
+You can visit the deployed project on this [Link](https://arthur-matias.github.io)
