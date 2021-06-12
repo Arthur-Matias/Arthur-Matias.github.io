@@ -8,7 +8,7 @@
   "private": false,
   "scripts": {
     "dev": "parcel index.html",
-    "build": "parcel build dist"
+    "build": "parcel build --no-minify index.html "
   },
   "devDependencies": {
     "@types/jquery": "^3.5.5",

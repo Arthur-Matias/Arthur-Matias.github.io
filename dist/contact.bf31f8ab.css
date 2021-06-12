@@ -1,0 +1,118 @@
+#contact div{
+    display: flex;
+    flex-direction: column;
+
+    grid-column-start: 2;
+    grid-column-end: 12;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.mail-form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#mail-form{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+#message{
+    color: var(--white);
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--dark-bg-color);
+    border-radius: 6px;
+    margin-bottom: 2rem;
+}
+
+.mail-form-container code{
+    font-size: 1.2rem;
+    font-weight: 400;
+    width: 100%;
+    text-align: left;
+}
+
+.form-input{
+    width: 100%;
+    background-color: var(--dark-bg-color);
+    border-radius: 6px;
+    color: var(--white);
+    margin-bottom: .8rem;
+    padding: 1rem;
+}
+
+#mail-form > button{
+    width: fit-content;
+    align-self: flex-end;
+    padding: 1rem 2rem;
+    border: 3px solid var(--main-color);
+    cursor: pointer;
+    color: var(--main-color);
+    background-color: transparent;
+    font-weight: 900;
+
+    border-radius: 6px;
+
+    font-size: 1.2rem;
+
+    transition: ease .5s;
+}
+
+#mail-form > button:hover{
+    background-color: var(--main-color);
+    color: var(--dark-bg-color);
+}
+
+.contact-alt-ways{
+    grid-column-start: 2;
+    grid-column-end: 12;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.contact-title{
+    margin-bottom: 2rem;
+}
+
+.contact-title code{
+    font-size: 1.6rem;
+}
+
+@media screen and (max-width: 600px) {
+    
+    .contact-title{
+        margin-bottom: .8rem;
+    }
+
+    #message{
+        height: 8rem;
+        margin-bottom: .8rem;
+    }
+    .form-input{
+        padding: .8rem;
+    }
+    .alt-ways-link-group ul li a p{
+
+    }
+    .alt-ways-link-group ul li a h2{
+        font-size: 1.2rem;
+    }
+    footer img{
+        height: 3rem;
+    }
+}
+
+/*# sourceMappingURL=/contact.bf31f8ab.css.map */
