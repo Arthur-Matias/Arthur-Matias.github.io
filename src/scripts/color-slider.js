@@ -9,7 +9,7 @@ $('#color-slider').on("change", ()=>{
     handleChange(String($("#color-slider").val()));
 })
 
-const handleChange = (e:string) => {
+const handleChange = (e) => {
     let currMainColor = `hsl(${e},100%,41%)`;
     let currSecondaryColor = `hsl(${e},100%,28%)`;
     document.body.style.setProperty('--main-color', currMainColor);
