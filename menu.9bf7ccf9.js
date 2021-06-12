@@ -117,38 +117,71 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"Mnft":[function(require,module,exports) {
-// color slide
-$(function () {
-  $('#color-slider').val("".concat(Math.round(Math.random() * 360)));
-  handleChange(String($('#color-slider').val()));
-});
-$('#color-slider').on("change", function () {
-  handleChange(String($("#color-slider").val()));
-});
-
-var handleChange = function handleChange(e) {
-  var currMainColor = "hsl(".concat(e, ",100%,41%)");
-  var currSecondaryColor = "hsl(".concat(e, ",100%,28%)");
-  document.body.style.setProperty('--main-color', currMainColor);
-  document.body.style.setProperty('--secondary-color', currSecondaryColor);
-}; // Create gradient of all colors
+})({"xr4c":[function(require,module,exports) {
+System.register([], function (exports_1, context_1) {
+  var __moduleName = context_1 && context_1.id;
+  /**
+   * Toggle settings tray open
+   */
 
 
-var getGradient = function getGradient() {
-  var allColorsGradient = "linear-gradient(to right, hsl(0,100%,41%),";
+  function toggleOpen() {
+    $(".settings-tray").toggleClass("open");
+  }
+  /**
+   * Toggle class "active" from "e"
+   * @param e HTML or JQuery element
+   */
 
-  for (var i = 1; i < 360; i++) {
-    allColorsGradient += "hsl(".concat(i, ",100%,41%),");
+
+  function toggleActive(e) {
+    $(".active").toggleClass('active');
+    $(e).toggleClass("active");
   }
 
-  allColorsGradient += "hsl(360,100%,41%))";
-  return allColorsGradient;
-};
+  return {
+    setters: [],
+    execute: function execute() {
+      // nav link click event
+      $(function () {
+        $("#menu a").each(function (i, e) {
+          $(e).on("click", function () {
+            toggleActive(e);
+          });
+        });
+      }); // Settings btn click event
 
-var gradient = getGradient();
-$(function () {
-  return document.body.style.setProperty('--gradient', gradient);
+      $(function () {
+        $("#settings-btn").each(function (i, e) {
+          $(e).on("click", function () {
+            toggleOpen();
+          });
+        });
+      });
+      $(function () {
+        $('main').on('scroll', function () {
+          console.log($("main").scrollTop());
+          $('.nav-link').each(function (i, e) {
+            var currLink = e.getAttribute('href');
+
+            if ($(currLink).offset().top <= $('main').scrollTop()) {
+              if (currLink === "#contact" && $("main").scrollTop() < 1650) {
+                currLink = "#portfolio";
+              }
+
+              toggleActive($("a[href=\"" + currLink + "\"]"));
+            }
+          });
+        });
+      });
+      $(function () {
+        $('.btn').on("click", function () {
+          $(".btn").toggleClass("active");
+          $('#menu').toggleClass("active");
+        });
+      });
+    }
+  };
 });
-},{}]},{},["Mnft"], null)
-//# sourceMappingURL=/color-slider.89fb402e.js.map
+},{}]},{},["xr4c"], null)
+//# sourceMappingURL=/menu.9bf7ccf9.js.map

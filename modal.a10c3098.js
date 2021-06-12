@@ -117,68 +117,26 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"R63O":[function(require,module,exports) {
-"use strict";
+})({"gNCj":[function(require,module,exports) {
+System.register([], function (exports_1, context_1) {
+  var _a, design, prog;
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
+  var __moduleName = context_1 && context_1.id;
+
+  function toggleModal(section) {
+    if (section === 'design') {
+      window.open(design);
+    } else {
+      window.open(prog);
+    }
+  }
+
+  return {
+    setters: [],
+    execute: function execute() {
+      _a = ['https://behance.net/arthurmm18', 'https://github.com/Arthur-Matias'], design = _a[0], prog = _a[1];
+    }
+  };
 });
-exports.toggleActive = toggleActive;
-
-/**
- * Toggle settings tray open
- */
-function toggleOpen() {
-  $(".settings-tray").toggleClass("open");
-}
-/**
- * Toggle class "active" from "e"
- * @param e HTML or JQuery element
- */
-
-
-function toggleActive(e) {
-  $(".active").toggleClass('active');
-  $(e).toggleClass("active");
-} // nav link click event
-
-
-$(function () {
-  $("#menu a").each(function (i, e) {
-    $(e).on("click", function () {
-      toggleActive(e);
-    });
-  });
-}); // Settings btn click event
-
-$(function () {
-  $("#settings-btn").each(function (i, e) {
-    $(e).on("click", function () {
-      toggleOpen();
-    });
-  });
-});
-$(function () {
-  $('main').on('scroll', function () {
-    console.log($("main").scrollTop());
-    $('.nav-link').each(function (i, e) {
-      var currLink = e.getAttribute('href');
-
-      if ($(currLink).offset().top <= $('main').scrollTop()) {
-        if (currLink === "#contact" && $("main").scrollTop() < 1650) {
-          currLink = "#portfolio";
-        }
-
-        toggleActive($("a[href=\"".concat(currLink, "\"]")));
-      }
-    });
-  });
-});
-$(function () {
-  $('.btn').on("click", function () {
-    $(".btn").toggleClass("active");
-    $('#menu').toggleClass("active");
-  });
-});
-},{}]},{},["R63O"], null)
-//# sourceMappingURL=/menu.25190594.js.map
+},{}]},{},["gNCj"], null)
+//# sourceMappingURL=/modal.a10c3098.js.map
