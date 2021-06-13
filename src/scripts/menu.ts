@@ -9,7 +9,7 @@ function toggleOpen():void{
  * Toggle class "active" from "e"
  * @param e HTML or JQuery element
  */
-export function toggleActive(e: HTMLElement|JQuery<HTMLElement>){
+function toggleActive(e: HTMLElement|JQuery<HTMLElement>){
     $(".active").toggleClass('active');
     $(e).toggleClass("active");
 }
