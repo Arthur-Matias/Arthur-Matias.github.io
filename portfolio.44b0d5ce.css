@@ -11,7 +11,7 @@
     text-align: center;
 }
 
-#portfolio div{
+#portfolio > div{
     width: 100%;
     grid-column-start: 2;
     grid-column-end: 12;
@@ -78,20 +78,25 @@
         width: 100%;
         align-items: center;
     }
-    .portfolio-card svg{
-        width: 100%;
+}
+@media screen and (min-width: 1600px) {
+    .portfolio-card{
+        /* max-height: 20rem; */
+        max-width: 50rem;
     }
+    .portfolio-card svg{
+        max-height: 20rem;
+    }
+
 }
 @media screen and (min-width: 600px) {
     .portfolio-card{
         transition: ease .5s;
-        width: 100%;
-        height: 100%;
         padding: 5rem 5rem;
     }
-    .portfolio-card svg{
+    /* .portfolio-card svg{
         width: 100%;
-    }
+    } */
     .portfolio-card h2{
         font-size: 1.2rem;
         transition: ease .5s;
@@ -130,4 +135,4 @@
 }
 
 
-/*# sourceMappingURL=/portfolio.ccf9b2eb.css.map */
+/*# sourceMappingURL=/portfolio.44b0d5ce.css.map */

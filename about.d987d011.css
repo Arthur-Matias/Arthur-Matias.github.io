@@ -76,10 +76,12 @@
         z-index: 2;
         height: fit-content;
         overflow: hidden;
+
+        font-size: 1.2rem;
     }
     .about-img{
         z-index: 1;
     }
 }
 
-/*# sourceMappingURL=/about.84eebab2.css.map */
+/*# sourceMappingURL=/about.d987d011.css.map */
