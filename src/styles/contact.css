@@ -91,21 +91,24 @@
     font-size: 1.6rem;
 }
 
+@media screen and (min-width: 1600px) {
+    #mail-form{
+        max-width: 50vw;
+    }
+    .alt-ways-link-group ul li a h2{
+        font-size: 2rem;
+    }
+}
 @media screen and (max-width: 600px) {
-    
     .contact-title{
         margin-bottom: .8rem;
     }
-
     #message{
         height: 8rem;
         margin-bottom: .8rem;
     }
     .form-input{
         padding: .8rem;
-    }
-    .alt-ways-link-group ul li a p{
-
     }
     .alt-ways-link-group ul li a h2{
         font-size: 1.2rem;

@@ -59,10 +59,11 @@ code{
 
 /*Only using for fontawesome icons*/
 i{
-    transition: ease .5s;
+    transition: ease .2s;
 }
 i:hover{
-    filter: opacity(.7);
+    /* filter: opacity(.7); */
+    color: var(--main-color);
     cursor: pointer;
 }
 
@@ -129,9 +130,12 @@ main{
 }
 
 footer{
+    margin-top: 4rem;
     grid-column-start: 2;
     grid-column-end: 12;
 
+    align-self: center;
+    justify-self: flex-end;
     display: flex;
     align-items: center;
     justify-content: center;
