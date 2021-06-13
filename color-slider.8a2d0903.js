@@ -117,26 +117,38 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"gNCj":[function(require,module,exports) {
-System.register([], function (exports_1, context_1) {
-  var _a, design, prog;
+})({"b0g7":[function(require,module,exports) {
+// color slide
+$(function () {
+  $('#color-slider').val("" + Math.round(Math.random() * 360));
+  handleChange(String($('#color-slider').val()));
+});
+$('#color-slider').on("change", function () {
+  handleChange(String($("#color-slider").val()));
+});
 
-  var __moduleName = context_1 && context_1.id;
+var handleChange = function handleChange(e) {
+  var currMainColor = "hsl(" + e + ",100%,41%)";
+  var currSecondaryColor = "hsl(" + e + ",100%,28%)";
+  document.body.style.setProperty('--main-color', currMainColor);
+  document.body.style.setProperty('--secondary-color', currSecondaryColor);
+}; // Create gradient of all colors
 
-  function toggleModal(section) {
-    if (section === 'design') {
-      window.open(design);
-    } else {
-      window.open(prog);
-    }
+
+var getGradient = function getGradient() {
+  var allColorsGradient = "linear-gradient(to right, hsl(0,100%,41%),";
+
+  for (var i = 1; i < 360; i++) {
+    allColorsGradient += "hsl(" + i + ",100%,41%),";
   }
 
-  return {
-    setters: [],
-    execute: function execute() {
-      _a = ['https://behance.net/arthurmm18', 'https://github.com/Arthur-Matias'], design = _a[0], prog = _a[1];
-    }
-  };
+  allColorsGradient += "hsl(360,100%,41%))";
+  return allColorsGradient;
+};
+
+var gradient = getGradient();
+$(function () {
+  return document.body.style.setProperty('--gradient', gradient);
 });
-},{}]},{},["gNCj"], null)
-//# sourceMappingURL=/modal.a10c3098.js.map
+},{}]},{},["b0g7"], null)
+//# sourceMappingURL=/color-slider.8a2d0903.js.map

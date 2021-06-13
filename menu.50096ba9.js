@@ -117,49 +117,61 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"b0g7":[function(require,module,exports) {
-System.register([], function (exports_1, context_1) {
-  var handleChange, getGradient, gradient;
-
-  var __moduleName = context_1 && context_1.id;
-
-  return {
-    setters: [],
-    execute: function execute() {
-      // color slide
-      $(function () {
-        $('#color-slider').val("" + Math.round(Math.random() * 360));
-        handleChange(String($('#color-slider').val()));
-      });
-      $('#color-slider').on("change", function () {
-        handleChange(String($("#color-slider").val()));
-      });
-
-      handleChange = function handleChange(e) {
-        var currMainColor = "hsl(" + e + ",100%,41%)";
-        var currSecondaryColor = "hsl(" + e + ",100%,28%)";
-        document.body.style.setProperty('--main-color', currMainColor);
-        document.body.style.setProperty('--secondary-color', currSecondaryColor);
-      }; // Create gradient of all colors
+})({"xr4c":[function(require,module,exports) {
+/**
+ * Toggle settings tray open
+ */
+function toggleOpen() {
+  $(".settings-tray").toggleClass("open");
+}
+/**
+ * Toggle class "active" from "e"
+ * @param e HTML or JQuery element
+ */
 
 
-      getGradient = function getGradient() {
-        var allColorsGradient = "linear-gradient(to right, hsl(0,100%,41%),";
+function toggleActive(e) {
+  $(".active").toggleClass('active');
+  $(e).toggleClass("active");
+} // nav link click event
 
-        for (var i = 1; i < 360; i++) {
-          allColorsGradient += "hsl(" + i + ",100%,41%),";
+
+$(function () {
+  $("#menu a").each(function (i, e) {
+    $(e).on("click", function () {
+      toggleActive(e);
+    });
+  });
+}); // Settings btn click event
+
+$(function () {
+  $("#settings-btn").each(function (i, e) {
+    $(e).on("click", function () {
+      toggleOpen();
+    });
+  });
+});
+$(function () {
+  $('main').on('scroll', function () {
+    console.log($("main").scrollTop());
+    $('.nav-link').each(function (i, e) {
+      var currLink = e.getAttribute('href');
+
+      if ($(currLink).offset().top <= $('main').scrollTop()) {
+        if (currLink === "#contact" && $("main").scrollTop() < 1650) {
+          currLink = "#portfolio";
         }
 
-        allColorsGradient += "hsl(360,100%,41%))";
-        return allColorsGradient;
-      };
-
-      gradient = getGradient();
-      $(function () {
-        return document.body.style.setProperty('--gradient', gradient);
-      });
-    }
-  };
+        toggleActive($("a[href=\"" + currLink + "\"]"));
+      }
+    });
+  });
 });
-},{}]},{},["b0g7"], null)
-//# sourceMappingURL=/color-slider.ab143725.js.map
+$(function () {
+  $('.btn').on("click", function () {
+    $(".btn").toggleClass("active");
+    $('#menu').toggleClass("active");
+  });
+});
+},{}]},{},["xr4c"], null)
+//# sourceMappingURL=/menu.50096ba9.js.map

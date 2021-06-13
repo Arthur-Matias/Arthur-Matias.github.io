@@ -117,71 +117,17 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"xr4c":[function(require,module,exports) {
-System.register([], function (exports_1, context_1) {
-  var __moduleName = context_1 && context_1.id;
-  /**
-   * Toggle settings tray open
-   */
+})({"gNCj":[function(require,module,exports) {
+var _a = ['https://behance.net/arthurmm18', 'https://github.com/Arthur-Matias'],
+    design = _a[0],
+    prog = _a[1];
 
-
-  function toggleOpen() {
-    $(".settings-tray").toggleClass("open");
+function toggleModal(section) {
+  if (section === 'design') {
+    window.open(design);
+  } else {
+    window.open(prog);
   }
-  /**
-   * Toggle class "active" from "e"
-   * @param e HTML or JQuery element
-   */
-
-
-  function toggleActive(e) {
-    $(".active").toggleClass('active');
-    $(e).toggleClass("active");
-  }
-
-  return {
-    setters: [],
-    execute: function execute() {
-      // nav link click event
-      $(function () {
-        $("#menu a").each(function (i, e) {
-          $(e).on("click", function () {
-            toggleActive(e);
-          });
-        });
-      }); // Settings btn click event
-
-      $(function () {
-        $("#settings-btn").each(function (i, e) {
-          $(e).on("click", function () {
-            toggleOpen();
-          });
-        });
-      });
-      $(function () {
-        $('main').on('scroll', function () {
-          console.log($("main").scrollTop());
-          $('.nav-link').each(function (i, e) {
-            var currLink = e.getAttribute('href');
-
-            if ($(currLink).offset().top <= $('main').scrollTop()) {
-              if (currLink === "#contact" && $("main").scrollTop() < 1650) {
-                currLink = "#portfolio";
-              }
-
-              toggleActive($("a[href=\"" + currLink + "\"]"));
-            }
-          });
-        });
-      });
-      $(function () {
-        $('.btn').on("click", function () {
-          $(".btn").toggleClass("active");
-          $('#menu').toggleClass("active");
-        });
-      });
-    }
-  };
-});
-},{}]},{},["xr4c"], null)
-//# sourceMappingURL=/menu.9bf7ccf9.js.map
+}
+},{}]},{},["gNCj"], null)
+//# sourceMappingURL=/modal.b54a1251.js.map
