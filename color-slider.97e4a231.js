@@ -120,7 +120,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 })({"b0g7":[function(require,module,exports) {
 // color slide
 $(function () {
-  $('#color-slider').val("" + Math.round(Math.random() * 360));
+  $('#color-slider').val("".concat(Math.round(Math.random() * 360)));
   handleChange(String($('#color-slider').val()));
 });
 $('#color-slider').on("change", function () {
@@ -128,8 +128,8 @@ $('#color-slider').on("change", function () {
 });
 
 var handleChange = function handleChange(e) {
-  var currMainColor = "hsl(" + e + ",100%,41%)";
-  var currSecondaryColor = "hsl(" + e + ",100%,28%)";
+  var currMainColor = "hsl(".concat(e, ",100%,41%)");
+  var currSecondaryColor = "hsl(".concat(e, ",100%,28%)");
   document.body.style.setProperty('--main-color', currMainColor);
   document.body.style.setProperty('--secondary-color', currSecondaryColor);
 }; // Create gradient of all colors
@@ -139,7 +139,7 @@ var getGradient = function getGradient() {
   var allColorsGradient = "linear-gradient(to right, hsl(0,100%,41%),";
 
   for (var i = 1; i < 360; i++) {
-    allColorsGradient += "hsl(" + i + ",100%,41%),";
+    allColorsGradient += "hsl(".concat(i, ",100%,41%),");
   }
 
   allColorsGradient += "hsl(360,100%,41%))";
@@ -151,4 +151,4 @@ $(function () {
   return document.body.style.setProperty('--gradient', gradient);
 });
 },{}]},{},["b0g7"], null)
-//# sourceMappingURL=/color-slider.8a2d0903.js.map
+//# sourceMappingURL=/color-slider.97e4a231.js.map

@@ -117,61 +117,16 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"xr4c":[function(require,module,exports) {
-/**
- * Toggle settings tray open
- */
-function toggleOpen() {
-  $(".settings-tray").toggleClass("open");
+})({"gNCj":[function(require,module,exports) {
+var design = 'https://behance.net/arthurmm18',
+    prog = 'https://github.com/Arthur-Matias';
+
+function toggleModal(section) {
+  if (section === 'design') {
+    window.open(design);
+  } else {
+    window.open(prog);
+  }
 }
-/**
- * Toggle class "active" from "e"
- * @param e HTML or JQuery element
- */
-
-
-function toggleActive(e) {
-  $(".active").toggleClass('active');
-  $(e).toggleClass("active");
-} // nav link click event
-
-
-$(function () {
-  $("#menu a").each(function (i, e) {
-    $(e).on("click", function () {
-      toggleActive(e);
-    });
-  });
-}); // Settings btn click event
-
-$(function () {
-  $("#settings-btn").each(function (i, e) {
-    $(e).on("click", function () {
-      toggleOpen();
-    });
-  });
-});
-$(function () {
-  $('main').on('scroll', function () {
-    console.log($("main").scrollTop());
-    $('.nav-link').each(function (i, e) {
-      var currLink = e.getAttribute('href');
-
-      if ($(currLink).offset().top <= $('main').scrollTop()) {
-        if (currLink === "#contact" && $("main").scrollTop() < 1650) {
-          currLink = "#portfolio";
-        }
-
-        toggleActive($("a[href=\"" + currLink + "\"]"));
-      }
-    });
-  });
-});
-$(function () {
-  $('.btn').on("click", function () {
-    $(".btn").toggleClass("active");
-    $('#menu').toggleClass("active");
-  });
-});
-},{}]},{},["xr4c"], null)
-//# sourceMappingURL=/menu.50096ba9.js.map
+},{}]},{},["gNCj"], null)
+//# sourceMappingURL=/modal.3414c35d.js.map
