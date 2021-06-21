@@ -11,13 +11,19 @@ Made entirely in HTML, CSS & TypeScript.
 Clone the repo
 
 ```bash
-git clone https://github.com/Arthur-Matias/Arthur-Matias.github.io.git
+    git clone https://github.com/Arthur-Matias/Arthur-Matias.github.io.git
+    cd Arthur-Matias.github.io.git
 ```
 
-then just open the index.html on your browser
+then you will need [Yarn](https://yarnpkg.com/) or [NPM](https://www.npmjs.com/) to run the project
 
-for development i reccomend the yarn / npm install command for the @types
+```bash
+    yarn install #works with npm too
+    yarn dev
+```
+
+the project will be avaliable on [http://localhost:1234](http://localhost:1234)
 
 ## See this project in Action
 
-You can visit the deployed project on this [Link](https://arthur-matias.github.io)
+You can check the deployed project on this [Link](https://arthur-matias.github.io)
