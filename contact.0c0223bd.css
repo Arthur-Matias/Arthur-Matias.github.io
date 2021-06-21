@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
 
-    grid-column-start: 2;
-    grid-column-end: 12;
+    grid-column-start: 3;
+    grid-column-end: 11;
 
     align-items: center;
     justify-content: center;
@@ -118,4 +118,4 @@
     }
 }
 
-/*# sourceMappingURL=/contact.3aeea0b5.css.map */
+/*# sourceMappingURL=/contact.0c0223bd.css.map */

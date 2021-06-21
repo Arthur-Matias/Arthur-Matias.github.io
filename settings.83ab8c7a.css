@@ -1,0 +1,44 @@
+#settings-btn{
+    font-size: 1.4rem;
+    margin-left: .8rem;
+}
+.settings-tray{
+    position: absolute;
+    display: none;
+    z-index: 100;
+    transform-origin: center;
+    transform: rotate(-90deg);
+    top: 14vh;
+    right: calc((100vw/13) - ((5*20px)/2));
+
+
+    align-items: center;
+    justify-content: center;
+}
+.settings-tray.open{
+    display: flex;
+}
+
+#color-slider{
+    z-index: 200;
+}
+
+@media screen and (max-width: 600px) {
+    .settings-tray{
+        transform: initial;
+        position: initial;
+    }
+    #settings-btn{
+        position: absolute;
+        top: .8rem;
+        left: 1rem;
+    }
+    #settings-btn i{
+        font-size: 1.5rem;
+    }
+    #color-slider{
+        margin-top: 1rem;
+    }
+}
+
+/*# sourceMappingURL=/settings.83ab8c7a.css.map */

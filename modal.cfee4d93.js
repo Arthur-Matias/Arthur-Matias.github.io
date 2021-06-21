@@ -117,38 +117,16 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"b0g7":[function(require,module,exports) {
-// color slide
-$(function () {
-  $('#color-slider').val("".concat(Math.round(Math.random() * 360)));
-  handleChange(String($('#color-slider').val()));
-});
-$('#color-slider').on("change", function () {
-  handleChange(String($("#color-slider").val()));
-});
+})({"gNCj":[function(require,module,exports) {
+var design = 'https://behance.net/arthurmm18',
+    prog = 'https://github.com/Arthur-Matias';
 
-var handleChange = function handleChange(e) {
-  var currMainColor = "hsl(".concat(e, ",100%,41%)");
-  var currSecondaryColor = "hsl(".concat(e, ",100%,28%)");
-  document.body.style.setProperty('--main-color', currMainColor);
-  document.body.style.setProperty('--secondary-color', currSecondaryColor);
-}; // Create gradient of all colors
-
-
-var getGradient = function getGradient() {
-  var allColorsGradient = "linear-gradient(to right, hsl(0,100%,41%),";
-
-  for (var i = 1; i < 360; i++) {
-    allColorsGradient += "hsl(".concat(i, ",100%,41%),");
+function toggleModal(section) {
+  if (section === 'design') {
+    window.open(design);
+  } else {
+    window.open(prog);
   }
-
-  allColorsGradient += "hsl(360,100%,41%))";
-  return allColorsGradient;
-};
-
-var gradient = getGradient();
-$(function () {
-  return document.body.style.setProperty('--gradient', gradient);
-});
-},{}]},{},["b0g7"], null)
-//# sourceMappingURL=/color-slider.97e4a231.js.map
+}
+},{}]},{},["gNCj"], null)
+//# sourceMappingURL=/modal.cfee4d93.js.map

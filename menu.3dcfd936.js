@@ -153,7 +153,6 @@ $(function () {
 });
 $(function () {
   $('main').on('scroll', function () {
-    console.log($("main").scrollTop());
     $('.nav-link').each(function (i, e) {
       var currLink = e.getAttribute('href');
 
@@ -174,4 +173,4 @@ $(function () {
   });
 });
 },{}]},{},["xr4c"], null)
-//# sourceMappingURL=/menu.53987ea6.js.map
+//# sourceMappingURL=/menu.3dcfd936.js.map
