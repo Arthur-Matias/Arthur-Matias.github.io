@@ -1,7 +1,7 @@
 #portfolio{
 
-    grid-column-start: 2;
-    grid-column-end: 12;
+    grid-column-start: 3;
+    grid-column-end: 11;
 
     display: grid;
     flex-direction: column;
@@ -13,8 +13,8 @@
 
 #portfolio > div{
     width: 100%;
-    grid-column-start: 2;
-    grid-column-end: 12;
+    grid-column-start: 3;
+    grid-column-end: 11;
 }
 
 .alt-ways-title{
