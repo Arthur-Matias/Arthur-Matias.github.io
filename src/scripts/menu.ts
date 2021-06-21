@@ -34,7 +34,6 @@ $(()=>{
 
 $(()=>{
     $('main').on('scroll', ()=>{
-        console.log($("main").scrollTop())
         $('.nav-link').each(function(i:number,e:HTMLElement):void{
             let currLink:string = e.getAttribute('href');
         if ( $(currLink).offset().top <= $('main').scrollTop()) {
