@@ -5,7 +5,7 @@ $(()=>{
     handleChange(String($('#color-slider').val()))
 })
 
-$('#color-slider').on("change", ()=>{
+$('#color-slider').on("input", ()=>{
     handleChange(String($("#color-slider").val()));
 })
 
