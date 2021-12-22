@@ -50,7 +50,7 @@ Hello, nice to meet you!
 I'm Arthur,
 welcome to my personal webpage github, hope you like!
 
-If you want to check the deployed/live version, please, check here [link]("https://arthur-matias.github.io/")
+If you want to check the deployed/live version, please, check here [link](https://arthur-matias.github.io/)
 
 ## :rocket: Technologies ##
 
