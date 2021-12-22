@@ -1,5 +1,5 @@
 <div align="center" id="top"> 
-  <img src="./src/assets/webport.png" alt="Personal Webpage" />
+  <img src="./src/assets/webport.gif" alt="Personal Webpage" />
 
   &#xa0;
 
