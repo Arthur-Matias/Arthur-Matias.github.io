@@ -9,19 +9,19 @@
 <h1 align="center">Personal Webpage</h1>
 
 <p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/Arthur-Matias/personal-webpage?color=56BEB8">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/Arthur-Matias/Arthur-Matias.github.io?color=56BEB8">
 
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/Arthur-Matias/personal-webpage?color=56BEB8">
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/Arthur-Matias/Arthur-Matias.github.io?color=56BEB8">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/Arthur-Matias/personal-webpage?color=56BEB8">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/Arthur-Matias/Arthur-Matias.github.io?color=56BEB8">
 
-  <!-- <img alt="License" src="https://img.shields.io/github/license/Arthur-Matias/personal-webpage?color=56BEB8"> -->
+  <!-- <img alt="License" src="https://img.shields.io/github/license/Arthur-Matias/Arthur-Matias.github.io?color=56BEB8"> -->
 
-  <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/Arthur-Matias/personal-webpage?color=56BEB8" /> -->
+  <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/Arthur-Matias/Arthur-Matias.github.io?color=56BEB8" /> -->
 
-  <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/Arthur-Matias/personal-webpage?color=56BEB8" /> -->
+  <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/Arthur-Matias/Arthur-Matias.github.io?color=56BEB8" /> -->
 
-  <img alt="Github stars" src="https://img.shields.io/github/stars/Arthur-Matias/personal-webpage?color=56BEB8" />
+  <img alt="Github stars" src="https://img.shields.io/github/stars/Arthur-Matias/Arthur-Matias.github.io?color=56BEB8" />
 </p>
 
 <!-- Status -->
@@ -68,10 +68,10 @@ Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) an
 
 ```bash
 # Clone this project
-$ git clone https://github.com/Arthur-Matias/personal-webpage
+$ git clone https://github.com/Arthur-Matias/Arthur-Matias.github.io
 
 # Access
-$ cd personal-webpage
+$ cd Arthur-Matias.github.io
 
 # Install dependencies
 $ yarn
