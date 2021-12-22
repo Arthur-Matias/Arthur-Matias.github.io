@@ -33,7 +33,7 @@ body{
   width: 100%;
   display: grid;
   position: relative;
-  grid-template-rows: 90vh 100vh 100vh 24vh;
+  grid-template-rows: 90vh 100vh 110vh 24vh;
   grid-template-columns: 100vw;
 
   overflow-x: hidden;
@@ -62,4 +62,10 @@ body{
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   filter: opacity(1);
+}
+
+@media screen and (max-width: 600px) {
+  .app-wrapper{
+    grid-template-rows: 90vh 100vh 110vh 24vh;
+  }
 }

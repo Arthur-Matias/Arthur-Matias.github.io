@@ -25,7 +25,7 @@
         justify-content: center;
 
         > h2{
-            margin-top: 8rem;
+            // margin-top: 8rem;
             font-size: 3rem;
             font-weight: 300;
         }
@@ -35,7 +35,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100%;
             width: 80%;
             .form-section{
                 display: none;
@@ -138,7 +137,6 @@
                     align-items: center;
                     justify-content: space-between;
                     margin-top: 2rem;
-                    margin-bottom: 3rem;
                     .next-btn:hover, 
                     .back-btn:hover, 
                     .send-btn:hover{
@@ -195,7 +193,10 @@
             }
         }
     }
-    @media screen and (max-width: 1100px) and (max-height: 800px) {
+    @media screen and (min-width: 1100px) and (min-height: 1000px) {
+
+    }
+    @media screen and (max-width: 1100px) and (max-height: 1000px) {
         .contact-wrapper{
             > h2{
                 font-weight: 300;
