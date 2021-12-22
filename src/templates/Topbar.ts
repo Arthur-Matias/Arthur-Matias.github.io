@@ -47,7 +47,7 @@ export default function Topbar(){
 
         return topBar;
     }
-    function handleLinkClick(e: Event){
+    function handleLinkClick(/*e: Event*/){
         const menu = document.getElementById("topbar") as HTMLDivElement;
         const btn = document.getElementsByClassName("btn6")[0] as HTMLDivElement;
         menu.classList.toggle("open");

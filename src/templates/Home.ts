@@ -3,7 +3,7 @@ import config from "../config";
 export default function Home(){
 
     const { greetings,name, description } = config["home"].texts;
-    const image = config["home"].image;
+    // const image = config["home"].image;
     console.log(greetings, name, description)
     
     function render():HTMLElement{

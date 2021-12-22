@@ -1,4 +1,4 @@
-import config from "../config";
+// import config from "../config";
 import behance from '../assets/behance.svg'
 import linkedin from '../assets/linkedin.svg'
 import github from '../assets/github.svg'

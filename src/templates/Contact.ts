@@ -210,7 +210,7 @@ export default function Contact(){
         let name = form.name.value,
             company = form.company.value,
             message = form.message.value,
-            attachments = form.attachments.files![0],
+            // attachments = form.attachments.files![0],
             category = form.category.value,
             email = form.email.value,
             phone = form.phone.value;
