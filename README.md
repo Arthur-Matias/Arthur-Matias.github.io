@@ -58,7 +58,7 @@ The following tools were used in this project:
 
 - [TypeScript](https://www.typescriptlang.org/)
 - [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
-- [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+- [SCSS](https://sass-lang.com/)
 
 ## :white_check_mark: Requirements ##
 
