@@ -1,29 +1,94 @@
-# Arthur Matias WebPortfolio
+<div align="center" id="top"> 
+  <img src="./src/assets/webport.png" alt="Personal Webpage" />
 
-<img src="https://raw.githubusercontent.com/Arthur-Matias/Arthur-Matias.github.io/master/banner.png" height="400" />
+  &#xa0;
 
-## About the Stack
+  <!-- <a href="https://personalwebpage.netlify.app">Demo</a> -->
+</div>
 
-Made entirely in HTML, CSS & TypeScript.
+<h1 align="center">Personal Webpage</h1>
 
-### Getting started
+<p align="center">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/Arthur-Matias/personal-webpage?color=56BEB8">
 
-Clone the repo
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/Arthur-Matias/personal-webpage?color=56BEB8">
+
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/Arthur-Matias/personal-webpage?color=56BEB8">
+
+  <!-- <img alt="License" src="https://img.shields.io/github/license/Arthur-Matias/personal-webpage?color=56BEB8"> -->
+
+  <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/Arthur-Matias/personal-webpage?color=56BEB8" /> -->
+
+  <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/Arthur-Matias/personal-webpage?color=56BEB8" /> -->
+
+  <img alt="Github stars" src="https://img.shields.io/github/stars/Arthur-Matias/personal-webpage?color=56BEB8" />
+</p>
+
+<!-- Status -->
+
+<h4 align="center"> 
+	🚧  Personal Webpage 🚀 Under construction...  🚧
+</h4> 
+
+<hr>
+
+<p align="center">
+  <a href="#dart-about">About</a> &#xa0; | &#xa0; 
+  <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
+  <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
+  <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
+  <a href="#memo-license">License</a> &#xa0; | &#xa0;
+  <a href="https://github.com/Arthur-Matias" target="_blank">Author</a>
+</p>
+
+<br>
+
+## :dart: About ##
+
+Hello, nice to meet you!
+
+I'm Arthur,
+welcome to my personal webpage github, hope you like!
+
+If you want to check the deployed/live version, please, check here [link]("https://arthur-matias.github.io/")
+
+## :rocket: Technologies ##
+
+The following tools were used in this project:
+
+- [TypeScript](https://www.typescriptlang.org/)
+- [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
+- [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+
+## :white_check_mark: Requirements ##
+
+Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
+
+## :checkered_flag: Starting ##
 
 ```bash
-    git clone https://github.com/Arthur-Matias/Arthur-Matias.github.io.git
-    cd Arthur-Matias.github.io.git
+# Clone this project
+$ git clone https://github.com/Arthur-Matias/personal-webpage
+
+# Access
+$ cd personal-webpage
+
+# Install dependencies
+$ yarn
+
+# Run the project
+$ yarn dev
+
+# The server will initialize in the <http://localhost:3000>
 ```
 
-then you will need [Yarn](https://yarnpkg.com/) or [NPM](https://www.npmjs.com/) to run the project
+## :memo: License ##
 
-```bash
-    yarn install #works with npm too
-    yarn dev
-```
+This project is under license from MIT.
 
-the project will be avaliable on [http://localhost:1234](http://localhost:1234)
 
-## See this project in Action
+Made with :heart: by <a href="https://github.com/Arthur-Matias" target="_blank">Arthur Matias</a>
 
-You can check the deployed project on this [Link](https://arthur-matias.github.io)
+&#xa0;
+
+<a href="#top">Back to top</a>
