@@ -91,8 +91,8 @@ import{a as k}from"./vendor.a6cc7faa.js";const C=function(){const t=document.cre
             </div>
         `,a}function o(a){var m;const e=document.getElementsByClassName("gallery-cell"),i=document.getElementsByClassName("gallery-text"),r=document.querySelector(".gallery-cell.selected"),l=document.querySelector(".gallery-text.selected"),s=Number((m=a.target.parentElement)==null?void 0:m.id.replace("cell-",""));r.classList.toggle("selected"),l.classList.toggle("selected"),e[s].classList.toggle("selected"),i[s].classList.toggle("selected");for(let d=0;d<e.length;d++){const p=e[d];p.style.order=`${d}`}s==0&&r.id!=="cell-0"?(e[s].style.order="2",e[s+1].style.order="1"):s==1&&r.id!=="cell-1"?e[s].style.order="2":s==2&&r.id!=="cell-2"&&(r.style.order="3",e[s].style.order="2",e[s].style.marginRight="2rem"),s!=2&&(e[2].style.marginRight="0")}return{render:t,changeSelectedWork:o}}var q="/assets/clip.f4ee25ed.svg";function S(){const n=g.contact,t=n.sections;let o="";function a(){const l=document.createElement("div");return l.id="contact",l.innerHTML+=`
             <div class="contact-wrapper">
-                <h2 class="styled-text">${n.title}</h2>
                 <form enctype="multipart/form-data" method="POST" action="https://formspree.io/f/mpzbzolz" id="contact-form">
+                    <h2 class="styled-text">${n.title}</h2>
                     <div class="form-section active">
                         <p class="section-description">
                             ${t[0].title}
