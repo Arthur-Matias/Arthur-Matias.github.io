@@ -215,23 +215,17 @@ export default function Contact(){
             email = form.email.value,
             phone = form.phone.value;
 
-        // console.log(name)
-        // console.log(company)
-        // console.log(message)
-        // console.log(attachments)
-        // console.log(category)
-        // console.log(email)
-        // console.log(phone)
-
         let regex = /^\s*(?:\+?(\d{1,4}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/
         
         if (!phone.match(regex)) {
             alert("The phone number inserted is not valid")
+            sendBtn.onclick = handleSendBtnClick
             return
         }
         
         if (!email) {
             alert("You need to insert an email")
+            sendBtn.onclick = handleSendBtnClick
             return
         }
         // send form

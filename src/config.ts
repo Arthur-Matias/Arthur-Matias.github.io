@@ -28,21 +28,21 @@ const config = {
         plusSign: plusSign,
         works: [
         {
-            title: "Name of the project",
+            title: "Design",
             description: "1Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            link: "http://google.com",
+            link: "https://www.behance.net/arthurmm18",
             image: example
         },
         {
-            title: "Name of the project",
+            title: "Development",
             description: "2Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            link: "http://google.com",
+            link: "https://github.com/Arthur-Matias",
             image: example
         },
         {
-            title: "Name of the project",
+            title: "Under development",
             description: "3Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            link: "http://google.com",
+            link: "https://arthur-matias.github.io/",
             image: example
         },
     ]},
@@ -67,11 +67,11 @@ const config = {
                     },
                     {
                         title: "Design",
-                        description: "I need an interactive design or design system to be created."
+                        description: "I need a video, web design or design system to be created."
                     },
                     {
                         title: "Development",
-                        description: "I need a website, online store or prototype to be built."
+                        description: "I need a website, game, prototype or something else to be developed."
                     }
                 ]
             },
@@ -87,7 +87,7 @@ const config = {
                 title: "Nearly there. How can I <b>reach</b> you?",
                 placeholders: [
                     "email address *",
-                    "phone number"
+                    "phone number (only numbers)"
                 ]
             }
         ],
