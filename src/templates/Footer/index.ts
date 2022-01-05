@@ -1,13 +1,15 @@
-// import config from "../config";
-import behance from '../assets/behance.svg'
-import linkedin from '../assets/linkedin.svg'
-import github from '../assets/github.svg'
+import "./style.scss"
+import config from "../../consts/config";
+
 
 export default function Footer(){
 
     
     function render():HTMLElement{
         const footer:HTMLDivElement = document.createElement("div");
+        
+        const { linkedin, behance, github } = config["social-media"].icons;
+
         footer.id = "footer"
         footer.innerHTML += `
             <div class="footer-wrapper">

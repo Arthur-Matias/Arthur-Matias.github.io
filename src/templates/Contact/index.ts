@@ -1,5 +1,5 @@
-import config from "../config";
-import attachmentClip from "../assets/clip.svg"
+import "./style.scss"
+import config from "../../consts/config";
 import axios from "axios";
 
 type Form = {
@@ -17,7 +17,7 @@ type FormType = HTMLFormElement & Form
 export default function Contact(){
     const contactConf = config["contact"]
     const sections = contactConf.sections;
-
+    const attachmentClip = contactConf.icons[0]
     let name = "";
     function render():HTMLElement{
         const contact:HTMLDivElement = document.createElement("div");
@@ -25,7 +25,7 @@ export default function Contact(){
         contact.innerHTML += `
             <div class="contact-wrapper">
                 <h2 class="styled-text">${contactConf.title}</h2>
-                <form enctype="multipart/form-data" method="POST" action="https://formspree.io/f/mpzbzolz" id="contact-form">
+                <form id="contact-form">
                     <div class="form-section active">
                         <p class="section-description">
                             ${sections[0].title}
@@ -215,7 +215,7 @@ export default function Contact(){
             email = form.email.value,
             phone = form.phone.value;
 
-        let regex = /^\s*(?:\+?(\d{1,4}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/
+        let regex = /^\s*(?:\+?(\d{1,4}))?[-. (]*(\d{3,4})[-. )]*(\d{3,4})[-. ]*(\d{4})(?: *x(\d+))?\s*$/
         
         if (!phone.match(regex)) {
             alert("The phone number inserted is not valid")

@@ -16,6 +16,7 @@ export default function Colors(){
     }
 
     function setMainColor(value: string){
+        console.log(value)
         document.documentElement.style.setProperty("--main-color", `hsl(${value}, 96%, 45%)`);
         document.documentElement.style.setProperty("--hue-angle", `${value}deg`);
     }

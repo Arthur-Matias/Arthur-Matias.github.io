@@ -1,15 +1,15 @@
-import behance from '../assets/behance.svg'
-import linkedin from '../assets/linkedin.svg'
-import github from '../assets/github.svg'
-import config from '../config';
+import config from "../../consts/config";
+import "./style.scss"
 
 export default function Topbar(){
     
     function render():HTMLElement{
-        let menuConf = config["menu"];
-        let links = menuConf.links
-        let texts = menuConf.texts
-        const topBar:HTMLDivElement = document.createElement("div");
+        const menuConf = config["menu"],
+            { linkedin, behance, github } = config["social-media"].icons,
+            links = menuConf.links,
+            texts = menuConf.texts,
+            topBar:HTMLDivElement = document.createElement("div");
+        
         topBar.id = "topbar"
         topBar.innerHTML += `
             <div class="topbar-wrapper">
@@ -47,20 +47,20 @@ export default function Topbar(){
 
         return topBar;
     }
-    function handleLinkClick(/*e: Event*/){
-        const menu = document.getElementById("topbar") as HTMLDivElement;
-        const btn = document.getElementsByClassName("btn6")[0] as HTMLDivElement;
+    function handleLinkClick(){
+        const menu = document.getElementById("topbar") as HTMLDivElement,
+              btn = document.getElementsByClassName("btn6")[0] as HTMLDivElement;
         menu.classList.toggle("open");
         btn.classList.toggle("active");
     }
     function handleSlider(changeColor: (value: string)=>void){
         const slider = document.getElementById("color-slider") as HTMLInputElement;
-        // console.log(slider.value)
+        
         changeColor(slider.value)
     }
     function handleMenuClick(){
-        const btn = document.getElementsByClassName("btn6")[0] as HTMLDivElement;
-        const menu = document.getElementById("topbar") as HTMLDivElement;
+        const btn = document.getElementsByClassName("btn6")[0] as HTMLDivElement,
+              menu = document.getElementById("topbar") as HTMLDivElement;
         menu.classList.toggle("open");
         btn.classList.toggle("active");
     }

@@ -1,11 +1,9 @@
-import config from "../config";
+import "./style.scss"
+import config from "../../consts/config";
 
 export default function Home(){
-
     const { greetings,name, description } = config["home"].texts;
-    // const image = config["home"].image;
-    console.log(greetings, name, description)
-    
+
     function render():HTMLElement{
         const home:HTMLDivElement = document.createElement("div");
         home.id = "home"
@@ -13,7 +11,7 @@ export default function Home(){
         home.innerHTML += `
             <div class="home-wrapper">
                 <div class="square"></div>
-                <div class="img"></div>
+                <div class="img" style="background-image: url(${config["home"].image});"></div>
                 <div class="texts">
                     <h6>${greetings}</h6>
                     <h1 class="styled-text">${fName}</h1>
@@ -22,7 +20,6 @@ export default function Home(){
                 </div>
             </div>
         `;
-
 
         return home;
     }
