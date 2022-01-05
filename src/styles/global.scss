@@ -9,6 +9,7 @@ body{
   position: fixed;
 }
 #app {
+  scroll-behavior: smooth;
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -29,10 +30,11 @@ body{
   padding-top: 10vh;
 }
 .app-wrapper{
+  height: 100%;
   width: 100%;
   display: grid;
   position: relative;
-  grid-template-rows: 90vh 100vh 110vh 150px;
+  grid-template-rows: 90vh 100vh 100% 150px;
   grid-template-columns: 100vw;
 
   overflow-x: hidden;
