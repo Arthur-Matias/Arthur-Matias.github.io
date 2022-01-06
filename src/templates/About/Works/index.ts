@@ -16,7 +16,7 @@ export default function Works(){
         works.id = id;
         works.classList.add("swiper");
         works.classList.add("works");
-        let beginning: string = `<div id="close-btn">close</div><div class="works-wrapper swiper-wrapper">`;
+        let beginning: string = `<div id="close-btn">X</div><div class="works-wrapper swiper-wrapper">`;
         let end: string = '<div class="texts-wrapper">';
         items.map(item=>{
             beginning += `
@@ -55,7 +55,7 @@ export default function Works(){
         swiper = new Swiper(".swiper",{
             loop: true,
             slidesPerView: 3,
-            spaceBetween: 30,
+            spaceBetween: 80,
             height: window.innerHeight*0.4,
             preloadImages: true,
             centeredSlides: true,
