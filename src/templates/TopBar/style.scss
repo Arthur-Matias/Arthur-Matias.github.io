@@ -6,7 +6,7 @@
     display: grid;
     grid-template-columns: 1fr 10fr 1fr;
     background-color: var(--dark-gray);
-    z-index: 100;
+    z-index: 500;
     transition: ease .2s;
     align-self: flex-start;
     position: fixed;
@@ -23,7 +23,7 @@
         .topbar-wrapper{
             display: grid;
             grid-template-columns: 1fr 10fr 1fr;
-            grid-template-rows: 2fr 8fr 4fr;
+            grid-template-rows: 10vh 8fr 6fr;
         }
         #menu{
             display: flex;

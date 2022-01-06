@@ -115,7 +115,7 @@ const config = {
                 },
                 name: "Website UI for bar",
                 imgSrc: curfewBarImg,
-                description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eleifend lectus vel gravida vehicula. Sed congue eget mi eget euismod. Pellentesque fringilla viverra nisl, eget tincidunt tortor viverra eget. Fusce ultricies non enim ut egestas`
+                description: `This wireframe was created for a Texan bar, where the idea was to convey a young and welcoming place, and so I created the whole design part. Developed using Figma, Photoshop and Illustrator.`
             },
             {
                 buttons: {
@@ -123,7 +123,7 @@ const config = {
                 },
                 name: "Cover and frame for facebook for Academic Athletic Association",
                 imgSrc: coverFbImg,
-                description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eleifend lectus vel gravida vehicula. Sed congue eget mi eget euismod. Pellentesque fringilla viverra nisl, eget tincidunt tortor viverra eget. Fusce ultricies non enim ut egestas`
+                description: `This banner and filter were developed for freshmen of the exact science courses at UFPR to use on their Facebooks. The main idea was to bring the feeling of victory and acceptance. The entire design idea was based on the AAACE colors and mascot.`
             },
             {
                 buttons: {
@@ -131,7 +131,7 @@ const config = {
                 },
                 name: "Strap Leash, Mug and T-Shirt Design for Academic Athletic Association",
                 imgSrc: physicalStuff,
-                description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eleifend lectus vel gravida vehicula. Sed congue eget mi eget euismod. Pellentesque fringilla viverra nisl, eget tincidunt tortor viverra eget. Fusce ultricies non enim ut egestas`
+                description: `Created for a university party in the exact science sector at UFPR, I tried to use the athletic standard in a young, laid-back, and even minimalist way, to get away from the conventional. For the creation I used Photoshop and Illustrator.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eleifend lectus vel gravida vehicula. Sed congue eget mi eget euismod. Pellentesque fringilla viverra nisl, eget tincidunt tortor viverra eget. Fusce ultricies non enim ut egestas`
             },
             {
                 buttons: {
@@ -139,7 +139,7 @@ const config = {
                 },
                 name: "Guitar Book Cover",
                 imgSrc: guitarBookImg,
-                description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eleifend lectus vel gravida vehicula. Sed congue eget mi eget euismod. Pellentesque fringilla viverra nisl, eget tincidunt tortor viverra eget. Fusce ultricies non enim ut egestas`
+                description: `Created for a US client who was going to publish his first book. As the idea was to write about string instruments, I used the image of a guitar as it is known worldwide, and adapted its colors to the context of the cover. To create I used Photoshop and Illustrator.`
             },
             {
                 buttons: {
@@ -147,7 +147,7 @@ const config = {
                 },
                 name: "Institutional Video for UFPR Robotics Team Yapira",
                 imgSrc: yapiraVideoImg,
-                description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eleifend lectus vel gravida vehicula. Sed congue eget mi eget euismod. Pellentesque fringilla viverra nisl, eget tincidunt tortor viverra eget. Fusce ultricies non enim ut egestas`
+                description: `I created this video for the robotics team Yapira from UFPR, the idea was to let the followers of social networks know about the team's participation in a national robotics tournament. I used a video of the combat robot "Invader", the music and the colors to give it some suspense. I made it using Premiere Pro and Illustrator.`
             },
             {
                 buttons: {
@@ -155,7 +155,7 @@ const config = {
                 },
                 name: "E-Sports Team Logo Redesign",
                 imgSrc: logoRedesignImg,
-                description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eleifend lectus vel gravida vehicula. Sed congue eget mi eget euismod. Pellentesque fringilla viverra nisl, eget tincidunt tortor viverra eget. Fusce ultricies non enim ut egestas`
+                description: `The project's idea was to redesign a competitive E-sports FIFA team logo. The name was The Empire, and as they already used a Spartan helmet in the old logo, I decided to follow the same idea, but bringing a logo more consistent with what they practiced, making it more intimidating. To create I used Illustrator`
             },
         ],
         Development: [
@@ -166,7 +166,7 @@ const config = {
                 },
                 name: "Space Game",
                 imgSrc: spaceGameImg,
-                description: `A "Asteroids" like game, made in unity and built for the web with the WebGL plugin. Use <b>W</b>, <b>A</b>, <b>S</b>, <b>D</b> or <b>Arrow Keys</b> to move the player and <b>SPACE</b> to shoot.`
+                description: `A "Asteroids" like game, made in Unity and built for the web with the WebGL plugin. Use <b>W</b>, <b>A</b>, <b>S</b>, <b>D</b> or <b>Arrow Keys</b> to move the player and <b>SPACE</b> to shoot.`
             },
             {
                 buttons: {
@@ -212,7 +212,7 @@ const config = {
                 },
                 name: "Pong",
                 imgSrc: pongImg,
-                description: `Game Pong made in Processing/p5.js\n To play it you can use the <b>Up</b> and <b>Down</b> Arrow Keys to move the right pad, and <b>W</b>/<b>S</b> to move the left pad.`
+                description: `Game Pong made in Processing/p5.js\n To play it you can use the <b>Up</b>/<b>Down</b> Arrow Keys to move the right pad, and <b>W</b>/<b>S</b> to move the left pad.`
             },
             {
                 buttons: {

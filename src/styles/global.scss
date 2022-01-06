@@ -34,7 +34,7 @@ body{
   width: 100%;
   display: grid;
   position: relative;
-  grid-template-rows: 90vh 100vh 100% 150px;
+  grid-template-rows: 90vh 100vh 100% 200px;
   grid-template-columns: 100vw;
 
   overflow-x: hidden;
@@ -44,7 +44,11 @@ body{
 .styled-text{
   font-family: 'Major Mono Display', monospace;
 }
-
+@media screen and (max-width: 600px) {
+  .app-wrapper{
+    grid-template-rows: 90vh 100vh 100% 300px;
+  }
+}
 ::-webkit-scrollbar {
   width: .2rem;
 }
