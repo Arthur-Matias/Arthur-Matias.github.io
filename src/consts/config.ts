@@ -131,7 +131,7 @@ const config = {
                 },
                 name: "Strap Leash, Mug and T-Shirt Design for Academic Athletic Association",
                 imgSrc: physicalStuff,
-                description: `Created for a university party in the exact science sector at UFPR, I tried to use the athletic standard in a young, laid-back, and even minimalist way, to get away from the conventional. For the creation I used Photoshop and Illustrator.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eleifend lectus vel gravida vehicula. Sed congue eget mi eget euismod. Pellentesque fringilla viverra nisl, eget tincidunt tortor viverra eget. Fusce ultricies non enim ut egestas`
+                description: `Created for a university party in the exact science sector at UFPR, I tried to use the athletic standard in a young, laid-back, and even minimalist way, to get away from the conventional. For the creation I used Photoshop and Illustrator.`
             },
             {
                 buttons: {
