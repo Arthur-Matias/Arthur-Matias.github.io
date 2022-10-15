@@ -56,9 +56,9 @@ If you want to check the deployed/live version, please, check here [link](https:
 
 The following tools were used in this project:
 
+- [Vite](https://vitejs.dev/)
+- [Svelte](https://svelte.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
-- [SCSS](https://sass-lang.com/)
 
 ## :white_check_mark: Requirements ##
 
@@ -79,7 +79,6 @@ $ yarn
 # Run the project
 $ yarn dev
 
-# The server will initialize in the <http://localhost:3000>
 ```
 
 ## :memo: License ##
