@@ -1,20 +1,22 @@
 {
-  "name": "personal-webpage",
+  "name": "frontend-os",
+  "private": true,
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "serve": "vite preview"
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {
-    "@types/axios": "^0.14.0",
-    "@types/swiper": "^6.0.0",
-    "typescript": "^4.3.2",
-    "vite": "^2.6.4"
-  },
-  "dependencies": {
-    "axios": "^0.24.0",
-    "sass": "^1.44.0",
-    "swiper": "^7.4.1"
+    "@sveltejs/vite-plugin-svelte": "^1.0.2",
+    "@tsconfig/svelte": "^3.0.0",
+    "svelte": "^3.49.0",
+    "svelte-check": "^2.8.1",
+    "svelte-preprocess": "^4.10.7",
+    "tslib": "^2.4.0",
+    "typescript": "^4.6.4",
+    "vite": "^3.1.0"
   }
 }
