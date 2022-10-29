@@ -16,8 +16,8 @@
         <LauncherButton />
     </div>
     <div class="open-apps">
-        {#each openAppsArr as openApp}
-            <ToolbarAppIcon id={allApps[openApp].id} icon={allApps[openApp].icon} />
+        {#each openAppsArr.sort() as openApp}
+            <ToolbarAppIcon id={allApps[openApp].id} icon={allApps[openApp].shortcutIcon} />
         {/each}
     </div>
     <div class="lang">

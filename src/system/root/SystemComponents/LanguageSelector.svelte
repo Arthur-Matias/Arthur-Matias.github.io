@@ -25,16 +25,18 @@
         cursor: pointer;
         user-select: none;
         filter: opacity(0);
-        z-index: 4;
+        z-index: 0;
         position: absolute;
         bottom: 5rem;
         padding: 1rem;
         transition: ease-in .1s;
+        transform: translateY(200%);
     }
-    .open{
+    #language-selector.open{
+        transform: translateY(0) ;
         transition: ease-out .1s;
-        filter: opacity(1) !important;
-        z-index: 4 !important;
+        filter: opacity(1) ;
+        z-index: 4 ;
     }
     .item{
         padding: 1rem;

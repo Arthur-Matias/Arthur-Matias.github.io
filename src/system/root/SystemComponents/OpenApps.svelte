@@ -1,19 +1,25 @@
 <script lang="ts">
     import state from "../../../consts/state";
     import type { AppProps } from "../../../consts/types";
-    import { openApps } from "../../../consts/stores";
+    import { openApps, activeLang } from "../../../consts/stores";
     import Window from "../../components/Window.svelte";
+    import WindowWithOptions from "../../components/WindowWithOptions.svelte";
 
-    $: openAppsArr = $openApps;
     const allApps: AppProps[] = state.allApps;
 </script>
 
 <div id="open-apps">
-    {#if openAppsArr.length}
-        {#each openAppsArr as openApp}
-            <Window props={allApps[openApp]}>
-                <svelte:component this={allApps[openApp].appContent} props={allApps[openApp]} />
-            </Window>
+    {#if $openApps.length > 0}
+        {#each $openApps as openApp, i}
+            {#if allApps[openApp].options}
+                <WindowWithOptions props={allApps[openApp]}>
+                    <svelte:component this={allApps[openApp].appContent} props={allApps[openApp]} />
+                </WindowWithOptions>
+            {:else}
+                <Window props={allApps[openApp]}>
+                    <svelte:component this={allApps[openApp].appContent} props={allApps[openApp]} />
+                </Window>
+            {/if}
         {/each}
     {/if}
 </div>

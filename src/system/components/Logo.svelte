@@ -15,7 +15,7 @@
             stroke-linecap="round" 
             stroke-linejoin="round" 
             d="M836,723.38,746.15,879c-91.55-65-201.94-97.48-314-90.64A495.2,495.2,0,0,0,182.26,879L341.42,604.53c77-20.52,158.3-10.26,228.46,28.21-41.07-70.11-81.29-141.08-122.36-211.2-9.41-17.1-19.68-33.34-29.09-50.44L124.07,879H90.7L0,723.38,418.43,0Z" 
-            />
+        />
     </svg>
 </div>
 
@@ -35,11 +35,11 @@
     }
 
     @keyframes dash {
-    from {
-        stroke-dashoffset: 5000;
-    }
-    to {
-        stroke-dashoffset: 0;
-    }
+        from {
+            stroke-dashoffset: 5000;
+        }
+        to {
+            stroke-dashoffset: 0;
+        }
     }
 </style>

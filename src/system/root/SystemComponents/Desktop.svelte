@@ -12,7 +12,7 @@
 <div id="desktop">
     <BackgroundImage />
     {#each allApps as shortcut}
-        <Shortcut onRun={()=>{}} props={shortcut} />
+        <Shortcut onRun={()=>{}} iconColor="var(--white)" props={shortcut} />
     {/each}
     <div class="empty-space" style="height: 100%; width:100%;"></div>
     <OpenApps />

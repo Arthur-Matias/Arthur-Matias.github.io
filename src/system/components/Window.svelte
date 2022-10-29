@@ -1,68 +1,76 @@
 <script lang="ts">
-    import type { AppProps, size } from '../../consts/types';
-    import { openApps, minimizedApps, activeLang } from '../../consts/stores'
+    import type { AppProps } from '../../consts/types';
+    import { minimizedApps, activeLang } from '../../consts/stores'
     import WindowManager from '../root/Controllers/WindowManager';
     import state from '../../consts/state';
     import Logo from './Logo.svelte';
-
+    import { onMount } from 'svelte';
+    import IconSelector from './IconSelector.svelte';
 
     export let props: AppProps;
-    let originalSize:size = {
-        w: props.minSize.w?props.minSize.w:600,
-        h: props.minSize.h?props.minSize.h:300
-    }
-    let moving = false;
-    
-    $: w = originalSize.w;
-    $: h = originalSize.h;
-    $: pos = {
-        left: window.innerWidth/2 - w/2,
-        top: window.innerHeight/2 - h/2
-    }
 
+    // onMount(()=>{
+    //     props.geometry.position.x += activeindex * 32
+    //     props.geometry.position.y += activeindex * 32
+    // })
+
+    let moving = false;
     $: maximized = false;
     
-
     // ------------------------------------------------
     // Window Controls
     // ------------------------------------------------
 
-
     function maximize(){
-        const windowHeight = window.innerHeight - 76 - 16
 
-        if(h< windowHeight){
-            maximized = true
-            h = windowHeight
-            w = window.innerWidth
+        const windowHeight = window.innerHeight - 76 - 16;
+
+        if(props.geometry.currSize.y< windowHeight){
+            maximized = true;
+            
+            props.geometry.currSize.x = window.innerWidth;
+            props.geometry.currSize.y = windowHeight;
+            props.geometry.position.x = 0;
+            props.geometry.position.y = 0;
         }else{
             maximized = false
-            h = originalSize.h
-            w = originalSize.w
+            props.geometry.currSize.x = props.geometry.minSize.x;
+            props.geometry.currSize.y = props.geometry.minSize.y;
+            props.geometry.position.x = window.innerWidth/2 - props.geometry.currSize.x/2;
+            props.geometry.position.y = window.innerHeight/2 - props.geometry.currSize.y/2;
         }
     }
     function close(){
+        if(maximized){
+            maximize()
+        }
         WindowManager.closeApp(props.id)
     }
     export function minimize(){
         WindowManager.minimizeApp(props.id)
     }
 
-
     // ------------------------------------------------
     // Window Drag
     // ------------------------------------------------
 
-
-	function onMouseDown() {
-		if (!maximized) {
-            moving = true;
+	function onMouseDown(e: MouseEvent) {
+        // WindowManager.changeActiveAppIndex(props.id)
+		if (maximized) {
+            maximize()
+            props.geometry.position.x = e.pageX - props.geometry.currSize.x/2;
+            props.geometry.position.y = e.pageY 
         }
+        moving = true;
 	}
 	function onMouseMove(e) {
 		if (moving) {
-			pos.left += e.movementX;
-			pos.top += e.movementY;
+            if(((props.geometry.position.x + e.movementX + props.geometry.currSize.x/2) < window.innerWidth) && ((props.geometry.position.x + e.movementX) > 0 - props.geometry.currSize.x/2) ){
+                props.geometry.position.x += e.movementX
+            }
+            if( ((props.geometry.position.y + e.movementY + props.geometry.currSize.y/2) < window.innerHeight) && ((props.geometry.position.y + e.movementY) > 0) ){
+                props.geometry.position.y += e.movementY
+            }
 		}
 	}
 	function onMouseUp() {
@@ -72,27 +80,26 @@
         maximize()
     }
 
-
 </script>
 
 <svelte:window on:mouseup={onMouseUp} on:mousemove={onMouseMove} />
 
 <div 
     class="window {maximized?"maximized":"round"} {$minimizedApps.includes(props.id)?"minimized":""}"
-    style={`width: ${w}px; \nheight: ${h}px; \ntop: ${pos.top}px; left: ${pos.left}px;`}
-    on:dblclick={handleWindowHeaderDBClick}
+    style={`width: ${props.geometry.currSize.x}px; \nheight: ${props.geometry.currSize.y}px; \ntop: ${props.geometry.position.y}px; left: ${props.geometry.position.x}px;`}
+    on:click={()=>WindowManager.changeActiveAppIndex(props.id)}
 >
-    <div on:mousedown={onMouseDown} class={`header ${maximized?"maximized":"round-top"}`} >
+    <div on:dblclick={handleWindowHeaderDBClick} class={`header ${maximized?"maximized":"round-top"}`} >
         <div class="window-icon">
-            <Logo fill="var(--accent)" />
+            <IconSelector iconName={props.icon} />
         </div>
-        <div class="window-name">
+        <div class="window-name" on:mousedown={onMouseDown}>
             <p>{state.allTexts[$activeLang].apps[props.id].name}</p>
         </div>
         <div class="window-controls">
             <div class="window-btn minimize" on:click={minimize}>
                 <div class="btn-icon">
-                    <svg class="scale7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="scale7" viewBox="0 0 11.2 1.5" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M15 2H1C0.734784 2 0.48043 1.89464 0.292893 1.70711C0.105357 1.51957 0 1.26522 0 1C0 0.734784 0.105357 0.48043 0.292893 0.292893C0.48043 0.105357 0.734784 0 1 0H15C15.2652 0 15.5196 0.105357 15.7071 0.292893C15.8946 0.48043 16 0.734784 16 1C16 1.26522 15.8946 1.51957 15.7071 1.70711C15.5196 1.89464 15.2652 2 15 2Z" fill="var(--bg-dark)"/>
                     </svg>
                 </div>
@@ -132,11 +139,9 @@
 <style>
    .window{
        z-index: 1;
-       /* background-color: black; */
        position: absolute;
        display: flex;
        flex-direction: column;
-       transition: cubic-bezier(0.075, 0.82, 0.165, 1) .2s;
        user-select: none;
     }
     .window.maximized{
@@ -180,9 +185,13 @@
         background-color: aliceblue;
         height: 1rem;
         width: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .btn-icon{
-        
+        height: 100%;
+        width: 100%;
         color: var(--bg-dark);
         display: flex;
         align-items: center;
@@ -196,7 +205,6 @@
         filter: opacity(0);
     }
     .scale7{
-        margin-top: 45%;
         transform: scaleX(.7) !important;
     }
     .scale6{

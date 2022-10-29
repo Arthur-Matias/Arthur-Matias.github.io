@@ -63,7 +63,7 @@
         align-items: center;
         justify-content: start;
         text-align: left;
-
+        backdrop-filter: blur(16px);
         background-color: var(--bg-dark-transparent);
         backdrop-filter: blur(32px);
         transition: ease-in;

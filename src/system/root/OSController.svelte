@@ -12,9 +12,11 @@
 
     isTurnedOff.set(false)
     function handleKeyDown(e: KeyboardEvent){
-        if( e.key === "Enter" || e.code === "Space" ){
-            isBootLoading.set(true)
-            isTurnedOff.set(false)
+        if($isTurnedOff){
+            if( e.key === "Enter" || e.code === "Space" ){
+                isBootLoading.set(true)
+                isTurnedOff.set(false)
+            }
         }
     }
 </script>

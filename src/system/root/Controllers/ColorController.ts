@@ -25,7 +25,8 @@ const lightColors:ThemeColors = {
 class ColorController{
     private colors: {
         theme: ThemeColors[],
-        mainColors: string[]
+        mainColors: string[],
+        mainColorsLight: string[]
     };
     private activeMode: eThemeMode = eThemeMode.Dark;
 
@@ -43,6 +44,17 @@ class ColorController{
                 "#2401BA",
                 "#6A0099",
                 "#474746",
+            ],
+            mainColorsLight: [
+                "#FF3375",
+                "#FF834C",
+                "#FFDA52",
+                "#31FE1B",
+                "#02F3C3",
+                "#498FFD",
+                "#4E25FE",
+                "#B100FF",
+                "#7B7B7A",
             ]
         };
         this.activeMode = eThemeMode.Dark
@@ -53,19 +65,19 @@ class ColorController{
         activeColor.set(colorIndex)
         isLoading.set(true)
         // this.activeColor = colorIndex
-        this.updateColors()
+        this.updateColors(300)
     }
     public changeActiveTheme(themeMode: eThemeMode){
         activeTheme.set(themeMode)
         isLoading.set(true)
-        this.updateColors()
+        this.updateColors(500)
     }
     public changeOpacity(val: number){
         transparency.set(val)
-        this.updateColors()
+        this.updateColors(50)
     }
 
-    public updateColors(){
+    public updateColors(timeout?: number){
 
         let active: number;
         let opacity: number;
@@ -97,14 +109,14 @@ class ColorController{
         document.documentElement.style.setProperty('--bg-dark-transparent', this.ActiveTheme.bgDarkTransparent);
         document.documentElement.style.setProperty('--bg-light', this.ActiveTheme.bgLight);
         document.documentElement.style.setProperty('--main-color', this.colors.mainColors[active]);
-        document.documentElement.style.setProperty('--main-color-light', '#YOURCOLOR');
+        document.documentElement.style.setProperty('--main-color-light', this.colors.mainColorsLight[active]);
         document.documentElement.style.setProperty('--accent', this.ActiveTheme.accent);
         document.documentElement.style.setProperty('--accent-light', this.ActiveTheme.accentLight);
         
 
         setTimeout(()=>{
             isLoading.set(false)
-        }, 1000)
+        }, timeout?timeout:1000)
     }
 
     public get ActiveTheme():ThemeColors{

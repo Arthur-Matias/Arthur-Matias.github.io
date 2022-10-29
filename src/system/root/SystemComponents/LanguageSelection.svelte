@@ -1,12 +1,10 @@
 <script lang="ts">
     import { activeLang, isLanguageSelectionOpen } from "../../../consts/stores";
-    import type { lang } from "../../../consts/types";
     import LanguageSelector from "./LanguageSelector.svelte";
 
     let active = false;
 
     function showOptions(){
-        console.log($isLanguageSelectionOpen)
         isLanguageSelectionOpen.update(()=>!$isLanguageSelectionOpen)
     }
     function toggleOptions(){

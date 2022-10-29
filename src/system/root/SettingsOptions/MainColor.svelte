@@ -13,7 +13,7 @@
 </script>
 
 <div id="accent-color-setting">
-    {#each state.mainColorsArr as color, index}
+    {#each ColorController.AllMainColors as color, index}
         <div class="color-btn {$activeColor === index?"active":""}" style="background-color: {color} !important;" on:click={()=>handleClick(index)}></div>
     {/each}
 </div>

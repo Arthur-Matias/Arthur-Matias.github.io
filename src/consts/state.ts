@@ -1,11 +1,18 @@
 import ColorController from "../system/root/Controllers/ColorController";
-import type { AppProps, ThemeColors } from "./types";
-import WelcomeApp from "../system/apps/WelcomeApp.svelte";
+import type { AppProps, iState, Texts, ThemeColors } from "./types";
+import { homeActive } from "./stores";
 import MainColor from '../system/root/SettingsOptions/MainColor.svelte'
+
+import WelcomeApp from "../system/apps/WelcomeApp.svelte";
+import Browser from "../system/apps/Browser.svelte";
+import Mail from "../system/apps/Mail.svelte";
+
 import Theme from '../system/root/SettingsOptions/Theme.svelte'
 import Transparency from '../system/root/SettingsOptions/Transparency.svelte'
 import BackgroundSelector from '../system/root/SettingsOptions/BackgroundSelector.svelte'
+import { eIcons } from "./enums";
 
+// Importing BGS
 import image1 from '../assets/wallpapers/1.png'
 import image2 from '../assets/wallpapers/2.png'
 import image3 from '../assets/wallpapers/3.png'
@@ -20,9 +27,9 @@ import image11 from '../assets/wallpapers/11.png'
 import image12 from '../assets/wallpapers/12.png'
 import image13 from '../assets/wallpapers/13.png'
 import image14 from '../assets/wallpapers/14.png'
+// done importing bgs
 
-
-function State(){
+function State(): iState {
 
     const images = {
         background: [
@@ -42,11 +49,20 @@ function State(){
             image14,
         ]
     }
-    const pt = {
+    const pt: Texts = {
         apps: [
             {
                 name: "bem vindo",
                 description: "Lorem ipsum sit dolor amet ....",
+            },
+            {
+                name: "navegador",
+                description: "Lorem ipsum sit dolor amet ....",
+            },
+            {
+                name: "email",
+                description: "Lorem ipsum sit dolor amet ....",
+
             },
         ],
         config: {
@@ -73,12 +89,84 @@ function State(){
             "criando usuário ...",
             "conectando banco de dados ...",
             "carregando interface gráfica ...",
-        ]
+        ],
+        about: {
+            links: [
+                {
+                    url: "#home",
+                    name: "início"
+                },
+                {
+                    url: "#about",
+                    name: "Sobre"
+                },
+            ],
+            title: "sobre",
+            homeTitle: [
+                "Olá, meu nome é",
+                "Arthur Matias",
+                "Um desenvolvedor criativo de softwares e designer"
+            ],
+            texts: [
+                "I'm a software developer, who loves creating visual simulations using a lot of science and creativity!",
+                "Feel free to contact if you want to know more about me, my past projects or even to discuss a future one."
+            ],
+            social: {
+                title: "me encontre",
+                social: [
+                    {
+                        id: "behance",
+                        link: ""
+                    },
+                    {
+                        id: "github",
+                        link: ""
+                    },
+                    {
+                        id: "linkedin",
+                        link: ""
+                    },
+                ]
+            }
+        },
+        mail: {
+            from: {
+                placeholder: "seu email",
+                title: "de"
+            },
+            subject: {
+                placeholder: "motivo do contato",
+                title: "titulo do email"
+            },
+            message: {
+                placeholder: "digite sua mensagem aqui"
+            },
+            tray: {
+                attatchments: {
+                    title: "anexos"
+                },
+                btn: {
+                    title: "enviar",
+                    icon: eIcons.arrowRight
+                }
+            }
+        },
+        login: {
+            phrase: "Pressione qualquer tecla"
+        }
     }
-    const en = {
+    const en: Texts = {
         apps: [
             {
                 name: "welcome",
+                description: "Lorem ipsum sit dolor amet ...."
+            },
+            {
+                name: "browser",
+                description: "Lorem ipsum sit dolor amet ....",
+            },
+            {
+                name: "mail",
                 description: "Lorem ipsum sit dolor amet ...."
             },
         ],
@@ -106,22 +194,147 @@ function State(){
             "creating user ...",
             "connecting databases ...",
             "loading GUI ...",
-        ]
+        ],
+        about: {
+            links: [
+                {
+                    exec: () => { homeActive.set(true) },
+                    name: "home"
+                },
+                {
+                    exec: () => { homeActive.set(false) },
+                    name: "about"
+                },
+            ],
+            title: "about",
+            homeTitle: [
+                "Hi, my name is",
+                "Arthur Matias",
+                "Creative software developer and designer"
+            ],
+            texts: [
+                "I'm a software developer, who loves creating visual simulations using a lot of science and creativity!",
+                "Feel free to contact if you want to know more about me, my past projects or even to discuss a future one."
+            ],
+            social: {
+                title: "find me",
+                social: [
+                    {
+                        id: "behance",
+                        link: ""
+                    },
+                    {
+                        id: "github",
+                        link: ""
+                    },
+                    {
+                        id: "linkedin",
+                        link: ""
+                    },
+                ]
+            }
+        },
+        mail: {
+            from: {
+                placeholder: "your email",
+                title: "from"
+            },
+            subject: {
+                placeholder: "purpose of contact",
+                title: "subject"
+            },
+            message: {
+                placeholder: "write your message here"
+            },
+            tray: {
+                attatchments: {
+                    title: "attatchments"
+                },
+                btn: {
+                    title: "send",
+                    icon: eIcons.arrowRight
+                }
+            }
+        },
+        login: {
+            phrase: "Press any key"
+        }
     }
     const allTexts = {
-        "pt":pt,
-        "en":en
+        "pt": pt,
+        "en": en,
     }
     const allApps: AppProps[] = [
         {
-            icon: "/logo.svg",
+            icon: eIcons.logo,
+            shortcutIcon: eIcons.info,
             appContent: WelcomeApp,
             id: 0,
-            minSize: {
-                w: 400,
-                h: 300
+            geometry: {
+                minSize: {
+                    x: 400,
+                    y: 300
+                },
+                currSize: {
+                    x: 400,
+                    y: 300
+                },
+                position: {
+                    x: window.innerWidth / 2 - 400 / 2,
+                    y: window.innerHeight / 2 - 300 / 2
+                }
             }
-        }
+        },
+        {
+            icon: eIcons.browser,
+            shortcutIcon: eIcons.browserColored,
+            appContent: Browser,
+            id: 1,
+            geometry: {
+                minSize: {
+                    x: 600,
+                    y: 360
+                },
+                currSize: {
+                    x: 600,
+                    y: 360
+                },
+                position: {
+                    x: window.innerWidth / 2 - 600 / 2,
+                    y: window.innerHeight / 2 - 360 / 2
+                }
+            }
+        },
+        {
+            icon: eIcons.mail,
+            shortcutIcon: eIcons.mailColored,
+            appContent: Mail,
+            id: 2,
+            geometry: {
+                minSize: {
+                    x: 600,
+                    y: 400
+                },
+                currSize: {
+                    x: 600,
+                    y: 400
+                },
+                position: {
+                    x: window.innerWidth / 2 - 600 / 2,
+                    y: window.innerHeight / 2 - 400 / 2
+                }
+            },
+            options: [
+                {
+                    icon: eIcons.list,
+                    run: () => { console.log("start something") }
+                },
+                {
+                    icon: eIcons.plus,
+                    run: () => { console.log("start something") }
+                },
+            ]
+        },
     ]
     const settingsOptions = [
         MainColor,
@@ -129,29 +342,24 @@ function State(){
         Transparency,
         BackgroundSelector
     ]
-
-
-    function getAllApps(){
+    function getAllApps() {
         return allApps
     }
-    function getSettingsOptions(){
+    function getSettingsOptions() {
         return settingsOptions
     }
-    function getAllTexts(){
+    function getAllTexts() {
         return allTexts
     }
-    function getTheme(): ThemeColors{
+    function getTheme(): ThemeColors {
         return ColorController.ActiveTheme
     }
-    function getAllimages(){
+    function getAllimages() {
         return images
     }
     return {
         allApps: getAllApps(),
         allTexts: getAllTexts(),
-        theme: getTheme(),
-        mainColor: ColorController.ActiveColor,
-        mainColorsArr: ColorController.AllMainColors,
         settingsOptions: getSettingsOptions(),
         images: getAllimages()
     }

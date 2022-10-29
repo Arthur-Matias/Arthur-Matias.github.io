@@ -2,10 +2,10 @@
     import state from "../../consts/state";
     import type { lang, AppProps } from "../../consts/types";
     import  { openApps, activeLang } from "../../consts/stores";
-    import img from "../../assets/0076.png";
 
     import WindowManager from "../root/Controllers/WindowManager";
-    
+    import IconSelector from "./IconSelector.svelte";
+    export let iconColor = "var(--accent)";
     export let props: AppProps;
     export let openAtfirstClick = false;
     export let onRun: ()=>void;
@@ -28,26 +28,13 @@
         isMouseOver=false
     }
 
-    function checkIfInside(mouse: MouseEvent) {
-        let elem = document.getElementsByClassName("selected")[0] as HTMLElement,
-            elemRect = elem.getBoundingClientRect(),
-            bodyRect = document.body.getBoundingClientRect(),
-            offsetLeft = elemRect?.left - bodyRect.left,
-            offsetRight   = elemRect?.right - bodyRect.left,
-            offsetUp   = elemRect?.top - bodyRect.top,
-            offsetDown   = elemRect?.bottom - bodyRect.top
-
-            console.log((mouse.clientX > offsetLeft && mouse.clientX < offsetRight && mouse.clientY > offsetUp && mouse.clientY < offsetDown))
-            console.log()
-
-        return (mouse.clientX > offsetLeft && mouse.clientX < offsetRight) && (mouse.clientY > offsetUp && mouse.clientY < offsetDown)
-    }
+    
 
     function handleClick(){
         console.log("one click")
         setTimeout(()=>{
             isSelected = true
-        }, 50)
+        }, 10)
 
         if(openAtfirstClick){
             if(onRun){
@@ -58,13 +45,13 @@
     }
     
     function handleDoubleClick(mouse:MouseEvent){
-        console.log("double click")
-        if(!openAtfirstClick){
-            if(onRun){
-                onRun()
-            }
-            WindowManager.openApp(props.id)
+        if(openAtfirstClick){
+            return
         }
+        if(onRun){
+            onRun()
+        }
+        WindowManager.openApp(props.id)
     }
     function handleWindowClick(e:MouseEvent){
         if(isSelected)
@@ -101,9 +88,9 @@
     on:blur={()=>{}}
 >
     <div class="icon">
-        <img src={props.icon} alt="" />
+        <IconSelector iconColor={iconColor} iconName={props.shortcutIcon}/>
     </div>
-    <p class="app-name">
+    <p class="app-name" style="color: {iconColor};">
         {state.allTexts[$activeLang].apps[props.id].name}
     </p>
 </div>

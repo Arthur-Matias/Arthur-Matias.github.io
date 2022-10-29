@@ -4,5 +4,18 @@ export enum eThemeMode{
 }
 export enum eLang{
     En = "en",
-    Pt = "pt"
+    Pt = "pt",
 }
+export enum eIcons{
+    logo,
+    browser,
+    mail,
+    arrowRight,
+    browserColored,
+    mailColored,
+    plus,
+    list,
+    mailList,
+    info
+}
+

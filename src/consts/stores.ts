@@ -1,7 +1,8 @@
 import { writable } from "svelte/store";
 import { eLang, eThemeMode } from "./enums";
 
-let storage = localStorage['stores']?JSON.parse(localStorage['stores']):[]
+let storage = localStorage['stores'] ? JSON.parse(localStorage['stores']) : undefined
+console.log(storage)
 
 export const activeLang = writable(storage[0] || eLang.En);
 export const activeColor = writable(storage[1] || 0);
@@ -16,6 +17,7 @@ export const minimizedApps = writable(storage[9] || []);
 export const settingsTrayOpen = writable(storage[10] || false);
 export const transparency = writable(storage[11] || 0.6);
 export const activeBg = writable(storage[12] || 1);
+export const homeActive = writable(storage[13] || true);
 
 const stores = [
     activeLang,
@@ -31,13 +33,17 @@ const stores = [
     settingsTrayOpen,
     transparency,
     activeBg,
+    homeActive
 ]
 
-setInterval(()=>{
-    stores.map((store,i)=>{
-        store.subscribe((e)=>{
-            storage[i] = e
-        })
-    })
+function setStorage(store,i){
+    console.log("Auto saving storage: " + i)
+    console.log(storage[i])
+    console.log("-----------------------------")
+    storage[i] = store
     localStorage['stores'] = JSON.stringify(storage)
-}, 5000)
+}
+
+stores.map((store,i)=>{
+    store.subscribe((e)=>setStorage(e, i))
+})

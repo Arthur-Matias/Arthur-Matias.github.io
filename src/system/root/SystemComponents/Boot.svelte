@@ -32,10 +32,10 @@
 </script>
 
 <div id="boot-loading-screen" class={$isBootLoading?"show black":""}>
-    <div class="logo-container">
+    <div class="logo-container" style="{displayGreeting?"filter: opacity(0);":""}">
         <Logo stroke={logoStroke} fill={logoFill} strokeSize={logoStrokeSize} animated={true}/>
     </div>
-    <p class="boot-phrase">{currPhrase}</p>
+    <p class="boot-phrase" style="{displayGreeting?"filter: opacity(0);":""}">{currPhrase}</p>
 
     {#if displayGreeting}
         <div class="boot-greeting black">
@@ -105,8 +105,10 @@
         }
         50%{
             color: white;
+            opacity: 100%;
         }
         100%{
+            opacity: 0;
             color: black;
         }
     }
