@@ -1,7 +1,7 @@
-import './app.css'
-import App from './App.svelte'
+import "./system/Global/Styles/app.css"
+import OS from './system/OS.svelte'
 
-const app = new App({
+const app = new OS({
   target: document.getElementById('app')
 })
 
