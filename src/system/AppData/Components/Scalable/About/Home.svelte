@@ -1,7 +1,7 @@
 <script lang="ts">
     import state from "../../../Storage/state";
     import Logo from "../../../../Global/Components/Scalable/Icons/Logo.svelte";
-    import { activeLang }  from '../../../../Global/consts/stores'
+    import { activeLang, isMobile }  from '../../../../Global/consts/stores'
     import {openApps } from "../../../Storage/stores" 
     import { onMount, onDestroy } from "svelte";
     const fillColor = "var(--bg-light)"
@@ -20,9 +20,12 @@
         clearInterval(interval)
     })
     function handleChange(){
-        fontSize = Math.floor((el.getBoundingClientRect().width/1500) * ratio)
-        margin = Math.floor(fontSize * 15)
+        if(!$isMobile){
+            fontSize = Math.floor((el.getBoundingClientRect().width/1500) * ratio)
+            margin = Math.floor(fontSize * 15)
+        }
     }
+    
 </script>
 
 <div id="home" bind:this={el} on:change={handleChange}>
@@ -32,9 +35,9 @@
         </div>
     </div>
     <div class="title">
-        <p style="font-size: {fontSize}rem;">{props.texts[$activeLang].homeTitle[0]}</p>
-        <h2 style="font-size: {Math.floor(fontSize * ratio)}rem;  margin: {margin}px 0;">{props.texts[$activeLang].homeTitle[1]}</h2>
-        <p style="font-size: {fontSize}rem;">{props.texts[$activeLang].homeTitle[2]}</p>
+        <p style="{!$isMobile?"font-size: {fontSize}rem;":""}">{props.texts[$activeLang].homeTitle[0]}</p>
+        <h2 style="{!$isMobile?`font-size: ${Math.floor(fontSize * ratio)}rem;  margin: ${margin}px 0;`:""}">{props.texts[$activeLang].homeTitle[1]}</h2>
+        <p style="{!$isMobile?"font-size: {fontSize}rem;":""}">{props.texts[$activeLang].homeTitle[2]}</p>
     </div>
     <!-- COMPONENT HERE -->
 </div>
@@ -80,5 +83,11 @@
     }
     .title > p{
         font-weight: 100;
+    }
+    @media screen and (orientation:portrait) { 
+        .title > h2{
+            font-size: 2rem !important;
+            
+        }
     }
 </style>

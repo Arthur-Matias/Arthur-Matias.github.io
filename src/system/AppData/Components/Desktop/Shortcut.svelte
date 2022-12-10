@@ -121,6 +121,7 @@
     on:mouseover={MouseOver} 
     on:mouseout={MouseOut} 
     on:mousedown={onMouseDown}
+    on:touchend={handleClick}
     on:focus={()=>{}} 
     on:blur={()=>{}}
     on:keydown={()=>{}}
@@ -161,7 +162,9 @@
     }
     .shortcut .app-name {
         font-size: 0.7rem;
+        font-weight: bolder;
         text-transform: capitalize;
+        margin-top: 0.2rem;
     }
     .shortcut.selected {
         background: var(--main-color);

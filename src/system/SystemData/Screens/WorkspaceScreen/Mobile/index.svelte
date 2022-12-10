@@ -200,7 +200,10 @@
     @media screen and (max-height: 600px){
         .clock-container{
             margin-top: 3rem;
+            height: 11rem;
+            width: 11rem;
         }
+        
         .apps-container{
             height: 200px;
         }

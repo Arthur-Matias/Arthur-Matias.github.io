@@ -22,6 +22,7 @@ export enum eIcons{
     menu,
     close,
     note,
-    noteColored
+    noteColored,
+    delete
 }
 

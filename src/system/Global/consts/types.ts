@@ -9,8 +9,8 @@ type Vector = {
 }
 
 type Options = {
-    icon: eIcons,
-    run: ()=>void
+    icon: eIcons;
+    run: ()=>void;
 }
 type Geometry = {
     minSize?: Vector;

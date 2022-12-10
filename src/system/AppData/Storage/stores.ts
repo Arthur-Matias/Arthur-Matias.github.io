@@ -25,19 +25,10 @@ export const mail = writable({
     listReceivedMail: true,
     listSentMail: false,
 })
-
-// export const screens = writable({
-//     isOff: false,
-//     isBootActive: true,
-//     isLoginActive: false,
-//     isWorkspaceActive: false,
-//     isLoadingActive: false,
-// })
-
-// let bootActive = true,
-//     loginActive = false,
-//     desktopActive = false,
-//     loadingActive = false;
+export const notes = writable({
+    addNote: false,
+    listNotes: true
+})
 
 const stores = [
     // activeLang,

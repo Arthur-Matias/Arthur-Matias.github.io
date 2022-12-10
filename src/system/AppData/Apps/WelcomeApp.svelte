@@ -46,7 +46,6 @@
         position: relative;
         height: 100%;
         width: 100%;
-        overflow: hidden;
     }
     .wrapper{
         
@@ -63,7 +62,7 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
-        height: 100%;
+        height: auto;
     }
     .wrapper .name{
         font-size: 2rem;
@@ -116,5 +115,16 @@
         display: flex;
         flex-direction: column;
         text-align: start;
+    }
+    @media screen and (orientation:portrait) { 
+        /* .wrapper .name{
+            font-size: 2rem;
+            margin-bottom: 4rem;
+            margin-top: 2rem;
+        }
+        .container .title{
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        } */
     }
 </style>

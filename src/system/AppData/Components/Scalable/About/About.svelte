@@ -42,13 +42,14 @@
 
 <style>
     #about{
-        height: 100%;
+        height: auto;
         width: 100%;
         display: flex;
         flex-direction: row;
    }
    #about > section{ 
         width: 50%;
+        height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -97,4 +98,30 @@
         color: var(--main-color);
         font-family: distant-galaxy;
    }
+   @media screen and (orientation:portrait) { 
+        #about{
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .image-container{
+            width: 80%;
+            aspect-ratio: 1 / 1;
+            /* margin-top: 22rem; */
+            margin-bottom: 2rem;
+        }
+        #about > section{ 
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .text-wrapper{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+    }
 </style>

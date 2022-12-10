@@ -5,6 +5,7 @@
     import Menu from "./Icons/Menu.svelte";
     import SentMail from "./Icons/SentMail.svelte";
     import Close from "./Icons/Close.svelte";
+    import Delete from "./Icons/Delete.svelte";
 
     export let iconName: eIcons = eIcons.logo;
     export let iconColor = "var(--accent)";
@@ -59,6 +60,8 @@
         <ArrowRight iconColor={iconColor} />
     {:else if iconName === eIcons.close}
         <Close iconColor={iconColor} />
+    {:else if iconName === eIcons.delete}
+        <Delete iconColor={iconColor} />
     {:else}
         <Logo fill={iconColor} />
     {/if}
@@ -782,5 +785,8 @@
     }
     #icon-selector > img {
         height: 90%;
+    }
+    #icon-selector > svg {
+        height: 100%;
     }
 </style>

@@ -3,7 +3,7 @@
     import { activeLang } from "../../consts/stores";
 
     $: dateLang = $activeLang === "en"?"en-US":"pt-BR";
-    let dateObj = new Date()
+    $: dateObj = new Date()
     export let big: Boolean = false;
 
     $: date = dateObj.toLocaleDateString(dateLang);

@@ -3,13 +3,14 @@ import type { AppProps } from '../../Global/consts/types'
 import WelcomeApp from '../Apps/WelcomeApp.svelte'
 import Browser from '../Apps/Browser.svelte'
 import Mail from '../Apps/Mail.svelte'
-import { isHomeActive, mail } from './stores'
+import { isHomeActive, mail, notes } from './stores'
 import NotePad from '../Apps/NotePad.svelte'
 
 
 function AppState() {
 
     const apps: AppProps[] = [
+        // Welcome
         {
             icon: eIcons.logo,
             shortcutIcon: eIcons.info,
@@ -84,6 +85,7 @@ function AppState() {
                 }
             }
         },
+        // Browser
         {
             icon: eIcons.browser,
             shortcutIcon: eIcons.browserColored,
@@ -190,6 +192,7 @@ function AppState() {
                 },
             },
         },
+        // Mail
         {
 
             icon: eIcons.mail,
@@ -258,7 +261,12 @@ function AppState() {
                             title: "send",
                             icon: eIcons.arrowRight
                         }
-                    }
+                    },
+                    options: [
+                        "new",
+                        "inbox",
+                        "sent"
+                    ]
                 },
                 pt: {
                     name: "Email",
@@ -281,10 +289,16 @@ function AppState() {
                             title: "enviar",
                             icon: eIcons.arrowRight
                         }
-                    }
+                    },
+                    options: [
+                        "novo",
+                        "caixa de entrada",
+                        "enviados"
+                    ]
                 }
             }
         },
+        // Notes
         {
             icon: eIcons.note,
             shortcutIcon: eIcons.noteColored,
@@ -307,35 +321,33 @@ function AppState() {
             options: [
                 {
                     icon: eIcons.plus,
-                    run: () => { mail.set({
-                        createMail: true,
-                        listReceivedMail: false,
-                        listSentMail: false,
+                    run: () => { notes.set({
+                        addNote: true,
+                        listNotes: false,
                     }) }
                 },
                 {
                     icon: eIcons.mailList,
-                    run: () => { mail.set({
-                        createMail: false,
-                        listReceivedMail: true,
-                        listSentMail: false,
-                    }) }
-                },
-                {
-                    icon: eIcons.sentMail,
-                    run: () => { mail.set({
-                        createMail: false,
-                        listReceivedMail: false,
-                        listSentMail: true,
+                    run: () => { notes.set({
+                        addNote: false,
+                        listNotes: true,
                     }) }
                 },
             ],
             texts: {
                 en: {
                     name: "Notes",
+                    options: [
+                        "new",
+                        "notes"
+                    ]
                 },
                 pt: {
                     name: "Notas",
+                    options: [
+                        "nova",
+                        "notas"
+                    ]
                     
                 }
             }
