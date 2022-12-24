@@ -1,6 +1,6 @@
 <script lang="ts">
     import Logo from '../../../Global/Components/Scalable/Icons/Logo.svelte';
-    import { isLauncherOpen } from '../../../SystemData/Storage/stores'
+    import { isLauncherOpen } from '../../Storage/stores'
 
     let isMouseOver: boolean = false;
 
@@ -32,7 +32,7 @@
         transition: ease-in-out .2s;
     }
     #launcher-button > button{
-        height: 100%;
+        height: 80%;
         transition: ease-in;
         padding: 1rem;
     }

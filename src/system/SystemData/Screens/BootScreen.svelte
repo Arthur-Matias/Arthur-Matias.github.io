@@ -36,6 +36,7 @@
         cursor: wait;
         background-color: black;
         position: relative;
+        overflow: hidden;
     }
     .animation-container{
         display: flex;

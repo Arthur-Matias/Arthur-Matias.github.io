@@ -89,6 +89,7 @@ interface iApp{
 type Texts = any
 
 type AppProps = {
+    mobileOnly?: boolean
     icon?: eIcons;
     shortcutIcon: eIcons;
     appContent?:any;
@@ -105,6 +106,13 @@ interface iState{
     settingsOptions: any[]
 }
 
+interface iMail{
+    mail: string;
+    title: string;
+    content: string;
+    time: string;
+}
+
 export type {
     Vector,
     lang,
@@ -114,5 +122,6 @@ export type {
     Link,
     iNote,
     iState,
-    Texts
+    Texts,
+    iMail
 }

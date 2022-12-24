@@ -3,8 +3,10 @@ import type { AppProps } from '../../Global/consts/types'
 import WelcomeApp from '../Apps/WelcomeApp.svelte'
 import Browser from '../Apps/Browser.svelte'
 import Mail from '../Apps/Mail.svelte'
-import { isHomeActive, mail, notes } from './stores'
+import { isHomeActive, mailStorage, notes } from './stores'
 import NotePad from '../Apps/NotePad.svelte'
+import Calc from '../Apps/Calc.svelte'
+import Phone from '../Apps/Phone.svelte'
 
 
 function AppState() {
@@ -216,28 +218,44 @@ function AppState() {
             options: [
                 {
                     icon: eIcons.plus,
-                    run: () => { mail.set({
-                        createMail: true,
-                        listReceivedMail: false,
-                        listSentMail: false,
-                    }) }
+                    run: () => { 
+                        mailStorage.update((e)=>{
+                            e.create = true;
+                            e.listReceived = false;
+                            e.listSent = false;
+                            e.reading = false;
+                            
+                            return e
+                        })
+                    }
                 },
                 {
                     icon: eIcons.mailList,
-                    run: () => { mail.set({
-                        createMail: false,
-                        listReceivedMail: true,
-                        listSentMail: false,
-                    }) }
+                    run: () => { 
+                        mailStorage.update((e)=>{
+                            e.create = false;
+                            e.listReceived = true;
+                            e.listSent = false;
+                            e.reading = false;
+
+                            return e
+                        })
+                    }
                 },
                 {
                     icon: eIcons.sentMail,
-                    run: () => { mail.set({
-                        createMail: false,
-                        listReceivedMail: false,
-                        listSentMail: true,
-                    }) }
+                    run: () => { 
+                        mailStorage.update((e)=>{
+                            e.create = false;
+                            e.listReceived = false;
+                            e.listSent = true;
+                            e.reading = false;
+
+                            return e
+                        })
+                    }
                 },
+                
             ],
             texts: {
                 en: {
@@ -299,56 +317,115 @@ function AppState() {
             }
         },
         // Notes
+        // {
+        //     icon: eIcons.note,
+        //     shortcutIcon: eIcons.noteColored,
+        //     appContent: NotePad,
+        //     id: 3,
+        //     geometry: {
+        //         minSize: {
+        //             x: 600,
+        //             y: 400
+        //         },
+        //         currSize: {
+        //             x: 600,
+        //             y: 400
+        //         },
+        //         position: {
+        //             x: window.innerWidth / 2 - 600 / 2,
+        //             y: window.innerHeight / 2 - 400 / 2
+        //         }
+        //     },
+        //     options: [
+        //         {
+        //             icon: eIcons.plus,
+        //             run: () => { notes.set({
+        //                 addNote: true,
+        //                 listNotes: false,
+        //             }) }
+        //         },
+        //         {
+        //             icon: eIcons.mailList,
+        //             run: () => { notes.set({
+        //                 addNote: false,
+        //                 listNotes: true,
+        //             }) }
+        //         },
+        //     ],
+        //     texts: {
+        //         en: {
+        //             name: "Notes",
+        //             options: [
+        //                 "new",
+        //                 "notes"
+        //             ]
+        //         },
+        //         pt: {
+        //             name: "Notas",
+        //             options: [
+        //                 "nova",
+        //                 "notas"
+        //             ]
+                    
+        //         }
+        //     }
+        // },
+        //Calc
         {
-            icon: eIcons.note,
-            shortcutIcon: eIcons.noteColored,
-            appContent: NotePad,
+            icon: eIcons.keypad,
+            shortcutIcon: eIcons.calc,
+            appContent: Calc,
             id: 3,
             geometry: {
                 minSize: {
-                    x: 600,
-                    y: 400
+                    x: 300,
+                    y: 500
                 },
                 currSize: {
-                    x: 600,
-                    y: 400
+                    x: 300,
+                    y: 500
                 },
                 position: {
-                    x: window.innerWidth / 2 - 600 / 2,
-                    y: window.innerHeight / 2 - 400 / 2
+                    x: window.innerWidth / 2 - 300 / 2,
+                    y: window.innerHeight / 2 - 500 / 2
                 }
             },
-            options: [
-                {
-                    icon: eIcons.plus,
-                    run: () => { notes.set({
-                        addNote: true,
-                        listNotes: false,
-                    }) }
-                },
-                {
-                    icon: eIcons.mailList,
-                    run: () => { notes.set({
-                        addNote: false,
-                        listNotes: true,
-                    }) }
-                },
-            ],
             texts: {
                 en: {
-                    name: "Notes",
-                    options: [
-                        "new",
-                        "notes"
-                    ]
+                    name: "Calculator",
                 },
                 pt: {
-                    name: "Notas",
-                    options: [
-                        "nova",
-                        "notas"
-                    ]
-                    
+                    name: "Calculadora",
+                }
+            }
+        },
+        //Phone
+        {
+            mobileOnly: true,
+            icon: eIcons.call,
+            shortcutIcon: eIcons.phone,
+            appContent: Phone,
+            id: 4,
+            geometry: {
+                minSize: {
+                    x: 300,
+                    y: 500
+                },
+                currSize: {
+                    x: 300,
+                    y: 500
+                },
+                position: {
+                    x: window.innerWidth / 2 - 300 / 2,
+                    y: window.innerHeight / 2 - 500 / 2
+                }
+            },
+            texts: {
+                en: {
+                    name: "Phone",
+                },
+                pt: {
+                    name: "Telefone",
                 }
             }
         }

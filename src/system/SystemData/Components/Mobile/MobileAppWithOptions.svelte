@@ -39,6 +39,9 @@
         <button class="app-control-btn" style="transform: scale(.6);" on:click={toggleOptions}>
             <IconSelector iconName={eIcons.menu} />
         </button>
+        <h3>
+            {props.texts[$activeLang].name}
+        </h3>
         <button class="app-control-btn" on:click={()=>WindowManager.closeApp(props.id)}>
             <IconSelector iconName={eIcons.close} />
         </button>
@@ -98,6 +101,8 @@
         width: 100%;
         /* display: flex; */
         position: relative;
+        overflow-y: auto;
+        overflow-x: hidden;
         
     }
     .app-control-btn:first-of-type{

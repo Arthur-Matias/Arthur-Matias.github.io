@@ -8,6 +8,7 @@
     import { isLauncherOpen } from "../../../Storage/stores";
     import { openApps } from "../../../../AppData/Storage/stores";
     import OpenAppsMobile from "../../../../AppData/Components/Mobile/OpenAppsMobile.svelte";
+    import AllApps from "../../../../AppData/Components/Scalable/AllApps.svelte";
 
     const apps = state.apps
     let launcherEl: HTMLDivElement;
@@ -82,7 +83,7 @@
         </div>
         {#if $isLauncherOpen}
             <div bind:this={launcherEl} class="launcher-container glass-strong" style="top: {moveY}px;" on:touchstart={handleTouchStart} on:touchmove={handleTouchMove} on:touchend={ handleTouchEnd } >
-                <!-- <Launcher onRun={()=>{isLauncherOpen.set(false)}} /> -->
+                <AllApps />
             </div>
         {/if}
         {#if $openApps.length > 0}
@@ -116,7 +117,7 @@
         top: 0;
         height: 100%;
         width: 100%;
-        overflow: auto;
+        overflow: hidden;
     }
     .workspace-wrapper > header{
         z-index: 3;
@@ -141,16 +142,18 @@
         z-index: 0;
     }
     .clock-container{
-        height: 12rem;
-        width: 12rem;
+        height: 16.3rem;
+        width: 16.3rem;
         border-radius: 50%;
-        margin-top: 6rem;
+        margin-top: 8rem;
+        background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.3) 92.71%, rgba(255, 255, 255, 0) 100%);
+        filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.3));
     }
     .menu-btn-container{
         position: absolute;
         bottom: 1rem;
         left: 0;
-        height: 5rem;
+        height: 5.3rem;
         width: 100%;
         display: flex;
         align-items: center;
@@ -186,7 +189,7 @@
         height: 100%;
         width: 100%;
         z-index: 2;
-        
+        padding-top: 2rem;
     }
     .open-apps-container{
         position: absolute;
@@ -200,12 +203,18 @@
     @media screen and (max-height: 600px){
         .clock-container{
             margin-top: 3rem;
-            height: 11rem;
-            width: 11rem;
+            /* height: 11rem;
+            width: 11rem; */
         }
         
         .apps-container{
             height: 200px;
+        }
+    }
+    @media screen and (max-height: 450px){
+        
+        .apps-container{
+            height: 100px;
         }
     }
 </style>

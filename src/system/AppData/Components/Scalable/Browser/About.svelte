@@ -42,6 +42,7 @@
 
 <style>
     #about{
+        position: static;
         height: auto;
         width: 100%;
         display: flex;

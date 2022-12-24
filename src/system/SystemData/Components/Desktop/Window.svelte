@@ -219,7 +219,7 @@
         grid-row-start: 1;
         grid-row-end: 2;
         width: 100%;
-        height: 2rem;
+        height: 3rem;
         min-height: 2rem;
         justify-content: space-between;
         align-items: center;

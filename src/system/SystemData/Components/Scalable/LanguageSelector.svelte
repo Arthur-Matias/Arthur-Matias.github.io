@@ -2,13 +2,12 @@
     import { activeLang } from '../../../Global/consts/stores'
     import { eLang } from "../../../Global/consts/enums";
     import { isLanguageSelectionOpen } from "../../../AppData/Storage/stores";
-
+    
     function changeCurrLang(lang: eLang){
         activeLang.update(e=>lang)
     }
-
+    
 </script>
-
 <div id="language-selector" class="{($isLanguageSelectionOpen?"open glass-strong":"")}  round">
     <button class={`item round ${$activeLang === "en"?"":"active"}`} on:click={()=>changeCurrLang(eLang.Pt)}>pt</button>
     <button class={`item round ${$activeLang === "en"?"active":""}`} on:click={()=>changeCurrLang(eLang.En)}>en</button>
@@ -16,7 +15,7 @@
 
 <style>
     #language-selector{
-        display: flex;
+        display: none;
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -26,7 +25,7 @@
         cursor: pointer;
         user-select: none;
         filter: opacity(0);
-        /* z-index: -1; */
+        z-index: 10;
         position: absolute;
         bottom: 5rem;
         right: 10vw;
@@ -37,6 +36,7 @@
     #language-selector.open{
         transition: ease-out .1s;
         filter: opacity(1) !important;
+        display: flex;
         /* z-index: 4; */
     }
     .item{

@@ -8,9 +8,9 @@ transparency.subscribe(e=>{
 })
 
 const darkColors:ThemeColors   = {
-    bgDark: "#252525",
-    bgDarkTransparent: `rgba(50, 50, 50, ${opacity})`,
-    bgLight: "#323232",
+    bgDark: "#161616",
+    bgDarkTransparent: `rgba(16, 16, 16, ${opacity})`,
+    bgLight: "#252525",
     accent: "#BEC0CD",
     accentLight: "#CCCCD6",
 }
@@ -87,20 +87,20 @@ class ColorController{
             active = val
         })
 
-        const darkColors:ThemeColors   = {
-            bgDark: "#252525",
-            bgDarkTransparent: `rgba(50, 50, 50, ${opacity})`,
-            bgLight: "#323232",
-            accent: "#BEC0CD",
-            accentLight: "#CCCCD6",
-        }
-        const lightColors:ThemeColors = {
-            bgDark: "#F8F8F8",
-            bgDarkTransparent: `rgba(248, 248, 248, ${opacity})`,
-            bgLight: "#FFFFFF",
-            accent: "#323232",
-            accentLight: "#252525",
-        }
+        // const darkColors:ThemeColors   = {
+        //     bgDark: "#252525",
+        //     bgDarkTransparent: `rgba(50, 50, 50, ${opacity})`,
+        //     bgLight: "#323232",
+        //     accent: "#BEC0CD",
+        //     accentLight: "#CCCCD6",
+        // }
+        // const lightColors:ThemeColors = {
+        //     bgDark: "#F8F8F8",
+        //     bgDarkTransparent: `rgba(248, 248, 248, ${opacity})`,
+        //     bgLight: "#FFFFFF",
+        //     accent: "#323232",
+        //     accentLight: "#252525",
+        // }
         this.colors.theme = [darkColors, lightColors]
 
         document.documentElement.style.setProperty('--bg-dark', this.ActiveTheme.bgDark);

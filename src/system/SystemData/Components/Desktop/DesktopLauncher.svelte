@@ -5,6 +5,7 @@
     import { isLauncherOpen, isLoadingActive, isTurnedOff, settingsTrayOpen } from '../../Storage/stores'
     import AppIcon from '../Scalable/AppIcon.svelte';
     import type { AppProps } from '../../../Global/consts/types';
+    import AllApps from '../../../AppData/Components/Scalable/AllApps.svelte';
 
     let w: number,h: number;
     let toolbarHeight = 76;
@@ -14,10 +15,6 @@
             closeLauncher()
         }
     }
-    function closeLauncher(){
-        isLauncherOpen.update(val=> false)
-
-    }
     function checkIfInside(e: MouseEvent) {
         
         let rem = 16,
@@ -25,6 +22,10 @@
             yRange = (e.clientY > (window.innerHeight - toolbarHeight - 1*rem - h)) && (e.clientY < (window.innerHeight - toolbarHeight - 1*rem))
 
         return xRange && yRange
+    }
+    function closeLauncher(){
+        isLauncherOpen.update(val=> false)
+
     }
 
     function openConfigOptions(){
@@ -47,12 +48,8 @@
 <div id="launcher" bind:offsetHeight={h} bind:offsetWidth={w} class="{$isLauncherOpen?"open":""} round">
     <span></span>
     <span id="apps" class="round">
-        <div class="all-apps">
-            {#each shortcuts as shortcut}
-                <AppIcon props={shortcut} onRun={()=>closeLauncher()} openAtfirstClick={true} />
-            {/each}
-        </div>
-        <div class="empty-space" style="height: 100%; width: 100%;"></div>
+        <AllApps />
+        <!-- <div class="empty-space" style="height: 100%; width: 100%;"></div> -->
     </span>
     <span id="options">
         <div class="btn-wrapper">
@@ -115,12 +112,7 @@
         flex-flow: row wrap;
         background-color: var(--bg-dark-transparent);
     }
-    .all-apps{
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        margin: 1rem;
-    }
+    
     #options{
         width: 100%;
         height: 100%;

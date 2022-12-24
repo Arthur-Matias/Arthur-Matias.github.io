@@ -6,7 +6,7 @@
     // import WindowManager from "../root/Controllers/WindowManager";
     // import IconSelector from "./IconSelector.svelte";
     import IconSelector from '../../../Global/Components/Scalable/IconSelector.svelte'
-    import type { AppProps } from '../../../Global/consts/types';
+    import type { AppProps, Vector } from '../../../Global/consts/types';
     import WindowManager from '../../../SystemData/Controllers/WindowManager';
     import { activeLang } from '../../../Global/consts/stores';
 
@@ -23,7 +23,7 @@
     let isSelected:boolean = false;
     let isMouseOver: boolean = false;
 
-    let element: HTMLDivElement;
+    let shortcutElement: HTMLDivElement;
     let elemRect: DOMRect;
     let rem = 16;
     
@@ -45,33 +45,32 @@
     let pos = { left: currCol * (6*rem), top: currRow * ( 6 * rem )}
 
     function setPos(x: number, y: number){
-        if(element.offsetLeft + x < window.innerWidth - (0.5*rem) - (6*rem) && element.offsetLeft + x > rem/2){
+        if(shortcutElement.offsetLeft + x < window.innerWidth - (0.5*rem) - (6*rem) && shortcutElement.offsetLeft + x > rem/2){
             pos.left += x
         }
-        if(element.offsetTop + y < window.innerHeight - (0.5*rem) - (6*rem) && element.offsetTop + y > rem/2){
+        if(shortcutElement.offsetTop + y < window.innerHeight - (0.5*rem) - (6*rem) && shortcutElement.offsetTop + y > rem/2){
             pos.top += y
         }
     }
 
-    $: if(element){
-        elemRect = element.getBoundingClientRect()
+    $: if(shortcutElement){
+        elemRect = shortcutElement.getBoundingClientRect()
     }
     function MouseOver(){
         isMouseOver=true
     }
-    function MouseOut(){
-        isMouseOver=false
+    function MouseUp(){
+        moving = true
     }
     function handleClick(){
         console.log("one click")
-        setTimeout(()=>{
-            isSelected = true
-        }, 10)
         if(openAtfirstClick){
             if(onRun){
                 onRun()
             }
             WindowManager.openApp(props.id)
+        }else{
+            setTimeout(()=>isSelected = true, 10)
         }
     }
     function handleDoubleClick( e:MouseEvent ){
@@ -85,12 +84,20 @@
         WindowManager.openApp(props.id)
     }
     function handleWindowClick( e:MouseEvent ){
-        if(isSelected){
+        if(isSelected && !checkIfInbound(e, shortcutElement)){
             isSelected = false
-
         }
     }
-    
+    function checkIfInbound(mouse: MouseEvent, target: HTMLElement):boolean{
+        return (
+            mouse.pageX > target.clientLeft + target.offsetWidth &&
+            mouse.pageX < target.clientLeft &&
+            mouse.pageY > target.clientTop + target.offsetHeight &&
+            mouse.pageY < target.clientTop
+            
+            
+        )
+    }
 	function onMouseMove( e : MouseEvent ) {
 		if (moving) {
             deltaX += e.movementX;
@@ -113,19 +120,20 @@
 <svelte:window on:click={handleWindowClick} on:mouseup={onMouseUp} on:mousemove={onMouseMove} />
 
 <div 
-    bind:this={element}
+    bind:this={shortcutElement}
     class={isMouseOver?"shortcut mouse-over":isSelected?"shortcut selected":"shortcut"}
     style="left: {pos.left}px; top: {pos.top}px;"
     on:click={handleClick} 
     on:dblclick={handleDoubleClick}
     on:mouseover={MouseOver} 
-    on:mouseout={MouseOut} 
+    on:mouseup={MouseUp} 
     on:mousedown={onMouseDown}
     on:touchend={handleClick}
     on:focus={()=>{}} 
     on:blur={()=>{}}
     on:keydown={()=>{}}
     on:keyup={()=>{}}
+    
 >
     <div class="icon">
         <IconSelector iconColor={iconColor} iconName={props.shortcutIcon}/>
@@ -137,8 +145,8 @@
 
 <style>
     .shortcut {
-        height: 5rem;
-        width: 5rem;
+        height: 6rem;
+        width: 6rem;
         margin: 0.5rem;
         z-index: 1;
         display: flex;
@@ -147,22 +155,22 @@
         flex-direction: column;
         transition: ease-in;
         background: transparent;
-        border-radius: .5rem;
+        border-radius: .3rem;
         position: absolute;
     }
     .shortcut .icon {
         margin-top: 0.5rem;
         height: 60%;
         width: auto;
-        border-radius: 1rem;
+        border-radius: .3rem;
         aspect-ratio: 1/1;
         display: flex;
         align-items: center;
         justify-content: center;
     }
     .shortcut .app-name {
-        font-size: 0.7rem;
-        font-weight: bolder;
+        font-size: 1rem;
+        font-weight: normal;
         text-transform: capitalize;
         margin-top: 0.2rem;
     }

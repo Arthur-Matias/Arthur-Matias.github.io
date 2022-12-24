@@ -1,21 +1,21 @@
 :root {
 
   --transparency: 0.6;
-  --bg-dark: #252525;
-  --bg-dark-transparent: rgba(37, 37, 37, var(--transparency));
-  --bg-light: #323232;
-  --bg-light-transparent: rgba(50, 50, 50, var(--transparency));
+  --bg-dark: #161616;
+  --bg-dark-transparent: rgba(16, 16, 16, var(--transparency));
+  --bg-light: #252525;
+  --bg-light-transparent: rgba(25, 25, 25, var(--transparency));
   --main-color: #006ACC;
   --main-color-light: #189DF8;
   --accent: #BEC0CD;
   --accent-light: #CCCCD6;
-  --white: #BEC0CD;
+  --white: #FFFFFF;
 
   --toolbar-height: 76px;
 
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 12px;
+  line-height: 20px;
   font-weight: 400;
 
   color: var(--accent);

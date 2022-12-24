@@ -46,7 +46,7 @@
         display: flex;
         align-items: center;
         justify-content: space-evenly;
-        height: 3rem;
+        height: 4rem;
     }
     .theme-option:hover, .theme-option.active{
         background-color: var(--bg-dark);

@@ -3,7 +3,7 @@
     import { openApps } from "../../../../AppData/Storage/stores";
     import Clock from "../../../../Global/Components/Scalable/Clock.svelte";
     import LanguageSelection from "../LanguageSelection.svelte";
-    import LauncherButton from "../../../../AppData/Components/Desktop/LauncherButton.svelte";
+    import LauncherButton from "../LauncherButton.svelte";
     import ToolbarAppIcon from "./ToolbarAppIcon.svelte";
 
     $: openAppsArr = $openApps

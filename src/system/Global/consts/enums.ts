@@ -23,6 +23,10 @@ export enum eIcons{
     close,
     note,
     noteColored,
-    delete
+    delete,
+    calc,
+    keypad,
+    phone,
+    call
 }
 

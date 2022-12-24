@@ -86,8 +86,8 @@
 
 <style>
     .app-icon {
-        height: 5rem;
-        width: 5rem;
+        height: 6rem;
+        width: 6rem;
         margin: 0.5rem;
         z-index: 1;
         display: flex;
@@ -96,22 +96,25 @@
         flex-direction: column;
         transition: ease-in;
         background: transparent;
-        border-radius: .5rem;
+        border-radius: .2rem;
     }
     .app-icon .icon {
         margin-top: 0.5rem;
         height: 60%;
         width: auto;
-        border-radius: 1rem;
+        border-radius: .5rem;
         aspect-ratio: 1/1;
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-bottom: .5rem;
     }
     .app-icon .app-name {
-        font-size: 0.7rem;
+        font-size: .9rem;
+        font-weight: normal;
         text-transform: capitalize;
-        margin-top: 0.7rem;
+        /* margin-top: 1rem; */
+        margin-bottom: .5rem;
     }
     .app-icon.selected {
         background: var(--main-color);

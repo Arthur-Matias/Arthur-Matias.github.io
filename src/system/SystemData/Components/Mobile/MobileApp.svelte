@@ -1,6 +1,7 @@
 <script lang="ts">
     import IconSelector from "../../../Global/Components/Scalable/IconSelector.svelte";
     import { eIcons } from "../../../Global/consts/enums";
+    import { activeLang } from "../../../Global/consts/stores";
 import type { AppProps } from "../../../Global/consts/types";
     import WindowManager from "../../Controllers/WindowManager";
 
@@ -13,6 +14,9 @@ import type { AppProps } from "../../../Global/consts/types";
         <button class="app-control-btn" style="transform: scale(.6);">
             <!-- <IconSelector iconName={eIcons.menu} /> -->
         </button>
+        <h3>
+            {props.texts[$activeLang].name}
+        </h3>
         <button class="app-control-btn" on:click={()=>WindowManager.closeApp(props.id)}>
             <IconSelector iconName={eIcons.close} />
         </button>
@@ -27,7 +31,7 @@ import type { AppProps } from "../../../Global/consts/types";
         height: 100%;
         width: 100%;
         background-color: var(--bg-dark);
-        overflow-y: hidden;
+        overflow: hidden;
         position: relative;
         padding-top: 7rem;
         display: flex;
@@ -58,6 +62,8 @@ import type { AppProps } from "../../../Global/consts/types";
         width: 100%;
         /* display: flex; */
         position: relative;
+        overflow-y: auto;
+        overflow-x: hidden;
         
     }
     .app-control-btn:first-of-type{

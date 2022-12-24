@@ -6,6 +6,8 @@
     import SentMail from "./Icons/SentMail.svelte";
     import Close from "./Icons/Close.svelte";
     import Delete from "./Icons/Delete.svelte";
+    import Keypad from "./Icons/Keypad.svelte";
+    import Call from "./Icons/Call.svelte";
 
     export let iconName: eIcons = eIcons.logo;
     export let iconColor = "var(--accent)";
@@ -16,6 +18,10 @@
         <Logo fill={iconColor} />
     {:else if iconName === eIcons.browserColored}
         <img src="/icons/internet-web-browser.png" alt="browser" />
+    {:else if iconName === eIcons.calc}
+        <img src="/icons/accessories-calculator.png" alt="info" />
+    {:else if iconName === eIcons.phone}
+        <img src="/icons/phone.png" alt="info" />
     {:else if iconName === eIcons.browser}
         <svg viewBox="0 0 33 33" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -62,6 +68,10 @@
         <Close iconColor={iconColor} />
     {:else if iconName === eIcons.delete}
         <Delete iconColor={iconColor} />
+    {:else if iconName === eIcons.keypad}
+        <Keypad iconColor={iconColor} />
+    {:else if iconName === eIcons.call}
+        <Call iconColor={iconColor} />
     {:else}
         <Logo fill={iconColor} />
     {/if}

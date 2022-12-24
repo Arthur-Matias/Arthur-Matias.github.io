@@ -166,7 +166,7 @@
     }
     .options{
         height: 100%;
-        width: 3rem;
+        width: 4rem;
         margin-right: -0.01rem;
         display: flex;
         flex-direction: column;
@@ -200,7 +200,7 @@
         background-color: var(--bg-dark);
         display: flex;
         width: 100%;
-        height: 2rem;
+        height: 3rem;
         min-height: 2rem;
         justify-content: space-between;
         align-items: center;
@@ -292,13 +292,13 @@
         user-select: none;
     }
     .content{
+        position: static;
         width: 100%;
         height: 100%;
-        min-height: 100%;
         max-width: 100%;
         overflow-y: auto;
         background-color: var(--bg-dark);
-        box-shadow: inset 0 .5rem .8rem -.5rem rgba(0,0,0,0.4);
+        box-shadow: inset 0 0.5rem 0.8rem -0.5rem rgba(0, 0, 0, 0.4);
     }
     .window-name{
         width: 100%;

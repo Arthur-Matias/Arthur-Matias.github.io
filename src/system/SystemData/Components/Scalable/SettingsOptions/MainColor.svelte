@@ -13,7 +13,7 @@
 
 <div id="accent-color-setting">
     {#each ColorController.AllMainColors as color, index}
-        <div class="color-btn {$activeColor === index?"active":""}" style="background-color: {color} !important;" on:click={()=>handleClick(index)}></div>
+        <button class="color-btn {$activeColor === index?"active":""}" style="background-color: {color} !important;" on:click={()=>handleClick(index)}></button>
     {/each}
 </div>
 
@@ -30,7 +30,7 @@
 
     .color-btn{
         aspect-ratio: 1 / 1;
-        height: 1rem;
+        height: 2rem;
         width: auto;
         border-radius: 50%;
         filter: opacity(.4);

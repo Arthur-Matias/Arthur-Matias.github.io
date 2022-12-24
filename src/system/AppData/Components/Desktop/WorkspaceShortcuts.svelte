@@ -10,13 +10,15 @@
 
 <div id="workspace-icons">
     {#each arr as item, index}    
-        <Shortcut
-            onRun={() => {}}
-            iconColor="var(--accent)"
-            openAtfirstClick={false}
-            props={item}
-            index={index}
-        />
+        {#if !item.mobileOnly}
+            <Shortcut
+                onRun={() => {}}
+                iconColor="var(--accent)"
+                openAtfirstClick={false}
+                props={item}
+                index={index}
+            />  
+        {/if}
     {/each}
 </div>
 
