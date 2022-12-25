@@ -73,6 +73,8 @@
         overflow-y: hidden;
         position: relative;
         padding-top: 7rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
      }
      .controls{
@@ -81,9 +83,15 @@
         height: 2rem;
         width: 100%;
         left: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
-        justify-content: space-between;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
         background-color: var(--bg-light);
         padding: 1rem 0;
      }
@@ -92,9 +100,17 @@
         width: auto;
         aspect-ratio: 1 / 1;
         
+        display: -webkit-box;
+        
+        display: -ms-flexbox;
+        
         display: flex;
-        align-items: center;
-        justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
     }
     .content{
         height: calc(100% - 7rem);
@@ -118,24 +134,36 @@
         width: 15rem;
         height: calc(100% - 4rem);
         background-color: var(--bg-light);
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
     }
     .options-menu.open{
-        animation: slideFromLeft .3s;
+        -webkit-animation: slideFromLeft .3s;
+                animation: slideFromLeft .3s;
     }
     
     .option-wrapper{
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
         height: 4rem;
         width: 100%;
-        align-items: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
     }
     .option-wrapper:hover{
-        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.6);
+        -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.6);
+                box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.6);
     }
     .option-wrapper:active{
-        box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.6);
+        -webkit-box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.6);
+                box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.6);
     }
     .option-icon{
         /* width: 100%; */
@@ -150,12 +178,25 @@
         text-transform: capitalize;
     }
 
-    @keyframes slideFromLeft{
+    @-webkit-keyframes slideFromLeft{
         0%{
-            transform: translateX(-300px);
+            -webkit-transform: translateX(-300px);
+                    transform: translateX(-300px);
         }
         100%{
-            transform: translateX((0));
+            -webkit-transform: translateX((0));
+                    transform: translateX((0));
+        }
+    }
+
+    @keyframes slideFromLeft{
+        0%{
+            -webkit-transform: translateX(-300px);
+                    transform: translateX(-300px);
+        }
+        100%{
+            -webkit-transform: translateX((0));
+                    transform: translateX((0));
         }
     }
  </style>

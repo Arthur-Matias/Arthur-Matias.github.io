@@ -90,12 +90,21 @@
         position: static;
         height: 80%;
         width: 80%;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
         padding-top: 3rem;
         display: flex;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
     }
     .read-only{
         position: relative;
@@ -104,17 +113,32 @@
         /* padding: 2rem 2rem; */
     }
     .mail-inputs{
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
         /* height: 100%; */
         width: 100%;
     }
     .input-wrapper{
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
         margin: .5rem 0;
         width: 100%;
         border-bottom: .1rem solid black;
@@ -127,9 +151,15 @@
     }
     .input-wrapper > input{
         padding: .5rem 1rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
         width: 100%;
         
         outline: none;
@@ -137,6 +167,18 @@
 
         background-color: var(--bg-dark);
         color: var(--accent);
+    }
+    .input-wrapper > input::-webkit-input-placeholder{
+        text-transform: capitalize;
+    }
+    .input-wrapper > input::-moz-placeholder{
+        text-transform: capitalize;
+    }
+    .input-wrapper > input:-ms-input-placeholder{
+        text-transform: capitalize;
+    }
+    .input-wrapper > input::-ms-input-placeholder{
+        text-transform: capitalize;
     }
     .input-wrapper > input::placeholder{
         text-transform: capitalize;
@@ -162,6 +204,18 @@
         background-color: var(--bg-dark);
         color: var(--accent);
     }
+    .mail-content > textarea::-webkit-input-placeholder{
+        text-transform: capitalize;
+    }
+    .mail-content > textarea::-moz-placeholder{
+        text-transform: capitalize;
+    }
+    .mail-content > textarea:-ms-input-placeholder{
+        text-transform: capitalize;
+    }
+    .mail-content > textarea::-ms-input-placeholder{
+        text-transform: capitalize;
+    }
     .mail-content > textarea::placeholder{
         text-transform: capitalize;
     }
@@ -171,21 +225,36 @@
         left: 0;
         height: 6rem;
         width: 100%;
-        backdrop-filter: blur(1rem);
+        -webkit-backdrop-filter: blur(1rem);
+                backdrop-filter: blur(1rem);
         background-color: var(--bg-dark-transparent);
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
-        justify-content: flex-end;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: end;
+            -ms-flex-pack: end;
+                justify-content: flex-end;
     }
     .mail-btn{
         height: 3rem;
         width: 6rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
         background-color: var(--main-color);
         border-radius: 1rem;
         margin-right: 2rem;
+        -webkit-transition: ease-in-out .2s;
+        -o-transition: ease-in-out .2s;
         transition: ease-in-out .2s;
     }
     .send-icon{
@@ -196,10 +265,12 @@
 
     .mail-btn:hover{
         cursor: pointer;
-        box-shadow: 0px 0px .5rem rgba(0,0,0, var(--transparency));
+        -webkit-box-shadow: 0px 0px .5rem rgba(0,0,0, var(--transparency));
+                box-shadow: 0px 0px .5rem rgba(0,0,0, var(--transparency));
     }
     .mail-btn:active{
-        box-shadow: inset 0px 0px .5rem rgba(0,0,0, var(--transparency));
+        -webkit-box-shadow: inset 0px 0px .5rem rgba(0,0,0, var(--transparency));
+                box-shadow: inset 0px 0px .5rem rgba(0,0,0, var(--transparency));
     }
     @media screen and (orientation:portrait) {
         #message{

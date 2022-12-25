@@ -149,10 +149,21 @@
         width: 6rem;
         margin: 0.5rem;
         z-index: 1;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-transition: ease-in;
+        -o-transition: ease-in;
         transition: ease-in;
         background: transparent;
         border-radius: .3rem;
@@ -164,9 +175,15 @@
         width: auto;
         border-radius: .3rem;
         aspect-ratio: 1/1;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
     }
     .shortcut .app-name {
         font-size: 1rem;
@@ -176,6 +193,8 @@
     }
     .shortcut.selected {
         background: var(--main-color);
+        -webkit-transition: ease-in;
+        -o-transition: ease-in;
         transition: ease-in;
         text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8);
         color: var(--accent-light);
@@ -183,7 +202,18 @@
     .shortcut:hover {
         cursor: pointer;
         background: var(--main-color);
+        -webkit-transition: ease-in;
+        -o-transition: ease-in;
         transition: ease-in;
+    }
+
+    @-webkit-keyframes select-icon{
+        from{
+            background: transparent;
+        }
+        to{
+            background: var(--main-color);
+        }
     }
 
     @keyframes select-icon{

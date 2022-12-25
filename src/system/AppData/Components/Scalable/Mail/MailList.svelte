@@ -48,8 +48,12 @@
         position: relative;
         height: 100%;
         width: 100%;
-        align-items: center;
-        justify-content: space-between;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
         /* padding-top: 3rem; */
     }
     .title{
@@ -66,16 +70,24 @@
         list-style-type: none;
         border-bottom: 3px solid black;
         cursor: pointer;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
     }
 
     .mail-list > li:hover{
-        box-shadow:  0px 0px 1rem rgba(0,0,0,0.5);
+        -webkit-box-shadow:  0px 0px 1rem rgba(0,0,0,0.5);
+                box-shadow:  0px 0px 1rem rgba(0,0,0,0.5);
     }
     .mail-list > li:active{
-        box-shadow: inset 0px 0px 1rem rgba(0,0,0,0.5);
+        -webkit-box-shadow: inset 0px 0px 1rem rgba(0,0,0,0.5);
+                box-shadow: inset 0px 0px 1rem rgba(0,0,0,0.5);
     }
     .wrapper{
         width: 95%;

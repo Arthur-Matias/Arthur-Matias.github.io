@@ -34,8 +34,11 @@
         overflow: hidden;
         position: relative;
         padding-top: 7rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        animation: openAnim 1s ease-in 0ms linear;
+        -webkit-animation: openAnim 1s ease-in 0ms linear;
+                animation: openAnim 1s ease-in 0ms linear;
      }
      .controls{
         position: fixed;
@@ -43,9 +46,15 @@
         height: 2rem;
         width: 100%;
         left: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
-        justify-content: space-between;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
         background-color: var(--bg-light);
         padding: 1rem 0;
      }
@@ -54,9 +63,17 @@
         width: auto;
         aspect-ratio: 1 / 1;
         
+        display: -webkit-box;
+        
+        display: -ms-flexbox;
+        
         display: flex;
-        align-items: center;
-        justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
     }
     .content{
         height: calc(100% - 7rem);

@@ -5,38 +5,57 @@
 
     let active = false;
 
-    function showOptions(){
-        isLanguageSelectionOpen.update(()=>!$isLanguageSelectionOpen)
+    function showOptions() {
+        isLanguageSelectionOpen.update(() => !$isLanguageSelectionOpen);
     }
-    function toggleOptions(){
-        active = !active
+    function toggleOptions() {
+        active = !active;
     }
 </script>
 
-<button 
-    id="language-button" 
-    on:click={showOptions} 
-    on:mouseover={toggleOptions} 
+<button
+    id="language-button"
+    on:click={showOptions}
+    on:mouseover={toggleOptions}
     on:mouseout={toggleOptions}
-    on:focus={()=>{console.log("focus")}}
-    on:blur={()=>{console.log("blur")}}
+    on:focus={() => {
+        console.log("focus");
+    }}
+    on:blur={() => {
+        console.log("blur");
+    }}
+>
+    <p
+        class="{active
+            ? 'shadow-inset-light round'
+            : ''} {$isLanguageSelectionOpen ? 'shadow-inset-light round' : ''}"
     >
-    <p class="{active?"shadow-inset-light round":""} {$isLanguageSelectionOpen?"shadow-inset-light round":""}">{$activeLang}</p>
+        {$activeLang}
+    </p>
 </button>
 
 <style>
-    #language-button{
+    #language-button {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
+        -webkit-box-pack: right;
+        -ms-flex-pack: right;
         justify-content: right;
         font-size: 1.5rem;
         height: 100%;
         width: 100%;
         text-transform: uppercase;
         cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
         user-select: none;
     }
-    #language-button p{
+    #language-button p {
         padding: 1rem;
     }
 </style>

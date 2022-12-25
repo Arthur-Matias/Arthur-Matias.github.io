@@ -21,10 +21,19 @@
     #accent-color-setting{
         height: 100%;
         width: auto;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-evenly;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: space-evenly;
+            -ms-flex-pack: space-evenly;
+                justify-content: space-evenly;
         padding: 1rem;
     }
 
@@ -33,13 +42,18 @@
         height: 2rem;
         width: auto;
         border-radius: 50%;
-        filter: opacity(.4);
+        -webkit-filter: opacity(.4);
+                filter: opacity(.4);
+        -webkit-transition: ease-in-out .1s;
+        -o-transition: ease-in-out .1s;
         transition: ease-in-out .1s;
     }
     .color-btn:hover, .color-btn.active{
-        filter: opacity(1);
+        -webkit-filter: opacity(1);
+                filter: opacity(1);
         cursor: pointer;
-        box-shadow: 0px 0px 4px var(--bg-dark-transparent);
+        -webkit-box-shadow: 0px 0px 4px var(--bg-dark-transparent);
+                box-shadow: 0px 0px 4px var(--bg-dark-transparent);
         border: 2px solid var(--accent);
     }
 </style>

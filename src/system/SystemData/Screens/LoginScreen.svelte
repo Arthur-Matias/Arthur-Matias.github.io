@@ -7,97 +7,96 @@
     // import { isBootLoading, activeLang } from "../Storage/stores";
 
     const logoFill = "none",
-          logoStroke = "white",
-          logoStrokeSize = 16;
-
+        logoStroke = "white",
+        logoStrokeSize = 16;
 
     let loggedIn = false;
     let currPos = {
         x: 0,
-        y: 0
-    }
+        y: 0,
+    };
     let newPos = {
         x: 0,
-        y: 0
-    }
+        y: 0,
+    };
     let timeout;
     let moveY = 0;
-    function handleKeyDown(e: KeyboardEvent){
+    function handleKeyDown(e: KeyboardEvent) {
         const time = 700;
         let step = 0;
-        setInterval(()=>{
-            step+=window.innerHeight/time
-            moveY-=step
-        },10)
+        setInterval(() => {
+            step += window.innerHeight / time;
+            moveY -= step;
+        }, 10);
 
-        logIn(time)
+        logIn(time);
     }
-    function logIn(time){
-        loggedIn = true
-        setTimeout(()=>ScreenController.toggleWorkspace(), time)
+    function logIn(time) {
+        loggedIn = true;
+        setTimeout(() => ScreenController.toggleWorkspace(), time);
     }
-    function handleTouchStart(e: TouchEvent){
-        if(e.touches[0].pageY > currPos.x){
-            console.log(e.touches[0].pageY)
+    function handleTouchStart(e: TouchEvent) {
+        if (e.touches[0].pageY > currPos.x) {
+            console.log(e.touches[0].pageY);
             currPos = {
                 x: 0,
-                y: e.touches[0].pageY
-            }
+                y: e.touches[0].pageY,
+            };
         }
     }
-    function handleTouchEnd(e: TouchEvent){
-        if(newPos.y < currPos.y - 200){
-                logIn(0)
-            }
-            timeout = setTimeout(()=>{
-                resetPosition()
-            }, 100)
+    function handleTouchEnd(e: TouchEvent) {
+        if (newPos.y < currPos.y - 200) {
+            logIn(0);
+        }
+        timeout = setTimeout(() => {
+            resetPosition();
+        }, 100);
     }
-    function handleTouchMove(e: TouchEvent){
+    function handleTouchMove(e: TouchEvent) {
         newPos = {
             x: 0,
-            y: e.touches[0].pageY
-        }
-        if(newPos.y < currPos.y){
-            clearTimeout(timeout)
+            y: e.touches[0].pageY,
+        };
+        if (newPos.y < currPos.y) {
+            clearTimeout(timeout);
             moveY = newPos.y - currPos.y;
-            console.log(newPos)
+            console.log(newPos);
         }
     }
-    function resetPosition(){
+    function resetPosition() {
         newPos.x = 0;
         newPos.y = 0;
         currPos.x = 0;
         currPos.y = 0;
         moveY = 0;
     }
-    function handleMouseDown(e: MouseEvent){
-        if(e.pageY > currPos.x){
-            console.log(e.pageY)
+    function handleMouseDown(e: MouseEvent) {
+        if (e.pageY > currPos.x) {
+            console.log(e.pageY);
             currPos = {
                 x: 0,
-                y: e.pageY
-            }
+                y: e.pageY,
+            };
         }
     }
-    function handleMouseMove(e: MouseEvent){
+    function handleMouseMove(e: MouseEvent) {
         newPos = {
             x: 0,
-            y: e.pageY
-        }
-        if(newPos.y < currPos.y){
-            clearTimeout(timeout)
+            y: e.pageY,
+        };
+        if (newPos.y < currPos.y) {
+            clearTimeout(timeout);
             moveY = newPos.y - currPos.y;
-            console.log(newPos)
+            console.log(newPos);
         }
     }
-    function handleMouseUp(e: MouseEvent){
-        if(newPos.y < currPos.y - Math.floor(window.innerHeight/3)){
-            logIn(0)
+    function handleMouseUp(e: MouseEvent) {
+        if (newPos.y < currPos.y - Math.floor(window.innerHeight / 3)) {
+            logIn(0);
         }
-        timeout = setTimeout(()=>{
-            resetPosition()
-        }, 50)
+        timeout = setTimeout(() => {
+            resetPosition();
+        }, 50);
     }
 </script>
 
@@ -107,8 +106,10 @@
     <div class="wallpaper">
         <Wallpaper />
     </div>
-    <div 
-        class="login-wrapper glass-strong shadow-big {loggedIn?"logged":""} {$isMobile?"mobile":"desktop"}"
+    <div
+        class="login-wrapper glass-strong shadow-big {loggedIn
+            ? 'logged'
+            : ''} {$isMobile ? 'mobile' : 'desktop'}"
         style="transform: translateY({moveY}px) !important;"
         on:touchstart={handleTouchStart}
         on:touchend={handleTouchEnd}
@@ -116,50 +117,57 @@
         on:mousedown={handleMouseDown}
         on:mousemove={handleMouseMove}
         on:mouseup={handleMouseUp}
-        on:blur={()=>console.log("blurring login")}
+        on:blur={() => console.log("blurring login")}
     >
         <div class="login-section">
             <Clock big={true} />
         </div>
-        <div class="login-section">
-            
-        </div>
+        <div class="login-section" />
     </div>
 </div>
 
 <style>
-    #login{
+    #login {
         height: 100%;
         width: 100%;
         position: absolute;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
         top: 0;
         left: 0;
         background-color: black;
     }
-    .wallpaper{
+    .wallpaper {
         position: absolute;
         height: 100%;
         width: 100%;
-        
     }
-    .login-wrapper{
+    .login-wrapper {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
         height: 100%;
         width: 100%;
+        -webkit-transition: ease-in-out;
+        -o-transition: ease-in-out;
         transition: ease-in-out;
     }
-    .logged{
+    .logged {
+        -webkit-transform: translateY(-100vh);
+        -ms-transform: translateY(-100vh);
         transform: translateY(-100vh);
-    }
-    .login-wrapper.desktop{
-        /* transition: ease-in-out 700ms; */
-    }
-    .login-wrapper.mobile{
-        
     }
 </style>

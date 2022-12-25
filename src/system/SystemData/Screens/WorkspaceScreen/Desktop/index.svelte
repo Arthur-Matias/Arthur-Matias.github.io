@@ -29,14 +29,14 @@
 </div>
 
 <style>
-    #workspace-desktop{
+    #workspace-desktop {
         height: 100%;
         max-height: 100%;
         width: 100%;
         position: relative;
         overflow: hidden;
     }
-    .wallpaper-wrapper{
+    .wallpaper-wrapper {
         height: 100%;
         width: 100%;
         position: absolute;
@@ -45,28 +45,34 @@
         left: 0;
         /* z-index: 1; */
     }
-    .icons-wrapper{
+    .icons-wrapper {
         height: calc(100% - var(--toolbar-height));
         width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
     }
-    .open-apps{
+    .open-apps {
         height: 100%;
         width: 100%;
         position: absolute;
         left: 0;
         top: 0;
     }
-    .toolbar{
+    .toolbar {
         /* position: absolute; */
         /* left: 0;
         bottom: 0; */
         height: var(--toolbar-height);
         width: 100%;
     }
-    .launcher{
+    .launcher {
         height: 100%;
         width: 100%;
         position: absolute;

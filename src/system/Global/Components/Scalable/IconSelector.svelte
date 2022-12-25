@@ -62,25 +62,25 @@
             />
         </svg>
     {:else if iconName === eIcons.sentMail}
-        <SentMail iconColor={iconColor} />
+        <SentMail {iconColor} />
     {:else if iconName === eIcons.menu}
-        <Menu iconColor={iconColor} />
+        <Menu {iconColor} />
     {:else if iconName === eIcons.arrowRight}
-        <ArrowRight iconColor={iconColor} />
+        <ArrowRight {iconColor} />
     {:else if iconName === eIcons.close}
-        <Close iconColor={iconColor} />
+        <Close {iconColor} />
     {:else if iconName === eIcons.delete}
-        <Delete iconColor={iconColor} />
+        <Delete {iconColor} />
     {:else if iconName === eIcons.keypad}
-        <Keypad iconColor={iconColor} />
+        <Keypad {iconColor} />
     {:else if iconName === eIcons.call}
-        <Call iconColor={iconColor} />
+        <Call {iconColor} />
     {:else if iconName === eIcons.wifi}
-        <Wifi iconColor={iconColor} />
+        <Wifi {iconColor} />
     {:else if iconName === eIcons.mobileNetwork}
-        <MobileNetwork iconColor={iconColor} />
+        <MobileNetwork {iconColor} />
     {:else if iconName === eIcons.battery}
-        <Battery iconColor={iconColor} />
+        <Battery {iconColor} />
     {:else}
         <Logo fill={iconColor} />
     {/if}
@@ -798,8 +798,14 @@
     #icon-selector {
         height: 100%;
         width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
     }
     #icon-selector > img {

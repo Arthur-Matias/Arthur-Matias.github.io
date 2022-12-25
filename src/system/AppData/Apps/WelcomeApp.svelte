@@ -50,16 +50,34 @@
     #welcome-app{
         height: auto;
         width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
     }
     .container{
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: start;
+            -ms-flex-align: start;
+                align-items: flex-start;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
         height: auto;
         width: 80%;
     }
@@ -86,9 +104,15 @@
         width: 80%;
     }
     .logo-container{
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
         margin-top: 2rem;
         margin-bottom: 2rem;
         height: 3rem;
@@ -98,20 +122,30 @@
         margin-bottom: 2rem;
     }
     .card{
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
-        justify-content: start;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: start;
+            -ms-flex-pack: start;
+                justify-content: start;
         padding: 1rem;
         width: 300px;
         cursor: pointer;
+        -webkit-transition: ease .2s;
+        -o-transition: ease .2s;
         transition: ease .2s;
         text-decoration: none;
     }
     .card:hover{
-        box-shadow: 0px 0px 8px rgba(0, 0, 0, var(--transparency));
+        -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, var(--transparency));
+                box-shadow: 0px 0px 8px rgba(0, 0, 0, var(--transparency));
     }
     .card:active{
-        box-shadow: inset 0px 0px 8px rgba(0, 0, 0, var(--transparency));
+        -webkit-box-shadow: inset 0px 0px 8px rgba(0, 0, 0, var(--transparency));
+                box-shadow: inset 0px 0px 8px rgba(0, 0, 0, var(--transparency));
     }
     .card-icon{
         height: 2rem;
@@ -120,8 +154,13 @@
         margin-right: 1rem;
     }
     .card-texts{
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
         text-align: start;
     }
     @media screen and (orientation:portrait) { 

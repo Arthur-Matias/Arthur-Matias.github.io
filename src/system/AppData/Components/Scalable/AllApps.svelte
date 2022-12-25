@@ -60,9 +60,17 @@
         height: 100%;
         margin: 1rem;
         overflow-y: auto;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-flow: row wrap;
-        align-items: flex-start;
-        align-content: flex-start;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-flow: row wrap;
+                flex-flow: row wrap;
+        -webkit-box-align: start;
+            -ms-flex-align: start;
+                align-items: flex-start;
+        -ms-flex-line-pack: start;
+            align-content: flex-start;
     }
 </style>

@@ -86,11 +86,21 @@
     #browser{
         height: 100%;
         width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
         /* display: grid; */
+        -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
         background-color: var(--bg-dark);
         position: relative;
@@ -99,17 +109,29 @@
     .browser-controls{
         height: 4rem;
         width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
         /* position: fixed; */
     }
     .input-wrapper{
         width: 100%;
         height: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
     }
     .input-wrapper > input {
         width: 100%;
@@ -121,11 +143,17 @@
         color: var(--accent);
     }
     .btn-pack{
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
         width: 30%;
         height: 100%;
-        align-items: center;
-        justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
     }
     .btn-pack > .btn{
         height: 2rem;
@@ -135,11 +163,13 @@
         border-radius: 0.5rem;
     }
     .btn:hover{
-        box-shadow: 0px 0px .5rem rgba(0, 0, 0, 0.6);
+        -webkit-box-shadow: 0px 0px .5rem rgba(0, 0, 0, 0.6);
+                box-shadow: 0px 0px .5rem rgba(0, 0, 0, 0.6);
         background-color: var(--bg-light);
     }
     .btn:active{
-        box-shadow: inset 0px 0px .5rem black;
+        -webkit-box-shadow: inset 0px 0px .5rem black;
+                box-shadow: inset 0px 0px .5rem black;
     }
 
     .search-btn{
@@ -148,11 +178,15 @@
         width: auto;
         background-color: var(--main-color);
         aspect-ratio: 1 / 1;
-        filter: opacity(.5);
+        -webkit-filter: opacity(.5);
+                filter: opacity(.5);
+        -webkit-transition: ease-in-out .2s;
+        -o-transition: ease-in-out .2s;
         transition: ease-in-out .2s;
     }
     .search-btn:hover{
-        filter: opacity(1);
+        -webkit-filter: opacity(1);
+                filter: opacity(1);
     }
     .btn-pack > .btn:first-of-type{
         margin-right: .5rem;

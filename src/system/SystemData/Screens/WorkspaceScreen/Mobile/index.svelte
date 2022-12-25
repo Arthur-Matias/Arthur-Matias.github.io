@@ -10,45 +10,43 @@
     import OpenAppsMobile from "../../../../AppData/Components/Mobile/OpenAppsMobile.svelte";
     import AllApps from "../../../../AppData/Components/Scalable/AllApps.svelte";
 
-    const apps = state.apps
+    const apps = state.apps;
     let launcherEl: HTMLDivElement;
     let timeout;
 
     let initialPos = {
         x: 0,
-        y: 0
-    }
+        y: 0,
+    };
     let currPos = {
-            x: 0,
-            y: 0
+        x: 0,
+        y: 0,
+    };
+    let moveY = 0;
+    function handleTouchStart(e: TouchEvent) {
+        initialPos.x = e.touches[0].pageX;
+        initialPos.y = e.touches[0].pageY;
     }
-    let moveY = 0
-    function handleTouchStart(e: TouchEvent){
-        initialPos.x = e.touches[0].pageX
-        initialPos.y = e.touches[0].pageY
-    }
-    function handleTouchMove(e: TouchEvent){
-        
+    function handleTouchMove(e: TouchEvent) {
         currPos = {
             x: e.touches[0].pageX,
-            y: e.touches[0].pageY
-        }
-        if(currPos.y > initialPos.y){
-            clearTimeout(timeout)
+            y: e.touches[0].pageY,
+        };
+        if (currPos.y > initialPos.y) {
+            clearTimeout(timeout);
             moveY = currPos.y - initialPos.y;
-            console.log(currPos)
+            console.log(currPos);
         }
-        
     }
-    function handleTouchEnd(){
-        if(currPos.y > initialPos.y + 200){
-                isLauncherOpen.set(false)
-            }
-            timeout = setTimeout(()=>{
-                resetPosition()
-            }, 100)
+    function handleTouchEnd() {
+        if (currPos.y > initialPos.y + 200) {
+            isLauncherOpen.set(false);
+        }
+        timeout = setTimeout(() => {
+            resetPosition();
+        }, 100);
     }
-    function resetPosition(){
+    function resetPosition() {
         currPos.x = 0;
         currPos.y = 0;
         initialPos.x = 0;
@@ -70,19 +68,34 @@
         <div class="apps-container">
             {#each apps as app, i}
                 {#if i < 4}
-                    <AppIcon props={app} openAtfirstClick={true} iconColor={"var(--accent)"} onRun={()=>{}}/>
+                    <AppIcon
+                        props={app}
+                        openAtfirstClick={true}
+                        iconColor={"var(--accent)"}
+                        onRun={() => {}}
+                    />
                 {/if}
             {/each}
         </div>
         <div class="menu-btn-container">
-            <button on:click={()=>isLauncherOpen.set(true)} class="menu-btn glass-light shadow-medium">
+            <button
+                on:click={() => isLauncherOpen.set(true)}
+                class="menu-btn glass-light shadow-medium"
+            >
                 <div>
                     <IconSelector iconName={eIcons.menu} />
                 </div>
             </button>
         </div>
         {#if $isLauncherOpen}
-            <div bind:this={launcherEl} class="launcher-container glass-strong" style="top: {moveY}px;" on:touchstart={handleTouchStart} on:touchmove={handleTouchMove} on:touchend={ handleTouchEnd } >
+            <div
+                bind:this={launcherEl}
+                class="launcher-container glass-strong"
+                style="top: {moveY}px;"
+                on:touchstart={handleTouchStart}
+                on:touchmove={handleTouchMove}
+                on:touchend={handleTouchEnd}
+            >
                 <AllApps />
             </div>
         {/if}
@@ -105,15 +118,13 @@
                 <div class="header-icon">
                     <IconSelector iconName={eIcons.battery} />
                 </div>
-                
-                
             </div>
         </header>
     </div>
 </div>
 
 <style>
-    #workspace-mobile{
+    #workspace-mobile {
         height: 100%;
         max-height: 100%;
         width: 100%;
@@ -121,7 +132,7 @@
         position: relative;
         overflow: hidden;
     }
-    .workspace-wrapper{
+    .workspace-wrapper {
         position: absolute;
         left: 0;
         top: 0;
@@ -129,24 +140,36 @@
         width: 100%;
         overflow: hidden;
     }
-    .workspace-wrapper > header{
+    .workspace-wrapper > header {
         z-index: 3;
         position: fixed;
         left: 0;
         top: 0;
         height: 2rem;
         width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
         justify-content: space-between;
     }
-    .wrapper{
+    .wrapper {
         width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
     }
-    .wallpaper-wrapper{
+    .wallpaper-wrapper {
         height: 100%;
         width: 100%;
         position: absolute;
@@ -154,48 +177,73 @@
         left: 0;
         z-index: 0;
     }
-    .clock-container{
+    .clock-container {
         height: 16.3rem;
         width: 16.3rem;
         border-radius: 50%;
         margin-top: 8rem;
-        background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.3) 92.71%, rgba(255, 255, 255, 0) 100%);
+        background: -o-radial-gradient(
+            50% 50%,
+            50% 50%,
+            rgba(0, 0, 0, 0.3) 92.71%,
+            rgba(255, 255, 255, 0) 100%
+        );
+        background: radial-gradient(
+            50% 50% at 50% 50%,
+            rgba(0, 0, 0, 0.3) 92.71%,
+            rgba(255, 255, 255, 0) 100%
+        );
+        -webkit-filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.3));
         filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.3));
     }
-    .menu-btn-container{
+    .menu-btn-container {
         position: absolute;
         bottom: 1rem;
         left: 0;
         height: 5.3rem;
         width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
         z-index: 2;
     }
-    .menu-btn{
+    .menu-btn {
         height: 100%;
         width: auto;
         aspect-ratio: 1 / 1;
         padding: 1.3rem;
         border-radius: 50%;
     }
-    .menu-btn > div{
+    .menu-btn > div {
         height: 100%;
         width: 100%;
     }
-    .menu-btn:active > div{
-        transform: scale(.7);
+    .menu-btn:active > div {
+        -webkit-transform: scale(0.7);
+        -ms-transform: scale(0.7);
+        transform: scale(0.7);
     }
-    .apps-container{
+    .apps-container {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
         height: 300px;
         padding: 0 2rem;
         z-index: 1;
     }
-    .launcher-container{
+    .launcher-container {
         position: absolute;
         left: 0;
         top: 0;
@@ -204,7 +252,7 @@
         z-index: 2;
         padding-top: 2rem;
     }
-    .open-apps-container{
+    .open-apps-container {
         position: absolute;
         left: 0;
         top: 0;
@@ -213,34 +261,39 @@
         width: 100%;
         z-index: 2;
     }
-    .running-apps-container{
+    .running-apps-container {
         height: 60%;
         margin-left: 0.8rem;
     }
-    .system-stats-container{
+    .system-stats-container {
         height: 70%;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
     }
-    .header-icon{
-        margin-right: .8rem;
+    .header-icon {
+        margin-right: 0.8rem;
         height: 70%;
     }
-    @media screen and (max-height: 600px){
-        .clock-container{
+    @media screen and (max-height: 600px) {
+        .clock-container {
             margin-top: 3rem;
             /* height: 11rem;
             width: 11rem; */
         }
-        
-        .apps-container{
+
+        .apps-container {
             height: 200px;
         }
     }
-    @media screen and (max-height: 450px){
-        
-        .apps-container{
+    @media screen and (max-height: 450px) {
+        .apps-container {
             height: 100px;
         }
     }

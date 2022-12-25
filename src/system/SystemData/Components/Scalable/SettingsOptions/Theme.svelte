@@ -33,24 +33,40 @@
     #theme-setting{
         height: 100%;
         width: auto;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-evenly;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: space-evenly;
+            -ms-flex-pack: space-evenly;
+                justify-content: space-evenly;
         padding: .2rem;
     }
     .theme-option{
         width: 100%;
         height: 100%;
         border-radius: 1rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
-        justify-content: space-evenly;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: space-evenly;
+            -ms-flex-pack: space-evenly;
+                justify-content: space-evenly;
         height: 4rem;
     }
     .theme-option:hover, .theme-option.active{
         background-color: var(--bg-dark);
-        box-shadow: 0px 0px .5rem rgba(0, 0, 0, 0.60);
+        -webkit-box-shadow: 0px 0px .5rem rgba(0, 0, 0, 0.60);
+                box-shadow: 0px 0px .5rem rgba(0, 0, 0, 0.60);
         cursor: pointer;
     }
 </style>

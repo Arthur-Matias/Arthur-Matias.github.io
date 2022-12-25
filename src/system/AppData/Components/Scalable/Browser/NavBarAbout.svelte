@@ -24,38 +24,59 @@
 
 <style>
    #nav-bar-about{
+       display: -webkit-box;
+       display: -ms-flexbox;
        display: flex;
-       align-items: center;
-       justify-content: space-around;
+       -webkit-box-align: center;
+           -ms-flex-align: center;
+               align-items: center;
+       -ms-flex-pack: distribute;
+           justify-content: space-around;
        width: 100%;
        height: 2rem;
-       align-self: flex-start;
+       -ms-flex-item-align: start;
+           align-self: flex-start;
        justify-self: flex-start;
        padding-top: .5rem;
        padding-bottom: .5rem;
-       box-shadow: 0px 1px 1px rgba(0,0,0, 0.6);
+       -webkit-box-shadow: 0px 1px 1px rgba(0,0,0, 0.6);
+               box-shadow: 0px 1px 1px rgba(0,0,0, 0.6);
     }
     #nav-bar-about .section{
         height: 100%;
         width: auto;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
     }
     .about-link{
         color: var(--accent);
         text-decoration: none;
         text-transform: capitalize;
-        filter: opacity(.7);
+        -webkit-filter: opacity(.7);
+                filter: opacity(.7);
         height: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
     }
     .about-link:first-of-type{
         margin-right: 1rem;
     }
     .about-link:hover{
-        filter: opacity(1);
+        -webkit-filter: opacity(1);
+                filter: opacity(1);
     }
 </style>

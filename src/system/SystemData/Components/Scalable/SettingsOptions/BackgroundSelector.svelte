@@ -13,7 +13,7 @@
 <div id="background-selector">
     {#each backgroundImages as image, index}
         <button class="mini-background {$activeBg === index?"active":""}" on:click={()=>handleClick(index)}>
-            <img preload="true" src={image} alt="">
+            <img src={image} alt="">
         </button>
     {/each}
 </div>
@@ -23,11 +23,21 @@
         height: 100%;
         max-height: 300px;
         width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: row;
-        flex-flow: wrap;
-        align-items: center;
-        justify-content: space-evenly;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -ms-flex-flow: wrap;
+            flex-flow: wrap;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: space-evenly;
+            -ms-flex-pack: space-evenly;
+                justify-content: space-evenly;
         position: relative;
         padding-top: 1rem;
         padding-bottom: 1rem;
@@ -37,11 +47,19 @@
         margin: .5rem 0;
         width: 40%;
         aspect-ratio: 16 / 9;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
         border-radius: 1rem;
         border: .2rem solid transparent;
+        -webkit-transition: ease-in-out .2s;
+        -o-transition: ease-in-out .2s;
         transition: ease-in-out .2s;
         content-visibility: auto
     }
@@ -50,7 +68,9 @@
         cursor: pointer;
     }
     .mini-background:active{
-        transform: scale(.7);
+        -webkit-transform: scale(.7);
+            -ms-transform: scale(.7);
+                transform: scale(.7);
     }
     .mini-background>img{
         border-radius: 1rem;

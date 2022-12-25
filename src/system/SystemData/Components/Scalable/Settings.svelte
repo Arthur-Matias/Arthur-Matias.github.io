@@ -58,22 +58,39 @@
         right: 0;
         overflow: auto;
         right: -50% !important;
-        filter: opacity(0);
+        -webkit-filter: opacity(0);
+                filter: opacity(0);
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: start;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: start;
+            -ms-flex-pack: start;
+                justify-content: start;
         text-align: left;
-        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+                backdrop-filter: blur(16px);
         background-color: var(--bg-dark-transparent);
-        backdrop-filter: blur(32px);
+        -webkit-backdrop-filter: blur(32px);
+                backdrop-filter: blur(32px);
+        -webkit-transition: ease-in;
+        -o-transition: ease-in;
         transition: ease-in;
     }
     #config.display{
         right: 0 !important;
         z-index: 3;
+        -webkit-transition: ease-in-out .2s;
+        -o-transition: ease-in-out .2s;
         transition: ease-in-out .2s;
-        filter: opacity(1);
+        -webkit-filter: opacity(1);
+                filter: opacity(1);
     }
     .config-header{
         font-size: 2rem;

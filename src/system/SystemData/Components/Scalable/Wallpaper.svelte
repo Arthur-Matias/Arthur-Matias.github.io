@@ -3,7 +3,7 @@
     import { activeBg } from "../../Storage/stores"
 </script>
 
-<div id="bg" preload="true" style="background-image: url({state.images[$activeBg]});">
+<div id="bg" style="background-image: url({state.images[$activeBg]});">
     
 </div>
 

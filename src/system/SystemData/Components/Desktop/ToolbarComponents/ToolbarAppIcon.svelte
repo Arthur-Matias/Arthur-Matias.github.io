@@ -34,10 +34,19 @@
 
 <style>
     .icon{
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
         cursor: pointer;
         height: 100%;
         position: relative;
@@ -47,10 +56,15 @@
         height: 50%;
     }
     .icon:hover{
-        box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.60);
+        -webkit-box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.60);
+                box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.60);
+        -webkit-transition: ease-in .1s;
+        -o-transition: ease-in .1s;
         transition: ease-in .1s;
     }
     .icon.active{
+        -webkit-transition: ease-in .1s;
+        -o-transition: ease-in .1s;
         transition: ease-in .1s;
         /* background-color: var(--bg-dark-transparent); */
     }
@@ -63,7 +77,8 @@
         border-radius: 50%;
         /* margin: .5rem 0; */
         margin-top: 1rem;
-        filter: invert(1) opacity(.5);
+        -webkit-filter: invert(1) opacity(.5);
+                filter: invert(1) opacity(.5);
         
     }
 </style>

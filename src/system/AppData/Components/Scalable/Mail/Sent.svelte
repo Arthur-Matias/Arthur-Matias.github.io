@@ -20,17 +20,22 @@
         position: static;
         height: 100%;
         width: 100%;
-        align-items: center;
-        justify-content: space-between;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
         padding-top: 3rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
         align-items: center;
-        justify-content: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
     }
-
     @media screen and (orientation:portrait) {
-        #message{
-            height: 30vh;
-        }
+
     }
 </style>

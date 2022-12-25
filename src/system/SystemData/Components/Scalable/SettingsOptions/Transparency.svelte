@@ -13,17 +13,26 @@
 </script>
 
 <div id="transparency">
-    <input type="range" name="transparency" id="transparency-input" start="{value}" min="0" max="100" step="1" on:input={handleInput} bind:value={value}>
+    <input type="range" name="transparency" id="transparency-input" min="0" max="100" step="1" on:input={handleInput} bind:value={value}>
 </div>
 
 <style>
     #transparency{
         height: 100%;
         width: auto;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-evenly;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: space-evenly;
+            -ms-flex-pack: space-evenly;
+                justify-content: space-evenly;
         padding: 1rem;
     }
     #transparency>input{

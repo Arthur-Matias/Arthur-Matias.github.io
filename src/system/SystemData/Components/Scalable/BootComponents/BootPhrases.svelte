@@ -44,9 +44,15 @@
     #boot-phrase{
         width: 100%;
         height: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
     }
     .text-wrapper{
         height: 100%;
@@ -63,18 +69,38 @@
         top: 0;
         left: 0;
         background-color: black;
-        transform: translateX(70%);
-        animation: textAnim 1s ease-in-out infinite;
+        -webkit-transform: translateX(70%);
+            -ms-transform: translateX(70%);
+                transform: translateX(70%);
+        -webkit-animation: textAnim 1s ease-in-out infinite;
+                animation: textAnim 1s ease-in-out infinite;
+    }
+    @-webkit-keyframes textAnim{
+        0%{
+            -webkit-transform: translateX(100%);
+                    transform: translateX(100%);
+        }
+        50%{
+            -webkit-transform: translateX(calc(100% - 1.5rem));
+                    transform: translateX(calc(100% - 1.5rem));
+        }
+        100%{
+            -webkit-transform: translateX(100%);
+                    transform: translateX(100%);
+        }
     }
     @keyframes textAnim{
         0%{
-            transform: translateX(100%);
+            -webkit-transform: translateX(100%);
+                    transform: translateX(100%);
         }
         50%{
-            transform: translateX(calc(100% - 1.5rem));
+            -webkit-transform: translateX(calc(100% - 1.5rem));
+                    transform: translateX(calc(100% - 1.5rem));
         }
         100%{
-            transform: translateX(100%);
+            -webkit-transform: translateX(100%);
+                    transform: translateX(100%);
         }
     }
 </style>

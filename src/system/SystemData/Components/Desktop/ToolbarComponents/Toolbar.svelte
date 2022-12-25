@@ -32,13 +32,19 @@
     #toolbar{
         height: 100%;
         width: 100%;
+        display: -ms-grid;
         display: grid;
+        -ms-grid-columns: 1fr 8fr 1fr 1.2fr;
         grid-template-columns: 1fr 8fr 1fr 1.2fr;
         /* z-index: 1; */
     }
     .open-apps{
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         /* height: var(--toolbar-height); */
     }
 </style>
