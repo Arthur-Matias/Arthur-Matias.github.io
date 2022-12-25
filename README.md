@@ -1,47 +1,94 @@
-# Svelte + TS + Vite
+<div align="center" id="top"> 
+  <img src="./src/assets/webport.gif" alt="Personal Webpage" />
 
-This template should help get you started developing with Svelte and TypeScript in Vite.
+  &#xa0;
 
-## Recommended IDE Setup
+  <!-- <a href="https://personalwebpage.netlify.app">Demo</a> -->
+</div>
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+<h1 align="center">Personal Webpage</h1>
 
-## Need an official Svelte framework?
+<p align="center">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/Arthur-Matias/Arthur-Matias.github.io?color=56BEB8">
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/Arthur-Matias/Arthur-Matias.github.io?color=56BEB8">
 
-## Technical considerations
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/Arthur-Matias/Arthur-Matias.github.io?color=56BEB8">
 
-**Why use this over SvelteKit?**
+  <!-- <img alt="License" src="https://img.shields.io/github/license/Arthur-Matias/Arthur-Matias.github.io?color=56BEB8"> -->
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+  <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/Arthur-Matias/Arthur-Matias.github.io?color=56BEB8" /> -->
 
-This template contains as little as possible to get started with Vite + TypeScript + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+  <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/Arthur-Matias/Arthur-Matias.github.io?color=56BEB8" /> -->
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
+  <img alt="Github stars" src="https://img.shields.io/github/stars/Arthur-Matias/Arthur-Matias.github.io?color=56BEB8" />
+</p>
 
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
+<!-- Status -->
 
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
+<h4 align="center"> 
+	🚧  Personal Webpage 🚀 Under construction...  🚧
+</h4> 
 
-**Why include `.vscode/extensions.json`?**
+<hr>
 
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
+<p align="center">
+  <a href="#dart-about">About</a> &#xa0; | &#xa0; 
+  <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
+  <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
+  <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
+  <a href="#memo-license">License</a> &#xa0; | &#xa0;
+  <a href="https://github.com/Arthur-Matias" target="_blank">Author</a>
+</p>
 
-**Why enable `allowJs` in the TS template?**
+<br>
 
-While `allowJs: false` would indeed prevent the use of `.js` files in the project, it does not prevent the use of JavaScript syntax in `.svelte` files. In addition, it would force `checkJs: false`, bringing the worst of both worlds: not being able to guarantee the entire codebase is TypeScript, and also having worse typechecking for the existing JavaScript. In addition, there are valid use cases in which a mixed codebase may be relevant.
+## :dart: About ##
 
-**Why is HMR not preserving my local component state?**
+Hello, nice to meet you!
 
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
+I'm Arthur,
+welcome to my personal webpage github, hope you like!
 
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
+If you want to check the deployed/live version, please, check here [link](https://arthur-matias.github.io/)
 
-```ts
-// store.ts
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
+## :rocket: Technologies ##
+
+The following tools were used in this project:
+
+- [TypeScript](https://www.typescriptlang.org/)
+- [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
+- [SCSS](https://sass-lang.com/)
+
+## :white_check_mark: Requirements ##
+
+Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
+
+## :checkered_flag: Starting ##
+
+```bash
+# Clone this project
+$ git clone https://github.com/Arthur-Matias/Arthur-Matias.github.io
+
+# Access
+$ cd Arthur-Matias.github.io
+
+# Install dependencies
+$ yarn
+
+# Run the project
+$ yarn dev
+
+# The server will initialize in the <http://localhost:3000>
 ```
+
+## :memo: License ##
+
+This project is under license from MIT.
+
+
+Made with :heart: by <a href="https://github.com/Arthur-Matias" target="_blank">Arthur Matias</a>
+
+&#xa0;
+
+<a href="#top">Back to top</a>
