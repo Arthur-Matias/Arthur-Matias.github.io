@@ -11,9 +11,10 @@
   function checkIfMobile(){
     const windowWidth = window.innerWidth;
     const windowHeight = window.innerHeight;
+    let orientation = (screen.orientation || {}).type || screen.mozOrientation || screen.msOrientation;
     console.log()
     if(
-      screen.orientation.type === "portrait-primary" || 
+      orientation === "portrait-primary" || 
       windowWidth < windowHeight
     ){
       isMobile.set(true)

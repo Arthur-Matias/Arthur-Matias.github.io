@@ -8,6 +8,9 @@
     import Delete from "./Icons/Delete.svelte";
     import Keypad from "./Icons/Keypad.svelte";
     import Call from "./Icons/Call.svelte";
+    import Wifi from "./Icons/Wifi.svelte";
+    import MobileNetwork from "./Icons/MobileNetwork.svelte";
+    import Battery from "./Icons/Battery.svelte";
 
     export let iconName: eIcons = eIcons.logo;
     export let iconColor = "var(--accent)";
@@ -72,6 +75,12 @@
         <Keypad iconColor={iconColor} />
     {:else if iconName === eIcons.call}
         <Call iconColor={iconColor} />
+    {:else if iconName === eIcons.wifi}
+        <Wifi iconColor={iconColor} />
+    {:else if iconName === eIcons.mobileNetwork}
+        <MobileNetwork iconColor={iconColor} />
+    {:else if iconName === eIcons.battery}
+        <Battery iconColor={iconColor} />
     {:else}
         <Logo fill={iconColor} />
     {/if}

@@ -5,7 +5,8 @@ function WindowManager(){
         if(onRun){
             onRun()
         }
-        openApps.update(e=>{
+        setTimeout(()=>{
+            openApps.update(e=>{
                 let alreadyOpen = false;
                 e.map(item=>{
                     if(item === appId){
@@ -18,6 +19,7 @@ function WindowManager(){
                 }
                 return e
             })
+        },10)
     }
     function closeApp(appId:number){
         openApps.update(e=>{
@@ -56,6 +58,7 @@ function WindowManager(){
             e.map((item,i)=>{
                 if(item === appId){
                     e.splice(i, 1)
+                    changeActiveAppIndex(appId)
                 }
             })
             return e

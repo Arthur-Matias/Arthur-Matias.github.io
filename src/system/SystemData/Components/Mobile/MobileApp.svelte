@@ -2,7 +2,7 @@
     import IconSelector from "../../../Global/Components/Scalable/IconSelector.svelte";
     import { eIcons } from "../../../Global/consts/enums";
     import { activeLang } from "../../../Global/consts/stores";
-import type { AppProps } from "../../../Global/consts/types";
+    import type { AppProps } from "../../../Global/consts/types";
     import WindowManager from "../../Controllers/WindowManager";
 
 
@@ -35,6 +35,7 @@ import type { AppProps } from "../../../Global/consts/types";
         position: relative;
         padding-top: 7rem;
         display: flex;
+        animation: openAnim 1s ease-in 0ms linear;
      }
      .controls{
         position: fixed;

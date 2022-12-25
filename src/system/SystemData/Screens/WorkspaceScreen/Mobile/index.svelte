@@ -93,9 +93,19 @@
         {/if}
         <header class="glass-light">
             <div class="running-apps-container">
-    
+                <IconSelector />
             </div>
             <div class="system-stats-container">
+                <div class="header-icon">
+                    <IconSelector iconName={eIcons.mobileNetwork} />
+                </div>
+                <div class="header-icon">
+                    <IconSelector iconName={eIcons.wifi} />
+                </div>
+                <div class="header-icon">
+                    <IconSelector iconName={eIcons.battery} />
+                </div>
+                
                 
             </div>
         </header>
@@ -126,6 +136,9 @@
         top: 0;
         height: 2rem;
         width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
     .wrapper{
         width: 100%;
@@ -199,6 +212,20 @@
         height: 100%;
         width: 100%;
         z-index: 2;
+    }
+    .running-apps-container{
+        height: 60%;
+        margin-left: 0.8rem;
+    }
+    .system-stats-container{
+        height: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .header-icon{
+        margin-right: .8rem;
+        height: 70%;
     }
     @media screen and (max-height: 600px){
         .clock-container{

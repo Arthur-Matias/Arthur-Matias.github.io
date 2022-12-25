@@ -27,6 +27,8 @@ export enum eIcons{
     calc,
     keypad,
     phone,
-    call
+    call,
+    mobileNetwork,
+    wifi,
+    battery
 }
-
