@@ -79,7 +79,8 @@ function SystemState() {
             "carregando interface gráfica ...",
         ],
         login: {
-            phrase: "Pressione qualquer tecla"
+            mobileMessage: "Pressione ou deslize para cima",
+            desktopMessage: "Pressione qualquer tecla ou deslize para cima"
         }
     }
     const en: SystemTexts = {
@@ -109,7 +110,8 @@ function SystemState() {
             "loading GUI"
         ],
         login: {
-            phrase: "Press any key"
+            mobileMessage: "Press or swipe up to unlock",
+            desktopMessage: "Press any key or swipe up to unlock"
         }
     }
     const texts = {

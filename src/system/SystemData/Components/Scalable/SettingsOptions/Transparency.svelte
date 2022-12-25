@@ -2,7 +2,7 @@
     import { transparency } from '../../../../Global/consts/stores'
     import ColorController from "../../../../SystemData/Controllers/ColorController";
 
-    let value = 60;
+    $: value = 60;
 
     function handleInput(){
         const opacity = value/100

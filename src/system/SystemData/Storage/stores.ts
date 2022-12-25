@@ -16,7 +16,7 @@ export const isTurnedOff = writable(storage[3] || false);
 // export const minimizedApps = writable(storage[10] || []);
 export const settingsTrayOpen = writable(storage[4] || false);
 // export const transparency = writable(storage[12] || 0.6);
-export const activeBg = writable(storage[5] || 7);
+export const activeBg = writable(storage[5] || Math.floor(Math.random()*14));
 
 export const screens = writable({
     isOff: false,

@@ -9,7 +9,8 @@ type SystemTexts = {
     }
     boot: string[];
     login: {
-        phrase: string
+        mobileMessage: string;
+        desktopMessage: string;
     }
 }
 

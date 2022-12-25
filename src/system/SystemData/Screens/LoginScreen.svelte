@@ -1,9 +1,10 @@
 <script lang="ts">
     import Clock from "../../Global/Components/Scalable/Clock.svelte";
     import Logo from "../../Global/Components/Scalable/Icons/Logo.svelte";
-    import { isMobile } from "../../Global/consts/stores";
+    import { activeLang, isMobile } from "../../Global/consts/stores";
     import Wallpaper from "../Components/Scalable/Wallpaper.svelte";
     import ScreenController from "../Controllers/ScreenController";
+    import state from "../Storage/state";
     // import { isBootLoading, activeLang } from "../Storage/stores";
 
     const logoFill = "none",
@@ -77,12 +78,16 @@
                 x: 0,
                 y: e.pageY,
             };
+            newPos = {
+                x: 0,
+                y: 0,
+            };
         }
     }
     function handleMouseMove(e: MouseEvent) {
         newPos = {
             x: 0,
-            y: e.pageY,
+            y: currPos.y - (currPos.y - e.pageY),
         };
         if (newPos.y < currPos.y) {
             clearTimeout(timeout);
@@ -91,7 +96,7 @@
         }
     }
     function handleMouseUp(e: MouseEvent) {
-        if (newPos.y < currPos.y - Math.floor(window.innerHeight / 3)) {
+        if (Math.floor(Math.abs(newPos.y - currPos.y)) > currPos.y/3) {
             logIn(0);
         }
         timeout = setTimeout(() => {
@@ -122,7 +127,9 @@
         <div class="login-section">
             <Clock big={true} />
         </div>
-        <div class="login-section" />
+        <div class="login-section" >
+            {$isMobile?state.texts[$activeLang].login.mobileMessage:state.texts[$activeLang].login.desktopMessage}
+        </div>
     </div>
 </div>
 
@@ -134,6 +141,7 @@
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
+        
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
@@ -153,6 +161,7 @@
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
+        flex-direction: column;
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
@@ -164,6 +173,11 @@
         -webkit-transition: ease-in-out;
         -o-transition: ease-in-out;
         transition: ease-in-out;
+    }
+    .login-section:last-of-type{
+        margin-top: 4rem;
+        font-size: 1.6rem;
+        justify-self: end;
     }
     .logged {
         -webkit-transform: translateY(-100vh);

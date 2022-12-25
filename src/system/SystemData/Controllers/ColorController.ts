@@ -2,21 +2,16 @@ import { activeColor, activeTheme, transparency } from "../../Global/consts/stor
 import { eThemeMode } from "../../Global/consts/enums";
 import type { ThemeColors } from "../../Global/consts/types";
 
-let opacity;
-transparency.subscribe(e=>{
-    opacity = e
-})
-
 const darkColors:ThemeColors   = {
     bgDark: "#161616",
-    bgDarkTransparent: `rgba(16, 16, 16, ${opacity})`,
+    bgDarkTransparent: `rgba(16, 16, 16, var(--transparency))`,
     bgLight: "#252525",
     accent: "#BEC0CD",
     accentLight: "#CCCCD6",
 }
 const lightColors:ThemeColors = {
     bgDark: "#F8F8F8",
-    bgDarkTransparent: `rgba(248, 248, 248, ${opacity})`,
+    bgDarkTransparent: `rgba(248, 248, 248, var(--transparency))`,
     bgLight: "#FFFFFF",
     accent: "#323232",
     accentLight: "#252525",
@@ -110,6 +105,7 @@ class ColorController{
         document.documentElement.style.setProperty('--main-color-light', this.colors.mainColorsLight[active]);
         document.documentElement.style.setProperty('--accent', this.ActiveTheme.accent);
         document.documentElement.style.setProperty('--accent-light', this.ActiveTheme.accentLight);
+        document.documentElement.style.setProperty('--transparency', opacity.toString());
         
 
         // setTimeout(()=>{

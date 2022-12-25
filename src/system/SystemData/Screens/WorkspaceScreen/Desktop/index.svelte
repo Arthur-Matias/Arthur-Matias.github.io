@@ -3,7 +3,7 @@
     import WorkspaceShortcuts from "../../../../AppData/Components/Desktop/WorkspaceShortcuts.svelte";
     import Toolbar from "../../../Components/Desktop/ToolbarComponents/Toolbar.svelte";
     import OpenApps from "../../../../AppData/Components/Desktop/OpenApps.svelte";
-    import DesktopLauncher from "../../../Components/Desktop/DesktopLauncher.svelte";
+    import Launcher from "../../../Components/Desktop/Launcher.svelte";
     import LanguageSelector from "../../../Components/Scalable/LanguageSelector.svelte";
     import Settings from "../../../Components/Scalable/Settings.svelte";
 </script>
@@ -19,7 +19,7 @@
         <OpenApps />
     </div>
     <div class="launcher">
-        <DesktopLauncher />
+        <Launcher />
         <LanguageSelector />
         <Settings />
     </div>
