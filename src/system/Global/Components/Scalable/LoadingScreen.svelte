@@ -6,7 +6,7 @@
           logoStrokeSize = 16;
 </script>
 
-<div id="loading-screen" class="glass">
+<div id="loading-screen" class="glass-strong">
     <div class="logo-container">
         <Logo stroke={logoStroke} fill={logoFill} strokeSize={logoStrokeSize} animated={true}/>
     </div>
@@ -14,16 +14,13 @@
 
 <style>
 #loading-screen{
-    height: 100vh;
-    width: 100vw;
-    max-width: 100vw;
-    max-height: 100vh;
+    height: 100%;
+    width: 100%;
     
     position: absolute;
     top: 0;
     left: 0;
 
-    z-index: 1000;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;

@@ -6,7 +6,8 @@
   import Workspace from "./SystemData/Screens/WorkspaceScreen/Scalable/Workspace.svelte";
   import BootScreen from "./SystemData/Screens/BootScreen.svelte";
   import LoginScreen from "./SystemData/Screens/LoginScreen.svelte";
-    import { onMount } from "svelte";
+  import { onMount } from "svelte";
+    import ScreenController from "./SystemData/Controllers/ScreenController";
 
   function checkIfMobile(){
     const windowWidth = window.innerWidth;
@@ -25,7 +26,11 @@
   onMount(checkIfMobile)
 </script>
 
-<svelte:window on:resize={checkIfMobile} />
+<svelte:window on:resize={checkIfMobile} on:keydown={()=>{
+  if($screens.isOff){
+    ScreenController.toggleBoot()
+  }
+}} />
 
 <div id="os">
   {#if !$screens.isOff}
@@ -38,10 +43,12 @@
     {#if $screens.isWorkspaceActive}
       <Workspace />
     {/if}
-    {#if $screens.isLoadingActive}
-      <LoadingScreen />
     {/if}
-  {/if}
+    {#if $screens.isLoadingActive}
+      <div class="loading">
+        <LoadingScreen />
+      </div>
+    {/if}
 </div>
 
 <style>
@@ -51,6 +58,14 @@
       max-width: 100vw;
       max-height: 100vh;
       background-color: black;
-      position: relative;
+      position: static;
+  }
+  .loading{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1000;
   }
 </style>

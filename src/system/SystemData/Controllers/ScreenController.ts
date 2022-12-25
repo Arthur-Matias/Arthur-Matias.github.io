@@ -7,6 +7,15 @@ function ScreenController(){
         allScreens = e
     })
 
+    function turnOff(){
+        screens.set({
+            isOff: true,
+            isBootActive: false,
+            isLoginActive: false,
+            isWorkspaceActive: false,
+            isLoadingActive: false,
+        })
+    }
     function toggleBoot() {
         screens.set({
             isOff: false,
@@ -53,7 +62,8 @@ function ScreenController(){
         toggleBoot,
         toggleLogin,
         toggleWorkspace,
-        toggleLoading
+        toggleLoading,
+        turnOff
     }
 }
 

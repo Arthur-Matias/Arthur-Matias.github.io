@@ -5,12 +5,13 @@
     import {
         isLauncherOpen,
         isLoadingActive,
-        isTurnedOff,
+        screens,
         settingsTrayOpen,
     } from "../../Storage/stores";
     import AppIcon from "../Scalable/AppIcon.svelte";
     import type { AppProps } from "../../../Global/consts/types";
     import AllApps from "../../../AppData/Components/Scalable/AllApps.svelte";
+    import ScreenController from "../../Controllers/ScreenController";
 
     let w: number, h: number;
     let toolbarHeight = 76;
@@ -40,12 +41,11 @@
         }, 50);
     }
     function turnOff() {
-        isLoadingActive.set(true);
-
+        ScreenController.toggleLoading();
+        
         setTimeout(() => {
-            isTurnedOff.set(true);
-            isLoadingActive.set(false);
-        }, 2000);
+            ScreenController.turnOff();
+        }, 3000);
     }
 </script>
 
@@ -99,12 +99,11 @@
         display: -ms-grid;
         display: grid;
         display: none;
-        bottom: calc(var(--toolbar-height) + 1rem);
         left: 1rem;
         height: 64vh;
         width: 64vh;
         aspect-ratio: 1/1;
-        z-index: 0;
+        z-index: 2;
         /* filter: opacity(0); */
         -ms-grid-rows: 5vh 1fr 5vh;
         grid-template-rows: 5vh 1fr 5vh;
@@ -132,11 +131,10 @@
         -webkit-transition: ease 0.2s;
         -o-transition: ease 0.2s;
         transition: ease 0.2s;
-        -webkit-filter: opacity(1) !important;
-        filter: opacity(1) !important;
+        -webkit-filter: opacity(1);
+        filter: opacity(1);
         -webkit-animation: open-anim 0.2s forwards;
         animation: open-anim 0.2s forwards;
-        z-index: 2 !important;
         bottom: calc(var(--toolbar-height) + 1rem);
     }
     #apps {
@@ -238,8 +236,8 @@
             -webkit-transform: translateX(0);
             transform: translateX(0);
             bottom: calc(var(--toolbar-height) + 1rem);
-            -webkit-filter: opacity(0);
-            filter: opacity(0);
+            -webkit-filter: opacity(1);
+            filter: opacity(1);
         }
     }
 </style>

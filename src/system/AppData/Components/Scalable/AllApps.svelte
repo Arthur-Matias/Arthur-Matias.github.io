@@ -2,7 +2,7 @@
     import state from '../../Storage/state';
     // import type { AppProps } from '../../../../Global/consts/types';
     import Shortcut from '../Desktop/Shortcut.svelte';
-    import { isLauncherOpen, isLoadingActive, isTurnedOff, settingsTrayOpen } from '../../../SystemData/Storage/stores'
+    import { isLauncherOpen, isLoadingActive, screens, settingsTrayOpen } from '../../../SystemData/Storage/stores'
     import AppIcon from '../../../SystemData/Components/Scalable/AppIcon.svelte';
     import type { AppProps } from '../../../Global/consts/types';
     import { isMobile } from '../../../Global/consts/stores';
@@ -34,14 +34,7 @@
             closeLauncher()
         }, 50)
     }
-    function turnOff(){
-        isLoadingActive.set(true)
-
-        setTimeout(()=>{
-            isTurnedOff.set(true)
-            isLoadingActive.set(false)
-        }, 2000)
-    }
+    
 </script>
 
 <div class="all-apps">
