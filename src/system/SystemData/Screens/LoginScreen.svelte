@@ -46,7 +46,7 @@
         }
     }
     function handleTouchEnd(e: TouchEvent) {
-        if (newPos.y < currPos.y - 200) {
+        if (newPos.y < currPos.y - 400) {
             logIn(0);
         }
         timeout = setTimeout(() => {
@@ -96,8 +96,8 @@
         }
     }
     function handleMouseUp(e: MouseEvent) {
-        if (Math.floor(Math.abs(newPos.y - currPos.y)) > currPos.y/3) {
-            logIn(0);
+        if (newPos.y < currPos.y - 400) {
+            logIn(200);
         }
         timeout = setTimeout(() => {
             resetPosition();
@@ -183,5 +183,10 @@
         -webkit-transform: translateY(-100vh);
         -ms-transform: translateY(-100vh);
         transform: translateY(-100vh);
+    }
+    @media screen and (orientation:portrait){
+        .login-section:last-of-type{
+            font-size: 1rem;
+        }
     }
 </style>

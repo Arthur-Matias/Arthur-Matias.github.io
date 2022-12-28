@@ -5,7 +5,7 @@
     import OpenApps from "../../../../AppData/Components/Desktop/OpenApps.svelte";
     import Launcher from "../../../Components/Desktop/Launcher.svelte";
     import LanguageSelector from "../../../Components/Scalable/LanguageSelector.svelte";
-    import Settings from "../../../Components/Scalable/Settings.svelte";
+    import Settings from "../../../Components/Desktop/Settings.svelte";
 </script>
 
 <div id="workspace-desktop">

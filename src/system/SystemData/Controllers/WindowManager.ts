@@ -19,7 +19,7 @@ function WindowManager(){
                 }
                 return e
             })
-        },10)
+        },100)
     }
     function closeApp(appId:number){
         openApps.update(e=>{

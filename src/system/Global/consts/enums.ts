@@ -30,5 +30,7 @@ export enum eIcons{
     call,
     mobileNetwork,
     wifi,
-    battery
+    battery,
+    config, 
+    settings
 }

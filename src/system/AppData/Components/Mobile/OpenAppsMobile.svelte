@@ -10,7 +10,6 @@
 </script>
 
 <div id="open-apps">
-    {#if $openApps.length > 0}
         {#each $openApps as openApp, i}
             {#if allApps[openApp].options}
                 <MobileAppWithOptions props={allApps[openApp]}>
@@ -22,7 +21,6 @@
                 </MobileApp>
             {/if}
         {/each}
-    {/if}
 </div>
 
 <style>

@@ -220,6 +220,10 @@
         padding: 1.3rem;
         border-radius: 50%;
     }
+    .menu-btn:active{
+        transform: scale(.9);
+        transition: ease-in 0s;
+    }
     .menu-btn > div {
         height: 100%;
         width: 100%;

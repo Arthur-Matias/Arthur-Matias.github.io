@@ -48,7 +48,7 @@
 
 <style>
     #welcome-app{
-        height: auto;
+        height: 100%;
         width: 100%;
         display: -webkit-box;
         display: -ms-flexbox;

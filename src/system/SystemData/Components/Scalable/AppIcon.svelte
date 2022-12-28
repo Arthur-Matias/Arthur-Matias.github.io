@@ -148,7 +148,9 @@
         -o-transition: ease-in;
         transition: ease-in;
     }
-
+    .app-icon:active{
+        transform: scale(.9);
+    }
     @-webkit-keyframes select-icon{
         from{
             background: transparent;

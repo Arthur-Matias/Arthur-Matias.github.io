@@ -8,6 +8,7 @@
   import LoginScreen from "./SystemData/Screens/LoginScreen.svelte";
   import { onMount } from "svelte";
     import ScreenController from "./SystemData/Controllers/ScreenController";
+    import { openApps } from "./AppData/Storage/stores";
 
   function checkIfMobile(){
     const windowWidth = window.innerWidth;
@@ -24,6 +25,14 @@
     }
   }
   onMount(checkIfMobile)
+  $: workspaceActive = false;
+  function activateWorkspace(){
+    setTimeout(()=>{
+      $openApps.push(0);
+      workspaceActive = true;
+    }, 100)
+    return ""
+  }
 </script>
 
 <svelte:window on:resize={checkIfMobile} on:keydown={()=>{
@@ -41,7 +50,10 @@
       <LoginScreen />
     {/if}
     {#if $screens.isWorkspaceActive}
-      <Workspace />
+      {activateWorkspace()}
+      {#if workspaceActive}
+        <Workspace />
+      {/if}
     {/if}
     {/if}
     {#if $screens.isLoadingActive}

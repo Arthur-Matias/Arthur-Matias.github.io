@@ -191,6 +191,9 @@
         text-transform: capitalize;
         margin-top: 0.2rem;
     }
+    .shortcut:active{
+        transform: scale(.7);
+    }
     .shortcut.selected {
         background: var(--main-color);
         -webkit-transition: ease-in;

@@ -7,6 +7,7 @@ import { isHomeActive, mailStorage, notes } from './stores'
 import NotePad from '../Apps/NotePad.svelte'
 import Calc from '../Apps/Calc.svelte'
 import Phone from '../Apps/Phone.svelte'
+import Config from '../Apps/Config.svelte'
 
 
 function AppState() {
@@ -36,10 +37,10 @@ function AppState() {
                 en: {
                     name: "Welcome",
                     title: "About the project",
-                    description: "After working some time with development, I decided to challenge myself and create this portfolio site based on operating systems like Deepin, KDE and Windows for desktop version and XXXXXXXXXX XXXXXXX XXXX for mobile. Here you can check out more details about the design and development: ",
+                    description: "After working some time with development, I decided to challenge myself and create this portfolio site based on operating systems like Deepin, KDE and Windows for desktop version and Android, MIUI, Windows Phone and other linux systems for mobile devices for the mobile version. Here you can check out more details about the design and development: ",
                     link: {
                         text: "github link",
-                        url: ""
+                        url: "https://github.com/Arthur-Matias/Arthur-Matias.github.io"
                     },
                     dev: {
                         title: "Developed by: ",
@@ -47,13 +48,13 @@ function AppState() {
                             {
                                 name: "Arthur Matias",
                                 description: "Development and design",
-                                url: "",
+                                url: "https://github.com/Arthur-Matias/",
                                 icon: eIcons.user
                             },
                             {
                                 name: "Eliza Wollinger",
                                 description: "Design",
-                                url: "",
+                                url: "https://github.com/wollieliza",
                                 icon: eIcons.user
                             }
                         ]
@@ -62,10 +63,10 @@ function AppState() {
                 pt: {
                     name: "Bem Vindo",
                     title: "Sobre o projeto",
-                    description: "Depois de trabalhar algum tempo desenvolvendo aplicativos, decidi me desafiar e criar este site portfólio baseado em sistemas operacionais como Deepin, KDE e Windows para a versão desktop e XXXXXXXXXX XXXXXXX XXXX para o mobile. Aqui você pode conferir mais detalhes sobre o design e desenvolvimento: ",
+                    description: "Depois de trabalhar algum tempo com desenvolvimento, decidi me desafiar e criar este site portfólio baseado em sistemas operacionais como Deepin, KDE e Windows para a versão desktop e Android, MIUI, Windows Phone e outros sistemas linux para dispositivos móveis para a versão mobile. Aqui você pode conferir mais detalhes sobre o design e desenvolvimento: ",
                     link: {
                         text: "link do repositório",
-                        url: ""
+                        url: "https://github.com/Arthur-Matias/Arthur-Matias.github.io"
                     },
                     dev: {
                         title: "Desenvolvido por: ",
@@ -73,13 +74,13 @@ function AppState() {
                             {
                                 name: "Arthur Matias",
                                 description: "Desenvolvimento e design",
-                                url: "",
+                                url: "https://github.com/Arthur-Matias/",
                                 icon: eIcons.user
                             },
                             {
                                 name: "Eliza Wollinger",
                                 description: "Design",
-                                url: "",
+                                url: "https://github.com/wollieliza",
                                 icon: eIcons.user
                             }
                         ]
@@ -142,7 +143,7 @@ function AppState() {
                         "I'm a software developer, who loves creating visual simulations using a lot of science and creativity!",
                         "Feel free to contact if you want to know more about me, my past projects or even to discuss a future one."
                     ],
-                    social: {
+                        social: {
                         title: "find me",
                         social: [
                             {
@@ -167,11 +168,11 @@ function AppState() {
                     homeTitle: [
                         "Olá, meu nome é",
                         "Arthur Matias",
-                        "Um desenvolvedor criativo de softwares e designer"
+                        "Um desenvolvedor criativo de software e designer"
                     ],
                     texts: [
-                        "I'm a software developer, who loves creating visual simulations using a lot of science and creativity!",
-                        "Feel free to contact if you want to know more about me, my past projects or even to discuss a future one."
+                        "Eu sou um desenvolvedor de software apaixonado por criar simulações visuais, utilizando muita ciência e criatividade!",
+                        "Fique a vontade para entrar em contato se você quiser saber mais sobre mim, meus projetos passados, ou mesmo para discutir um projeto futuro."
                     ],
                     social: {
                         title: "me encontre",
@@ -426,6 +427,36 @@ function AppState() {
                 },
                 pt: {
                     name: "Telefone",
+                }
+            }
+        },
+        //Config
+        {
+            mobileOnly: true,
+            icon: eIcons.settings,
+            shortcutIcon: eIcons.config,
+            appContent: Config,
+            id: 5,
+            geometry: {
+                minSize: {
+                    x: 400,
+                    y: 600
+                },
+                currSize: {
+                    x: 400,
+                    y: 600
+                },
+                position: {
+                    x: window.innerWidth / 2 - 400 / 2,
+                    y: window.innerHeight / 2 - 500 / 2
+                }
+            },
+            texts: {
+                en: {
+                    name: "Settings",
+                },
+                pt: {
+                    name: "Configurações",
                 }
             }
         }
