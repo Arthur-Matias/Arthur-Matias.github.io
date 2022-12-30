@@ -19,11 +19,11 @@
                 clearInterval(interval)
                 // displayGreeting = true;
                 setTimeout(()=>{
-                    setTimeout( () => ScreenController.toggleLogin(), 1000 )
-                },1000)
+                    setTimeout( () => ScreenController.toggleLogin(), 500 )
+                },500)
             }
             counter ++
-        }, 2000)
+        }, 1000)
         
     }
     
@@ -72,8 +72,8 @@
         -webkit-transform: translateX(70%);
             -ms-transform: translateX(70%);
                 transform: translateX(70%);
-        -webkit-animation: textAnim 1s ease-in-out infinite;
-                animation: textAnim 1s ease-in-out infinite;
+        -webkit-animation: textAnim 2s ease-in-out infinite;
+                animation: textAnim 2s ease-in-out infinite;
     }
     @-webkit-keyframes textAnim{
         0%{

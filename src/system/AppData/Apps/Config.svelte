@@ -2,41 +2,17 @@
     import state from "../../SystemData/Storage/state";
     import { activeLang } from "../../Global/consts/stores";
     import Card from "../../Global/Components/Scalable/Card.svelte";
-    import LanguageSelector from "../../SystemData/Components/Scalable/LanguageSelector.svelte";
     import { eLang } from "../../Global/consts/enums";
-
-    let w: number, h: number;
-    let toolbarHeight = 76;
 
     $: texts = state.texts[$activeLang].config;
     function changeCurrLang(lang: eLang) {
         activeLang.update((e) => lang);
     }
-    // function handleWindowClick(mouse: MouseEvent){
-
-    //     if ($settingsTrayOpen && !checkIfInside(mouse)) {
-    //         closeLauncher()
-    //     }
-    // }
-    // function closeLauncher(){
-    //     settingsTrayOpen.update(val=> false)
-
-    // }
-    function checkIfInside(e: MouseEvent) {
-        let xRange =
-                e.clientX > window.innerWidth - w &&
-                e.clientX < window.innerWidth,
-            yRange =
-                e.clientY > window.innerHeight - h &&
-                e.clientY < window.innerHeight;
-
-        return xRange && yRange;
-    }
 </script>
 
 <!-- <svelte:window on:click={handleWindowClick} /> -->
 
-<div id="config" bind:offsetHeight={h} bind:offsetWidth={w}>
+<div id="config">
     <div class="config-header">
         <p class="title">
             {texts.title}

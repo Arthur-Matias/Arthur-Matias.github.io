@@ -3,10 +3,8 @@
     import type { AppProps } from "../../Global/consts/types";
     import { activeLang, isMobile } from "../../Global/consts/stores"
     import IconSelector from "../../Global/Components/Scalable/IconSelector.svelte";
-    import { onMount } from "svelte";
 
     export let props: AppProps;
-    console.log(props)
 
 </script>
 

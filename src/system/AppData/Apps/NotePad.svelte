@@ -1,14 +1,14 @@
 <script lang="ts">
     import type { AppProps, iNote } from "../../Global/consts/types";
-    import Logo from "../../Global/Components/Scalable/Icons/Logo.svelte";
+    // import Logo from "../../Global/Components/Scalable/Icons/Logo.svelte";
 
-    // export let props: AppProps;
+    // // export let props: AppProps;
 
-    let notes: iNote[] = [];
-    let firstNote: iNote = {
-        title: "teste",
-        text: "Lorem ipsum sit dolor amet ...."
-    }
+    // let notes: iNote[] = [];
+    // let firstNote: iNote = {
+    //     title: "teste",
+    //     text: "Lorem ipsum sit dolor amet ...."
+    // }
 </script>
 
 <div id="notepad">

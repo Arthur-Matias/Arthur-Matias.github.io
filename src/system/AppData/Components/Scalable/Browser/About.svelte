@@ -1,6 +1,6 @@
 <script lang="ts">
     import IconSelector from "../../../../Global/Components/Scalable/IconSelector.svelte";
-import { activeLang } from "../../../../Global/consts/stores";
+import { activeLang, isMobile } from "../../../../Global/consts/stores";
     import type { AppProps } from "../../../../Global/consts/types";
     import state from "../../../Storage/state";
     import VectorDraw from "../VectorDraw.svelte";
@@ -18,17 +18,19 @@ import { activeLang } from "../../../../Global/consts/stores";
 </script>
 
 <div id="about">
-    <section>
-        <div class="image-container" on:mouseover={onMouseOver} on:mouseout={onMouseOut} on:focus={()=>{}} on:blur={()=>{}}>
-            {#if mouseOver}
-                <div class="photo"></div>
-            {:else}
-                <div class="vector">
-                    <VectorDraw />
-                </div>
-            {/if}
-        </div>
-    </section>
+    {#if !$isMobile}
+        <section>
+            <div class="image-container" on:mouseover={onMouseOver} on:mouseout={onMouseOut} on:focus={()=>{}} on:blur={()=>{}}>
+                {#if mouseOver}
+                    <div class="photo"></div>
+                {:else}
+                    <div class="vector">
+                        <VectorDraw />
+                    </div>
+                {/if}
+            </div>
+        </section>
+    {/if}
     <section class="text-wrapper">
         <h2>
             {props.texts[$activeLang].title}
@@ -77,6 +79,7 @@ import { activeLang } from "../../../../Global/consts/stores";
     #about section{
         height: 100%;
         width: 100%;
+        text-align: center;
     }
     .image-container{
         height: 100%;
@@ -141,6 +144,9 @@ import { activeLang } from "../../../../Global/consts/stores";
         margin-bottom: 2rem;
     }
    @media screen and (orientation:portrait) { 
-        
+        #about{
+            display: flex;
+            flex-direction: column;
+        }
     }
 </style>

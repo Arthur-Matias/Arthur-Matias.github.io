@@ -1,6 +1,4 @@
 <script lang="ts">
-    import type { AppProps, iNote } from "../../Global/consts/types";
-    import Logo from "../../Global/Components/Scalable/Icons/Logo.svelte";
 
     // export let props: AppProps;
 

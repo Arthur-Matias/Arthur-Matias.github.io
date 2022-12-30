@@ -31,6 +31,10 @@
         height: 100%;
         width: 80%;
         padding-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* justify-content: center; */
     }
     #find-me h2{
         font-size: 2rem;

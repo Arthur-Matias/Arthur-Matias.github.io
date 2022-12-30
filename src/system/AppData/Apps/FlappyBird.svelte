@@ -1,7 +1,4 @@
 <script lang="ts">
-    import type { AppProps } from "../../Global/consts/types";
-    
-    export let props: AppProps
 
 </script>
 

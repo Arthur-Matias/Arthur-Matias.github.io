@@ -1,8 +1,8 @@
 <script lang="ts">
     import IconSelector from "../../Global/Components/Scalable/IconSelector.svelte";
     import { eIcons, eLang } from "../../Global/consts/enums";
-    import { activeLang } from "../../Global/consts/stores";
-    import type { AppProps, iNote } from "../../Global/consts/types";
+    // import { activeLang } from "../../Global/consts/stores";
+    // import type { AppProps, iNote } from "../../Global/consts/types";
     
     // let result = "";
     let dial = "";
