@@ -62,7 +62,7 @@ The following tools were used in this project:
 
 ## :white_check_mark: Requirements ##
 
-Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
+Before starting :checkered_flag:, you need to have [Git](https://git-scm.com), and [Node](https://nodejs.org/en/) with [NPM](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/) installed.
 
 ## :checkered_flag: Starting ##
 
@@ -74,10 +74,10 @@ $ git clone https://github.com/Arthur-Matias/Arthur-Matias.github.io
 $ cd Arthur-Matias.github.io
 
 # Install dependencies
-$ yarn
+$ yarn // npm install
 
 # Run the project
-$ yarn dev
+$ yarn dev // npm run dev
 
 # The server will initialize in the <http://localhost:3000>
 ```
