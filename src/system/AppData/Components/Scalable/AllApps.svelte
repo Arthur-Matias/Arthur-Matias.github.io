@@ -41,7 +41,9 @@
     {#each shortcuts as shortcut}
         {#if shortcut.mobileOnly && $isMobile}
             <AppIcon props={shortcut} onRun={()=>closeLauncher()} openAtfirstClick={true} />
-        {:else if !shortcut.mobileOnly}
+        {:else if shortcut.desktopOnly && !$isMobile}
+            <AppIcon props={shortcut} onRun={()=>closeLauncher()} openAtfirstClick={true} />
+        {:else if !shortcut.mobileOnly && !shortcut.desktopOnly}
             <AppIcon props={shortcut} onRun={()=>closeLauncher()} openAtfirstClick={true} />    
         {/if}
     {/each}

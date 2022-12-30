@@ -1,6 +1,7 @@
 <script lang="ts">
-    import { isHomeActive } from "../../../Storage/stores" 
+    import { PageStorage } from "../../../Storage/stores" 
     import About from "./About.svelte";
+    import FindMe from "./FindMe.svelte";
     import Home from "./Home.svelte";
     import NavBarAbout from "./NavBarAbout.svelte";
 
@@ -9,19 +10,24 @@
 
 <div id="page">
     <NavBarAbout props={props}/>
-    {#if $isHomeActive}
+    {#if $PageStorage.isHomeActive}
         <Home props={props}/>
-    {:else}
+    {:else if $PageStorage.isAboutActive}
         <About props={props}/>
+    {:else if $PageStorage.isFindMeActive}
+        <FindMe props={props}/>
     {/if}
 </div>
 
 <style>
    #page{
-        width: 100%;
         height: 100%;
-        position: relative;
+        width: 100%;
+        position: static;
         background-color: var(--bg-dark);
-        overflow-y: auto;
+        overflow-y: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
    }
 </style>

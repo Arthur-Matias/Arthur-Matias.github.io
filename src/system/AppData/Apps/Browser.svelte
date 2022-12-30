@@ -79,7 +79,9 @@
             </button>
         </div>
     </div>
-    <Page props={props}/>
+    <div class="page">
+        <Page props={props}/>
+    </div>
 </div>
 
 <style>
@@ -103,7 +105,7 @@
         -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
         background-color: var(--bg-dark);
-        position: relative;
+        position: static;
         overflow: hidden;
     }
     .browser-controls{
@@ -119,6 +121,11 @@
             -ms-flex-pack: center;
                 justify-content: center;
         /* position: fixed; */
+    }
+    .page{
+        height: calc(100% - 4rem);
+        width: 100%;
+        margin-top: 2rem;
     }
     .input-wrapper{
         width: 100%;

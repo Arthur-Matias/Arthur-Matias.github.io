@@ -18,7 +18,7 @@ export const minimizedApps = writable(storage[10] || []);
 // export const settingsTrayOpen = writable(storage[11] || false);
 // export const transparency = writable(storage[12] || 0.6);
 // export const activeBg = writable(storage[13] || 1);
-export const isHomeActive = writable(storage[14] || true);
+// export const isHomeActive = writable(storage[14] || true);
 
 export const mailStorage = writable({
     create: false,
@@ -61,6 +61,11 @@ export const mailStorage = writable({
 export const notes = writable({
     addNote: false,
     listNotes: true
+})
+export const PageStorage = writable({
+    isHomeActive: true,
+    isAboutActive: false, 
+    isFindMeActive: false
 })
 
 const stores = [

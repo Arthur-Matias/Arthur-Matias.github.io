@@ -29,15 +29,15 @@
 </script>
 
 <div id="home" bind:this={el} on:change={handleChange}>
-    <div class="logo-container">
-        <div class="logo-wrapper">
+    <div class="home-logo-container">
+        <div class="home-logo-wrapper">
             <Logo fill="{fillColor}"/>
         </div>
     </div>
-    <div class="title">
-        <p style="{!$isMobile?"font-size: {fontSize}rem;":""}">{props.texts[$activeLang].homeTitle[0]}</p>
+    <div class="home-title">
+        <p style="{!$isMobile?`font-size: ${fontSize}rem;`:""}">{props.texts[$activeLang].homeTitle[0]}</p>
         <h2 style="{!$isMobile?`font-size: ${Math.floor(fontSize * ratio)}rem;  margin: ${margin}px 0;`:""}">{props.texts[$activeLang].homeTitle[1]}</h2>
-        <p style="{!$isMobile?"font-size: {fontSize}rem;":""}">{props.texts[$activeLang].homeTitle[2]}</p>
+        <p style="{!$isMobile?`font-size: ${fontSize}rem;`:""}">{props.texts[$activeLang].homeTitle[2]}</p>
     </div>
     <!-- COMPONENT HERE -->
 </div>
@@ -61,7 +61,7 @@
             -ms-flex-pack: center;
                 justify-content: center;
    }
-   .logo-container{
+   .home-logo-container{
         height: 100%;
         max-height: 100%;
         width: 100%;
@@ -81,7 +81,7 @@
         position: absolute;
         left: 0;
    }
-   .logo-wrapper{
+   .home-logo-wrapper{
         height: 50%;
         width: 100%;
         display: -webkit-box;
@@ -94,7 +94,7 @@
             -ms-flex-pack: center;
                 justify-content: center;
    }
-   .title{
+   .home-title{
         position: relative;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -110,15 +110,15 @@
             -ms-flex-pack: center;
                 justify-content: center;
    }
-   .title > h2{
+   .home-title > h2{
        font-family: distant-galaxy;
        color: var(--main-color);
     }
-    .title > p{
+    .home-title > p{
         font-weight: 100;
     }
     @media screen and (orientation:portrait) { 
-        .title > h2{
+        .home-title > h2{
             font-size: 2rem !important;
             
         }

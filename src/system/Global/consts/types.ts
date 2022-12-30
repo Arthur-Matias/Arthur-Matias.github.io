@@ -89,7 +89,8 @@ interface iApp{
 type Texts = any
 
 type AppProps = {
-    mobileOnly?: boolean
+    desktopOnly?: boolean;
+    mobileOnly?: boolean;
     icon?: eIcons;
     shortcutIcon: eIcons;
     appContent?:any;

@@ -1,11 +1,13 @@
 <script lang="ts">
     import Logo from "../../../../Global/Components/Scalable/Icons/Logo.svelte";
-    import type { Link } from "../../../../Global/consts/types";
+    import type { AppProps, Link } from "../../../../Global/consts/types";
     import state from "../../../Storage/state";
     import { activeLang } from "../../../../Global/consts/stores";
+    import { PageStorage } from "../../../Storage/stores";
 
     const logoFillColor = "var(--main-color)";
-    export let props;
+    export let props: AppProps;
+    
 </script>
 
 <div id="nav-bar-about">
@@ -13,8 +15,8 @@
         <Logo animated={false} fill={logoFillColor}/>
     </div>
     <div class="section">
-        {#each props.links[$activeLang] as link}
-            <button class="about-link" on:click={link.exec}>{link.name}</button>
+        {#each props.links[$activeLang] as link, index}
+            <button class="about-link {index === 0 && $PageStorage.isHomeActive?"active":index === 1 && $PageStorage.isAboutActive?"active":index === 2 && $PageStorage.isFindMeActive?"active":""}" on:click={link.exec}>{link.name}</button>
         {/each}
     </div>
     <div class="section">
@@ -71,12 +73,16 @@
         -webkit-box-pack: center;
             -ms-flex-pack: center;
                 justify-content: center;
+                cursor: pointer;
     }
-    .about-link:first-of-type{
-        margin-right: 1rem;
+    .about-link:not(:first-of-type){
+        margin-left: 1rem;
     }
     .about-link:hover{
         -webkit-filter: opacity(1);
                 filter: opacity(1);
+    }
+    .about-link.active{
+        color: var(--main-color);
     }
 </style>

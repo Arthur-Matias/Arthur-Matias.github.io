@@ -32,5 +32,10 @@ export enum eIcons{
     wifi,
     battery,
     config, 
-    settings
+    settings,
+    asteroid,
+    flappyBird,
+    behance, 
+    github, 
+    linkedin,
 }

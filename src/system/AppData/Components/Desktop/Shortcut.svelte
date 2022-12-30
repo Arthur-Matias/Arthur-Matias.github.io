@@ -31,7 +31,7 @@
     let deltaY = 0.5 * rem;
 
     // let totalCols = Math.floor(window.innerWidth / (6*rem));
-    let totalRows = Math.floor(window.innerHeight / (6*rem));
+    let totalRows = Math.floor(window.innerHeight / (6*rem))-1;
 
     let currCol = 0;
     let currRow = 0;
@@ -105,12 +105,12 @@
             setPos(deltaX, deltaY);
             deltaY = 0;
             deltaX = 0;
-            isSelected = true;
 		}
 	}
 	function onMouseUp() {
 		moving = false;
-        isMouseOver = true
+        isMouseOver = true;
+        isSelected = true;
 	}
     function onMouseDown(e:MouseEvent){
         moving = true
@@ -121,7 +121,7 @@
 
 <div 
     bind:this={shortcutElement}
-    class={isMouseOver?"shortcut mouse-over":isSelected?"shortcut selected":"shortcut"}
+    class={isSelected?"shortcut selected":isMouseOver?"shortcut mouse-over":"shortcut"}
     style="left: {pos.left}px; top: {pos.top}px;"
     on:click={handleClick} 
     on:dblclick={handleDoubleClick}
@@ -191,9 +191,9 @@
         text-transform: capitalize;
         margin-top: 0.2rem;
     }
-    .shortcut:active{
+    /* .shortcut:active{
         transform: scale(.7);
-    }
+    } */
     .shortcut.selected {
         background: var(--main-color);
         -webkit-transition: ease-in;

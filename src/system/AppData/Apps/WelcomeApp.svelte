@@ -48,36 +48,19 @@
 
 <style>
     #welcome-app{
+        position: static;
         height: 100%;
         width: 100%;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
-        -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center;
+        overflow-y: auto;
+        flex-direction: column;
+        align-items: center;
+        
     }
     .container{
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
-        -webkit-box-align: start;
-            -ms-flex-align: start;
-                align-items: flex-start;
-        -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center;
+        margin: 2rem 0;
         height: auto;
         width: 80%;
     }
@@ -90,9 +73,10 @@
         width: 80%;
         text-align: left;
         font-size: 1.4rem;
+        margin-bottom: 2rem;
     }
     h3.title{
-        width: 100%;
+        /* width: 100%; */
         font-size: 1.2rem;
         margin-top: 1rem;
         margin-bottom: 1rem;
@@ -104,19 +88,9 @@
         width: 80%;
     }
     .logo-container{
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
-        -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center;
-        margin-top: 2rem;
-        margin-bottom: 2rem;
         height: 3rem;
-        width: 100%;
+        aspect-ratio: 1 / 1;
+        margin-bottom: 2rem;
     }
     .development-section{
         margin-bottom: 2rem;

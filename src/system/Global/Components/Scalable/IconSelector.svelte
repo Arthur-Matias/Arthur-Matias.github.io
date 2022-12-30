@@ -37,6 +37,10 @@
         <img src="/icons/internet-mail.png" alt="mail" />
     {:else if iconName === eIcons.config}
         <img src="/icons/preferences-system.png" alt="config" />
+    {:else if iconName === eIcons.asteroid}
+        <img src="/icons/asteroid.png" alt="config" />
+    {:else if iconName === eIcons.flappyBird}
+        <img src="/icons/flappy-bird.png" alt="config" />
     {:else if iconName === eIcons.user}
         <User iconColor={iconColor} />
     {:else if iconName === eIcons.mailList}

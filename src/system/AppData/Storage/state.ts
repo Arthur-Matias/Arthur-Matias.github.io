@@ -3,11 +3,13 @@ import type { AppProps } from '../../Global/consts/types'
 import WelcomeApp from '../Apps/WelcomeApp.svelte'
 import Browser from '../Apps/Browser.svelte'
 import Mail from '../Apps/Mail.svelte'
-import { isHomeActive, mailStorage, notes } from './stores'
+import { PageStorage, mailStorage, notes } from './stores'
 import NotePad from '../Apps/NotePad.svelte'
 import Calc from '../Apps/Calc.svelte'
 import Phone from '../Apps/Phone.svelte'
 import Config from '../Apps/Config.svelte'
+import SpaceGame from '../Apps/SpaceGame.svelte'
+import FlappyBird from '../Apps/FlappyBird.svelte'
 
 
 function AppState() {
@@ -111,22 +113,66 @@ function AppState() {
             links: {
                 "pt": [
                     {
-                        exec: () => { isHomeActive.set(true) },
+                        exec: () => {
+                            PageStorage.set({
+                                isHomeActive: true,
+                                isAboutActive: false,
+                                isFindMeActive: false
+                            })
+                        },
                         name: "home"
                     },
                     {
-                        exec: () => { isHomeActive.set(false) },
+                        exec: () => {
+                            PageStorage.set({
+                                isHomeActive: false,
+                                isAboutActive: true,
+                                isFindMeActive: false
+                            })
+                        },
                         name: "sobre"
+                    },
+                    {
+                        exec: () => {
+                            PageStorage.set({
+                                isHomeActive: false,
+                                isAboutActive: false,
+                                isFindMeActive: true
+                            })
+                        },
+                        name: "contato"
                     },
                 ],
                 "en": [
                     {
-                        exec: () => { isHomeActive.set(true) },
+                        exec: () => {
+                            PageStorage.set({
+                                isHomeActive: true,
+                                isAboutActive: false,
+                                isFindMeActive: false
+                            })
+                        },
                         name: "home"
                     },
                     {
-                        exec: () => { isHomeActive.set(false) },
+                        exec: () => {
+                            PageStorage.set({
+                                isHomeActive: false,
+                                isAboutActive: true,
+                                isFindMeActive: false
+                            })
+                        },
                         name: "about"
+                    },
+                    {
+                        exec: () => {
+                            PageStorage.set({
+                                isHomeActive: false,
+                                isAboutActive: false,
+                                isFindMeActive: true
+                            })
+                        },
+                        name: "contact"
                     },
                 ]
             },
@@ -143,24 +189,134 @@ function AppState() {
                         "I'm a software developer, who loves creating visual simulations using a lot of science and creativity!",
                         "Feel free to contact if you want to know more about me, my past projects or even to discuss a future one."
                     ],
-                        social: {
+                    social: {
                         title: "find me",
+                        description: "on social media",
                         social: [
                             {
                                 id: "behance",
+                                icon: eIcons.behance,
                                 link: ""
                             },
                             {
                                 id: "github",
+                                icon: eIcons.github,
                                 link: ""
                             },
                             {
                                 id: "linkedin",
+                                icon: eIcons.linkedin,
                                 link: ""
                             },
                         ]
                     },
-                    
+                    skills: {
+                        soft: {
+                            title: "soft skills",
+                            skills: [
+                                {
+                                    name: "Communication",
+                                    value: 5
+                                },
+                                {
+                                    name: "leadership",
+                                    value: 4
+                                },
+                                {
+                                    name: "Problem solving",
+                                    value: 4
+                                },
+                                {
+                                    name: "Critical thinking",
+                                    value: 5
+                                },
+                                {
+                                    name: "Decision-making",
+                                    value: 4
+                                },
+                                {
+                                    name: "Teamwork",
+                                    value: 3
+                                },
+                                {
+                                    name: "Creativity",
+                                    value: 4
+                                },
+                            ],
+
+                        },
+                        hard: {
+                            title: "skills",
+                            skills: [
+                                {
+                                    link: "https://developer.mozilla.org/pt-BR/docs/Web/JavaScript",
+                                    text: "JavaScript"
+                                },
+                                {
+                                    link: "https://www.typescriptlang.org/",
+                                    text: "TypeScript"
+                                },
+                                {
+                                    link: "https://learn.microsoft.com/pt-br/dotnet/csharp/",
+                                    text: "C#"
+                                },
+                                {
+                                    link: "https://developer.mozilla.org/pt-BR/docs/Web/HTML",
+                                    text: "HTML"
+                                },
+                                {
+                                    link: "https://developer.mozilla.org/pt-BR/docs/Web/CSS",
+                                    text: "CSS"
+                                },
+                                {
+                                    link: "https://www.python.org/",
+                                    text: "Python"
+                                },
+                                {
+                                    link: "https://unity.com/pt",
+                                    text: "Unity"
+                                },
+                                {
+                                    link: "https://pt-br.reactjs.org/",
+                                    text: "React.JS"
+                                },
+                                {
+                                    link: "https://nextjs.org/",
+                                    text: "Next.js"
+                                },
+                                {
+                                    link: "https://svelte.dev/",
+                                    text: "Svelte"
+                                },
+                                {
+                                    link: "https://vitejs.dev/",
+                                    text: "Vite"
+                                },
+                                {
+                                    link: "https://getbootstrap.com/",
+                                    text: "Bootstrap"
+                                },
+                                {
+                                    link: "https://angular.io/",
+                                    text: "Angular"
+                                },
+                                {
+                                    link: "https://flask.palletsprojects.com/en/2.2.x/",
+                                    text: "Flask"
+                                },
+                                {
+                                    link: "https://www.adobe.com/br/creativecloud.html",
+                                    text: "Abobe CC"
+                                },
+                                {
+                                    link: "https://www.figma.com/",
+                                    text: "Figma"
+                                },
+
+                            ]
+
+                        }
+                    }
                 },
                 pt: {
                     name: "Navegador",
@@ -176,23 +332,133 @@ function AppState() {
                     ],
                     social: {
                         title: "me encontre",
+                        description: "nas redes sociais",
                         social: [
                             {
                                 id: "behance",
+                                icon: eIcons.behance,
                                 link: ""
                             },
                             {
                                 id: "github",
+                                icon: eIcons.github,
                                 link: ""
                             },
                             {
                                 id: "linkedin",
+                                icon: eIcons.linkedin,
                                 link: ""
                             },
                         ]
                     },
-                   
-                },
+                    skills: {
+                        soft: {
+                            title: "soft skills",
+                            skills: [
+                                {
+                                    name: "comunicação",
+                                    value: 5
+                                },
+                                {
+                                    name: "liderança",
+                                    value: 4
+                                },
+                                {
+                                    name: "solução de problemas",
+                                    value: 4
+                                },
+                                {
+                                    name: "Pensamento critico",
+                                    value: 5
+                                },
+                                {
+                                    name: "Tomada de decisão",
+                                    value: 4
+                                },
+                                {
+                                    name: "Trabalho em equipe",
+                                    value: 3
+                                },
+                                {
+                                    name: "Criatividade",
+                                    value: 4
+                                },
+                            ],
+
+                        },
+                        hard: {
+                            title: "habilidades",
+                            skills: [
+                                {
+                                    link: "https://developer.mozilla.org/pt-BR/docs/Web/JavaScript",
+                                    text: "JavaScript"
+                                },
+                                {
+                                    link: "https://www.typescriptlang.org/",
+                                    text: "TypeScript"
+                                },
+                                {
+                                    link: "https://learn.microsoft.com/pt-br/dotnet/csharp/",
+                                    text: "C#"
+                                },
+                                {
+                                    link: "https://developer.mozilla.org/pt-BR/docs/Web/HTML",
+                                    text: "HTML"
+                                },
+                                {
+                                    link: "https://developer.mozilla.org/pt-BR/docs/Web/CSS",
+                                    text: "CSS"
+                                },
+                                {
+                                    link: "https://www.python.org/",
+                                    text: "Python"
+                                },
+                                {
+                                    link: "https://unity.com/pt",
+                                    text: "Unity"
+                                },
+                                {
+                                    link: "https://pt-br.reactjs.org/",
+                                    text: "React.JS"
+                                },
+                                {
+                                    link: "https://nextjs.org/",
+                                    text: "Next.js"
+                                },
+                                {
+                                    link: "https://svelte.dev/",
+                                    text: "Svelte"
+                                },
+                                {
+                                    link: "https://vitejs.dev/",
+                                    text: "Vite"
+                                },
+                                {
+                                    link: "https://getbootstrap.com/",
+                                    text: "Bootstrap"
+                                },
+                                {
+                                    link: "https://angular.io/",
+                                    text: "Angular"
+                                },
+                                {
+                                    link: "https://flask.palletsprojects.com/en/2.2.x/",
+                                    text: "Flask"
+                                },
+                                {
+                                    link: "https://www.adobe.com/br/creativecloud.html",
+                                    text: "Abobe CC"
+                                },
+                                {
+                                    link: "https://www.figma.com/",
+                                    text: "Figma"
+                                },
+
+                            ]
+
+                        }
+                    },
+                }
             },
         },
         // Mail
@@ -219,21 +485,21 @@ function AppState() {
             options: [
                 {
                     icon: eIcons.plus,
-                    run: () => { 
-                        mailStorage.update((e)=>{
+                    run: () => {
+                        mailStorage.update((e) => {
                             e.create = true;
                             e.listReceived = false;
                             e.listSent = false;
                             e.reading = false;
-                            
+
                             return e
                         })
                     }
                 },
                 {
                     icon: eIcons.mailList,
-                    run: () => { 
-                        mailStorage.update((e)=>{
+                    run: () => {
+                        mailStorage.update((e) => {
                             e.create = false;
                             e.listReceived = true;
                             e.listSent = false;
@@ -245,8 +511,8 @@ function AppState() {
                 },
                 {
                     icon: eIcons.sentMail,
-                    run: () => { 
-                        mailStorage.update((e)=>{
+                    run: () => {
+                        mailStorage.update((e) => {
                             e.create = false;
                             e.listReceived = false;
                             e.listSent = true;
@@ -256,7 +522,7 @@ function AppState() {
                         })
                     }
                 },
-                
+
             ],
             texts: {
                 en: {
@@ -367,7 +633,7 @@ function AppState() {
         //                 "nova",
         //                 "notas"
         //             ]
-                    
+
         //         }
         //     }
         // },
@@ -400,13 +666,72 @@ function AppState() {
                 }
             }
         },
+        //Space Game
+        {
+            desktopOnly: true,
+            icon: eIcons.settings,
+            shortcutIcon: eIcons.asteroid,
+            appContent: SpaceGame,
+            id: 4,
+            geometry: {
+                minSize: {
+                    x: 750,
+                    y: 650
+                },
+                currSize: {
+                    x: 750,
+                    y: 650
+                },
+                position: {
+                    x: window.innerWidth / 2 - 750 / 2,
+                    y: window.innerHeight / 2 - 400 / 2
+                }
+            },
+            texts: {
+                en: {
+                    name: "Space Game",
+                },
+                pt: {
+                    name: "Space Game",
+                }
+            }
+        },
+        //Flappy Bird
+        {
+            icon: eIcons.keypad,
+            shortcutIcon: eIcons.flappyBird,
+            appContent: FlappyBird,
+            id: 5,
+            geometry: {
+                minSize: {
+                    x: 360,
+                    y: 530
+                },
+                currSize: {
+                    x: 360,
+                    y: 500
+                },
+                position: {
+                    x: window.innerWidth / 2 - 360 / 2,
+                    y: window.innerHeight / 2 - 500 / 2
+                }
+            },
+            texts: {
+                en: {
+                    name: "Flappy Bird",
+                },
+                pt: {
+                    name: "Flappy Bird",
+                }
+            }
+        },
         //Phone
         {
             mobileOnly: true,
             icon: eIcons.call,
             shortcutIcon: eIcons.phone,
             appContent: Phone,
-            id: 4,
+            id: 6,
             geometry: {
                 minSize: {
                     x: 300,
@@ -436,7 +761,7 @@ function AppState() {
             icon: eIcons.settings,
             shortcutIcon: eIcons.config,
             appContent: Config,
-            id: 5,
+            id: 7,
             geometry: {
                 minSize: {
                     x: 400,
@@ -459,7 +784,8 @@ function AppState() {
                     name: "Configurações",
                 }
             }
-        }
+        },
+
     ]
 
     return {

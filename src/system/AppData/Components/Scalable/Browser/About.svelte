@@ -1,8 +1,10 @@
 <script lang="ts">
-    import { activeLang } from "../../../../Global/consts/stores";
+    import IconSelector from "../../../../Global/Components/Scalable/IconSelector.svelte";
+import { activeLang } from "../../../../Global/consts/stores";
     import type { AppProps } from "../../../../Global/consts/types";
     import state from "../../../Storage/state";
-    // import VectorDraw from "../VectorDraw.svelte";
+    import VectorDraw from "../VectorDraw.svelte";
+    import SoftSkill from "./SoftSkill.svelte";
     export let props: AppProps;
     $: mouseOver = false
     
@@ -19,11 +21,11 @@
     <section>
         <div class="image-container" on:mouseover={onMouseOver} on:mouseout={onMouseOut} on:focus={()=>{}} on:blur={()=>{}}>
             {#if mouseOver}
-                <div class="photo">
-
-                </div>
+                <div class="photo"></div>
             {:else}
-                <!-- <VectorDraw /> -->
+                <div class="vector">
+                    <VectorDraw />
+                </div>
             {/if}
         </div>
     </section>
@@ -36,142 +38,109 @@
                 {text}
             </p>
         {/each}
+        <h2 class="hard-skills-title">
+            {props.texts[$activeLang].skills.hard.title}
+        </h2>
+        <div class="hard-skills">
+            {#each props.texts[$activeLang].skills.hard.skills as skill}
+                <a href="{skill.link}">
+                    {skill.text}
+                </a>
+                ,&nbsp
+            {/each}
+        </div>
     </section>
-    <!-- COMPONENT HERE -->
+    <section>
+        <div class="soft-skills">
+            <h2>{props.texts[$activeLang].skills.soft.title}</h2>
+            <div class="skills">
+                {#each props.texts[$activeLang].skills.soft.skills as softSkill}
+                    <SoftSkill name={softSkill.name} value={softSkill.value} />
+                {/each}
+            </div>
+        </div>
+    </section>
 </div>
 
 <style>
     #about{
-        position: static;
-        height: auto;
-        width: 100%;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: row;
-                flex-direction: row;
-   }
-   #about > section{ 
-        width: 50%;
-        height: 100%;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
-        -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center;
-   }
-   .image-container{
-        height: 50%;
-        padding: 2rem;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
-        -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center;
-        aspect-ratio: 1 / 1;
-   }
-   .photo{
+        height: calc(100% - 4rem);
+        width: 90%;
+        display: grid;
+        grid-template-columns: 4fr 7fr 7fr;
+        overflow-y: auto;
+        padding-top: 2rem;
+        justify-items: center;
+        align-items: center;
+        
+    }
+    #about section{
         height: 100%;
         width: 100%;
-        background-image: url("/photo.png");
-        background-position: top;
-        background-size: 135%;
-        background-repeat: no-repeat;
-        border-radius: 50%;
-        background-color: var(--bg-light);
-   }
-   .text-wrapper{
-        display: -webkit-box;
-        display: -ms-flexbox;
+    }
+    .image-container{
+        height: 100%;
+        width: 100%;
+    }
+    .text-wrapper{
         display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
-        -webkit-box-align: start;
-            -ms-flex-align: start;
-                align-items: flex-start;
-        -webkit-box-pack: start;
-            -ms-flex-pack: start;
-                justify-content: flex-start;
-        font-size: 1rem;
-        position: relative;
-   }
-   .text-wrapper > p{
-        font-size: 1rem;
-        max-width: 80%;
-        -ms-flex-item-align: start;
-            align-self: flex-start;
-        -webkit-hyphens: auto;
-            -ms-hyphens: auto;
-                hyphens: auto;
-        text-align: justify;
-   }
-   .text-wrapper > p:first-of-type{
-    margin-bottom: 1rem;
-   }
-   .text-wrapper > h2 {
+        flex-direction: column;
+        align-items: center;
+    }
+    .text-wrapper > *{
+        width: 80%;
+    }
+    .text-wrapper h2{
         font-size: 2rem;
-        -ms-flex-item-align: start;
-            align-self: flex-start;
-        margin-bottom: 1rem;
-        text-transform: uppercase;
         color: var(--main-color);
-        font-family: distant-galaxy;
-   }
+        text-transform: uppercase;
+        font-weight: 900;
+        margin-bottom: 2rem;
+    }
+    .photo{
+        background-image: url("/me-img.png");
+        height: 100%;
+        width: 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    .vector{
+        /* width: 80%; */
+        height: 30%;
+    }
+    .soft-skills{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        align-items: center;
+    }
+    .soft-skills h2{
+        font-size: 1.6rem;
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+    }
+    .skills{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    h2.hard-skills-title{
+        color: var(--accent);
+        font-size: 1.6rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+    .hard-skills{
+        display: flex;
+        flex-wrap: wrap;
+        
+        text-align: center;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
    @media screen and (orientation:portrait) { 
-        #about{
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: normal;
-                -ms-flex-direction: column;
-                    flex-direction: column;
-            -webkit-box-align: center;
-                -ms-flex-align: center;
-                    align-items: center;
-            -webkit-box-pack: center;
-                -ms-flex-pack: center;
-                    justify-content: center;
-        }
-        .image-container{
-            width: 80%;
-            aspect-ratio: 1 / 1;
-            /* margin-top: 22rem; */
-            margin-bottom: 2rem;
-        }
-        #about > section{ 
-            width: 80%;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-align: center;
-                -ms-flex-align: center;
-                    align-items: center;
-            -webkit-box-pack: center;
-                -ms-flex-pack: center;
-                    justify-content: center;
-        }
-        .text-wrapper{
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-align: center;
-                -ms-flex-align: center;
-                    align-items: center;
-            -webkit-box-pack: center;
-                -ms-flex-pack: center;
-                    justify-content: center;
-            width: 100%;
-            margin-bottom: 2rem;
-        }
+        
     }
 </style>
