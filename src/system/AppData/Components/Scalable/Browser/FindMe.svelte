@@ -6,7 +6,12 @@
     import { onMount, onDestroy } from "svelte";
     import type { AppProps } from "../../../../Global/consts/types";
     import IconSelector from "../../../../Global/Components/Scalable/IconSelector.svelte";
+    
     const fillColor = "var(--bg-light)"
+    const mainColor = "var(--main-color)"
+
+    let mouseOver = false;
+
 
 
     export let props: AppProps;
@@ -18,8 +23,8 @@
    <p>{props.texts[$activeLang].social.description}</p>
    <div class="social-icons">
     {#each props.texts[$activeLang].social.social as socialLink}
-        <a href="{socialLink.link}">
-            <IconSelector iconName={socialLink.icon} />
+        <a target="_blank" href="{socialLink.link}" rel="noreferrer">
+            <IconSelector changeColorOnHover={true} iconName={socialLink.icon} />
         </a>
     {/each}
    </div>

@@ -196,17 +196,17 @@ function AppState() {
                             {
                                 id: "behance",
                                 icon: eIcons.behance,
-                                link: ""
+                                link: "https://www.behance.net/arthurmm18"
                             },
                             {
                                 id: "github",
                                 icon: eIcons.github,
-                                link: ""
+                                link: "https://github.com/Arthur-Matias"
                             },
                             {
                                 id: "linkedin",
                                 icon: eIcons.linkedin,
-                                link: ""
+                                link: "https://www.linkedin.com/in/arthur-matias/"
                             },
                         ]
                     },
