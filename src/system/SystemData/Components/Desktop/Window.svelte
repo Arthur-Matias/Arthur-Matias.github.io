@@ -92,11 +92,14 @@
     function handleWindowHeaderDBClick() {
         maximize();
     }
+    function handleKeyDown(e: KeyboardEvent){
+
+    }
 </script>
 
 <svelte:window on:mouseup={onMouseUp} on:mousemove={onMouseMove} />
 
-<button
+<div
     class="
         window 
         {maximized ? 'maximized ' : 'shadow-light round'} 
@@ -107,6 +110,7 @@
         top: ${props.geometry.position.y}px; 
         left: ${props.geometry.position.x}px;
     `}
+    on:keydown={handleKeyDown}
     on:click={() => WindowManager.changeActiveAppIndex(props.id)}
 >
     <div
@@ -191,7 +195,7 @@
     <div class="content {maximized ? '' : 'round-bottom'}">
         <slot />
     </div>
-</button>
+</div>
 
 <style>
     .window {

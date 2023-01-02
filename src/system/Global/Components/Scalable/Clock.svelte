@@ -23,7 +23,7 @@
 
 <div id="clock" class="{big?"big":""}">
     <p class="time">{(String(hours).length < 2? "0"+hours:hours) + ":" + (String(minutes).length < 2? "0"+minutes:minutes)}</p>
-    <p class="date">{date}</p>
+    <p class="date">{date.split("/").map(e=>{return e.length < 2? "0" + e: e}).join("/")}</p>
 </div>
 
 <style>

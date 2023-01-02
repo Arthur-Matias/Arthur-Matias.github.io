@@ -3,12 +3,14 @@
     import { eLang } from "../../../Global/consts/enums";
     import { isLanguageSelectionOpen } from "../../../AppData/Storage/stores";
     
+    let element: HTMLElement;
+
     function changeCurrLang(lang: eLang){
         activeLang.update(e=>lang)
     }
     
 </script>
-<div id="language-selector" class="{($isLanguageSelectionOpen?"open glass-strong":"")}  round">
+<div bind:this={element} id="language-selector" class="{($isLanguageSelectionOpen?"open glass-strong":"")}  round">
     <button class={`item round ${$activeLang === "en"?"":"active"}`} on:click={()=>changeCurrLang(eLang.Pt)}>pt</button>
     <button class={`item round ${$activeLang === "en"?"active":""}`} on:click={()=>changeCurrLang(eLang.En)}>en</button>
 </div>

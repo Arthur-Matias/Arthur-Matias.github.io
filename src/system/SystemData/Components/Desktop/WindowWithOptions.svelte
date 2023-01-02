@@ -84,10 +84,11 @@
 
 <svelte:window on:mouseup={onMouseUp} on:mousemove={onMouseMove} />
 
-<button 
+<div 
     class="window {maximized?"maximized":"shadow-light round"} {$minimizedApps.includes(props.id)?"minimized":""}"
     style={`width: ${props.geometry.currSize.x}px; \nheight: ${props.geometry.currSize.y}px; \ntop: ${props.geometry.position.y}px; left: ${props.geometry.position.x}px;`}
     on:click={()=>WindowManager.changeActiveAppIndex(props.id)}
+    on:keydown={()=>WindowManager.changeActiveAppIndex(props.id)}
 >
     <div class="options glass-medium {maximized?"":"round-left"}">
         {#each props.options as option}
@@ -143,7 +144,7 @@
             <slot />
         </div>
     </div>
-</button>
+</div>
 
 <style>
 

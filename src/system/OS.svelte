@@ -1,5 +1,5 @@
 <script lang="ts">
-
+  import StoreController from "./SystemData/Controllers/StoreController";
   import { isMobile } from "./Global/consts/stores"
   import { screens} from "./SystemData/Storage/stores";
   import LoadingScreen from "./Global/Components/Scalable/LoadingScreen.svelte"

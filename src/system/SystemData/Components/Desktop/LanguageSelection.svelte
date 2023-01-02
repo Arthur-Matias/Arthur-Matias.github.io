@@ -6,12 +6,21 @@
     let active = false;
 
     function showOptions() {
-        isLanguageSelectionOpen.update(() => !$isLanguageSelectionOpen);
+        setTimeout(()=>{
+            isLanguageSelectionOpen.update(() => !$isLanguageSelectionOpen);
+        }, 10)
     }
     function toggleOptions() {
         active = !active;
     }
+    function handleWindowClick(){
+        if($isLanguageSelectionOpen){
+            showOptions()
+        }
+    }
 </script>
+
+<svelte:window on:click={handleWindowClick} />
 
 <button
     id="language-button"
