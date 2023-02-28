@@ -1,5 +1,5 @@
-import "./system/Global/Styles/app.css"
-import OS from './system/OS.svelte'
+import "./Styles/app.css"
+import OS from './OS.svelte'
 
 const app = new OS({
   target: document.getElementById('app')
