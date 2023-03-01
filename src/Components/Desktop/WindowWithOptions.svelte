@@ -7,10 +7,10 @@
     import state from '../../Storage/AppState';
 
     export let props: AppProps;
+    export let maximized = false;
 
     
     let moving = false;
-    $: maximized = false;
     
     // ------------------------------------------------
     // Window Controls

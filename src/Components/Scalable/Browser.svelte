@@ -125,7 +125,6 @@
     .page{
         height: calc(100% - 4rem);
         width: 100%;
-        margin-top: 2rem;
     }
     .input-wrapper{
         width: 100%;

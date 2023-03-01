@@ -6,6 +6,7 @@
     import WindowWithOptions from "./WindowWithOptions.svelte";
 
     const allApps: AppProps[] = state.apps;
+
 </script>
 
 <div id="open-apps">
@@ -13,7 +14,7 @@
         {#each $openApps as openApp, i}
             {#if allApps[openApp].options}
                 <WindowWithOptions props={allApps[openApp]}>
-                    <svelte:component this={allApps[openApp].appContent} props={allApps[openApp]} />
+                    <svelte:component this={allApps[openApp].appContent} props={allApps[openApp]}/>
                 </WindowWithOptions>
             {:else}
                 <Window props={allApps[openApp]}>

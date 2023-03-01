@@ -1,9 +1,5 @@
 <script lang="ts">
-    import state from "../../../Storage/AppState";
-    import Logo from "../Icons/Logo.svelte";
-    import { activeLang, isMobile }  from '../../../Storage/GlobalStores'
-    import { openApps } from "../../../Storage/AppStores" 
-    import { onMount, onDestroy } from "svelte";
+    import { activeLang }  from '../../../Storage/GlobalStores'
     import type { AppProps } from "../../../Storage/GlobalTypes";
     import IconSelector from "../IconSelector.svelte";
     
@@ -39,7 +35,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        /* justify-content: center; */
+        justify-content: center;
     }
     #find-me h2{
         font-size: 2rem;

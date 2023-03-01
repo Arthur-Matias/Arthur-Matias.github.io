@@ -104,7 +104,7 @@
 >
     <div
         on:dblclick={()=>eventController.handleTap(maximize)}
-        on:touchend={()=>eventController.handleTap(maximize)}
+        on:touchend={()=>eventController.handleTap(()=>{}, maximize)}
         
         class={`header ${maximized ? "maximized" : "round-top"}`}
     >
@@ -136,8 +136,8 @@
             </button>
             <button 
                 class="window-btn maximize" 
-                on:click={()=>eventController.handleTap(minimize)}
-                on:touchend={()=>eventController.handleTap(minimize)}
+                on:click={()=>eventController.handleTap(maximize)}
+                on:touchend={()=>eventController.handleTap(maximize)}
             >
                 {#if maximized}
                     <div class="btn-icon">
@@ -384,7 +384,7 @@
                 user-select: none;
     }
     .content {
-        height: auto;
+        height: 100%;
         width: 100%;
         max-width: 100%;
         overflow-y: auto;

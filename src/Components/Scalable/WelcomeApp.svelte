@@ -5,11 +5,17 @@
     import IconSelector from "./IconSelector.svelte"
 
     export let props: AppProps;
-    let isMaximized = props.geometry.currSize.y>props.geometry.minSize.y && !isMobile
+
+    let el:HTMLDivElement;
+    let maximized: boolean = false;
+    function isMax(){
+        return el?.getBoundingClientRect().height > 640
+    }
+    setTimeout(()=>maximized = isMax(), 1000)
 
 </script>
 
-<div id="welcome-app">
+<div id="welcome-app" class={maximized?"maximized":""} bind:this={el}>
     {#if !$isMobile}
         <h2 class="name">
             {props.texts[$activeLang].name}
@@ -45,17 +51,19 @@
     </div> -->
 </div>
 
-<style>
+<style >
     #welcome-app{
         position: static;
         height: 100%;
         width: 100%;
+        max-width: 100%;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
         overflow-y: auto;
         flex-direction: column;
         align-items: center;
+        justify-content: space-evenly;
         
     }
     .container{
@@ -81,6 +89,7 @@
         margin-bottom: 1rem;
         text-align: left;
     }
+    
     .description{
         margin-bottom: 2rem;
         text-align: left;

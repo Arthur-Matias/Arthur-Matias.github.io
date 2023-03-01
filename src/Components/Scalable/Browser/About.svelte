@@ -1,8 +1,9 @@
 <script lang="ts">
-import { activeLang, isMobile } from "../../../Storage/GlobalStores";
     import type { AppProps } from "../../../Storage/GlobalTypes";
+    import { activeLang, isMobile } from "../../../Storage/GlobalStores";
     import VectorDraw from "../VectorDraw.svelte";
     import SoftSkill from "./SoftSkill.svelte";
+    
     export let props: AppProps;
     $: mouseOver = false
     
@@ -17,7 +18,7 @@ import { activeLang, isMobile } from "../../../Storage/GlobalStores";
 
 <div id="about">
     {#if !$isMobile}
-        <section>
+        <section class="image-wrapper">
             <div class="image-container" on:mouseover={onMouseOver} on:mouseout={onMouseOut} on:focus={()=>{}} on:blur={()=>{}}>
                 {#if mouseOver}
                     <div class="photo"></div>
@@ -30,24 +31,28 @@ import { activeLang, isMobile } from "../../../Storage/GlobalStores";
         </section>
     {/if}
     <section class="text-wrapper">
-        <h2>
-            {props.texts[$activeLang].title}
-        </h2>
-        {#each props.texts[$activeLang].texts as text}
-            <p>
-                {text}
-            </p>
-        {/each}
-        <h2 class="hard-skills-title">
-            {props.texts[$activeLang].skills.hard.title}
-        </h2>
-        <div class="hard-skills">
-            {#each props.texts[$activeLang].skills.hard.skills as skill}
-                <a href="{skill.link}">
-                    {skill.text}
-                </a>
-                ,&nbsp
+        <div>
+            <h2>
+                {props.texts[$activeLang].title}
+            </h2>
+            {#each props.texts[$activeLang].texts as text}
+                <p>
+                    {text}
+                </p>
             {/each}
+        </div>
+        <div>
+            <h2 class="hard-skills-title">
+                {props.texts[$activeLang].skills.hard.title}
+            </h2>
+            <div class="hard-skills">
+                {#each props.texts[$activeLang].skills.hard.skills as skill}
+                    <a href="{skill.link}">
+                        {skill.text}
+                    </a>
+                    ,&nbsp
+                {/each}
+            </div>
         </div>
     </section>
     <section>
@@ -65,7 +70,6 @@ import { activeLang, isMobile } from "../../../Storage/GlobalStores";
 <style>
     #about{
         height: calc(100% - 8rem);
-        width: 90%;
         display: grid;
         grid-template-columns: 4fr 7fr 7fr;
         overflow-y: auto;
@@ -78,15 +82,19 @@ import { activeLang, isMobile } from "../../../Storage/GlobalStores";
         height: 100%;
         width: 100%;
         text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .image-container{
-        height: 100%;
-        width: 100%;
+        height: 80%;
+        width: 80%;
     }
     .text-wrapper{
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: space-evenly;
     }
     .text-wrapper > *{
         width: 80%;
@@ -100,7 +108,7 @@ import { activeLang, isMobile } from "../../../Storage/GlobalStores";
     }
     .photo{
         background-image: url("/me-img.png");
-        height: 500px;
+        height: 100%;
         width: 100%;
         background-size: contain;
         background-repeat: no-repeat;
@@ -110,7 +118,6 @@ import { activeLang, isMobile } from "../../../Storage/GlobalStores";
     }
     .vector{
         width: 100%;
-        height: 500px;
     }
     .soft-skills{
         height: 100%;
@@ -119,6 +126,7 @@ import { activeLang, isMobile } from "../../../Storage/GlobalStores";
         flex-direction: column;
         overflow-y: auto;
         align-items: center;
+        justify-content: center;
     }
     .soft-skills h2{
         font-size: 1.6rem;

@@ -90,8 +90,6 @@
             mouse.pageX < target.clientLeft &&
             mouse.pageY > target.clientTop + target.offsetHeight &&
             mouse.pageY < target.clientTop
-            
-            
         )
     }
 	function onMouseMove( e : MouseEvent ) {
@@ -122,10 +120,11 @@
 
     
     on:click={()=>eventController.handleTap(handleClick, handleDoubleClick)}
+    on:dblclick={handleDoubleClick}
     on:mouseover={MouseOver} 
     on:mouseup={MouseUp} 
     on:mousedown={onMouseDown}
-    on:touchend={()=>eventController.handleTap(handleClick, handleDoubleClick)}
+    on:touchstart={()=>eventController.handleTap(handleClick, handleDoubleClick)}
     on:focus={()=>{}} 
     on:blur={()=>{}}
     on:keydown={()=>{}}
