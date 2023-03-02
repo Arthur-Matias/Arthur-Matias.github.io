@@ -11,7 +11,7 @@
 
     let moving = false;
     $: maximized = false;
-    const eventController = EventController();
+    // const eventController = EventController();
     // ------------------------------------------------
     // Window Controls
     // ------------------------------------------------
@@ -103,8 +103,8 @@
     on:click={() => WindowManager.changeActiveAppIndex(props.id)}
 >
     <div
-        on:dblclick={()=>eventController.handleTap(maximize)}
-        on:touchend={()=>eventController.handleTap(()=>{}, maximize)}
+        on:dblclick={maximize}
+        on:touchend={maximize}
         
         class={`header ${maximized ? "maximized" : "round-top"}`}
     >
@@ -117,8 +117,8 @@
         <div class="window-controls">
             <button 
                 class="window-btn minimize" 
-                on:click={()=>eventController.handleTap(minimize)}
-                on:touchend={()=>eventController.handleTap(minimize)}
+                on:click={minimize}
+                on:touchend={minimize}
             >
                 <div class="btn-icon">
                     <svg
@@ -136,8 +136,8 @@
             </button>
             <button 
                 class="window-btn maximize" 
-                on:click={()=>eventController.handleTap(maximize)}
-                on:touchend={()=>eventController.handleTap(maximize)}
+                on:click={maximize}
+                on:touchend={maximize}
             >
                 {#if maximized}
                     <div class="btn-icon">
@@ -176,8 +176,8 @@
             </button>
             <button 
                 class="window-btn close" 
-                on:click={()=>eventController.handleTap(close)}
-                on:touchend={()=>eventController.handleTap(close)}
+                on:click={close}
+                on:touchend={close}
                 >
                 <div class="btn-icon">
                     <svg
