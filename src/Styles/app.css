@@ -147,6 +147,6 @@
 }
 img {
   image-rendering: crisp-edges;
-  /* Safari seems to support, but seems deprecated and does the same thing as the others. */
+  /* Safari seems to support, but seems deprecated and does the same thing as the other. */
   image-rendering: -webkit-optimize-contrast;
 }

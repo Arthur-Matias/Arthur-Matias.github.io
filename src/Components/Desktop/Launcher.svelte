@@ -26,12 +26,12 @@
         return xRange && yRange;
     }
     function closeLauncher() {
-        isLauncherOpen.update((val) => false);
+        isLauncherOpen.set(false);
     }
 
     function openConfigOptions() {
         setTimeout(() => {
-            settingsTrayOpen.update((val) => true);
+            settingsTrayOpen.set(true);
             closeLauncher();
         }, 50);
     }
@@ -39,6 +39,7 @@
         ScreenController.toggleLoading();
         
         setTimeout(() => {
+            closeLauncher();
             ScreenController.turnOff();
         }, 3000);
     }
