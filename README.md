@@ -58,7 +58,7 @@ The following tools were used in this project:
 
 - [TypeScript](https://www.typescriptlang.org/)
 - [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
-- [CSS] (https://www.w3schools.com/css/)
+- [CSS](https://www.w3schools.com/css/)
 - [Svelte](https://svelte.dev/)
 - [Vite](https://vitejs.dev/)
 
