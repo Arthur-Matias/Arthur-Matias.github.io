@@ -8,10 +8,10 @@
 
     let el:HTMLDivElement;
     let maximized: boolean = false;
-    function isMax(){
-        return el?.getBoundingClientRect().height > 640
-    }
-    setTimeout(()=>maximized = isMax(), 1000)
+    // function isMax(){
+    //     return el?.getBoundingClientRect().height > 640
+    // }
+    // setTimeout(()=>maximized = isMax(), 1000)
 
 </script>
 

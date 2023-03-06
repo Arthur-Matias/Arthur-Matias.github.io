@@ -8,6 +8,7 @@
   import LoginScreen from "./Components/Scalable/LoginScreen.svelte"
   import BootScreen from "./Components/Scalable/BootScreen.svelte"
   import Workspace from "./Components/Scalable/Workspace.svelte"
+    import WindowManager from "./Controllers/WindowManager";
 
 
   function checkIfMobile(){
@@ -28,7 +29,7 @@
   $: workspaceActive = false;
   function activateWorkspace(){
     setTimeout(()=>{
-      $openApps.push(0);
+      WindowManager.openApp(0);
       workspaceActive = true;
     }, 100)
     return ""
