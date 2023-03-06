@@ -16,6 +16,8 @@ function WindowManager(){
                 })
                 if (!alreadyOpen) {
                     e.push(appId)
+                }else{
+                    unMinimizeApp(appId)
                 }
                 return e
             })

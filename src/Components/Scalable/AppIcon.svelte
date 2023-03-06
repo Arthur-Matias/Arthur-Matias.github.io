@@ -29,7 +29,7 @@
         isMouseOver=false
     }
     function handleClick(){
-        console.log("one click")
+        // console.log("one click")
         setTimeout(()=>{
             isSelected = true
         }, 10)
@@ -44,7 +44,7 @@
         if(openAtfirstClick){
             return
         }
-        console.log("db click")
+        // console.log("db click")
         if(onRun){
             onRun()
         }

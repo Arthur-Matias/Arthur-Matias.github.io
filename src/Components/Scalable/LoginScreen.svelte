@@ -32,7 +32,7 @@
     }
     function handleTouchStart(e: TouchEvent) {
         if (e.touches[0].pageY > currPos.x) {
-            console.log(e.touches[0].pageY);
+            // console.log(e.touches[0].pageY);
             currPos = {
                 x: 0,
                 y: e.touches[0].pageY,
@@ -55,7 +55,7 @@
         if (newPos.y < currPos.y) {
             clearTimeout(timeout);
             moveY = newPos.y - currPos.y;
-            console.log(newPos);
+            // console.log(newPos);
         }
     }
     function resetPosition() {
@@ -67,7 +67,7 @@
     }
     function handleMouseDown(e: MouseEvent) {
         if (e.pageY > currPos.x) {
-            console.log(e.pageY);
+            // console.log(e.pageY);
             currPos = {
                 x: 0,
                 y: e.pageY,
@@ -86,7 +86,7 @@
         if (newPos.y < currPos.y) {
             clearTimeout(timeout);
             moveY = newPos.y - currPos.y;
-            console.log(newPos);
+            // console.log(newPos);
         }
     }
     function handleMouseUp(e: MouseEvent) {
@@ -116,7 +116,7 @@
         on:mousedown={handleMouseDown}
         on:mousemove={handleMouseMove}
         on:mouseup={handleMouseUp}
-        on:blur={() => console.log("blurring login")}
+        on:blur={()=>{}}
     >
         <div class="login-section">
             <Clock big={true} />

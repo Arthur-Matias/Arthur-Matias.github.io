@@ -59,7 +59,7 @@
         moving = true
     }
     function handleClick(){
-        console.log("one click")
+        // console.log("one click")
         if(openAtfirstClick){
             if(onRun){
                 onRun()
@@ -73,7 +73,7 @@
         if(openAtfirstClick){
             return
         }
-        console.log("db click")
+        // console.log("db click")
         if(onRun){
             onRun()
         }

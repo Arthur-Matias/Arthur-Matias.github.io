@@ -1,8 +1,7 @@
 import { writable } from "svelte/store";
-import { eLang, eThemeMode } from "./GlobalEnums";
 
-let storage = undefined ? JSON.parse(localStorage['stores']) : [];
-console.log(storage);
+let storage = undefined ? JSON.parse(localStorage['AppStores']) : [];
+// console.log(storage);
 
 export const isLanguageSelectionOpen = writable(storage[4] || false);
 export const openApps = writable(storage[9] || []);
@@ -34,20 +33,7 @@ export const PageStorage = writable({
 })
 
 const stores = [
-    // activeLang,
-    // activeColor,
-    // isLauncherOpen,
-    // isLanguageSelectionOpen,
-    // isLoading,
-    // isBootLoading,
-    // isTurnedOff,
-    // activeTheme,
-    // openApps,
-    // minimizedApps,
-    // settingsTrayOpen,
-    // transparency,
-    // activeBg,
-    // homeActive
+    mailStorage
 ]
 
 // function setStorage(store,i){

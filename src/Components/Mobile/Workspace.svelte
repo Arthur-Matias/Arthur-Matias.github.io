@@ -35,7 +35,7 @@
         if (currPos.y > initialPos.y) {
             clearTimeout(timeout);
             moveY = currPos.y - initialPos.y;
-            console.log(currPos);
+            // console.log(currPos);
         }
     }
     function handleTouchEnd() {

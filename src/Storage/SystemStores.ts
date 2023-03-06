@@ -1,8 +1,7 @@
 import { writable } from "svelte/store";
-// import { eLang, eThemeMode } from "./GlobalEnums";
 
-let storage = undefined ? JSON.parse(localStorage['system']) : []
-console.log(storage)
+let storage = undefined ? JSON.parse(localStorage['SystemStores']) : []
+// console.log(storage)
 
 export const isLauncherOpen = writable(storage[1] || false);
 export const isLoadingActive = writable(storage[2] || false);
@@ -18,20 +17,7 @@ export const screens = writable({
 })
 
 const stores = [
-    // activeLang,
-    // activeColor,
-    // isLauncherOpen,
-    // isLanguageSelectionOpen,
-    // isLoading,
-    // isBootLoading,
-    // isTurnedOff,
-    // activeTheme,
-    // openApps,
-    // minimizedApps,
-    // settingsTrayOpen,
-    // transparency,
-    // activeBg,
-    // homeActive
+    isLauncherOpen
 ]
 
 // function setStorage(store,i){

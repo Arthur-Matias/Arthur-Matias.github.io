@@ -10,7 +10,7 @@
         {
             key: "AC",
             onClick: ()=>{
-                console.log("AC")
+                // console.log("AC")
                 calculation = "0"
                 result = ""
             }
@@ -18,21 +18,21 @@
         {
             key: "%",
             onClick: ()=>{
-                console.log("%")
+                // console.log("%")
                 calculation += "%"
             }
         },
         {
             key: "÷",
             onClick: ()=>{
-                console.log("÷")
+                // console.log("÷")
                 calculation += "÷"
             }
         },
         {
             key: "x",
             onClick: ()=>{
-                console.log("x")
+                // console.log("x")
                 calculation += "x"
             }
         },
@@ -40,7 +40,7 @@
             key: "7",
             onClick: ()=>{
                 calculation === "0" && removeFirstZero()
-                console.log(7)
+                // console.log(7)
                 calculation += "7"
             }
         },
@@ -48,7 +48,7 @@
             key: "8",
             onClick: ()=>{
                 calculation === "0" && removeFirstZero()
-                console.log(8)
+                // console.log(8)
                 calculation += "8"
             }
         },
@@ -56,14 +56,14 @@
             key: "9",
             onClick: ()=>{
                 calculation === "0" && removeFirstZero()
-                console.log(9)
+                // console.log(9)
                 calculation += "9"
             }
         },
         {
             key: "-",
             onClick: ()=>{
-                console.log("-")
+                // console.log("-")
                 calculation += "-"
             }
         },
@@ -71,7 +71,7 @@
             key: "4",
             onClick: ()=>{
                 calculation === "0" && removeFirstZero()
-                console.log(4)
+                // console.log(4)
                 calculation += "4"
             }
         },
@@ -79,7 +79,7 @@
             key: "5",
             onClick: ()=>{
                 calculation === "0" && removeFirstZero()
-                console.log(5)
+                // console.log(5)
                 calculation += "5"
             }
         },
@@ -87,14 +87,14 @@
             key: "6",
             onClick: ()=>{
                 calculation === "0" && removeFirstZero()
-                console.log(6)
+                // console.log(6)
                 calculation += "6"
             }
         },
         {
             key: "+",
             onClick: ()=>{
-                console.log("+")
+                // console.log("+")
                 calculation += "+"
             }
         },
@@ -102,7 +102,7 @@
             key: "1",
             onClick: ()=>{
                 calculation === "0" && removeFirstZero()
-                console.log(1)
+                // console.log(1)
                 calculation += "1"
             }
         },
@@ -110,7 +110,7 @@
             key: "2",
             onClick: ()=>{
                 calculation === "0" && removeFirstZero()
-                console.log(2)
+                // console.log(2)
                 calculation += "2"
             }
         },
@@ -118,14 +118,14 @@
             key: "3",
             onClick: ()=>{
                 calculation === "0" && removeFirstZero()
-                console.log(3)
+                // console.log(3)
                 calculation += "3"
             }
         },
         {
             key: "=",
             onClick: ()=>{
-                console.log("=")
+                // console.log("=")
                 let correctedCalculation = calculation.replaceAll(",", ".").replaceAll("x", "*").replaceAll("÷", "/")
                 try {
                     result = String(eval(correctedCalculation))
@@ -141,21 +141,21 @@
             key: "0",
             onClick: ()=>{
                 calculation === "0" && removeFirstZero()
-                console.log(0)
+                // console.log(0)
                 calculation += "0"
             }
         },
         {
             key: $activeLang === eLang.En? "." : ",",
             onClick: ()=>{
-                console.log($activeLang === eLang.En? "." : ",")
+                // console.log($activeLang === eLang.En? "." : ",")
                 calculation += $activeLang === eLang.En? "." : ","
             }
         },
         {
             key: "del",
             onClick: ()=>{
-                console.log("del")
+                // console.log("del")
                 let newCalc = calculation.split("")
                 newCalc.pop()
                 calculation = newCalc.join("")

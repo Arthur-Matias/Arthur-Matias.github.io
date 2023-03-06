@@ -698,6 +698,7 @@ function AppState() {
         },
         //Flappy Bird
         {
+            mobileOnly: true,
             icon: eIcons.keypad,
             shortcutIcon: eIcons.flappyBird,
             appContent: FlappyBird,
