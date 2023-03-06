@@ -6,7 +6,7 @@
 
     function handleClick(mode: eThemeMode){
         
-        console.log($activeTheme !== mode)
+        // console.log($activeTheme !== mode)
         if ($activeTheme !== mode) {
             ColorController.changeActiveTheme(mode)
         }

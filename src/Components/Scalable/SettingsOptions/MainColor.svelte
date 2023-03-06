@@ -3,7 +3,7 @@
     import ColorController from "../../../Controllers/ColorController";
 
     function handleClick(i: number){
-        console.log(i)
+        // console.log(i)
         if($activeColor !== i){
             ColorController.changeActiveColor(i)
         }

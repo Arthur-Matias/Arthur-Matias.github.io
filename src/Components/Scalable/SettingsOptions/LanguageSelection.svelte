@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { activeLang } from "../../Storage/GlobalStores";
-    import { isLanguageSelectionOpen } from "../../Storage/AppStores";
+    import { activeLang } from "../../../Storage/GlobalStores";
+    import { isLanguageSelectionOpen } from "../../../Storage/AppStores";
 
     let active = false;
 
@@ -27,10 +27,10 @@
     on:mouseover={toggleOptions}
     on:mouseout={toggleOptions}
     on:focus={() => {
-        console.log("focus");
+        // console.log("focus");
     }}
     on:blur={() => {
-        console.log("blur");
+        // console.log("blur");
     }}
 >
     <p

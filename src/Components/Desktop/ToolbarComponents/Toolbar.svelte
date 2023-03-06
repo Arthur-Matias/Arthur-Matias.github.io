@@ -2,7 +2,7 @@
     import state from "../../../Storage/AppState";
     import { openApps } from "../../../Storage/AppStores";
     import Clock from "../../Scalable/Clock.svelte";
-    import LanguageSelection from "../LanguageSelection.svelte";
+    import LanguageSelection from "../../Scalable/SettingsOptions/LanguageSelection.svelte";
     import LauncherButton from "../LauncherButton.svelte";
     import ToolbarAppIcon from "./ToolbarAppIcon.svelte";
 

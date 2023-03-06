@@ -99,6 +99,9 @@
     .text-wrapper > *{
         width: 80%;
     }
+    .text-wrapper > div > p{
+        text-align: left;
+    }
     .text-wrapper h2{
         font-size: 2rem;
         color: var(--main-color);
