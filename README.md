@@ -1,5 +1,5 @@
 <div align="center" id="top"> 
-  <img src="./src/assets/webport.gif" alt="Personal Webpage" />
+  <img src="./webport.gif" alt="Personal Webpage" />
 
   &#xa0;
 
@@ -58,7 +58,8 @@ The following tools were used in this project:
 
 - [TypeScript](https://www.typescriptlang.org/)
 - [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
-- [SCSS](https://sass-lang.com/)
+- [Svelte](https://svelte.dev/)
+- [Vite](https://vitejs.dev/)
 
 ## :white_check_mark: Requirements ##
 
@@ -74,12 +75,12 @@ $ git clone https://github.com/Arthur-Matias/Arthur-Matias.github.io
 $ cd Arthur-Matias.github.io
 
 # Install dependencies
-$ yarn // npm install
+$ yarn / npm install
 
 # Run the project
-$ yarn dev // npm run dev
+$ yarn dev / npm run dev
 
-# The server will initialize in the <http://localhost:3000>
+# The server will initialize on <http://localhost:5173>
 ```
 
 ## :memo: License ##
