@@ -4,14 +4,14 @@
     import { activeLang } from "../../Storage/GlobalStores";
     
     let result = "";
-    let calculation = "";
+    let calculation = "0";
 
     let keys = [
         {
             key: "AC",
             onClick: ()=>{
                 console.log("AC")
-                calculation = ""
+                calculation = "0"
                 result = ""
             }
         },
@@ -39,6 +39,7 @@
         {
             key: "7",
             onClick: ()=>{
+                calculation === "0" && removeFirstZero()
                 console.log(7)
                 calculation += "7"
             }
@@ -46,6 +47,7 @@
         {
             key: "8",
             onClick: ()=>{
+                calculation === "0" && removeFirstZero()
                 console.log(8)
                 calculation += "8"
             }
@@ -53,6 +55,7 @@
         {
             key: "9",
             onClick: ()=>{
+                calculation === "0" && removeFirstZero()
                 console.log(9)
                 calculation += "9"
             }
@@ -67,6 +70,7 @@
         {
             key: "4",
             onClick: ()=>{
+                calculation === "0" && removeFirstZero()
                 console.log(4)
                 calculation += "4"
             }
@@ -74,6 +78,7 @@
         {
             key: "5",
             onClick: ()=>{
+                calculation === "0" && removeFirstZero()
                 console.log(5)
                 calculation += "5"
             }
@@ -81,6 +86,7 @@
         {
             key: "6",
             onClick: ()=>{
+                calculation === "0" && removeFirstZero()
                 console.log(6)
                 calculation += "6"
             }
@@ -95,6 +101,7 @@
         {
             key: "1",
             onClick: ()=>{
+                calculation === "0" && removeFirstZero()
                 console.log(1)
                 calculation += "1"
             }
@@ -102,6 +109,7 @@
         {
             key: "2",
             onClick: ()=>{
+                calculation === "0" && removeFirstZero()
                 console.log(2)
                 calculation += "2"
             }
@@ -109,6 +117,7 @@
         {
             key: "3",
             onClick: ()=>{
+                calculation === "0" && removeFirstZero()
                 console.log(3)
                 calculation += "3"
             }
@@ -118,13 +127,20 @@
             onClick: ()=>{
                 console.log("=")
                 let correctedCalculation = calculation.replaceAll(",", ".").replaceAll("x", "*").replaceAll("÷", "/")
-                result = String(eval(correctedCalculation))
-                calculation = ""
+                try {
+                    result = String(eval(correctedCalculation))
+                } catch (error) {
+                    
+                } finally {
+                    calculation = "0"
+                }
+                
             }
         },
         {
             key: "0",
             onClick: ()=>{
+                calculation === "0" && removeFirstZero()
                 console.log(0)
                 calculation += "0"
             }
@@ -147,6 +163,14 @@
         },
         
     ]
+
+    function removeFirstZero(){
+        if(calculation.charAt(0) === "0"){
+            let newCalc = calculation.split("")
+            newCalc.shift()
+            calculation = newCalc.join("")
+        }
+    }
 
 </script>
 
@@ -181,12 +205,6 @@
 </div>
 
 <style>
-/*
-* Prefixed by:
-* PostCSS: v7.0.29,
-* Autoprefixer: v9.7.6
-* Browsers: last 4 version
-*/
 
 #calc{
         position: relative;
@@ -194,20 +212,11 @@
         width: 100%;
         display: -ms-grid;
         display: grid;
-        -ms-grid-rows: 2fr 1.5fr 7.3fr;
-        grid-template-rows: 2fr 1.5fr 7.3fr;
+        -ms-grid-rows: 2fr 1.5fr 7fr;
+        grid-template-rows: 2fr 1.5fr 7fr;
         -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
-    }    #calc > *:nth-child(1){
-        -ms-grid-row: 1;
-        -ms-grid-column: 1;
-    }    #calc > *:nth-child(2){
-        -ms-grid-row: 2;
-        -ms-grid-column: 1;
-    }    #calc > *:nth-child(3){
-        -ms-grid-row: 3;
-        -ms-grid-column: 1;
-    }
+    } 
     .calculation{
         display: -webkit-box;
         display: -ms-flexbox;
@@ -242,91 +251,8 @@
     .keyboard{
         display: -ms-grid;
         display: grid;
-        -ms-grid-columns: (1fr)[4];
-        grid-template-columns: repeat(4, 1fr);
-        -ms-grid-rows: (1fr)[5];
-        grid-template-rows: repeat(5, 1fr);
     }
-    .keyboard > *:nth-child(1){
-        -ms-grid-row: 1;
-        -ms-grid-column: 1;
-    }
-    .keyboard > *:nth-child(2){
-        -ms-grid-row: 1;
-        -ms-grid-column: 2;
-    }
-    .keyboard > *:nth-child(3){
-        -ms-grid-row: 1;
-        -ms-grid-column: 3;
-    }
-    .keyboard > *:nth-child(4){
-        -ms-grid-row: 1;
-        -ms-grid-column: 4;
-    }
-    .keyboard > *:nth-child(5){
-        -ms-grid-row: 2;
-        -ms-grid-column: 1;
-    }
-    .keyboard > *:nth-child(6){
-        -ms-grid-row: 2;
-        -ms-grid-column: 2;
-    }
-    .keyboard > *:nth-child(7){
-        -ms-grid-row: 2;
-        -ms-grid-column: 3;
-    }
-    .keyboard > *:nth-child(8){
-        -ms-grid-row: 2;
-        -ms-grid-column: 4;
-    }
-    .keyboard > *:nth-child(9){
-        -ms-grid-row: 3;
-        -ms-grid-column: 1;
-    }
-    .keyboard > *:nth-child(10){
-        -ms-grid-row: 3;
-        -ms-grid-column: 2;
-    }
-    .keyboard > *:nth-child(11){
-        -ms-grid-row: 3;
-        -ms-grid-column: 3;
-    }
-    .keyboard > *:nth-child(12){
-        -ms-grid-row: 3;
-        -ms-grid-column: 4;
-    }
-    .keyboard > *:nth-child(13){
-        -ms-grid-row: 4;
-        -ms-grid-column: 1;
-    }
-    .keyboard > *:nth-child(14){
-        -ms-grid-row: 4;
-        -ms-grid-column: 2;
-    }
-    .keyboard > *:nth-child(15){
-        -ms-grid-row: 4;
-        -ms-grid-column: 3;
-    }
-    .keyboard > *:nth-child(16){
-        -ms-grid-row: 4;
-        -ms-grid-column: 4;
-    }
-    .keyboard > *:nth-child(17){
-        -ms-grid-row: 5;
-        -ms-grid-column: 1;
-    }
-    .keyboard > *:nth-child(18){
-        -ms-grid-row: 5;
-        -ms-grid-column: 2;
-    }
-    .keyboard > *:nth-child(19){
-        -ms-grid-row: 5;
-        -ms-grid-column: 3;
-    }
-    .keyboard > *:nth-child(20){
-        -ms-grid-row: 5;
-        -ms-grid-column: 4;
-    }
+    
     .keyboard>button{
         font-size: 1.5rem;
         margin: 1rem;
@@ -351,6 +277,9 @@
         -ms-grid-column-span: 1;
         grid-column: 4 / 5;
         background-color: var(--main-color);
+    }
+    .del{
+        max-height: 2rem;
     }
     .colored{
         color: var(--main-color);
