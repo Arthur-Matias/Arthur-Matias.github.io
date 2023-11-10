@@ -510,29 +510,30 @@ footer{
     padding: 0;
     svg{
       height: 80%;
-      color: $background-color;
+      color: $medium-color;
       transition: ease .2s;
       &:hover{
-        color: $medium-color;
+        color: $medium-light-color;
       }
     }
     
     i{
-      font-size: 3vw;
-      color: $background-color;
-      transition: ease .2s;
-      &:hover{
-        color: $medium-color;
-      }
-    }
-    a{
-      margin-right: 0.5rem;
+      font-size: 2vw;
       color: $medium-color;
-      transition: ease .5s;
+      transition: ease .2s;
+      margin-right: 0.5rem;
       &:hover{
-        color: $medium-color;
+        color: $medium-light-color;
       }
     }
+    // a{
+    //   margin-right: 0.5rem;
+    //   color: $medium-color;
+    //   transition: ease .5s;
+    //   &:hover{
+    //     color: $medium-color;
+    //   }
+    // }
 
     ul{
       width: 100%;
@@ -552,6 +553,7 @@ footer{
           text-decoration: none;
           color: $medium-color;
           transition: ease .5s;
+          
           &:hover{
             color: $light-color;
           }
@@ -584,7 +586,44 @@ footer{
 }
 
 @media screen and (orientation: portrait) {
+  footer{
+    .footer-section{
+
+      svg{
+        height: 80%;
+      }
+      
+      i{
+        font-size: 2vh;
+      }
   
+      ul{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        li:not(:last-of-type){
+          margin-right: 1rem;
+        }
+  
+        li{
+          a{
+            text-decoration: none;
+            color: $medium-color;
+            transition: ease .5s;
+            
+            &:hover{
+              color: $light-color;
+            }
+          }
+        }
+      }
+    }
+  }
   .footer-section:nth-child(2){
     // display: none;
     a{
