@@ -31,7 +31,6 @@ function createBlobAnimation(_target: string, _numOfPoints: number, _color: stri
     let pattern: CanvasPattern;
     if (_bgImage) {
         pattern = ctx.createPattern(_bgImage, 'no-repeat') as CanvasPattern;
-        // console.log(pattern)
     }
 
     let radius = 0;
@@ -161,39 +160,20 @@ function createBlobAnimation(_target: string, _numOfPoints: number, _color: stri
             ctx.clip();
 
             if (_bgImage) {
-                var renderableHeight, renderableWidth, xStart, yStart;
+                var renderableHeight, renderableWidth, xStart;
                 if (canvas.width > 200 && canvas.height > 200) {
-                    // If image's aspect ratio is less than canvas's we fit on height
-                    // and place the image centrally along width
                     renderableHeight = radius*2;
                     renderableWidth = _bgImage.width * (renderableHeight / _bgImage.height);
                     xStart = (canvas.width - renderableWidth) / 2 -renderableWidth/2;
-                    yStart = -renderableHeight/2;
-                    // if (imageAspectRatio < canvasAspectRatio) {
-                    // }
+                    // yStart = -renderableHeight/2;
 
-                    // If image's aspect ratio is greater than canvas's we fit on width
-                    // and place the image centrally along height
-                    // else {
-                    //     renderableWidth = radius*2;
-                    //     renderableHeight = _bgImage.height * (renderableWidth / _bgImage.width);
-                    //     xStart = -renderableWidth/2;
-                    //     yStart = (canvas.height - renderableHeight) / 2 -renderableHeight/2;
-                    // }
                     ctx.translate(-canvas.width/2, -canvas.height/2)
                     ctx.drawImage(_bgImage, xStart+renderableWidth/2, (radius*2)- renderableHeight*0.65, renderableWidth, renderableHeight);
                 };
-                // const imageX = canvas.width / 2 - _bgImage.width / 2;
-                // const imageY = canvas.height / 2 - _bgImage.height / 2;
-
-                // ctx.drawImage(_bgImage, imageX, imageY); // Adjusted scale factor
             }
 
-            // ctx.clip();
             ctx.restore();
-            // if (running) {
             requestAnimationFrame(render)
-            // }
         }
 
 
