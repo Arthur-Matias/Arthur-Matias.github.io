@@ -202,7 +202,7 @@ function handleMailSend(e: SubmitEvent){
     }
 
     fetch(targetUrl, {
-        method: "get",
+        method: form.method,
         headers: h,
         body: JSON.stringify(mail)
     })
