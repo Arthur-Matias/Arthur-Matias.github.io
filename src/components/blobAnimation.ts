@@ -1,12 +1,11 @@
-interface CanvasRenderingContext2D {
+import "../lib/curve.min.js"
+import { SimplexNoise } from "../lib/simplex-noise";
+
+interface canvasRenderingContext2D extends CanvasRenderingContext2D{
     curve(points: number[], tension?: number): void
 }
 
-enum ImageDraw {
-    Pattern = "pattern",
-    MidPoint = "mid"
-}
-interface blobControls {
+export interface blobControls {
     init: () => void;
     changeCurrentColor: (color: string) => void;
     canvas: HTMLCanvasElement
@@ -20,18 +19,14 @@ interface blobControls {
  * @param _bgImage expects an Image to put as a background
  * @returns @object blobControls
  */
-function createBlobAnimation(_target: string, _numOfPoints: number, _color: string, _noiseStep: number = 0.0005, _bgImage: HTMLImageElement | null = null): blobControls {
+export function createBlobAnimation(_target: string, _numOfPoints: number, _color: string, _noiseStep: number = 0.0005, _bgImage: HTMLImageElement | null = null): blobControls {
 
     const target = document.getElementById(_target);
-
-    const canvas: HTMLCanvasElement = document.createElement("canvas");
-    const ctx: CanvasRenderingContext2D = canvas.getContext("2d") as CanvasRenderingContext2D;
+    console.log(target)
+    const canvas: HTMLCanvasElement = document.createElement("canvas") as HTMLCanvasElement;
+    const ctx: canvasRenderingContext2D = canvas.getContext("2d") as canvasRenderingContext2D;
 
     const simplex = new SimplexNoise();
-    let pattern: CanvasPattern;
-    if (_bgImage) {
-        pattern = ctx.createPattern(_bgImage, 'no-repeat') as CanvasPattern;
-    }
 
     let radius = 0;
 

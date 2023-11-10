@@ -1,4 +1,5 @@
 import p5 from "p5"
+import { blobControls, createBlobAnimation } from "./blobAnimation";
 
 export enum Animations{
     circleRotation = "circleRotation",

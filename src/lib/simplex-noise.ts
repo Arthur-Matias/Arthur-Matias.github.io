@@ -65,7 +65,7 @@ Better rank ordering method by Stefan Gustavson in 2012.
  type RandomFn = () => number;
  
  /** Deterministic simplex noise generator suitable for 2D, 3D and 4D spaces. */
- class SimplexNoise {
+ export class SimplexNoise {
    private p: Uint8Array;
    private perm: Uint8Array;
    private permMod12: Uint8Array;
