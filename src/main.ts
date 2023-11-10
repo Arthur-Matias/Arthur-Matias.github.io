@@ -202,27 +202,28 @@ function handleMailSend(e: SubmitEvent){
     }
 
     fetch(targetUrl, {
-        method: form.method,
+        method: "get",
         headers: h,
         body: JSON.stringify(mail)
     })
     .then(response=>{
         if(response.ok){
-            status.innerHTML = "Thanks for your submission!";
+            status.innerHTML = "Thanks for your contact!";
             form.reset()
         }else {
             response.json().then(data => {
               if (Object.hasOwn(data, 'errors')) {
                 status.innerHTML = data["errors"].map((error: any) => error["message"]).join(", ")
               } else {
-                status.innerHTML = "Oops! There was a problem submitting your form"
+                status.style.color = "red"
+                status.innerHTML = "Oops! There was a problem sending your email, you can try directly on arthur.matias@proton.me"
               }
             })
           }
         }).catch(error => {
             console.log(error)
             status.style.color = "red"
-          status.innerHTML = "Oops! There was a problem submitting your form"
+          status.innerHTML = "Oops! There was a problem sending your email, you can try directly on arthur.matias@proton.me"
         });
     console.log((textInput as HTMLTextAreaElement).value)
 }
