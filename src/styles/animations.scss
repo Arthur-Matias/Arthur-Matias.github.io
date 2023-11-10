@@ -1,0 +1,87 @@
+@import "./variables.scss";
+
+@keyframes menuLeftLineOpen {
+    0% {
+        transform: none;
+        background-color: $light-color;
+    }
+
+    100% {
+        transform: translateY(calc(100% + 0.1rem)) translateX(20%) rotate(45deg);
+        background-color: red;
+    }
+}
+
+@keyframes menuRightLineOpen {
+    0% {
+        transform: none;
+        background-color: $light-color;
+    }
+
+    100% {
+        transform: translateY(calc(-100% - 0.1rem)) translateX(-20%) rotate(-45deg);
+        background-color: red;
+    }
+}
+
+@keyframes menuLeftLineClose {
+    0% {
+        transform: translateY(0.4dvh) translateX(20%) rotate(45deg);
+        background-color: red;
+    }
+
+    100% {
+        transform: none;
+        background-color: $light-color;
+    }
+}
+
+@keyframes menuRightLineClose {
+    0% {
+        transform: translateY(-0.4dvh) translateX(-20%) rotate(-45deg);
+        background-color: red;
+    }
+
+    100% {
+        transform: none;
+        background-color: $light-color;
+    }
+}
+
+@keyframes menuTitleVanish {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes menuTitleAppear {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes menuOpen {
+    0%{
+        transform: translateY(-2000px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+@keyframes menuClose {
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(-2000px);
+    }
+}
