@@ -319,7 +319,9 @@ body {
     margin-bottom: 1dvh;
     overflow: hidden;
     padding: 0 !important;
-    max-width: 90dvw;
+    // min-width: 90dvw;
+    width: 90dvw;
+    max-width: 700px;
     -webkit-mask: linear-gradient(90deg, transparent, white 25%, white 75%, transparent);
     mask: linear-gradient(90deg, transparent, white 25%, white 75%, transparent);
   }
