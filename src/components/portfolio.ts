@@ -2,7 +2,7 @@ export enum portfolioItems{
     all = "allPortfolio",
     design = "designPortfolio",
     webDev = "webdevPortfolio",
-    engineering = "engineeringPortfolio",
+    math = "mathPortfolio",
 }
 
 type item = {url: string, id: string, title: string};
@@ -102,7 +102,7 @@ const imgs: {[id in portfolioItems]: item[]} = {
             title: "Space Game (not asteroids)"
         },
     ],
-    engineeringPortfolio: [
+    mathPortfolio: [
         {
             id: "text_flow_field",
             url : "https://arthur-matias.github.io/text_flow_field/",
@@ -134,7 +134,7 @@ const imgs: {[id in portfolioItems]: item[]} = {
 const mosaicID = "mosaic-grid";
 
 function getFullImageArr(): item[]{
-    let newArr = imgs.designPortfolio.concat(imgs.webdevPortfolio.concat(imgs.webdevPortfolio.concat(imgs.engineeringPortfolio)))
+    let newArr = imgs.designPortfolio.concat(imgs.webdevPortfolio.concat(imgs.webdevPortfolio.concat(imgs.mathPortfolio)))
     return newArr;
 }
 

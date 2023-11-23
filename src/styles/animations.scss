@@ -7,11 +7,10 @@
     }
 
     100% {
-        transform: translateY(calc(100% + 0.1rem)) translateX(20%) rotate(45deg);
+        transform: translate(20%) rotate(45deg);
         background-color: red;
     }
 }
-
 @keyframes menuRightLineOpen {
     0% {
         transform: none;
@@ -19,7 +18,7 @@
     }
 
     100% {
-        transform: translateY(calc(-100% - 0.1rem)) translateX(-20%) rotate(-45deg);
+        transform: translate(-20%) rotate(-45deg);
         background-color: red;
     }
 }
@@ -83,5 +82,10 @@
     }
     100%{
         transform: translateY(-2000px);
+    }
+}
+@keyframes scrollAnimation {
+    to{
+        transform: translate(-50%);
     }
 }

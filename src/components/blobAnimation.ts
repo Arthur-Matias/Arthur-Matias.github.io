@@ -22,7 +22,6 @@ export interface blobControls {
 export function createBlobAnimation(_target: string, _numOfPoints: number, _color: string, _noiseStep: number = 0.0005, _bgImage: HTMLImageElement | null = null): blobControls {
 
     const target = document.getElementById(_target);
-    console.log(target)
     const canvas: HTMLCanvasElement = document.createElement("canvas") as HTMLCanvasElement;
     const ctx: canvasRenderingContext2D = canvas.getContext("2d") as canvasRenderingContext2D;
 
@@ -35,7 +34,6 @@ export function createBlobAnimation(_target: string, _numOfPoints: number, _colo
     }
     function init() {
         if (target) {
-            console.log()
             canvas.width = target.offsetWidth > target.offsetHeight?target.offsetHeight:target.offsetWidth
             canvas.height = target.offsetWidth > target.offsetHeight?target.offsetHeight:target.offsetWidth
             ctx.translate(canvas.width / 2, canvas.height / 2)

@@ -14,7 +14,7 @@ enum clickEventName {
     design = "designPortfolio",
     menuLink = "menu-link",
     webDev = "webdevPortfolio",
-    engineering = "engineeringPortfolio",
+    math = "mathPortfolio",
     topbarLogo = "topbarLogo"
 }
 let clickEvents: { [key in clickEventName]: (...params: any) => void } = {
@@ -22,7 +22,7 @@ let clickEvents: { [key in clickEventName]: (...params: any) => void } = {
     "allPortfolio": (e)=>handlePortfolioLinkClick(e, portfolioItems.all),
     "designPortfolio": (e)=>handlePortfolioLinkClick(e, portfolioItems.design),
     "webdevPortfolio": (e)=>handlePortfolioLinkClick(e, portfolioItems.webDev),
-    "engineeringPortfolio": (e)=>handlePortfolioLinkClick(e, portfolioItems.engineering),
+    "mathPortfolio": (e)=>handlePortfolioLinkClick(e, portfolioItems.math),
     "menu-link": toggleMenu,
     "topbarLogo": handleTopBarLogoClick
 }
@@ -66,18 +66,13 @@ animations.menu = setupAnimation({
 
 function stopAnimation(id: animationIDs){
     try {
-        // console.log(activeAnimations)
-        // console.log("stopping")
-        // console.log(id)
         if(activeAnimations.indexOf(id) !== -1){
-            // console.log("stopped" + id)
             animations[id].stopSketch()
             activeAnimations.splice(activeAnimations.indexOf(id), 1)
         }
     } catch (error) {
         
     }finally{
-        // console.log(activeAnimations)
 
     }
 }
@@ -176,7 +171,7 @@ function handleMenuSwitch(i:number){
 }
 let colorBarOpen = false;
 function handleTopBarLogoClick(){
-    console.log("clicked")
+    // console.log("clicked")
     colorBarOpen = true;
     
 }
@@ -225,7 +220,18 @@ function handleMailSend(e: SubmitEvent){
             status.style.color = "red"
           status.innerHTML = "Oops! There was a problem sending your email, you can try directly on arthur.matias@proton.me"
         });
-    console.log((textInput as HTMLTextAreaElement).value)
+    // console.log((textInput as HTMLTextAreaElement).value)
+}
+
+function addScrollAnimation(){
+    const scrollerInner = document.querySelector(".icon-wrapper__inner") as Element;
+    const scrollerContent = Array.from(scrollerInner.children);
+
+    scrollerContent.forEach(item=>{
+        const duplicatedItem = item.cloneNode(true) as HTMLElement;
+        duplicatedItem.setAttribute("aria-hidden", "true");
+        scrollerInner.append(duplicatedItem);
+    })
 }
 window.addEventListener("load", ()=>{
     const activeLink = document.querySelector(".menu-link.current") as HTMLAnchorElement;
@@ -249,7 +255,7 @@ window.addEventListener("load", ()=>{
         }
         lastActive = id
     }
-    
+    addScrollAnimation();
     
 
 })
@@ -262,7 +268,7 @@ window.addEventListener('resize', () => {
             startAnimation(e);
         }
         resizeTimeouts[i] = setTimeout(() => {
-            console.log('Resize event throttled!');
+            // console.log('Resize event throttled!');
         }, i*50)
     });
 });
