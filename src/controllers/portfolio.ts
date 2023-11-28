@@ -221,7 +221,10 @@ function getPortfolioItems(param: FixedLengthArray<item, 5>): string{
 export function startPortfolio(){
     const allImages = getCurrent(portfolioItems.all)
     const mosaicElement = document.getElementById(mosaicID) as HTMLDivElement;
-    mosaicElement.innerHTML = getPortfolioItems(allImages);
+    console.log()
+    if(mosaicElement.children.length === 0){
+        mosaicElement.innerHTML = getPortfolioItems(allImages);
+    }
 }
 
 function getCurrent(id: portfolioItems){

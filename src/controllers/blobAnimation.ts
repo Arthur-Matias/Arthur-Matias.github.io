@@ -1,5 +1,5 @@
 import "../lib/curve.min.js"
-import { SimplexNoise } from "../lib/simplex-noise";
+import { SimplexNoise } from "../lib/simplex-noise.js";
 
 interface canvasRenderingContext2D extends CanvasRenderingContext2D{
     curve(points: number[], tension?: number): void
@@ -8,7 +8,8 @@ interface canvasRenderingContext2D extends CanvasRenderingContext2D{
 export interface blobControls {
     init: () => void;
     changeCurrentColor: (color: string) => void;
-    canvas: HTMLCanvasElement
+    canvas: HTMLCanvasElement;
+    resize: ()=>void
 }
 /**
  * 
@@ -34,8 +35,7 @@ export function createBlobAnimation(_target: string, _numOfPoints: number, _colo
     }
     function init() {
         if (target) {
-            canvas.width = target.offsetWidth > target.offsetHeight?target.offsetHeight:target.offsetWidth
-            canvas.height = target.offsetWidth > target.offsetHeight?target.offsetHeight:target.offsetWidth
+            resize()
             ctx.translate(canvas.width / 2, canvas.height / 2)
             target.innerHTML = "";
             target.append(canvas)
@@ -137,10 +137,10 @@ export function createBlobAnimation(_target: string, _numOfPoints: number, _colo
                 point.noiseOffsetX += _noiseStep
                 point.noiseOffsetY += _noiseStep
 
-                if (point.noiseOffsetX > 10000) {
+                if (point.noiseOffsetX > 1000) {
                     point.noiseOffsetX = 0
                 }
-                if (point.noiseOffsetY > 10000) {
+                if (point.noiseOffsetY > 1000) {
                     point.noiseOffsetX = 0
                 }
             }
@@ -158,9 +158,8 @@ export function createBlobAnimation(_target: string, _numOfPoints: number, _colo
                     renderableHeight = radius*2;
                     renderableWidth = _bgImage.width * (renderableHeight / _bgImage.height);
                     xStart = (canvas.width - renderableWidth) / 2 -renderableWidth/2;
-                    // yStart = -renderableHeight/2;
 
-                    ctx.translate(-canvas.width/2, -canvas.height/2)
+                    ctx.translate(-canvas.width/2, -canvas.height/2);
                     ctx.drawImage(_bgImage, xStart+renderableWidth/2, (radius*2)- renderableHeight*0.65, renderableWidth, renderableHeight);
                 };
             }
@@ -168,8 +167,7 @@ export function createBlobAnimation(_target: string, _numOfPoints: number, _colo
             ctx.restore();
             requestAnimationFrame(render)
         }
-
-
+        
         return {
             render
         }
@@ -177,9 +175,14 @@ export function createBlobAnimation(_target: string, _numOfPoints: number, _colo
     function changeCurrentColor(c: string) {
         _color = c
     }
+    function resize(){
+        canvas.width = target!.offsetWidth > target!.offsetHeight?target!.offsetHeight:target!.offsetWidth
+        canvas.height = target!.offsetWidth > target!.offsetHeight?target!.offsetHeight:target!.offsetWidth
+    }
     return {
         init,
         changeCurrentColor,
         canvas,
+        resize
     }
 }

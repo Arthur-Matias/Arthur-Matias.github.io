@@ -51,12 +51,12 @@ export function setupAnimation(animProps:AnimationSetupProps): animationControls
             sketch.remove();
         }
     }
+    
     return {
         stopSketch,
         startSketch
     }
 }
-
 function circleRotation(p: p5, targetElement: HTMLDivElement){
 
     let canvasWidth = targetElement.offsetWidth;
@@ -78,10 +78,10 @@ function circleRotation(p: p5, targetElement: HTMLDivElement){
         p.stroke(214,216,218, p.map(maxIteration, 0, 5, 10, 100));
         p.circle(0, 0, initialDiameter)
         drawCircles(0, 0, initialDiameter, maxIteration)
-        if(angle>359){
+        if(angle>360){
             angle=0
         }
-        angle+=0.005;
+        angle+=0.003;
     }
 
     function drawCircles(x: number,y: number,d: number, maxLevel:number, level:number = maxLevel){
@@ -94,7 +94,8 @@ function circleRotation(p: p5, targetElement: HTMLDivElement){
         p.circle(0, 0, newDiameter)
         p.pop();
         if(level > 1){
-            drawCircles(xPos, yPos, newDiameter, maxLevel, level-1);
+            let newLevel = level-1
+            drawCircles(xPos, yPos, newDiameter, maxLevel, newLevel);
         }
     }
 
@@ -159,7 +160,6 @@ function dotSquare(p: p5, targetElement: HTMLDivElement){
         quadArray.forEach(point=>{
             p.push()
             p.noStroke();
-            // p.normalMaterial()
             p.emissiveMaterial(214,216,218);
             p.translate(point[0]*(quadSize/2), point[1]*(quadSize/2), point[2]*(quadSize/2))
             p.sphere(quadSize*0.05)
@@ -207,7 +207,7 @@ function dotMatrix(p: p5, targetElement: HTMLDivElement){
                 let dx = (p.mouseX - x) / p.width;
                 let dy = (p.mouseY - y) / (aspectRatio * p.width);
                 let d = Math.sqrt(dx*dx + dy*dy);
-                let r = p.map(d, 0, Math.sqrt(2), 0, gridStep);
+                let r = p.map(d, 0, Math.sqrt(2), 0, gridStep*0.5);
                 p.push()
                 p.translate(x,y)
                 p.ellipse(0,0, r, r);

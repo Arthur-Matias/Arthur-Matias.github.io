@@ -35,88 +35,13 @@ body {
   background: $background-color !important;
 }
 
-#menu-btn {
-  all: unset;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  margin-top: 1.5dvh;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  .title {
-    user-select: none;
-    margin: 0;
-    animation: menuTitleAppear .5s cubic-bezier(0.075, 0.82, 0.165, 1);
-    pointer-events: none;
-    transition: ease .2s;
-    color: $medium-color;
-  }
-
-  .line {
-    transition: ease .2s;
-    height: 0.5rem;
-    width: 100%;
-    border-radius: 1rem;
-    background-color: $medium-color;
-    pointer-events: none;
-
-    &:first-of-type {
-      margin-bottom: 0.8dvw;
-      left: 0;
-      top: 0;
-      transform-origin: top left;
-      animation: menuLeftLineClose .5s cubic-bezier(0.075, 0.82, 0.165, 1);
-    }
-
-    &:last-of-type {
-      margin-bottom: 0.2rem;
-      transform-origin: top right;
-      animation: menuRightLineClose .5s cubic-bezier(0.075, 0.82, 0.165, 1);
-    }
-  }
-
-  &:hover {
-    .line {
-      background-color: $light-color;
-    }
-
-    .title {
-      color: $light-color;
-    }
-  }
-
-  &.active {
-    .line {
-      background-color: red;
-      position: absolute;
-      top: 0;
-      &:first-of-type {
-        animation: menuLeftLineOpen .5s cubic-bezier(0.075, 0.82, 0.165, 1);
-        transform: translate(20%) rotate(45deg);
-      }
-
-      &:last-of-type {
-
-        animation: menuRightLineOpen .5s cubic-bezier(0.075, 0.82, 0.165, 1);
-        transform: translate(-20%) rotate(-45deg);
-      }
-    }
-
-    .title {
-      animation: menuTitleVanish .5s cubic-bezier(0.075, 0.82, 0.165, 1);
-      visibility: hidden;
-    }
-  }
-}
-
 #menu {
   position: absolute;
   overflow: hidden;
   left: 0;
   top: 0;
-  height: 100dvh;
+  min-height: 100dvh;
+  height: 100%;
   width: 100dvw;
   background-color: $dark-color;
   animation: menuClose .5s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -140,6 +65,7 @@ body {
     padding: 0;
     width: 50%;
     height: 50%;
+    
   }
 
   ul {
@@ -195,40 +121,40 @@ body {
 }
 
 #quote {
-  margin-top: 5dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
 
-  .quote-wrapper {
-    max-width: 80%;
+  .quote-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-
   span {
     color: $light-color;
-
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: end;
 
     &:first-of-type {
-      font-size: 6dvh;
       text-align: center;
+      font-size: 8dvh;
     }
-
+    
     &:last-of-type {
-      font-size: 3dvh;
       text-align: end;
+      font-size: 4dvh;
     }
   }
 
   .line {
-    width: 5dvw;
+    width: 3dvw;
     height: 1dvh;
     background-color: $main-color;
-    margin-right: 2dvw;
+    margin-right: 1dvw;
   }
 }
 
@@ -240,12 +166,6 @@ body {
   align-items: center;
   justify-content: center;
 
-  .title {
-    text-align: center;
-    font-size: 5dvh;
-    font-weight: 900;
-    // margin-bottom: 8dvh;
-  }
 
   .content {
     margin: 0 !important;
@@ -340,13 +260,6 @@ body {
   align-items: center;
   justify-content: space-evenly;
 
-  >.title {
-    text-align: center;
-    font-size: 5dvh;
-    font-weight: 900;
-    margin-top: 2rem;
-  }
-
   #mosaic-grid {
     a {
       all: unset;
@@ -434,12 +347,6 @@ body {
   align-items: center;
   justify-content: center;
 
-  .title {
-    text-align: center;
-    font-size: 5dvh;
-    font-weight: 900;
-    margin-top: 2rem;
-  }
 
   #dot-quad {
     min-height: 30vh;
@@ -455,15 +362,8 @@ body {
 
   .contact-wrapper {
     min-height: 75vh;
-    width: 100%;
-    padding: 0;
-
-    >div {
-      margin: 0 2rem;
-    }
 
     .col {
-
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -479,6 +379,7 @@ body {
       p {
         color: $light-color;
         font-size: 2.5vh;
+        text-align: justify;
       }
     }
   }
@@ -557,7 +458,8 @@ body {
   z-index: 2000;
 
   #topbar-logo {
-    width: 3rem;
+    width: 3dvw;
+    aspect-ratio: 1 / 1;
 
     svg {
       color: $main-color;
@@ -565,6 +467,81 @@ body {
 
       &:hover {
         color: $light-main-color;
+      }
+    }
+  }
+  #menu-btn {
+    all: unset;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    margin-top: 1.5dvh;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    .title {
+      user-select: none;
+      margin: 0;
+      animation: menuTitleAppear .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+      pointer-events: none;
+      transition: ease .2s;
+      color: $medium-color;
+    }
+  
+    .line {
+      transition: ease .2s;
+      height: 1dvh;
+      width: 100%;
+      border-radius: 1rem;
+      background-color: $medium-color;
+      pointer-events: none;
+  
+      &:first-of-type {
+        margin-bottom: 0.8dvw;
+        left: 0;
+        top: 0;
+        transform-origin: top left;
+        animation: menuLeftLineClose .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+      }
+  
+      &:last-of-type {
+        margin-bottom: 0.2rem;
+        transform-origin: top right;
+        animation: menuRightLineClose .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+      }
+    }
+  
+    &:hover {
+      .line {
+        background-color: $light-color;
+      }
+  
+      .title {
+        color: $light-color;
+      }
+    }
+  
+    &.active {
+      .line {
+        background-color: red;
+        position: absolute;
+        top: 0;
+        &:first-of-type {
+          animation: menuLeftLineOpen .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+          transform: translate(20%) rotate(45deg);
+        }
+  
+        &:last-of-type {
+  
+          animation: menuRightLineOpen .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+          transform: translate(-20%) rotate(-45deg);
+        }
+      }
+  
+      .title {
+        animation: menuTitleVanish .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        visibility: hidden;
       }
     }
   }
@@ -646,7 +623,13 @@ footer {
   *:not(canvas) {
     z-index: 1;
   }
-
+  .title {
+    text-align: center;
+    font-size: 5dvh;
+    font-weight: 900;
+    margin-top: 2rem;
+    text-align: center;
+  }
   canvas {
     position: absolute;
     left: 0;
@@ -714,8 +697,41 @@ footer {
       }
     }
   }
+  #home {
+  
+    span {
+      &:first-of-type {
+        font-size: 3dvh;
+        font-weight: 500;
+      }
+  
+      &:last-of-type {
+        font-size: 2dvh;
+        font-weight: 200;
+      }
+    }
+  
+    .main-text {
+      font-weight: 900;
+      font-size: 6dvh;
+      text-align: center;
+      b {
+        color: $main-color;
+      }
+    }
+  }
   #quote {
-
+    span {
+  
+      &:first-of-type {
+        font-size: 8dvw;
+      }
+  
+      &:last-of-type {
+        text-align: end;
+        font-size: 4dvw;
+      }
+    }
     .line {
       width: 3dvh;
       height: 1dvw;
@@ -755,7 +771,7 @@ footer {
 
       .title {
         padding: 1rem;
-        font-size: 3dvh;
+        font-size: 3dvw !important;
       }
 
       &::after {
@@ -811,7 +827,6 @@ footer {
     .contact-wrapper {
       .contact-col {
         p {
-          max-width: 90dvw;
           font-size: 2vh;
         }
 
@@ -821,20 +836,42 @@ footer {
         margin: 0;
 
         >form {
-          max-width: 80dvw;
+          // max-width: 80dvw;
         }
       }
     }
   }
   #menu {
+    #menu-animation {
+      max-height: 30dvh;
+    }
     ul {
       .menu-Item {
         text-align: center !important;
       }
     }
   }
-
+  #topbar {
+    #topbar-logo {
+      width: 4dvh;
+    }
+  }
   #dot-quad{
     display: none;
+  }
+  #menu-btn {
+
+    .title {
+      font-size: 3.5dvw;
+    }
+  
+    .line {
+      transition: ease .2s;
+      height: 1dvw !important;
+      width: 100%;
+      border-radius: 1rem;
+      background-color: $medium-color;
+      pointer-events: none;
+    }
   }
 }
