@@ -4,8 +4,8 @@ import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'
 import '@fortawesome/fontawesome-free/css/all.css'
 
 
-import AnimationController, { animationIDs } from './controllers/animationController.ts'
-import { EventHandler, clickEventName } from './controllers/eventHandlers.ts'
+import AnimationController from './controllers/animationController.ts'
+import { EventHandler } from './controllers/eventHandlers.ts'
 
 let eventHandler: EventHandler;
 let animationController: AnimationController;

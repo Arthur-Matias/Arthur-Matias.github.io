@@ -77,14 +77,14 @@ export default class AnimationController{
         this.stopAnimation(animationIDs.contact)
         this.lastActive = animationIDs.about
     }
-    private activatePortfolio(){
-        this.startAnimation(animationIDs.about)
-        this.startAnimation(animationIDs.contact)
-        this.startAnimation(animationIDs.portfolio)
+    // private activatePortfolio(){
+    //     this.startAnimation(animationIDs.about)
+    //     this.startAnimation(animationIDs.contact)
+    //     this.startAnimation(animationIDs.portfolio)
         
-        this.stopAnimation(animationIDs.quote)
-        this.stopAnimation(animationIDs.home)
-    }
+    //     this.stopAnimation(animationIDs.quote)
+    //     this.stopAnimation(animationIDs.home)
+    // }
     private activateContact(){
         this.startAnimation(animationIDs.portfolio)
         this.startAnimation(animationIDs.contact)

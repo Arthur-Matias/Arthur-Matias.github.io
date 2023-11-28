@@ -17,7 +17,7 @@ export class EventHandler{
     private animationController:AnimationController;
     private navLinks: Array<HTMLElement>
     private sections: Array<HTMLElement>
-    private colorBarOpen = false;
+    // private colorBarOpen = false;
     private clickEvents: { [key in clickEventName]: (...params: any) => void }; 
     private resizeTimeouts: number[] = [];
     constructor(animationController: AnimationController){
@@ -145,7 +145,7 @@ export class EventHandler{
     }
     private handleTopBarLogoClick(){
         console.log("clicked")
-        this.colorBarOpen = true;
+        // this.colorBarOpen = true;
     }
     handleScrollEvent(){
         let index = this.sections.length;
