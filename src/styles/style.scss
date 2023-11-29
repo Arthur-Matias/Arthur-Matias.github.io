@@ -361,7 +361,6 @@ body {
   }
 
   .contact-wrapper {
-    min-height: 75vh;
 
     .col {
       display: flex;
@@ -748,11 +747,6 @@ footer {
     }
     .blob-wrapper {
       width: 100%;
-
-    }
-    .title{
-      margin-top: 2dvh;
-      margin-bottom: 2dvh;
     }
     .icon-wrapper {
       width: 100%;
@@ -790,18 +784,6 @@ footer {
 
       * {
         z-index: 2;
-      }
-
-      &:hover {
-        border: solid 3px $dark-color;
-
-        &::after {
-          opacity: .1;
-        }
-
-        .title {
-          color: $main-color;
-        }
       }
 
       &.big {

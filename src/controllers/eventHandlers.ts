@@ -49,7 +49,6 @@ export class EventHandler{
         }
         
         for(let id in animationIDs){
-            // console.log(id as animationIDs)
             if(activeLink.href.includes(id)){
                 animationStartFunctions[id as animationIDs]();
             }
