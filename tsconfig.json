@@ -1,0 +1,9 @@
+// npx tailwindcss -i ./src/index.css -o ./src/output.css --watch
+
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
