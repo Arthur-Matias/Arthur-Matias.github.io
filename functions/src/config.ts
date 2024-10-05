@@ -1,6 +1,5 @@
 interface Config{
     apiUrl: string;
-    otherSettings?: any;
 }
 
 export const developmentConfig: Config = {

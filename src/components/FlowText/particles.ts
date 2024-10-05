@@ -81,7 +81,7 @@ class Particle{
         let attempts = 0;
         let resetSuccess = false;
 
-        while(attempts < 1000 && !resetSuccess){
+        while(attempts < 50 && !resetSuccess){
             attempts++;
             let testIndex = Math.floor(Math.random() * this.effect.flowField.length);
             if(this.effect.flowField[testIndex].alpha > 0){

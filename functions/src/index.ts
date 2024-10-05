@@ -7,29 +7,25 @@
  * See a full list of supported triggers at https://firebase.google.com/docs/functions
  */
 
-import {onRequest} from "firebase-functions/v2/https";
-import * as logger from "firebase-functions/logger";
+// import {onRequest} from "firebase-functions/v2/https";
+// import * as logger from "firebase-functions/logger";
 import { developmentConfig, productionConfig } from './config';
-require('dotenv').config();
-// Start writing functions
-// https://firebase.google.com/docs/functions/typescript
+import * as functions from 'firebase-functions';
+import * as dotenv from 'dotenv';
 
+// Load environment variables from .env file
+dotenv.config(); 
 
-
-const functions = require('firebase-functions');
-
-// Access your environment variable
-const nodeEnv = functions.config().node.env || process.env.NODE_ENV || 'development';
+const nodeConfig = functions.config().node || {};
+const nodeEnv = nodeConfig.env || process.env.NODE_ENV || 'development';
 
 const baseConfig = nodeEnv === 'production'
-? productionConfig
-: developmentConfig;
+  ? productionConfig
+  : developmentConfig;
 
 const apiUrl = baseConfig.apiUrl;
 
-console.log('Current Environment:', apiUrl);
-
-// export const helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+// Example of using apiUrl in your function
+export const myFunction = functions.https.onRequest((request, response) => {
+  response.send(`API URL is: ${apiUrl}`);
+});

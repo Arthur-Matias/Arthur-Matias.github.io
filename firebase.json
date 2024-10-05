@@ -11,8 +11,8 @@
         "*.local"
       ],
       "predeploy": [
-        "npm --prefix \"$RESOURCE_DIR\" run lint",
-        "npm --prefix \"$RESOURCE_DIR\" run build"
+        "npx eslint \"$RESOURCE_DIR\"",
+        "npx tsc --project \"$RESOURCE_DIR/tsconfig.json\""
       ]
     }
   ],
@@ -30,11 +30,11 @@
       }
     ]
   },
-  "storage": {
-    "rules": "storage.rules"
-  },
   "database": {
     "rules": "database.rules.json"
+  },
+  "storage": {
+    "rules": "storage.rules"
   },
   "emulators": {
     "functions": {
@@ -50,7 +50,8 @@
       "port": 9199
     },
     "ui": {
-      "enabled": true
+      "enabled": true,
+      "port": 4000
     },
     "singleProjectMode": true
   }

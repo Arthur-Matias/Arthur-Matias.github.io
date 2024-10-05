@@ -13,7 +13,7 @@ const Layout: React.FC<LayoutProps> = ({ children, progress }) => {
     const { state } = useGlobalContext();
 
     return (
-        <div className="dark:bg-gray-900 bg-slate-200 dark:text-slate-50 text-gray-950 min-h-screen">
+        <div className="dark:bg-gray-950 bg-slate-200 dark:text-slate-200 text-gray-950 min-h-screen">
             <div className="fixed top-0 left-0 h-full w-full z-0">
                 {/* <Galaxy progress={progress} /> */}
             </div>

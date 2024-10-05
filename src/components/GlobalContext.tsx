@@ -1,38 +1,53 @@
-import React, { createContext, ReactNode, useContext, useState, useEffect } from 'react';
 
-export type page = "Home" | "About" | "Contact";
+
+// export type Page = "Home" | "About" | "Contact";
+import React, { createContext, ReactNode, useContext, useState, useEffect } from 'react';
+import { ref, onValue } from 'firebase/database';
+import { database } from '../firebase'; 
+import { getDownloadURL, ref as storageRef } from "firebase/storage";
+import { storage } from '../firebase'; 
+
+export type ProjectCategory = "all" | "design" | "dev";
+export type Page = "Home" | "About" | "Contact";
+
+export interface Project {
+  imgUrl: string; 
+  name: string;
+  alt: string;
+  link: string;
+  category: string;
+}
 
 interface State {
   menuOpen: boolean;
   darkTheme: boolean;
-  currentPage: page;
+  currentPage: Page;
   mainColor: string;
-  apiUrl: string;
+  projects: Project[];
 }
 
 interface GlobalCtxProps {
   children: ReactNode;
 }
 
-// Default value for context
 const defaultContextValue: State = {
   menuOpen: false,
   darkTheme: window.matchMedia('(prefers-color-scheme: dark)').matches,
   currentPage: "Home",
   mainColor: "black",
-  apiUrl:  import.meta.env.VITE_API_URL
+  projects: []
 };
 
 const GlobalContext = createContext<{
   state: State;
   toggleMenu: () => void;
   toggleDarkMode: () => void;
-  changeCurrentPage:(newPage: page) => void;
+  changeCurrentPage: (newPage: Page) => void;
 }>({
   state: defaultContextValue,
   toggleMenu: () => {},
   toggleDarkMode: () => {},
-  changeCurrentPage: ()=>{}
+  changeCurrentPage: () => {}
 });
 
 export const GlobalProvider: React.FC<GlobalCtxProps> = ({ children }) => {
@@ -43,12 +58,13 @@ export const GlobalProvider: React.FC<GlobalCtxProps> = ({ children }) => {
   };
 
   const toggleDarkMode = () => {
-    setState((prevState) => ({ ...prevState, darkTheme: !prevState.darkTheme}));
-    // console.log("darkmode: " + state.darkTheme)
+    setState((prevState) => ({ ...prevState, darkTheme: !prevState.darkTheme }));
   };
-  const changeCurrentPage = (newPage: page) => {
-    setState((prevState) => ({...prevState, currentPage: newPage}))
-  }
+
+  const changeCurrentPage = (newPage: Page) => {
+    setState((prevState) => ({ ...prevState, currentPage: newPage }));
+  };
+
   useEffect(() => {
     const root = document.getElementById("root");
     if (state.darkTheme) {
@@ -56,7 +72,35 @@ export const GlobalProvider: React.FC<GlobalCtxProps> = ({ children }) => {
     } else {
       root?.classList.remove('dark');
     }
-  }, [state.darkTheme]); // Run effect when darkTheme changes
+  }, [state.darkTheme]);
+
+  useEffect(() => {
+    const projectsRef = ref(database, '/projects'); 
+    const unsubscribe = onValue(projectsRef, async (snapshot) => {
+      const data = snapshot.val();
+      console.log("Fetched data:", data); // Log the raw data
+      if (data) {
+        const projectsData: Project[] = Object.values(data);
+        console.log("Projects Data:", projectsData); // Log projectsData
+        const projectsWithUrls = await Promise.all(projectsData.map(async (project) => {
+          try {
+            const imgUrl = await getDownloadURL(storageRef(storage, `/${project.imgUrl}`));
+            return { ...project, imgUrl };
+          } catch (error) {
+            console.error(`Failed to fetch URL for ${project.imgUrl}:`, error);
+            return { ...project, imgUrl: '' }; // Handle missing images
+          }
+        }));
+        setState((prevState) => ({ ...prevState, projects: projectsWithUrls }));
+      } else {
+        setState((prevState) => ({ ...prevState, projects: [] })); 
+      }
+    }, (error) => {
+      console.error('Failed to fetch portfolio items:', error);
+    });
+
+    return () => unsubscribe(); 
+  }, []); 
 
   return (
     <GlobalContext.Provider value={{ state, toggleMenu, toggleDarkMode, changeCurrentPage }}>
@@ -67,7 +111,6 @@ export const GlobalProvider: React.FC<GlobalCtxProps> = ({ children }) => {
 
 export const useGlobalContext = () => {
   const context = useContext(GlobalContext);
-  // console.log(context.state.darkTheme)
   if (!context) {
     throw new Error('useGlobalContext must be used within a GlobalProvider');
   }

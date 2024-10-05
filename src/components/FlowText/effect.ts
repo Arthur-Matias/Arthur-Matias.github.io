@@ -43,7 +43,7 @@ export default class Effect {
     this.height = this.canvas.height;
     this.width = this.canvas.width;
     this.particles = [];
-    this.totalParticles = 10; // Start with fewer particles
+    this.totalParticles = 100; // Start with fewer particles
     this.cellSize = 1;
     this.rows = 0;
     this.cols = 0;
