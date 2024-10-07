@@ -1,1 +1,6 @@
-{"root":["./src/main.tsx","./src/vite-env.d.ts","./src/components/Galaxy.tsx","./src/components/GlobalContext.tsx","./src/components/Layout.tsx","./src/components/Logo.tsx","./src/components/Menu.tsx","./src/components/MenuBtn.tsx","./src/components/Quote.tsx","./src/components/Topbar.tsx","./src/components/Works.tsx","./src/components/FlowText/Canvas.tsx","./src/components/FlowText/effect.ts","./src/components/FlowText/particles.ts","./src/components/FlowText/types.ts","./src/pages/Home.tsx"],"version":"5.6.2"}
+{
+    "root": [
+        "./src/*"
+    ],
+    "version": "5.6.2"
+}

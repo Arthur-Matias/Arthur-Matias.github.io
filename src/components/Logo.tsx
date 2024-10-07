@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useGlobalContext } from "./GlobalContext";
+import ColorSelector from "./ColorSelector";
 
 export default function Logo() {
     const { state, toggleDarkMode } = useGlobalContext();
@@ -34,6 +35,7 @@ export default function Logo() {
             </div>
             {colorMenuVisible && (
                 <div className="absolute mt-4 py-8 px-20 rounded-3xl dark:bg-gray-800 bg-white">
+                    <ColorSelector />
                     <button type="button" onClick={toggleDarkMode}>toggle</button>
                 </div>
             )}

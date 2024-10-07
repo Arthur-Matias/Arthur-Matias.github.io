@@ -77,7 +77,7 @@ export default function Home() {
             </div>
             <div className="flex flex-col min-h-screen">
                 <div className="flex flex-col items-center justify-center min-h-screen">
-                    <div>
+                    <div className="mb-5">
                         <button type="button" 
                             className={`px-5 border-b-2 border-transparent hover:border-blue-500 dark:hover:border-blue-800 dark:active:border-blue-500 active:border-blue-900 transition-colors ${currentItem === "all"?"border-blue-500 dark:border-blue-800":""}`} 
                             onClick={() => setCurrentItem("all")}

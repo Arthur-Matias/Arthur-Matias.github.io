@@ -1,17 +1,17 @@
 
-
 // export type Page = "Home" | "About" | "Contact";
 import React, { createContext, ReactNode, useContext, useState, useEffect } from 'react';
 import { ref, onValue } from 'firebase/database';
 import { database } from '../firebase'; 
 import { getDownloadURL, ref as storageRef } from "firebase/storage";
 import { storage } from '../firebase'; 
+import { Colors, colorsMap } from './tailwindColors';
 
 export type ProjectCategory = "all" | "design" | "dev";
 export type Page = "Home" | "About" | "Contact";
 
 export interface Project {
-  imgUrl: string; 
+  imgURL: string; 
   name: string;
   alt: string;
   link: string;
@@ -43,11 +43,13 @@ const GlobalContext = createContext<{
   toggleMenu: () => void;
   toggleDarkMode: () => void;
   changeCurrentPage: (newPage: Page) => void;
+  changeMainColor: (newColor: Colors) => void;
 }>({
   state: defaultContextValue,
   toggleMenu: () => {},
   toggleDarkMode: () => {},
-  changeCurrentPage: () => {}
+  changeCurrentPage: () => {},
+  changeMainColor: (newColor: Colors) => {}
 });
 
 export const GlobalProvider: React.FC<GlobalCtxProps> = ({ children }) => {
@@ -65,6 +67,12 @@ export const GlobalProvider: React.FC<GlobalCtxProps> = ({ children }) => {
     setState((prevState) => ({ ...prevState, currentPage: newPage }));
   };
 
+  const changeMainColor = (color: Colors) => {
+    const newColor = colorsMap("500")[color] || colorsMap("500").blue; // Fallback to blue
+    document.documentElement.style.setProperty('--color-primary', newColor);
+  }
+  
+
   useEffect(() => {
     const root = document.getElementById("root");
     if (state.darkTheme) {
@@ -75,35 +83,55 @@ export const GlobalProvider: React.FC<GlobalCtxProps> = ({ children }) => {
   }, [state.darkTheme]);
 
   useEffect(() => {
-    const projectsRef = ref(database, '/projects'); 
-    const unsubscribe = onValue(projectsRef, async (snapshot) => {
+    const projectsRef = ref(database, '/projects');
+    const unsubscribe = onValue(projectsRef, async (snapshot: any) => {
       const data = snapshot.val();
-      console.log("Fetched data:", data); // Log the raw data
+      // console.log("Fetched data:", data); // Log the raw data
       if (data) {
-        const projectsData: Project[] = Object.values(data);
-        console.log("Projects Data:", projectsData); // Log projectsData
+        const projectsData: Project[] = Object.values(data).map((item: any) => ({
+          imgURL: item.imgURL,
+          name: item.name,
+          alt: item.alt,
+          link: item.link,
+          category: item.category,
+        }));
+  
+        // console.log("Projects Data:", projectsData); // Log projectsData
+  
         const projectsWithUrls = await Promise.all(projectsData.map(async (project) => {
           try {
-            const imgUrl = await getDownloadURL(storageRef(storage, `/${project.imgUrl}`));
-            return { ...project, imgUrl };
+            // Use imgURL instead of imgURL
+            if (!project.imgURL) {
+              throw new Error("Image URL is undefined");
+            }
+        
+            const imgRef = storageRef(storage, project.imgURL); // Adjusted key
+            const imgURL = await getDownloadURL(imgRef);
+            
+            return { ...project, imgURL }; // Use imgURL for the final object
           } catch (error) {
-            console.error(`Failed to fetch URL for ${project.imgUrl}:`, error);
-            return { ...project, imgUrl: '' }; // Handle missing images
+            console.error(`Failed to fetch URL for ${project.imgURL}:`, error);
+            return { ...project, imgURL: '' }; // Handle missing images
           }
         }));
+        
+        
+        
+  
         setState((prevState) => ({ ...prevState, projects: projectsWithUrls }));
       } else {
-        setState((prevState) => ({ ...prevState, projects: [] })); 
+        setState((prevState) => ({ ...prevState, projects: [] }));
       }
     }, (error) => {
       console.error('Failed to fetch portfolio items:', error);
     });
-
-    return () => unsubscribe(); 
-  }, []); 
+  
+    return () => unsubscribe();
+  }, []);
+  
 
   return (
-    <GlobalContext.Provider value={{ state, toggleMenu, toggleDarkMode, changeCurrentPage }}>
+    <GlobalContext.Provider value={{ state, toggleMenu, toggleDarkMode, changeCurrentPage, changeMainColor }}>
       {children}
     </GlobalContext.Provider>
   );
