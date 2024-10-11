@@ -46,9 +46,9 @@ class Particle{
     update(){
         this.timer--;
         if(this.timer>=1){
-            let x = Math.floor(this.pos.x / this.effect.cellSize);
-            let y = Math.floor(this.pos.y / this.effect.cellSize);
-            let index = y * this.effect.cols + x;
+            const x = Math.floor(this.pos.x / this.effect.cellSize);
+            const y = Math.floor(this.pos.y / this.effect.cellSize);
+            const index = y * this.effect.cols + x;
             if(this.effect.flowField[index]){
                 this.newAngle = this.effect.flowField[index].colorAngle;
                 if (this.angle > this.newAngle) {
@@ -56,7 +56,7 @@ class Particle{
                 } else if (this.angle < this.newAngle) {
                     this.angle += this.angleCorrector;
                 } else {
-                    this.angle = this.newAngle; // Make sure this doesn't snap too quickly
+                    this.angle = this.newAngle;
                 }
                 
             }
@@ -83,8 +83,8 @@ class Particle{
 
         while(attempts < 50 && !resetSuccess){
             attempts++;
-            let testIndex = Math.floor(Math.random() * this.effect.flowField.length);
-            if(this.effect.flowField[testIndex].alpha > 0){
+            const testIndex = Math.floor(Math.random() * this.effect.flowField.length);
+            if (this.effect.flowField[testIndex] && this.effect.flowField[testIndex].alpha > 0) {
                 this.pos = {
                     x: this.effect.flowField[testIndex].x,
                     y: this.effect.flowField[testIndex].y

@@ -2,16 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  --color-main: #1e40af;
+  --color-accent: #e2e8f0;
+  --color-bg: #030712;
+}
+
 body, html, #root{
   height: 100vh;
+  background-color: var(--color-bg) !important;
 }
 .carousel-item {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
 }
-
+.background-main{
+  background-color: var(--color-main) !important;
+}
+.text-main{
+  color: var(--color-main) !important;
+}
+.border-main{
+  border-color: var(--color-main) !important;
+}
+.background-accent{
+  background-color: var(--color-accent) !important;
+}
+.text-accent{
+  color: var(--color-accent) !important;
+}
+.background-bg{
+  background-color: var(--color-bg) !important;
+}
+.text-bg{
+  background-color: var(--color-bg) !important;
+}
+.border-bg{
+  border-color: var(--color-bg) !important;
+}
 .carousel-item.active {
   opacity: 1;
+}
+.backdrop-blur-custom {
+  backdrop-filter: blur(1rem); /* Adjust the blur value as needed */
+  -webkit-backdrop-filter: blur(1rem); /* For Safari support */
+  /* background-color: rgba(255, 255, 255, 0.7); Optional: Add a slight white background for the effect */
 }
 
 /* :root {

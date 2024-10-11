@@ -10,7 +10,7 @@ export default function Quote({author, phrase}:QuoteProps){
             <p className="font-title font-bold text-5xl">{phrase}</p>
             <footer className="flex justify-end">
                 <cite className="flex items-center text-3xl font-display mt-5">
-                    <div className="w-3 h-1 bg-blue-500 dark:bg-blue-800 mr-2"></div>
+                    <div className="w-3 h-1 background-main mr-2"></div>
                     {author}
                 </cite>
             </footer>

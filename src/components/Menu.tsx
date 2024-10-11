@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from "react";
 import Canvas from "./FlowText/Canvas";
 import { Page, useGlobalContext } from "./GlobalContext";
 import { useNavigate } from "react-router-dom";
+// import { Page, useGlobalContext } from "./useGlobalCtx";
 
 export default function Menu() {
     const homeRef = useRef<HTMLDivElement | null>(null);
@@ -11,7 +12,7 @@ export default function Menu() {
     const [isVisible, setIsVisible] = useState(false);
     const [hovered, setHovered] = useState<Page | null>(null); // State for hover effect
     
-    let { state, changeCurrentPage, toggleMenu } = useGlobalContext();
+    const { state, changeCurrentPage, toggleMenu } = useGlobalContext();
     const navigate = useNavigate();
 
     const handleClickOrTouch = (target: Page) => {
@@ -39,10 +40,16 @@ export default function Menu() {
     const handleMouseLeave = () => {
         setHovered(null); // Reset hovered state
     };
-
+    const closeMenu = ()=>{
+        setIsVisible(false);
+        let timeout = setTimeout(()=>{
+            toggleMenu();
+            return clearTimeout(timeout)
+        }, 200);
+    }
     return (
         <div className="fixed left-0 top-0 h-screen w-screen flex dark:bg-black bg-slate-100 z-20">
-            <div className={`absolute left-0 top-0 h-screen w-screen z-0 flex flex-col transform transition-transform duration-500 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
+            <div className={`absolute left-0 top-0 h-screen w-screen z-0 flex flex-col transform transition-transform duration-200 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
                 <div
                     className={`flex-1 flex items-center justify-center cursor-pointer transition-opacity duration-300 ${hovered === "Home" ? "opacity-0" : "opacity-100"}`}
                     ref={homeRef}
@@ -53,7 +60,7 @@ export default function Menu() {
                 >
                     <Canvas parentRef={homeRef} text={"Home"} shouldAnimate={state.currentPage === "Home"} />
                 </div>
-                <div
+                {/* <div
                     className={`flex-1 flex items-center justify-center cursor-pointer transition-opacity duration-300 ${hovered === "About" ? "opacity-0" : "opacity-100"}`}
                     ref={aboutRef}
                     onMouseOver={() => handleMouseEnter("About")}
@@ -62,7 +69,7 @@ export default function Menu() {
                     onTouchEnd={() => handleClickOrTouch("About")}
                 >
                     <Canvas parentRef={aboutRef} text={"About"} shouldAnimate={state.currentPage === "About"} />
-                </div>
+                </div> */}
                 <div
                     className={`flex-1 flex items-center justify-center cursor-pointer transition-opacity duration-300 ${hovered === "Contact" ? "opacity-0" : "opacity-100"}`}
                     ref={contactRef}
@@ -73,7 +80,7 @@ export default function Menu() {
                 >
                     <Canvas parentRef={contactRef} text={"Contact"} shouldAnimate={state.currentPage === "Contact"} />
                 </div>
-                <div className="absolute p-5 min-h-10 min-w-10 right-10 top-10 cursor-not-allowed" onClick={toggleMenu}>
+                <div className="absolute p-5 min-h-10 min-w-10 right-10 top-10 cursor-not-allowed" onClick={closeMenu}>
                     <div className="bg-red-600 w-8 h-1 -rotate-45"></div>
                     <div className="-mt-1 bg-red-600 w-8 h-1 rotate-45"></div>
                 </div>
