@@ -22,12 +22,14 @@ export default function Contact() {
 
     
 
-const handleSendBtn = async () => {
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
     const isValid = validateInputs();
     if (isValid) {
         const formData = new FormData();
         formData.append('email', mail.address);
-        formData.append('subject', mail.description); // Use description as the subject
+        formData.append('subject', mail.description);
         formData.append('message', mail.message);
 
         mail.attachments.forEach((file) => {
@@ -38,10 +40,10 @@ const handleSendBtn = async () => {
             const sendEmail = httpsCallable(functions, 'sendEmail');
             const response = await sendEmail(formData);
 
-            console.log(response.data); // Handle success (show a message, etc.)
+            console.log(response.data);
         } catch (error) {
             console.error('Error sending email:', error);
-            // Handle error (show an error message, etc.)
+            alert("Something wrong happen!");
         }
     }
 };
@@ -147,7 +149,7 @@ const handleSendBtn = async () => {
 
     return (
         <Layout progress={0}>
-            <div className="h-full items-center justify-center w-full flex overflow-x-hidden">
+            <div className="h-full pt-2 flex items-center justify-center w-full overflow-x-hidden">
                 <div className="h-full w-full  xl:max-w-7xl flex flex-col md:flex-row md:items-center">
                     <div className="w-full h-fit p-10 pb-0 text-start sm:text-end">
                         <Text text="Contact me" mainColor font="title" size="xl" weight="bold" />
@@ -155,7 +157,7 @@ const handleSendBtn = async () => {
                         <p className="text-3xl"></p>
                     </div>
                     <div className="w-full h-full p-10 md:pt-0">
-                        <form className="flex flex-col h-full" aria-label="get in touch">
+                        <form className="flex flex-col h-full justify-evenly" aria-label="get in touch" onSubmit={handleSubmit}>
                             <CustomInput
                                 target="address"
                                 value={mail.address}
@@ -177,7 +179,7 @@ const handleSendBtn = async () => {
                                     attachments={mail.attachments}
                                 />
                                 <div className="h-full">
-                                    <CustomButton btnType="submit" handleClick={handleSendBtn} text="Get in touch" />
+                                    <CustomButton btnType="submit" text="Get in touch" />
                                 </div>
                             </div>
                         </form>
@@ -201,7 +203,7 @@ const CustomInput = ({ target, value, handleInput }: InputProps) => {
             placeholder={`Enter ${target}`}
             value={value}
             onChange={handleInput}
-            className="py-3 px-5 h-16 w-full rounded-3xl mb-3 bg-slate-200 dark:bg-gray-950 bg-opacity-70 dark:bg-opacity-30 backdrop-blur-lg dark:backdrop-blur-lg border-main focus:border-blue-500"
+            className="py-3 px-5 h-16 md:h-20 w-full rounded-3xl mb-3 bg-slate-200 dark:bg-gray-950 bg-opacity-70 dark:bg-opacity-30 backdrop-blur-lg dark:backdrop-blur-lg border-main focus:border-blue-500"
         />
     );
 };
@@ -213,7 +215,7 @@ const CustomTextArea = ({ target, value, handleInput }: InputProps) => {
             value={value}
             onChange={handleInput}
             rows={4}
-            className="py-3 px-5 h-full md:max-h-72 w-full rounded-3xl mb-3 bg-slate-200 dark:bg-gray-950 bg-opacity-70 dark:bg-opacity-30 backdrop-blur-lg dark:backdrop-blur-lg border-main focus:border-blue-500"
+            className="py-3 px-5 h-full w-full rounded-3xl mb-3 bg-slate-200 dark:bg-gray-950 bg-opacity-70 dark:bg-opacity-30 backdrop-blur-lg dark:backdrop-blur-lg border-main focus:border-blue-500"
         />
     );
 };
