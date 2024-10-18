@@ -1,6 +1,1 @@
-{
-    "root": [
-        "./src/*"
-    ],
-    "version": "5.6.2"
-}
+{"root":["./src/firebase.ts","./src/main.tsx","./src/types.d.ts","./src/vite-env.d.ts","./src/components/BlobAnimation.tsx","./src/components/Carousel.tsx","./src/components/CarouselItem.tsx","./src/components/ColorSelector.tsx","./src/components/CustomButton.tsx","./src/components/Galaxy.tsx","./src/components/GlobalContext.tsx","./src/components/Icons.tsx","./src/components/Layout.tsx","./src/components/Menu.tsx","./src/components/MenuBtn.tsx","./src/components/Quote.tsx","./src/components/SocialIcons.tsx","./src/components/Text.tsx","./src/components/Topbar.tsx","./src/components/TopbarLogo.tsx","./src/components/FlowText/Canvas.tsx","./src/components/FlowText/effect.ts","./src/components/FlowText/particles.ts","./src/components/FlowText/types.ts","./src/pages/Contact.tsx","./src/pages/Home.tsx","./src/scripts/arrays.ts","./src/scripts/checkMobile.ts","./src/scripts/consts.ts","./src/scripts/division.ts","./src/scripts/getLogo.ts","./src/scripts/map.ts","./src/scripts/tailwindColors.ts"],"version":"5.6.2"}

@@ -4,7 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"vite --host\" \"npx tailwindcss -i ./src/index.css -o ./src/output.css --watch\" \"firebase emulators:start\"",
+    "dev": "vite --host",
+    "firebase": "firebase emulators:start",
+    "watch:css": "npx tailwindcss -i ./src/index.css -o ./src/output.css --watch",
     "build": "npx tailwindcss -i ./src/index.css -o ./src/output.css && tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",

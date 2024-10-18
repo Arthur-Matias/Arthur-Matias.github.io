@@ -53,7 +53,6 @@ const Canvas: React.FC<CanvasProps> = ({ parentRef, text, shouldAnimate }) => {
 
     animate();
 
-    // Resize listener
     const handleResize = debounce(() => {
       setCanvasSize();
       effectRef.current?.resize(canvas.width, canvas.height);
@@ -69,7 +68,6 @@ const Canvas: React.FC<CanvasProps> = ({ parentRef, text, shouldAnimate }) => {
     };
   }, [parentRef, text, shouldAnimate, stateRef.current.colors.main, stateRef.current.darkTheme]);
 
-  // Update effect's animation state when shouldAnimate prop changes
   useEffect(() => {
     if (effectRef.current) {
       effectRef.current.changeAnimationState(shouldAnimate);
@@ -81,7 +79,7 @@ const Canvas: React.FC<CanvasProps> = ({ parentRef, text, shouldAnimate }) => {
     if (effectRef.current) {
       effectRef.current.changeColor({bgColor: state.colors.bg, accentColor: state.colors.accent, mainColor: state.colors.main})
     }
-  }, [state.colors.main, state.darkTheme]);
+  }, [state.colors.main, state.colors.accent, state.colors.bg, state.darkTheme]);
 
   return (
     <canvas
@@ -91,14 +89,14 @@ const Canvas: React.FC<CanvasProps> = ({ parentRef, text, shouldAnimate }) => {
   );
 };
 
-// Debounce function
-function debounce(func: (...args: any[]) => void, delay: number) {
+function debounce<T extends unknown[]>(func: (...args: T) => void, delay: number) {
   let timeout: ReturnType<typeof setTimeout>;
-  return function(this: any, ...args: any[]) {
-    // const context = this;
+  return function(this: unknown, ...args: T) {
     clearTimeout(timeout);
     timeout = setTimeout(() => func.apply(this, args), delay);
   };
 }
+
+
 
 export default Canvas;

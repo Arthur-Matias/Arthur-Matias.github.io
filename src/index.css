@@ -8,7 +8,43 @@
   --color-bg: #030712;
 }
 
+/* WebKit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+  height: 8px; /* Height of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg); /* Background of the track */
+  border-radius: 8px; /* Round corners */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the thumb */
+  border-radius: 8px; /* Round corners */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  /* background: #555; Color of the thumb on hover */
+  opacity: .7;
+}
+
+/* Firefox */
+html {
+  scrollbar-width: thin; /* "auto" or "thin" */
+  scrollbar-color: var(--color-main) var(--color-bg); /* Thumb color and track color */
+}
+
+/* Apply consistent styles to all scrollable elements */
+* {
+  scrollbar-width: thin; /* "auto" or "thin" */
+  scrollbar-color: var(--color-main) var(--color-bg);
+}
+.home-section{
+  height: calc(100vh - 5rem);
+}
 body, html, #root{
+  overflow-x: hidden;
   height: 100vh;
   background-color: var(--color-bg) !important;
 }
@@ -34,21 +70,103 @@ body, html, #root{
 .background-bg{
   background-color: var(--color-bg) !important;
 }
+.background-bg.blur{
+  opacity: 0.3;
+  backdrop-filter: blur(1rem);
+}
 .text-bg{
-  background-color: var(--color-bg) !important;
+  color: var(--color-bg) !important;
 }
 .border-bg{
   border-color: var(--color-bg) !important;
 }
+.custom-btn{
+  cursor: pointer;
+  background-color: var(--color-main) !important;
+  border: 1px solid var(--color-main) !important;
+  color: var(--color-accent) !important;
+  
+  &:hover{
+    background-color: transparent !important;
+    border: 1px solid var(--color-main) !important;
+    color: var(--color-main) !important;
+  }
+}
 .carousel-item.active {
   opacity: 1;
 }
-.backdrop-blur-custom {
-  backdrop-filter: blur(1rem); /* Adjust the blur value as needed */
-  -webkit-backdrop-filter: blur(1rem); /* For Safari support */
-  /* background-color: rgba(255, 255, 255, 0.7); Optional: Add a slight white background for the effect */
+.carousel-item-animated {
+  opacity: 0; /* Initial state */
+  animation: CarouselItem 0.3s forwards cubic-bezier(0.075, 0.82, 0.165, 1); /* Ensure it holds the final state */
+}
+.carousel-custom-item{
+  background-color: var(--color-bg);
+  opacity: 0.5;
+}
+@keyframes CarouselItem {
+  0% {
+    opacity: 0; /* Start as invisible */
+    scale: 0;
+    transform: translateX(4000px);
+    visibility: hidden; /* Hidden initially */
+  }
+  50% {
+    opacity: 1; /* Become visible */
+    visibility: visible; /* Ensure it's visible */
+  }
+  100% {
+    opacity: 1; /* Remain fully visible */
+    scale: 1;
+    transform: translateX(0);
+    visibility: visible; /* Stay visible */
+  }
+}
+.carouselStart{
+  /* visibility: hidden; */
+  cursor: pointer;
+  /* opacity: 0; */
+  /* transform-origin: bottom; */
+  /* animation: bgAnimation 0.3s forwards ease; */
+
+  &:hover{
+    transform: scale(1.1);
+  }
+  &::after{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: var(--color-bg);
+    aspect-ratio: 1 / 1;
+    /* border-radius: 50%; */
+  }
+  &.animateItem{
+    &::after{
+      border-radius: 0;
+      animation: slide-up .3s cubic-bezier(0.3, 1.2, 0.3, 1) forwards;
+    }
+  }
+}
+@keyframes slide-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
 }
 
+.backdrop-blur-custom {
+  backdrop-filter: blur(1rem);
+  -webkit-backdrop-filter: blur(1rem);
+  /* background-color: rgba(255, 255, 255, 0.7); Optional: Add a slight white background for the effect */
+}
+.aspect-custom{
+  aspect-ratio: 3/1;
+}
+.aspect-thin{
+  aspect-ratio: 1/6;
+}
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

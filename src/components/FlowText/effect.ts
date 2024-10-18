@@ -1,4 +1,5 @@
-import { colorsMap, mainColors } from "../tailwindColors";
+import isMobile from "../../scripts/checkMobile";
+import { colorsMap, mainColors } from "../../scripts/tailwindColors";
 import Particle from "./particles";
 import { Vector } from "./types";
 
@@ -77,7 +78,7 @@ export default class Effect {
   })();
 
   private drawText(useGradient: boolean = false) {
-    this.ctx.font = `bold ${this.height / (this.height / 100)}px sans-serif`;
+    this.ctx.font = `bold ${isMobile()?this.width/(this.width/70):this.height/2}px sans-serif`;
     this.ctx.textAlign = "center";
     this.ctx.textBaseline = "middle";
     const x = this.canvas.width * 0.5;
@@ -98,9 +99,9 @@ export default class Effect {
       this.ctx.fillStyle = this.shouldAnimate ? "transparent" : this.mainColor;
     }
 
-    this.ctx.strokeStyle = this.bgColor;
+    // this.ctx.strokeStyle = this.bgColor;
     this.ctx.fillText(this.text, x, y);
-    this.ctx.strokeText(this.text, x, y);
+    // this.ctx.strokeText(this.text, x, y);
   }
 
   public changeAnimationState(newState: boolean) {
@@ -122,7 +123,7 @@ export default class Effect {
     this.drawText(true);
   
     const pixels = this.ctx.getImageData(0, 0, this.width, this.height).data;
-  
+    this.drawText(false)
     // Ensure the flowField is filled based on rows and cols
     for (let y = 0; y < this.rows; y++) {
       for (let x = 0; x < this.cols; x++) {
