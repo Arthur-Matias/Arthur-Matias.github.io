@@ -1,3 +1,11 @@
-should add var env to the frontend VITE_API_URL="http://url.com"
+need nodemailer auth env
 
-should add NODE_ENV = "dev" | "production" to cloud functions
+EMAIL_USER=******
+EMAIL_PASS=******
+
+npm run dev
+npm run build
+npm run watch:css
+npm run firebase
+
+firebase deploy
