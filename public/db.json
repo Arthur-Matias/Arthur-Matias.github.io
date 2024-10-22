@@ -1,0 +1,144 @@
+{
+    "projects": {
+        "item1": {
+            "imgURL": "sodivel_bosch.png",
+            "link": "https://www.behance.net/gallery/78339971/Campanha-Bosch-Sodivel",
+            "name": "Bosch Marketing Campaign",
+            "alt": "project image description",
+            "category": "design"
+        },
+        "item2": {
+            "imgURL": "cannabis_slides.png",
+            "link": "https://www.behance.net/gallery/107493303/Instagram-Template-for-Laboratory",
+            "name": "Instagram Template for Laboratory",
+            "alt": "project image description",
+            "category": "design"
+        },
+        "item3": {
+            "imgURL": "yapira_video.png",
+            "link": "https://www.behance.net/gallery/81460661/Institutional-Video-Yapira-Team",
+            "name": "Institutional Video",
+            "alt": "Institutional Video",
+            "category": "design"
+        },
+        "item4": {
+            "imgURL": "easyCrop.png",
+            "link": "https://www.behance.net/gallery/186804859/Branding-EasyCrop",
+            "name": "EasyCrop",
+            "alt": "EasyCrop",
+            "category": "design"
+        },
+        "item5": {
+            "imgURL": "blockchain.png",
+            "link": "https://github.com/Arthur-Matias/typescript-blockchain",
+            "name": "TypeScript Blockchain",
+            "alt": "Blockchain project using TypeScript",
+            "category": "dev"
+        },
+        "item6": {
+            "imgURL": "glassmorphism_website.png",
+            "link": "https://arthur-matias.github.io/glassmorphism-website/",
+            "name": "Glassmorphism Website",
+            "alt": "A website using glassmorphism design",
+            "category": "dev"
+        },
+        "item7": {
+            "imgURL": "text_flow_field.png",
+            "link": "https://arthur-matias.github.io/text_flow_field/",
+            "name": "Text FlowField",
+            "alt": "Interactive text flow visualization",
+            "category": "dev"
+        },
+        "item8": {
+            "imgURL": "fractal_tree.png",
+            "link": "https://arthur-matias.github.io/fractal_tree/",
+            "name": "Fractal Tree",
+            "alt": "Visual representation of a fractal tree",
+            "category": "dev"
+        },
+        "item9": {
+            "imgURL": "calculator_glassmorphism.png",
+            "link": "https://arthur-matias.github.io/calculator-glassmorphism/",
+            "name": "Glassmorphism Calculator",
+            "alt": "A Calculator in Glassmorphism style",
+            "category": "dev"
+        },
+        "item10": {
+            "imgURL": "continental_correias.png",
+            "link": "https://www.behance.net/gallery/79315515/Campanha-Continental-Sodivel",
+            "name": "Continental Marketing Campaign",
+            "alt": "Continental Marketing Campaign",
+            "category": "design"
+        },
+        "item11": {
+            "imgURL": "curfew_bar.png",
+            "link": "https://www.behance.net/gallery/113523017/Bar-Webpage-UI",
+            "name": "Design for Bar Webpage",
+            "alt": "UI Design for Bar Webpage",
+            "category": "design"
+        },
+        "item12": {
+            "imgURL": "flow_field.png",
+            "link": "https://arthur-matias.github.io/flow_field/",
+            "name": "Vectorial Flow Field",
+            "alt": "Vectorial Flow Field",
+            "category": "dev"
+        },
+        "item13": {
+            "imgURL": "fourier_series.png",
+            "link": "https://arthur-matias.github.io/fourier_series/",
+            "name": "Fourier Series",
+            "alt": "Visual representation of Fourier Series",
+            "category": "dev"
+        },
+        "item14": {
+            "imgURL": "guitar_boor.png",
+            "link": "https://www.behance.net/gallery/95806451/Cover-for-guitar-Book",
+            "name": "Design for book cover",
+            "alt": "Design for book cover of guitar lessons",
+            "category": "design"
+        },
+        "item15": {
+            "imgURL": "operational_system.png",
+            "link": "https://arthur-matias.github.io/operational_system/",
+            "name": "OS Website",
+            "alt": "Website in an Operational System style",
+            "category": "dev"
+        },
+        "item16": {
+            "imgURL": "space_game.png",
+            "link": "https://arthur-matias.github.io/space-game/",
+            "name": "Space Game",
+            "alt": "Space Game",
+            "category": "dev"
+        },
+        "item17": {
+            "imgURL": "windows_error.png",
+            "link": "https://arthur-matias.github.io/windows98-error-message/",
+            "name": "Windows 98 Error Messages",
+            "alt": "Windows 98 Error Messages",
+            "category": "dev"
+        },
+        "item18": {
+            "imgURL": "spirograph.gif",
+            "link": "https://arthur-matias.github.io/spirograph/",
+            "name": "Spirograph",
+            "alt": "Spirograph",
+            "category": "dev"
+        },
+        "item19": {
+            "imgURL": "flappy.png",
+            "link": "https://arthur-matias.github.io/FlappyBird-Clone/",
+            "name": "Flappy Bird Clone",
+            "alt": "Flappy Bird Clone",
+            "category": "dev"
+        },
+        "item20": {
+            "imgURL": "empire_logo.png",
+            "link": "https://www.behance.net/gallery/95801161/Logo-Redesign-for-Esports-Team",
+            "name": "Logo redesign",
+            "alt": "Logo redesign",
+            "category": "design"
+        }
+    }
+}

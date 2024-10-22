@@ -7,23 +7,22 @@ import { connectStorageEmulator, getStorage } from "firebase/storage";
 
 const firebaseConfig = {
 
-    apiKey: "AIzaSyDxPWSpn-t71JvqjMldBrN1bVuDJcqwovs",
-  
-    authDomain: "blog-fa837.firebaseapp.com",
-  
-    databaseURL: "https://blog-fa837-default-rtdb.firebaseio.com",
-  
-    projectId: "blog-fa837",
-  
-    storageBucket: "blog-fa837.appspot.com",
-  
-    messagingSenderId: "150129514022",
-  
-    appId: "1:150129514022:web:a90f18adb0deeff67bf8e7",
-  
-    measurementId: "G-0BQYEGGDW6"
-  
+  apiKey: "AIzaSyCSXNcB--aF5REHmaldAhI9MHgQZgccw0A",
+
+  authDomain: "portfolio-1a3d2.firebaseapp.com",
+
+  projectId: "portfolio-1a3d2",
+
+  storageBucket: "portfolio-1a3d2.appspot.com",
+
+  messagingSenderId: "248130925944",
+
+  appId: "1:248130925944:web:e5117999dc6a28494c048d",
+
+  measurementId: "G-54VRXEBL4T"
+
 };
+
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 // const analytics = getAnalytics(app);

@@ -36,17 +36,24 @@ export default function Home() {
     const maxProgress = 100 * (totalSections) - 1;
     const lastTouchRef = useRef({ x: 0, y: 0 });
     const { state } = useGlobalContext();
-    const items: iProject[] = state.projects.filter(i => currentItem === "all" ? true : i.category === currentItem);
-    const navigate = useNavigate();
     const [currentIndex, setCurrentIndex] = useState(0);
-    function handleCarouselNext(){
-        if(currentIndex >= items.length - 1) setCurrentIndex(0)
-        else setCurrentIndex(e=>e+1);
-    }
-    function handleCarouselPrev(){
-        if(currentIndex <= 0) setCurrentIndex(items.length-1)
-        else setCurrentIndex(e=>e-1);
-    }
+    // Filter items based on currentItem
+    const items: iProject[] = state.projects.filter(i => currentItem === "all" ? true : i.category === currentItem);
+
+    const handleCarouselNext = () => {
+        setCurrentIndex((prevIndex) => (prevIndex >= items.length - 1 ? 0 : prevIndex + 1));
+    };
+
+    const handleCarouselPrev = () => {
+        setCurrentIndex((prevIndex) => (prevIndex <= 0 ? items.length - 1 : prevIndex - 1));
+    };
+
+    const navigate = useNavigate();
+
+    const handleCategoryChange = (category: ProjectCategory) => {
+        setCurrentItem(category);
+        setCurrentIndex(0); // Reset index when category changes
+    };
 
     // Define section animations
     const sectionAnimations: SectionAnimation[] = useMemo(() => [
@@ -245,18 +252,17 @@ export default function Home() {
                             </div>
                         )}
                         {index === 2 && (
-                            <div className="flex flex-col items-center justify-center w-full h-full md:max-w-4xl">
-                                <div className="mb-5">
-                                    <button type="button" className={`px-2 sm:px-5 border-b-2 border-transparent hover:border-main transition-colors ${currentItem === "all" ? "border-main" : ""}`} onClick={() => setCurrentItem("all")}>All</button>
-                                    <button type="button" className={`px-2 sm:px-5 border-b-2 border-transparent hover:border-main transition-colors ${currentItem === "design" ? "border-main" : ""}`} onClick={() => setCurrentItem("design")}>Design</button>
-                                    <button type="button" className={`px-2 sm:px-5 border-b-2 border-transparent hover:border-main transition-colors ${currentItem === "dev" ? "border-main" : ""}`} onClick={() => setCurrentItem("dev")}>Development</button>
-                                </div>
-                                <Carousel items={items} currentIndex={currentIndex} handleNext={handleCarouselNext} handlePrev={handleCarouselPrev} />
+                            <div className="flex flex-col items-center justify-center w-5/6 md:max-w-4xl">
+                            <div className="mb-5">
+                                <button type="button" className={`px-2 sm:px-5 border-b-2 border-transparent hover:border-main transition-colors ${currentItem === "all" ? "border-main" : ""}`} onClick={() => handleCategoryChange("all")}>All</button>
+                                <button type="button" className={`px-2 sm:px-5 border-b-2 border-transparent hover:border-main transition-colors ${currentItem === "design" ? "border-main" : ""}`} onClick={() => handleCategoryChange("design")}>Design</button>
+                                <button type="button" className={`px-2 sm:px-5 border-b-2 border-transparent hover:border-main transition-colors ${currentItem === "dev" ? "border-main" : ""}`} onClick={() => handleCategoryChange("dev")}>Development</button>
                             </div>
+                            <Carousel items={items} currentIndex={currentIndex} handleNext={handleCarouselNext} handlePrev={handleCarouselPrev} />
+                        </div>
                         )}
                         {index === 3 && (
                             <div className="flex flex-col items-center justify-center w-5/6 md:max-w-3xl ">
-                                {/* <div className="w-5/6 sm:w-full"></div> */}
                                 <Quote author="Arthur Matias" phrase="If you can dream, I can develop." />
                             </div>
                         )}
