@@ -1,17 +1,18 @@
 {
+  "homepage": "https://Arthur-Matias.github.io/",
   "name": "portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "scripts": {
-    "dev": "vite --host",
-    "firebase": "firebase emulators:start",
-    "watch:css": "npx tailwindcss -i ./src/index.css -o ./src/output.css --watch",
-    "build": "npx tailwindcss -i ./src/index.css -o ./src/output.css && tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "deploy": "npx firebase deploy"
-  },
+ "scripts": {
+  "dev": "vite --host",
+  "firebase": "firebase emulators:start",
+  "watch:css": "npx tailwindcss -i ./src/index.css -o ./src/output.css --watch",
+  "build": "npx tailwindcss -i ./src/index.css -o ./src/output.css && tsc -b && vite build",
+  "lint": "eslint .",
+  "preview": "vite preview",
+  "deploy": "gh-pages -d dist"
+},
   "dependencies": {
     "firebase": "^11.0.0",
     "firebase-functions": "^6.0.1",
@@ -33,6 +34,7 @@
     "eslint": "^9.9.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.9",
+    "gh-pages": "^6.2.0",
     "globals": "^15.9.0",
     "tailwindcss": "^3.4.13",
     "typescript": "^5.5.3",
