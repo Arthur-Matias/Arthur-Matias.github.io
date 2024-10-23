@@ -62,10 +62,10 @@ export default function Contact() {
             if (input.files) {
                 const files = Array.from(input.files).filter(file =>
                     file.type === "image/png" ||
-                    file.type === "image/svg" || 
-                    file.type === "image/jpeg" || 
+                    file.type === "image/svg" ||
+                    file.type === "image/jpeg" ||
                     file.type === "application/pdf" ||
-                    file.type === "video/mp4" || 
+                    file.type === "video/mp4" ||
                     file.type === "video/x-msvideo"
                 );
                 setMail((prev) => ({ ...prev, attachments: [...prev.attachments, ...files] }));
@@ -125,10 +125,10 @@ export default function Contact() {
                     onDrop={handleDrop}
                     className="flex items-center justify-center rounded-lg cursor-pointer transition duration-200 ease-in-out"
                 >
-                    <CustomButton 
-                        ariaDescription="Add attachments to send with the email" 
-                        text="Drop / Upload Files +" 
-                        btnType="button" 
+                    <CustomButton
+                        ariaDescription="Add attachments to send with the email"
+                        text="Drop / Upload Files +"
+                        btnType="button"
                         handleClick={handleFileClick}
                     />
                 </div>
@@ -158,13 +158,14 @@ export default function Contact() {
     return (
         <Layout progress={0}>
             <div className="h-full pt-2 flex items-center justify-center w-full overflow-x-hidden">
-                <div className="h-full w-full xl:max-w-7xl flex flex-col md:flex-row md:items-center">
-                    <div className="w-full h-fit p-10 pb-0 text-start sm:text-end">
-                        <Text text="Contact me" mainColor font="title" size="xl" weight="bold" />
-                        <Text text="Let’s build something amazing together!" mainColor={false} font="title" size="md" weight="bold" />
-                    </div>
-                    <div className="w-full h-full p-10 md:pt-0">
-                        <form className="flex flex-col h-full justify-evenly" aria-label="get in touch" onSubmit={handleSubmit}>
+                <div className="h-full w-full xl:max-w-7xl flex flex-col md:flex-row md:items-center justify-center">
+
+                    <div className="w-full h-full p-10 md:pt-0  max-w-4xl">
+                        <form className="flex flex-col h-full justify-evenly " aria-label="get in touch" onSubmit={handleSubmit}>
+                            <div className="w-full h-fit mb-5 text-start ">
+                                <Text text="Contact me" mainColor font="title" size="lg" weight="bold" />
+                                <Text text="Let’s build something amazing together!" mainColor={false} font="title" size="md" weight="bold" />
+                            </div>
                             <CustomInput
                                 required={true}
                                 target="address"

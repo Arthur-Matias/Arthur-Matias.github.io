@@ -34,7 +34,10 @@ export default class Effect {
   private mainColor = getComputedStyle(document.documentElement).getPropertyValue('--color-main');
   private bgColor = getComputedStyle(document.documentElement).getPropertyValue('--color-bg');
   private accentColor = getComputedStyle(document.documentElement).getPropertyValue('--color-accent');  
-
+  public changeText(text: string) {
+    this.text = text; // Update the text
+    this.render(); // Re-render with the new text
+}
   constructor(
     canvas: HTMLCanvasElement,
     ctx: CanvasRenderingContext2D,

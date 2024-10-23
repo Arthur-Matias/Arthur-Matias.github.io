@@ -117,7 +117,7 @@ export default function Home() {
             if(!state.prefersReducedMotion){
                 event.preventDefault();
                 const delta = Math.sign(event.deltaY);
-                const newProgress = Math.max(0, Math.min(maxProgress, targetProgress + delta * 10));
+                const newProgress = Math.max(0, Math.min(maxProgress, targetProgress + delta * 20));
                 updateProgress(newProgress);
             }
         };

@@ -76,10 +76,10 @@ const Carousel: React.FC<CarouselProps> = ({ items, currentIndex, handlePrev, ha
                 <CarouselItem imgURL={currentItem.imgURL} name={currentItem.name} hover={isHover} />
             </a>
             <div className="absolute h-full bottom-0 left-0 top-1/2 transform px5 -translate-y-1/2 z-10 rounded flex justify-center items-center">
-                <CustomButton btnType="button" handleClick={handlePrev} text="<-" />
+                <CustomButton ariaDescription="Next Work" btnType="button" handleClick={handlePrev} text="<-" />
             </div>
             <div className="absolute bottom-0 right-0 top-1/2 transform h-full px5 -translate-y-1/2 z-10 rounded flex justify-center items-center">
-                <CustomButton btnType="button" handleClick={handleNext} text="->" />
+                <CustomButton ariaDescription="Previous Work" btnType="button" handleClick={handleNext} text="->" />
             </div>
         </div>
     );
