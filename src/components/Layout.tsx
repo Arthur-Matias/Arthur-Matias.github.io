@@ -22,7 +22,7 @@ const Layout: React.FC<LayoutProps> = ({ children, progress }) => {
                         <BlobAnimation progress={progress} maxPoints={blobPoints} />
                     </div>
                     <div className="pt-20 left-0 z-10 w-full h-full dark:bg-gray-950 bg-slate-200 bg-opacity-70 dark:bg-opacity-50 backdrop-blur-3xl dark:backdrop-blur-3xl flex flex-col justify-center box-border">
-                        <div className="w-full home-section justify-center items-center self-center relative overflow-hidden">
+                        <div className={`w-full home-section justify-center items-center self-center relative ${state.prefersReducedMotion?"overflow-auto":"overflow-hidden"}`}>
                             {children}
                         </div>
                     </div>

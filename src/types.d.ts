@@ -16,6 +16,7 @@ export interface iProject {
 }
 
 export interface iState {
+  prefersReducedMotion: boolean;
   menuOpen: boolean;
   darkTheme: boolean;
   currentPage: Page;

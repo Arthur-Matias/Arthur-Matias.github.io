@@ -4,6 +4,7 @@ import { useGlobalContext } from './GlobalContext';
 
 export default function ColorSelector() {
   const { state, changeColors } = useGlobalContext();
+  
   function handleColorChange(color: MainColors){
     localStorage.setItem("preferredColor", color)
     changeColors({ main: color, accent: state.colors.accent, bg: state.colors.bg })

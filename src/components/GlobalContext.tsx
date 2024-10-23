@@ -10,6 +10,8 @@ import { ColorParams, GlobalCtxProps, iProject, iState, Page } from '../types';
 const preferredLastColor = localStorage.getItem("preferredColor");
 
 const defaultContextValue: iState = {
+  // prefersReducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+  prefersReducedMotion: false,
   menuOpen: false,
   darkTheme: window.matchMedia('(prefers-color-scheme: dark)').matches,
   currentPage: "Home",

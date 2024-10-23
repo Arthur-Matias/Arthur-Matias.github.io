@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, useRef } from "react";
 import CustomButton from "../components/CustomButton";
 import Layout from "../components/Layout";
 import { httpsCallable } from "firebase/functions";
@@ -20,34 +20,33 @@ export default function Contact() {
         attachments: []
     });
 
-    
+    const fileInputRef = useRef<HTMLInputElement | null>(null);
 
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
 
-    const isValid = validateInputs();
-    if (isValid) {
-        const formData = new FormData();
-        formData.append('email', mail.address);
-        formData.append('subject', mail.description);
-        formData.append('message', mail.message);
+        const isValid = validateInputs();
+        if (isValid) {
+            const formData = new FormData();
+            formData.append('email', mail.address);
+            formData.append('subject', mail.description);
+            formData.append('message', mail.message);
 
-        mail.attachments.forEach((file) => {
-            formData.append('attachments', file);
-        });
+            mail.attachments.forEach((file) => {
+                formData.append('attachments', file);
+            });
 
-        try {
-            const sendEmail = httpsCallable(functions, 'sendEmail');
-            const response = await sendEmail(formData);
+            try {
+                const sendEmail = httpsCallable(functions, 'sendEmail');
+                const response = await sendEmail(formData);
 
-            console.log(response.data);
-        } catch (error) {
-            console.error('Error sending email:', error);
-            alert("Something wrong happen!");
+                console.log(response.data);
+            } catch (error) {
+                console.error('Error sending email:', error);
+                alert("Something went wrong!");
+            }
         }
-    }
-};
-
+    };
 
     const validateInputs = () => {
         return (
@@ -61,7 +60,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         if (target === "attachments") {
             const input = e.target as HTMLInputElement;
             if (input.files) {
-                const files = Array.from(input.files).filter(file => 
+                const files = Array.from(input.files).filter(file =>
                     file.type === "image/png" ||
                     file.type === "image/svg" || 
                     file.type === "image/jpeg" || 
@@ -108,21 +107,30 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
             e.stopPropagation();
         };
 
+        const handleFileClick = () => {
+            fileInputRef.current?.click();
+        };
+
         return (
             <div className="flex flex-col md:flex-row">
                 <input
                     type="file"
                     onChange={handleInput}
-                    className="hidden" // Hide the default file input
-                    id="file-input"
+                    className="hidden"
+                    ref={fileInputRef}
                     multiple
                 />
                 <div
                     onDragOver={handleDragOver}
                     onDrop={handleDrop}
-                    className="flex items-center justify-center rounded-lg  cursor-pointer  transition duration-200 ease-in-out"
+                    className="flex items-center justify-center rounded-lg cursor-pointer transition duration-200 ease-in-out"
                 >
-                    <CustomButton text="Drop / Upload Files +" btnType="button" />
+                    <CustomButton 
+                        ariaDescription="Add attachments to send with the email" 
+                        text="Drop / Upload Files +" 
+                        btnType="button" 
+                        handleClick={handleFileClick}
+                    />
                 </div>
                 {attachments.length > 0 && (
                     <div className="ms-3 max-h-24 overflow-auto rounded-lg p-2 border">
@@ -130,7 +138,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                         <ul className="list-disc list-inside">
                             {attachments.map((file, index) => (
                                 <li key={index} className="text-sm flex justify-between">
-                                    {file.name.length>15?file.name.slice(0, 15) + "...":file.name}
+                                    {file.name.length > 15 ? file.name.slice(0, 15) + "..." : file.name}
                                     <button
                                         type="button"
                                         onClick={() => removeAttachment(index)}
@@ -150,25 +158,27 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     return (
         <Layout progress={0}>
             <div className="h-full pt-2 flex items-center justify-center w-full overflow-x-hidden">
-                <div className="h-full w-full  xl:max-w-7xl flex flex-col md:flex-row md:items-center">
+                <div className="h-full w-full xl:max-w-7xl flex flex-col md:flex-row md:items-center">
                     <div className="w-full h-fit p-10 pb-0 text-start sm:text-end">
                         <Text text="Contact me" mainColor font="title" size="xl" weight="bold" />
                         <Text text="Let’s build something amazing together!" mainColor={false} font="title" size="md" weight="bold" />
-                        <p className="text-3xl"></p>
                     </div>
                     <div className="w-full h-full p-10 md:pt-0">
                         <form className="flex flex-col h-full justify-evenly" aria-label="get in touch" onSubmit={handleSubmit}>
                             <CustomInput
+                                required={true}
                                 target="address"
                                 value={mail.address}
                                 handleInput={handleInputChange("address")}
                             />
                             <CustomInput
+                                required={true}
                                 target="description"
                                 value={mail.description}
                                 handleInput={handleInputChange("description")}
                             />
                             <CustomTextArea
+                                required={true}
                                 target="message"
                                 value={mail.message}
                                 handleInput={handleInputChange("message")}
@@ -179,7 +189,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                                     attachments={mail.attachments}
                                 />
                                 <div className="h-full">
-                                    <CustomButton btnType="submit" text="Get in touch" />
+                                    <CustomButton ariaDescription="Send Email" btnType="submit" text="Get in touch" />
                                 </div>
                             </div>
                         </form>
@@ -194,9 +204,10 @@ interface InputProps {
     target: MailInputs;
     value?: string;
     handleInput: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+    required: boolean
 }
 
-const CustomInput = ({ target, value, handleInput }: InputProps) => {
+const CustomInput = ({ target, value, handleInput, required }: InputProps) => {
     return (
         <input
             type="text"

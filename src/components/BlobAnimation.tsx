@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useCallback, useMemo } from "react";
 import { SimplexNoise } from "three/examples/jsm/Addons.js";
 import isMobile from "../scripts/checkMobile";
+import { useGlobalContext } from "./GlobalContext";
 
 interface BlobPoint {
     x: number;
@@ -31,6 +32,7 @@ interface BlobProps {
 // import isMobile from "../scripts/checkMobile";
 
 const BlobAnimation: React.FC<BlobProps> = ({ progress, maxPoints }) => {
+    const { state } = useGlobalContext();
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const simplex = useRef(new SimplexNoise()).current;
     const maxRadius = Math.min(window.innerHeight, window.innerWidth) * 0.7;
@@ -155,9 +157,10 @@ const BlobAnimation: React.FC<BlobProps> = ({ progress, maxPoints }) => {
         ctx.beginPath();
         points.current.forEach(point => {
             if(!canvasRef.current) return
-            // Update noise offsets less frequently
-            point.noiseOffsetX += 0.005; 
-            point.noiseOffsetY += 0.005;
+            const step = state.prefersReducedMotion?0.0005:0.003
+           
+            point.noiseOffsetX += step;
+            point.noiseOffsetY += step;
 
             const nX = simplex.noise(point.noiseOffsetX, point.noiseOffsetY) * 150;
             const nY = simplex.noise(point.noiseOffsetX + 1000, point.noiseOffsetY + 1000) * 150;

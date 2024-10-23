@@ -41,9 +41,10 @@ export default function TopbarLogo() {
     }
     return (
         <div className="relative">
-            <div className="w-8 h-10" onClick={toggleColorMenu}>
+            <button type="button" aria-description="Open theme settings" aria-label="Open theme settings" aria-describedby="buttonDescription" className="w-8 h-10" onClick={toggleColorMenu}>
                 <div className="w-8 h-full cursor-pointer" dangerouslySetInnerHTML={{ __html: getLogo("var(--color-main)") }} />
-            </div>
+            </button>
+            <span id="buttonDescription" style={{display: "none"}}>This button opens the settings menu.</span>
             {colorMenuVisible && (
                 <div  onClick={toggleColorMenu} className="absolute flex flex-col items-center justify-center -ml-12 md:-ml-10 -mt-12 md:mt-4 py-8 px-5 w-screen h-screen md:min-w-96 rounded-3xl bg-white dark:bg-gray-900 bg-opacity-35 dark:bg-opacity-35 backdrop-blur-lg dark:backdrop-blur-lg">
                     <ColorSelector />

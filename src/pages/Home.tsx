@@ -114,10 +114,12 @@ export default function Home() {
 
     useEffect(() => {
         const handleWheel = (event: WheelEvent) => {
-            event.preventDefault();
-            const delta = Math.sign(event.deltaY);
-            const newProgress = Math.max(0, Math.min(maxProgress, targetProgress + delta * 10));
-            updateProgress(newProgress);
+            if(!state.prefersReducedMotion){
+                event.preventDefault();
+                const delta = Math.sign(event.deltaY);
+                const newProgress = Math.max(0, Math.min(maxProgress, targetProgress + delta * 10));
+                updateProgress(newProgress);
+            }
         };
 
         const handleTouchMove = (event: TouchEvent) => {
@@ -221,7 +223,7 @@ export default function Home() {
     }, [progress, sectionAnimations, sectionProgress, totalSections]);
 
     return (
-        <Layout progress={progress}>
+        <Layout progress={state.prefersReducedMotion?0:progress}>
             {Array.from({ length: totalSections }).map((_, index) => {
                 const { opacity, scaleX, scaleY, translateY, translateX } = animations[index];
                 const isCurrentSection = index === Math.floor(progress / 100);
@@ -229,7 +231,9 @@ export default function Home() {
                 return (
                     <div
                         key={index}
-                        style={{
+                        style={state.prefersReducedMotion?{
+                            overflow: "auto"
+                        }:{
                             transform: `translateX(${translateX}px) translateY(${translateY}px) scale(${scaleX}, ${scaleY})`,
                             opacity: opacity,
                             position: 'absolute',
@@ -271,20 +275,20 @@ export default function Home() {
                                 <div className="flex flex-col items-start justify-start mb-3 w-full border-main border-b-2">
                                     <Text mainColor={false} size="lg" weight="bold" font="title" text="Let’s bring your ideas to life. Contact me today!" />
                                     <div className="flex flex-col sm:flex-row w-full pb-8 mt-10">
-                                        <div className="sm:w-1/2 border-r-2 border-main text-end ps-8 pr-8 mb-5">
+                                        <div className="sm:w-1/2 border-r-2 border-main text-end ps-8 pr-8 mb-5 sm:mb-0 flex flex-col justify-between">
                                             <Text text="email" font="display" mainColor={false} size="sm" weight="thin" />
                                             <a href="mailto:ahmmfdc@gmail.com" target="_blank">
                                                 <Text text="ahmmfdc@gmail.com" font="display" mainColor={false} size="sm" weight="regular" />
                                             </a>
                                         </div>
-                                        <div className="sm:w-1/2 border-r-2 sm:border-none border-main ms-8 text-end sm:text-end justify-end sm:justify-start pe-8">
-                                            <Text text="social" font="display" mainColor={false} size="sm" weight="thin" />
+                                        <div className="sm:w-1/2 border-r-2 sm:border-none border-main ms-8 text-end flex flex-col sm:text-end justify-between sm:justify-start pe-8">
+                                            <Text align="start" text="social" font="display" mainColor={false} size="sm" weight="thin" />
                                             <SocialIcons />
                                         </div>
                                     </div>
                                 </div>
                                 <div className="flex w-full justify-end">
-                                    <CustomButton btnType="button" handleClick={handleContactBtn} text="Get in touch" />
+                                    <CustomButton btnType="button" ariaDescription="Redirect to contact page" handleClick={handleContactBtn} text="Get in touch" />
                                 </div>
                             </div>
                         )}

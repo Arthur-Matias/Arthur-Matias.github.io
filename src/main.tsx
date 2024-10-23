@@ -6,7 +6,7 @@ import './index.css';
 import './output.css';
 import { GlobalProvider } from './components/GlobalContext';
 import Contact from './pages/Contact';
-
+// const mediaQueryList = window.matchMedia('(prefers-reduced-motion: reduce)');
 const router = createBrowserRouter([
   {
     path: '/',
