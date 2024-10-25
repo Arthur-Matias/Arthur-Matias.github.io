@@ -67,6 +67,9 @@ body, html, #root{
 .text-accent{
   color: var(--color-accent) !important;
 }
+.border-accent{
+  border-color: var(--color-accent) !important;
+}
 .background-bg{
   background-color: var(--color-bg) !important;
 }

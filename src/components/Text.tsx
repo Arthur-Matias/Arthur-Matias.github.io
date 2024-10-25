@@ -1,8 +1,8 @@
 interface TextProps {
     text: string;
-    size: "sm" | "md" | "lg" | "xl";
-    weight: "thin" | "regular" | "bold" | "black";
-    font: "title" | "display";
+    size?: "sm" | "md" | "lg" | "xl";
+    weight?: "thin" | "regular" | "bold" | "black";
+    font?: "title" | "display";
     mainColor?: boolean;
     align?: "start" | "end" | "center" | "left" | "right"
 }

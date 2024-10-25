@@ -1,23 +1,33 @@
-const CarouselItem: React.FC<{ imgURL: string; name: string; hover: boolean }> = ({ imgURL, name, hover }) => {
-    
-    
+import { useState } from "react";
+import { iProject } from "../types";
+import Text from "./Text";
+
+const CarouselItem: React.FC<{ item: iProject }> = ({ item }) => {
+    const [isMouseOver, setMouseOver] = useState(false);
+
     return (
-        <div
-            className="h-full w-full bg-cover bg-center flex items-center justify-center"
-            style={{ 
-                backgroundImage: `url(${imgURL})`, 
-                backgroundSize: ""
-                // backgroundColor,
-            }}
+        <a 
+            className="flex h-full flex-col w-72 overflow-hidden"  // Fixed width for the entire item
+            href={item.link} 
+            target="_blank"
+            onMouseOver={() => setMouseOver(true)} 
+            onMouseOut={() => setMouseOver(false)}
         >
-            {!hover && (
-                <div 
-                    className={`flex bg-slate-200 dark:bg-gray-950 dark:bg-opacity-50 justify-center items-center text-lg w-full h-full text-center transition-opacity backdrop-blur-sm`}
-                >
-                    <p className="transition-all">{name}</p>
+            <div 
+                className={`h-96 bg-cover transition-transform duration-200 bg-center rounded-t-lg transform ${isMouseOver ? "scale-110" : "scale-100"}`}  // Use scale-110 for hover effect
+                style={{ backgroundImage: `url(${item.imgURL})` }}
+            >
+                <div className={`flex justify-center items-center h-full w-full transition-all duration-150 bg-slate-200 dark:bg-gray-950 bg-opacity-50 dark:bg-opacity-50 backdrop-blur-sm ${isMouseOver ? "backdrop-blur-0 dark:backdrop-blur-0" : ""}`}>
+                    <div className={`flex items-center justify-center transition-opacity duration-150 ${isMouseOver ? "opacity-100" : "opacity-0"}`}>
+                        <Text font="display" size="md" weight="regular" align="center" text="Check out project" />
+                    </div>
                 </div>
-            )}
-        </div>
+            </div>
+            <div className="flex flex-col items-start justify-center text-left p-2"> 
+                <Text font="title" size="md" weight="bold" text={item.name} />
+                <Text font="display" size="sm" weight="thin" text={item.category === "dev" ? "development" : item.category} />
+            </div>
+        </a>
     );
 };
 

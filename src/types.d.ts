@@ -32,3 +32,21 @@ export interface ColorParams{
   bg: GrayscaleColors,
   main: MainColors
 }
+
+
+export interface Transform {
+  start: number;
+  mid: number;
+  end: number;
+}
+
+export interface Vector {
+  x: Transform;
+  y: Transform;
+}
+
+export interface HomeSectionAnimation {
+  translation: Vector;
+  opacity: Transform;
+  scale: Vector;
+}

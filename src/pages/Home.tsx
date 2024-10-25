@@ -1,35 +1,22 @@
 import { useEffect, useState, useRef, useMemo, useCallback } from "react";
 import Layout from "../components/Layout";
 import Quote from "../components/Quote";
-import Carousel from "../components/Carousel";
+// import Carousel from "../components/Carousel";
 import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../components/GlobalContext";
 import SocialIcons from "../components/SocialIcons";
 import CustomButton from "../components/CustomButton";
 import map from "../scripts/map";
 import Text from "../components/Text";
-import { ProjectCategory, iProject } from "../types";
-
-interface SimpleTransform {
-    start: number;
-    mid: number;
-    end: number;
-}
-
-interface Transform {
-    x: SimpleTransform;
-    y: SimpleTransform;
-}
-
-interface SectionAnimation {
-    translation: Transform;
-    opacity: SimpleTransform;
-    scale: Transform;
-}
+import { ProjectCategory, HomeSectionAnimation } from "../types";
+import WorksCarousel from "../components/WorksCarousel";
 
 export default function Home() {
     const [currentItem, setCurrentItem] = useState<ProjectCategory>("all");
-    const [progress, setProgress] = useState(0);
+    const [progress, setProgress] = useState(() => {
+        const savedProgress = sessionStorage.getItem('progress');
+        return savedProgress ? parseFloat(savedProgress) : 0; // Default to 0
+    });
     const [targetProgress, setTargetProgress] = useState(progress);
 
     const totalSections = 5;
@@ -38,25 +25,26 @@ export default function Home() {
     const { state } = useGlobalContext();
     const [currentIndex, setCurrentIndex] = useState(0);
     // Filter items based on currentItem
-    const items: iProject[] = state.projects.filter(i => currentItem === "all" ? true : i.category === currentItem);
+    // const items: iProject[] = state.projects.filter(i => currentItem === "all" ? true : i.category === currentItem);
 
-    const handleCarouselNext = () => {
-        setCurrentIndex((prevIndex) => (prevIndex >= items.length - 1 ? 0 : prevIndex + 1));
-    };
+    // const handleCarouselNext = () => {
+    //     setCurrentIndex((prevIndex) => (prevIndex >= items.length - 1 ? 0 : prevIndex + 1));
+    // };
 
-    const handleCarouselPrev = () => {
-        setCurrentIndex((prevIndex) => (prevIndex <= 0 ? items.length - 1 : prevIndex - 1));
-    };
+    // const handleCarouselPrev = () => {
+    //     setCurrentIndex((prevIndex) => (prevIndex <= 0 ? items.length - 1 : prevIndex - 1));
+    // };
 
     const navigate = useNavigate();
 
-    const handleCategoryChange = (category: ProjectCategory) => {
-        setCurrentItem(category);
-        setCurrentIndex(0); // Reset index when category changes
-    };
+    // const handleCategoryChange = (category: ProjectCategory) => {
+    //     setCurrentItem(category);
+    //     setCurrentIndex(0); // Reset index when category changes
+    // };
 
     // Define section animations
-    const sectionAnimations: SectionAnimation[] = useMemo(() => [
+    
+    const sectionAnimations: HomeSectionAnimation[] = useMemo(() => [
         {
             opacity: { start: 1, mid: 1, end: 0 },
             scale: { x: { start: 1, mid: 1, end: 1 }, y: { start: 1, mid: 1, end: 1 } },
@@ -221,7 +209,15 @@ export default function Home() {
             return { opacity, scaleX, scaleY, translateY, translateX };
         });
     }, [progress, sectionAnimations, sectionProgress, totalSections]);
+    useEffect(() => {
+        // Update sessionStorage whenever currentItem changes
+        sessionStorage.setItem('currentItem', currentItem);
+    }, [currentItem]);
 
+    useEffect(() => {
+        // Update sessionStorage whenever progress changes
+        sessionStorage.setItem('progress', progress.toString());
+    }, [progress]);
     return (
         <Layout progress={state.prefersReducedMotion?0:progress}>
             {Array.from({ length: totalSections }).map((_, index) => {
@@ -256,14 +252,9 @@ export default function Home() {
                             </div>
                         )}
                         {index === 2 && (
-                            <div className="flex flex-col items-center justify-center w-5/6 md:max-w-4xl">
-                            <div className="mb-5">
-                                <button type="button" className={`px-2 sm:px-5 border-b-2 border-transparent hover:border-main transition-colors ${currentItem === "all" ? "border-main" : ""}`} onClick={() => handleCategoryChange("all")}>All</button>
-                                <button type="button" className={`px-2 sm:px-5 border-b-2 border-transparent hover:border-main transition-colors ${currentItem === "design" ? "border-main" : ""}`} onClick={() => handleCategoryChange("design")}>Design</button>
-                                <button type="button" className={`px-2 sm:px-5 border-b-2 border-transparent hover:border-main transition-colors ${currentItem === "dev" ? "border-main" : ""}`} onClick={() => handleCategoryChange("dev")}>Development</button>
+                            <div className="flex flex-col items-center justify-center h-full w-full">
+                                <WorksCarousel />
                             </div>
-                            <Carousel items={items} currentIndex={currentIndex} handleNext={handleCarouselNext} handlePrev={handleCarouselPrev} />
-                        </div>
                         )}
                         {index === 3 && (
                             <div className="flex flex-col items-center justify-center w-5/6 md:max-w-3xl ">

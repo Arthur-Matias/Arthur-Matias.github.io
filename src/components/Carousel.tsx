@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 import CarouselItem from "./CarouselItem";
 import CustomButton from "./CustomButton";
+import { iProject } from "../types";
 
-interface Project {
-    imgURL: string;
-    alt: string;
-    link: string;
-    name: string;
-}
+// interface Project {
+//     imgURL: string;
+//     alt: string;
+//     link: string;
+//     name: string;
+// }
 
 interface CarouselProps {
-    items: Project[]; // Array of projects
+    items: iProject[]; // Array of projects
     currentIndex: number; // Current index to display
     handlePrev: () => void; 
     handleNext: () => void;
@@ -23,20 +24,19 @@ const Carousel: React.FC<CarouselProps> = ({ items, currentIndex, handlePrev, ha
     // Ensure items are available before proceeding
     const currentItem = items && items.length > 0 ? items[currentIndex] : null;
 
-    // Preload images only if items exist
-    useEffect(() => {
-        if (items.length > 0) {
-            items.forEach(item => {
-                const img = new Image();
-                img.src = item.imgURL;
-            });
-        }
-    }, [items]);
-
-    // If no current item, show an error message
     if (!currentItem) {
         return <div className="text-center">Could not load the assets, please, try again later</div>;
     }
+
+    // Preload images only if items exist
+    // useEffect(() => {
+    //     if (items.length > 0) {
+    //         items.forEach(item => {
+    //             const img = new Image();
+    //             img.src = item.imgURL;
+    //         });
+    //     }
+    // }, [items]);
 
     const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
         setStartX(e.touches[0].clientX);
@@ -48,12 +48,12 @@ const Carousel: React.FC<CarouselProps> = ({ items, currentIndex, handlePrev, ha
         const currentX = e.touches[0].clientX;
         const diffX = startX - currentX;
 
-        // If swiped right
+        // Swipe right
         if (diffX > 50) {
             handleNext();
             setStartX(null); // Reset after handling
         }
-        // If swiped left
+        // Swipe left
         else if (diffX < -50) {
             handlePrev();
             setStartX(null); // Reset after handling
@@ -73,7 +73,7 @@ const Carousel: React.FC<CarouselProps> = ({ items, currentIndex, handlePrev, ha
                 onMouseOver={() => setIsHover(true)}
                 onMouseOut={() => setIsHover(false)}
             >
-                <CarouselItem imgURL={currentItem.imgURL} name={currentItem.name} hover={isHover} />
+                <CarouselItem item={currentItem} />
             </a>
             <div className="absolute h-full bottom-0 left-0 top-1/2 transform px5 -translate-y-1/2 z-10 rounded flex justify-center items-center">
                 <CustomButton ariaDescription="Next Work" btnType="button" handleClick={handlePrev} text="<-" />

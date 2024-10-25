@@ -28,14 +28,14 @@ const BlobAnimation: React.FC<BlobProps> = ({ progress, maxPoints }) => {
     const { state } = useGlobalContext();
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const simplex = useRef(new SimplexNoise()).current;
-    const maxRadius = Math.min(window.innerHeight, window.innerWidth);
+    const maxRadius = Math.min(window.innerHeight, window.innerWidth)/(isMobile()?2:1);
     const progressRef = useRef(progress);
     const animationFrameId = useRef<number | null>(null);
 
     const initialSketchProps: SketchProps = {
         offsetX: 0.5,
         offsetY: 0.5,
-        horizontalRadius: isMobile() ? maxRadius * 0.2 : maxRadius,
+        horizontalRadius: isMobile() ? maxRadius : maxRadius,
         verticalRadius: isMobile() ? maxRadius : maxRadius * 0.2,
     };
 
@@ -84,7 +84,7 @@ const BlobAnimation: React.FC<BlobProps> = ({ progress, maxPoints }) => {
         points.current.forEach(point => {
             if (!canvasRef.current) return;
 
-            const step = (state.prefersReducedMotion || isMobile()) ? 0.0005 : 0.003;
+            const step = state.prefersReducedMotion? 0.0005 :isMobile()?0.005:0.003;
 
             // Update noise offsets for animation
             point.noiseOffsetX += step;
