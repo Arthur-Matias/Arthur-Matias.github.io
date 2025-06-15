@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import Topbar from "./Topbar";
 import { useGlobalContext } from "./GlobalContext";
-import Menu from "./Menu";
+// import Menu from "./Menu";
 import BlobAnimation from "./BlobAnimation";
 
 interface LayoutProps {
@@ -28,7 +28,7 @@ const Layout: React.FC<LayoutProps> = ({ children, progress }) => {
                     </div>
                 </>
             )}
-            {state.menuOpen && <Menu />}
+            {/* {state.menuOpen && <Menu />} */}
             <Topbar />
         </div>
     );

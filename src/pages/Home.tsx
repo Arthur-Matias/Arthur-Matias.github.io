@@ -104,8 +104,9 @@ export default function Home() {
         const handleWheel = (event: WheelEvent) => {
             if(!state.prefersReducedMotion){
                 event.preventDefault();
+                const sensitivity = 10;
                 const delta = Math.sign(event.deltaY);
-                const newProgress = Math.max(0, Math.min(maxProgress, targetProgress + delta * 20));
+                const newProgress = Math.max(0, Math.min(maxProgress, targetProgress + delta * sensitivity));
                 updateProgress(newProgress);
             }
         };
